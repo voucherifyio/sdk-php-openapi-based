@@ -272,8 +272,6 @@ Class | Method | HTTP request | Description
 - [ClientEventsCreateRequestBodyReferral](docs/Model/ClientEventsCreateRequestBodyReferral.md)
 - [ClientEventsCreateResponseBody](docs/Model/ClientEventsCreateResponseBody.md)
 - [ClientQualificationsCheckEligibilityRequestBody](docs/Model/ClientQualificationsCheckEligibilityRequestBody.md)
-- [ClientQualificationsCheckEligibilityRequestBodyOptions](docs/Model/ClientQualificationsCheckEligibilityRequestBodyOptions.md)
-- [ClientQualificationsCheckEligibilityRequestBodyOptionsFilters](docs/Model/ClientQualificationsCheckEligibilityRequestBodyOptionsFilters.md)
 - [ClientQualificationsCheckEligibilityResponseBody](docs/Model/ClientQualificationsCheckEligibilityResponseBody.md)
 - [ClientRedemptionsRedeemRequestBody](docs/Model/ClientRedemptionsRedeemRequestBody.md)
 - [ClientRedemptionsRedeemRequestBodyAllOfOptions](docs/Model/ClientRedemptionsRedeemRequestBodyAllOfOptions.md)
@@ -607,6 +605,8 @@ Class | Method | HTTP request | Description
 - [QualificationsCheckEligibilityResponseBody](docs/Model/QualificationsCheckEligibilityResponseBody.md)
 - [QualificationsFieldConditions](docs/Model/QualificationsFieldConditions.md)
 - [QualificationsFiltersCondition](docs/Model/QualificationsFiltersCondition.md)
+- [QualificationsOption](docs/Model/QualificationsOption.md)
+- [QualificationsOptionFilters](docs/Model/QualificationsOptionFilters.md)
 - [QualificationsRedeemable](docs/Model/QualificationsRedeemable.md)
 - [QualificationsRedeemableBase](docs/Model/QualificationsRedeemableBase.md)
 - [QualificationsRedeemables](docs/Model/QualificationsRedeemables.md)
@@ -885,14 +885,12 @@ Class | Method | HTTP request | Description
 - **Location**: URL query string
 
 
-## Tests
+## Run local tests with docker
 
-To run the tests, use:
-
-```bash
-composer install
-vendor/bin/phpunit
-```
+1. Copy `.env.example` to `.env` and fill in the values.
+2. Run `docker build -t php .` to build the image.
+3. Run `docker run --rm php` to run the tests and delete container immediately after.
+4. Make changes Your desire and run again command from step 3. It uses volumes so no need to rebuild the image.
 
 ## Author
 

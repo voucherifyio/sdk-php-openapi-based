@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationsCheckEligibilityRequestBody
+ * QualificationsOption
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * QualificationsCheckEligibilityRequestBody Class Doc Comment
+ * QualificationsOption Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/qualifications&#x60;.
+ * @description Configure parameters returned in the response.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class QualificationsCheckEligibilityRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'QualificationsCheckEligibilityRequestBody';
+    protected static $openAPIModelName = 'QualificationsOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer' => '\OpenAPI\Client\Model\Customer',
-        'order' => '\OpenAPI\Client\Model\Order',
-        'mode' => 'string',
-        'tracking_id' => 'string',
-        'scenario' => 'string',
-        'options' => '\OpenAPI\Client\Model\QualificationsOption',
-        'metadata' => 'object'
+        'limit' => 'int',
+        'starting_after' => '\DateTime',
+        'filters' => '\OpenAPI\Client\Model\QualificationsOptionFilters',
+        'expand' => 'string[]',
+        'sorting_rule' => 'string'
     ];
 
     /**
@@ -76,13 +74,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'customer' => null,
-        'order' => null,
-        'mode' => null,
-        'tracking_id' => null,
-        'scenario' => null,
-        'options' => null,
-        'metadata' => null
+        'limit' => null,
+        'starting_after' => 'date-time',
+        'filters' => null,
+        'expand' => null,
+        'sorting_rule' => null
     ];
 
     /**
@@ -91,13 +87,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => false,
-		'order' => false,
-		'mode' => false,
-		'tracking_id' => false,
-		'scenario' => false,
-		'options' => false,
-		'metadata' => false
+        'limit' => false,
+		'starting_after' => true,
+		'filters' => false,
+		'expand' => false,
+		'sorting_rule' => false
     ];
 
     /**
@@ -186,13 +180,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer' => 'customer',
-        'order' => 'order',
-        'mode' => 'mode',
-        'tracking_id' => 'tracking_id',
-        'scenario' => 'scenario',
-        'options' => 'options',
-        'metadata' => 'metadata'
+        'limit' => 'limit',
+        'starting_after' => 'starting_after',
+        'filters' => 'filters',
+        'expand' => 'expand',
+        'sorting_rule' => 'sorting_rule'
     ];
 
     /**
@@ -201,13 +193,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
      * @var string[]
      */
     protected static $setters = [
-        'customer' => 'setCustomer',
-        'order' => 'setOrder',
-        'mode' => 'setMode',
-        'tracking_id' => 'setTrackingId',
-        'scenario' => 'setScenario',
-        'options' => 'setOptions',
-        'metadata' => 'setMetadata'
+        'limit' => 'setLimit',
+        'starting_after' => 'setStartingAfter',
+        'filters' => 'setFilters',
+        'expand' => 'setExpand',
+        'sorting_rule' => 'setSortingRule'
     ];
 
     /**
@@ -216,13 +206,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
      * @var string[]
      */
     protected static $getters = [
-        'customer' => 'getCustomer',
-        'order' => 'getOrder',
-        'mode' => 'getMode',
-        'tracking_id' => 'getTrackingId',
-        'scenario' => 'getScenario',
-        'options' => 'getOptions',
-        'metadata' => 'getMetadata'
+        'limit' => 'getLimit',
+        'starting_after' => 'getStartingAfter',
+        'filters' => 'getFilters',
+        'expand' => 'getExpand',
+        'sorting_rule' => 'getSortingRule'
     ];
 
     /**
@@ -266,27 +254,24 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
-    public const MODE_BASIC = 'BASIC';
-    public const MODE_ADVANCED = 'ADVANCED';
-    public const SCENARIO_ALL = 'ALL';
-    public const SCENARIO_CUSTOMER_WALLET = 'CUSTOMER_WALLET';
-    public const SCENARIO_AUDIENCE_ONLY = 'AUDIENCE_ONLY';
-    public const SCENARIO_PRODUCTS = 'PRODUCTS';
-    public const SCENARIO_PRODUCTS_DISCOUNT = 'PRODUCTS_DISCOUNT';
-    public const SCENARIO_PROMOTION_STACKS = 'PROMOTION_STACKS';
-    public const SCENARIO_PRODUCTS_BY_CUSTOMER = 'PRODUCTS_BY_CUSTOMER';
-    public const SCENARIO_PRODUCTS_DISCOUNT_BY_CUSTOMER = 'PRODUCTS_DISCOUNT_BY_CUSTOMER';
+    public const EXPAND_REDEEMABLE = 'redeemable';
+    public const EXPAND_CATEGORY = 'category';
+    public const EXPAND_VALIDATION_RULES = 'validation_rules';
+    public const SORTING_RULE_BEST_DEAL = 'BEST_DEAL';
+    public const SORTING_RULE_LEAST_DEAL = 'LEAST_DEAL';
+    public const SORTING_RULE__DEFAULT = 'DEFAULT';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getModeAllowableValues()
+    public function getExpandAllowableValues()
     {
         return [
-            self::MODE_BASIC,
-            self::MODE_ADVANCED,
+            self::EXPAND_REDEEMABLE,
+            self::EXPAND_CATEGORY,
+            self::EXPAND_VALIDATION_RULES,
         ];
     }
 
@@ -295,17 +280,12 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
      *
      * @return string[]
      */
-    public function getScenarioAllowableValues()
+    public function getSortingRuleAllowableValues()
     {
         return [
-            self::SCENARIO_ALL,
-            self::SCENARIO_CUSTOMER_WALLET,
-            self::SCENARIO_AUDIENCE_ONLY,
-            self::SCENARIO_PRODUCTS,
-            self::SCENARIO_PRODUCTS_DISCOUNT,
-            self::SCENARIO_PROMOTION_STACKS,
-            self::SCENARIO_PRODUCTS_BY_CUSTOMER,
-            self::SCENARIO_PRODUCTS_DISCOUNT_BY_CUSTOMER,
+            self::SORTING_RULE_BEST_DEAL,
+            self::SORTING_RULE_LEAST_DEAL,
+            self::SORTING_RULE__DEFAULT,
         ];
     }
 
@@ -324,13 +304,11 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('order', $data ?? [], null);
-        $this->setIfExists('mode', $data ?? [], null);
-        $this->setIfExists('tracking_id', $data ?? [], null);
-        $this->setIfExists('scenario', $data ?? [], null);
-        $this->setIfExists('options', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('starting_after', $data ?? [], null);
+        $this->setIfExists('filters', $data ?? [], null);
+        $this->setIfExists('expand', $data ?? [], null);
+        $this->setIfExists('sorting_rule', $data ?? [], null);
     }
 
     /**
@@ -360,20 +338,15 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getModeAllowableValues();
-        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'mode', must be one of '%s'",
-                $this->container['mode'],
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['limit']) && ($this->container['limit'] > 100)) {
+            $invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 100.";
         }
 
-        $allowedValues = $this->getScenarioAllowableValues();
-        if (!is_null($this->container['scenario']) && !in_array($this->container['scenario'], $allowedValues, true)) {
+        $allowedValues = $this->getSortingRuleAllowableValues();
+        if (!is_null($this->container['sorting_rule']) && !in_array($this->container['sorting_rule'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'scenario', must be one of '%s'",
-                $this->container['scenario'],
+                "invalid value '%s' for 'sorting_rule', must be one of '%s'",
+                $this->container['sorting_rule'],
                 implode("', '", $allowedValues)
             );
         }
@@ -394,210 +367,167 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
 
 
     /**
-     * Gets customer
+     * Gets limit
      *
-     * @return \OpenAPI\Client\Model\Customer|null
+     * @return int|null
      */
-    public function getCustomer()
+    public function getLimit()
     {
-        return $this->container['customer'];
+        return $this->container['limit'];
     }
 
     /**
-     * Sets customer
+     * Sets limit
      *
-     * @param \OpenAPI\Client\Model\Customer|null $customer customer
+     * @param int|null $limit The maximum number of redeemables to be returned in the API request. The actual number of returned redeemables will be determined by the API. The default value is set to 5
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setLimit($limit)
     {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
         }
-        $this->container['customer'] = $customer;
+
+        if (($limit > 100)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling QualificationsOption., must be smaller than or equal to 100.');
+        }
+
+        $this->container['limit'] = $limit;
 
         return $this;
     }
 
     /**
-     * Gets order
+     * Gets starting_after
      *
-     * @return \OpenAPI\Client\Model\Order|null
+     * @return \DateTime|null
      */
-    public function getOrder()
+    public function getStartingAfter()
     {
-        return $this->container['order'];
+        return $this->container['starting_after'];
     }
 
     /**
-     * Sets order
+     * Sets starting_after
      *
-     * @param \OpenAPI\Client\Model\Order|null $order order
+     * @param \DateTime|null $starting_after Cursor used for paging.
      *
      * @return self
      */
-    public function setOrder($order)
+    public function setStartingAfter($starting_after)
     {
-        if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+        if (is_null($starting_after)) {
+            array_push($this->openAPINullablesSetToNull, 'starting_after');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('starting_after', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['order'] = $order;
+        $this->container['starting_after'] = $starting_after;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets filters
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\QualificationsOptionFilters|null
      */
-    public function getMode()
+    public function getFilters()
     {
-        return $this->container['mode'];
+        return $this->container['filters'];
     }
 
     /**
-     * Sets mode
+     * Sets filters
      *
-     * @param string|null $mode Defines which resources Voucherify will use. The `ADVANCED` mode is available after purchase only.
+     * @param \OpenAPI\Client\Model\QualificationsOptionFilters|null $filters filters
      *
      * @return self
      */
-    public function setMode($mode)
+    public function setFilters($filters)
     {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
+        if (is_null($filters)) {
+            throw new \InvalidArgumentException('non-nullable filters cannot be null');
         }
-        $allowedValues = $this->getModeAllowableValues();
-        if (!in_array($mode, $allowedValues, true)) {
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets expand
+     *
+     * @return string[]|null
+     */
+    public function getExpand()
+    {
+        return $this->container['expand'];
+    }
+
+    /**
+     * Sets expand
+     *
+     * @param string[]|null $expand The expand array lets you configure the parameters included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:---|:---| | [\"redeemable\"] | - Returns the redeemables' metadata. | | [\"category\"] | - Returns an expanded `categories` object, showing details about the category. | | [\"validation_rules\"] | - Returns an expanded `validation_rules` object, showing details about the validation rules. |
+     *
+     * @return self
+     */
+    public function setExpand($expand)
+    {
+        if (is_null($expand)) {
+            throw new \InvalidArgumentException('non-nullable expand cannot be null');
+        }
+        $allowedValues = $this->getExpandAllowableValues();
+        if (array_diff($expand, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'mode', must be one of '%s'",
-                    $mode,
+                    "Invalid value for 'expand', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['mode'] = $mode;
+        $this->container['expand'] = $expand;
 
         return $this;
     }
 
     /**
-     * Gets tracking_id
+     * Gets sorting_rule
      *
      * @return string|null
      */
-    public function getTrackingId()
+    public function getSortingRule()
     {
-        return $this->container['tracking_id'];
+        return $this->container['sorting_rule'];
     }
 
     /**
-     * Sets tracking_id
+     * Sets sorting_rule
      *
-     * @param string|null $tracking_id Is correspondent to Customer's source_id
+     * @param string|null $sorting_rule Is used to determine the order in which data is displayed in the result array.    - `DEFAULT` - Sorting descending by `created_at`   - `BEST_DEAL` - Sorting descending by `total_applied_discount_amount`   - `LEAST_DEAL` - Sorting ascending by `total_applied_discount_amount`
      *
      * @return self
      */
-    public function setTrackingId($tracking_id)
+    public function setSortingRule($sorting_rule)
     {
-        if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+        if (is_null($sorting_rule)) {
+            throw new \InvalidArgumentException('non-nullable sorting_rule cannot be null');
         }
-        $this->container['tracking_id'] = $tracking_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets scenario
-     *
-     * @return string|null
-     */
-    public function getScenario()
-    {
-        return $this->container['scenario'];
-    }
-
-    /**
-     * Sets scenario
-     *
-     * @param string|null $scenario Defines the scenario Voucherify should consider during the qualification process.  - `ALL` - Scenario that returns all redeemables available for the customer in one API request. This scenario is used by default when no value is selected. - `CUSTOMER_WALLET` - returns vouchers applicable to the customer’s cart based on the vouchers assigned to the customer’s profile. - `AUDIENCE_ONLY` - returns all vouchers, promotion tiers, and campaigns available to the customer. Voucherify validates the rules based on the customer profile only. - `PRODUCTS` - returns all promotions available for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule). - `PRODUCTS_DISCOUNT` - returns all promotions available for products when a discount is defined as applicable to specific item(s). - `PROMOTION_STACKS` - returns the applicable promotion stacks. - `PRODUCTS_BY_CUSTOMER` - returns all promotions available for a customer for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule). - `PRODUCTS_DISCOUNT_BY_CUSTOMER` - returns all promotions available for a customer for products when a discount is defined as applicable to specific item(s).
-     *
-     * @return self
-     */
-    public function setScenario($scenario)
-    {
-        if (is_null($scenario)) {
-            throw new \InvalidArgumentException('non-nullable scenario cannot be null');
-        }
-        $allowedValues = $this->getScenarioAllowableValues();
-        if (!in_array($scenario, $allowedValues, true)) {
+        $allowedValues = $this->getSortingRuleAllowableValues();
+        if (!in_array($sorting_rule, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'scenario', must be one of '%s'",
-                    $scenario,
+                    "Invalid value '%s' for 'sorting_rule', must be one of '%s'",
+                    $sorting_rule,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['scenario'] = $scenario;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return \OpenAPI\Client\Model\QualificationsOption|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param \OpenAPI\Client\Model\QualificationsOption|null $options options
-     *
-     * @return self
-     */
-    public function setOptions($options)
-    {
-        if (is_null($options)) {
-            throw new \InvalidArgumentException('non-nullable options cannot be null');
-        }
-        $this->container['options'] = $options;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata A set of key/value pairs that you can send in the request body to check against redeemables requiring **redemption** metadata validation rules to be satisfied. The validation runs against rules that are defined through the <!-- [Create Validation Rules](https://docs.voucherify.io/reference/create-validation-rules) -->[Create Validation Rules](ref:create-validation-rules) endpoint or via the Dashboard; in the _Advanced Rule Builder_ &rarr; _Advanced_ &rarr; _Redemption metadata satisfy_ or _Basic Builder_ &rarr; _Attributes match_ &rarr; _REDEMPTION METADATA_. [Read more](https://support.voucherify.io/article/148-how-to-build-a-rule).
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['sorting_rule'] = $sorting_rule;
 
         return $this;
     }

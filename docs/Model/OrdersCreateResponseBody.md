@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request. |
+**id** | **string** | Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request. | [optional]
 **source_id** | **string** | Unique source ID of an existing order that will be linked to the redemption of this request. |
 **created_at** | **\DateTime** | Timestamp representing the date and time when the order was created in ISO 8601 format. | [optional]
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the order was last updated in ISO 8601 format. | [optional]
