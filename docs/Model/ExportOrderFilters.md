@@ -1,0 +1,22 @@
+# # ExportOrderFilters
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**junction** | **string** | Logical Operator Between Filters. Filter by conditions set on the &#x60;junction&#x60; parameter indicating how the &#x60;conditions&#x60; should be accounted for in the query. An &#x60;AND&#x60; is an all-inclusive logical operator, meaning the &#x60;AND&#x60; operator displays a record if **ALL** the conditions separated by AND are TRUE, while  an &#x60;OR&#x60; operator displays a record if **ANY** of the conditions separated by OR is TRUE. | [optional]
+**id** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**source_id** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**created_at** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**updated_at** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**status** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**amount** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**discount_amount** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**items_discount_amount** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**total_discount_amount** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**total_amount** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**customer_id** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**referrer_id** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+**metadata** | [**\OpenAPI\Client\Model\FieldConditions**](FieldConditions.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
