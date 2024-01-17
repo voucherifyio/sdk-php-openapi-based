@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationsValidateResponseBody Class Doc Comment
  *
  * @category Class
+ * @description Response body schema for POST &#x60;/validations&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,11 +61,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static $openAPITypes = [
         'valid' => 'bool',
         'redeemables' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]',
+        'skipped_redeemables' => 'ValidationsRedeemableInapplicable[]',
+        'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'tracking_id' => 'string',
         'session' => '\OpenAPI\Client\Model\Session',
-        'application_mode' => 'string',
-        'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]'
+        'stacking_rules' => '\OpenAPI\Client\Model\StackingRules'
     ];
 
     /**
@@ -77,11 +79,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static $openAPIFormats = [
         'valid' => null,
         'redeemables' => null,
+        'skipped_redeemables' => null,
+        'inapplicable_redeemables' => null,
         'order' => null,
         'tracking_id' => null,
         'session' => null,
-        'application_mode' => null,
-        'inapplicable_redeemables' => null
+        'stacking_rules' => null
     ];
 
     /**
@@ -92,11 +95,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static array $openAPINullables = [
         'valid' => false,
 		'redeemables' => false,
+		'skipped_redeemables' => false,
+		'inapplicable_redeemables' => false,
 		'order' => false,
 		'tracking_id' => false,
 		'session' => false,
-		'application_mode' => false,
-		'inapplicable_redeemables' => false
+		'stacking_rules' => false
     ];
 
     /**
@@ -187,11 +191,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static $attributeMap = [
         'valid' => 'valid',
         'redeemables' => 'redeemables',
+        'skipped_redeemables' => 'skipped_redeemables',
+        'inapplicable_redeemables' => 'inapplicable_redeemables',
         'order' => 'order',
         'tracking_id' => 'tracking_id',
         'session' => 'session',
-        'application_mode' => 'application_mode',
-        'inapplicable_redeemables' => 'inapplicable_redeemables'
+        'stacking_rules' => 'stacking_rules'
     ];
 
     /**
@@ -202,11 +207,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static $setters = [
         'valid' => 'setValid',
         'redeemables' => 'setRedeemables',
+        'skipped_redeemables' => 'setSkippedRedeemables',
+        'inapplicable_redeemables' => 'setInapplicableRedeemables',
         'order' => 'setOrder',
         'tracking_id' => 'setTrackingId',
         'session' => 'setSession',
-        'application_mode' => 'setApplicationMode',
-        'inapplicable_redeemables' => 'setInapplicableRedeemables'
+        'stacking_rules' => 'setStackingRules'
     ];
 
     /**
@@ -217,11 +223,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     protected static $getters = [
         'valid' => 'getValid',
         'redeemables' => 'getRedeemables',
+        'skipped_redeemables' => 'getSkippedRedeemables',
+        'inapplicable_redeemables' => 'getInapplicableRedeemables',
         'order' => 'getOrder',
         'tracking_id' => 'getTrackingId',
         'session' => 'getSession',
-        'application_mode' => 'getApplicationMode',
-        'inapplicable_redeemables' => 'getInapplicableRedeemables'
+        'stacking_rules' => 'getStackingRules'
     ];
 
     /**
@@ -265,21 +272,6 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
-    public const APPLICATION_MODE_ALL = 'ALL';
-    public const APPLICATION_MODE_PARTIAL = 'PARTIAL';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getApplicationModeAllowableValues()
-    {
-        return [
-            self::APPLICATION_MODE_ALL,
-            self::APPLICATION_MODE_PARTIAL,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -298,11 +290,12 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     {
         $this->setIfExists('valid', $data ?? [], null);
         $this->setIfExists('redeemables', $data ?? [], null);
+        $this->setIfExists('skipped_redeemables', $data ?? [], null);
+        $this->setIfExists('inapplicable_redeemables', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('session', $data ?? [], null);
-        $this->setIfExists('application_mode', $data ?? [], null);
-        $this->setIfExists('inapplicable_redeemables', $data ?? [], null);
+        $this->setIfExists('stacking_rules', $data ?? [], null);
     }
 
     /**
@@ -338,18 +331,6 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         if ($this->container['redeemables'] === null) {
             $invalidProperties[] = "'redeemables' can't be null";
         }
-        if ($this->container['application_mode'] === null) {
-            $invalidProperties[] = "'application_mode' can't be null";
-        }
-        $allowedValues = $this->getApplicationModeAllowableValues();
-        if (!is_null($this->container['application_mode']) && !in_array($this->container['application_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'application_mode', must be one of '%s'",
-                $this->container['application_mode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -405,7 +386,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets redeemables
      *
-     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[] $redeemables Lists validation results of each redeemable. If a redeemable can be applied, the API returns `\"status\": \"APPLICABLE\"`.
+     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[] $redeemables redeemables
      *
      * @return self
      */
@@ -415,6 +396,60 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
         }
         $this->container['redeemables'] = $redeemables;
+
+        return $this;
+    }
+
+    /**
+     * Gets skipped_redeemables
+     *
+     * @return ValidationsRedeemableInapplicable[]|null
+     */
+    public function getSkippedRedeemables()
+    {
+        return $this->container['skipped_redeemables'];
+    }
+
+    /**
+     * Sets skipped_redeemables
+     *
+     * @param ValidationsRedeemableInapplicable[]|null $skipped_redeemables Lists validation results of each skipped redeemable.
+     *
+     * @return self
+     */
+    public function setSkippedRedeemables($skipped_redeemables)
+    {
+        if (is_null($skipped_redeemables)) {
+            throw new \InvalidArgumentException('non-nullable skipped_redeemables cannot be null');
+        }
+        $this->container['skipped_redeemables'] = $skipped_redeemables;
+
+        return $this;
+    }
+
+    /**
+     * Gets inapplicable_redeemables
+     *
+     * @return ValidationsRedeemableInapplicable[]|null
+     */
+    public function getInapplicableRedeemables()
+    {
+        return $this->container['inapplicable_redeemables'];
+    }
+
+    /**
+     * Sets inapplicable_redeemables
+     *
+     * @param ValidationsRedeemableInapplicable[]|null $inapplicable_redeemables Lists validation results of each inapplicable redeemable.
+     *
+     * @return self
+     */
+    public function setInapplicableRedeemables($inapplicable_redeemables)
+    {
+        if (is_null($inapplicable_redeemables)) {
+            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
+        }
+        $this->container['inapplicable_redeemables'] = $inapplicable_redeemables;
 
         return $this;
     }
@@ -501,65 +536,28 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets application_mode
+     * Gets stacking_rules
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\StackingRules|null
      */
-    public function getApplicationMode()
+    public function getStackingRules()
     {
-        return $this->container['application_mode'];
+        return $this->container['stacking_rules'];
     }
 
     /**
-     * Sets application_mode
+     * Sets stacking_rules
      *
-     * @param string $application_mode application_mode
+     * @param \OpenAPI\Client\Model\StackingRules|null $stacking_rules stacking_rules
      *
      * @return self
      */
-    public function setApplicationMode($application_mode)
+    public function setStackingRules($stacking_rules)
     {
-        if (is_null($application_mode)) {
-            throw new \InvalidArgumentException('non-nullable application_mode cannot be null');
+        if (is_null($stacking_rules)) {
+            throw new \InvalidArgumentException('non-nullable stacking_rules cannot be null');
         }
-        $allowedValues = $this->getApplicationModeAllowableValues();
-        if (!in_array($application_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'application_mode', must be one of '%s'",
-                    $application_mode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['application_mode'] = $application_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets inapplicable_redeemables
-     *
-     * @return ValidationsRedeemableInapplicable[]|null
-     */
-    public function getInapplicableRedeemables()
-    {
-        return $this->container['inapplicable_redeemables'];
-    }
-
-    /**
-     * Sets inapplicable_redeemables
-     *
-     * @param ValidationsRedeemableInapplicable[]|null $inapplicable_redeemables Lists validation results of each inapplicable redeemable.
-     *
-     * @return self
-     */
-    public function setInapplicableRedeemables($inapplicable_redeemables)
-    {
-        if (is_null($inapplicable_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
-        }
-        $this->container['inapplicable_redeemables'] = $inapplicable_redeemables;
+        $this->container['stacking_rules'] = $stacking_rules;
 
         return $this;
     }

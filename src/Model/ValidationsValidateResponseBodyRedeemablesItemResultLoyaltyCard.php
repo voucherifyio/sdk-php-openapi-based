@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard';
+    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResultLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

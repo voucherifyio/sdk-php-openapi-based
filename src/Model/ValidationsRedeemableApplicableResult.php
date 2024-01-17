@@ -59,7 +59,7 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'discount' => '\OpenAPI\Client\Model\ValidationsRedeemableApplicableResultDiscount',
-        'gift' => '\OpenAPI\Client\Model\ValidationsRedeemableApplicableResultGift',
+        'gift' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultGift',
         'loyalty_card' => '\OpenAPI\Client\Model\ValidationsRedeemableApplicableResultLoyaltyCard'
     ];
 
@@ -334,7 +334,7 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
     /**
      * Gets gift
      *
-     * @return \OpenAPI\Client\Model\ValidationsRedeemableApplicableResultGift|null
+     * @return \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultGift|null
      */
     public function getGift()
     {
@@ -344,7 +344,7 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
     /**
      * Sets gift
      *
-     * @param \OpenAPI\Client\Model\ValidationsRedeemableApplicableResultGift|null $gift gift
+     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultGift|null $gift gift
      *
      * @return self
      */

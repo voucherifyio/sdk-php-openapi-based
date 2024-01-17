@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItem implements ModelInterface, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItem';
+    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_Item';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -618,7 +618,7 @@ class ValidationsValidateResponseBodyRedeemablesItem implements ModelInterface, 
     /**
      * Sets metadata
      *
-     * @param object|null $metadata metadata
+     * @param object|null $metadata The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable.
      *
      * @return self
      */

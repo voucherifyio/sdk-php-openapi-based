@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationsStackingRules
+ * StackingRules
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * QualificationsStackingRules Class Doc Comment
+ * StackingRules Class Doc Comment
  *
  * @category Class
  * @description Defines stacking rules for redeemables. Read more in the [Help Center](https://support.voucherify.io/article/604-stacking-rules)
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
+class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'QualificationsStackingRules';
+    protected static $openAPIModelName = 'StackingRules';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,8 +62,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => 'int',
         'applicable_redeemables_limit' => 'int',
         'applicable_exclusive_redeemables_limit' => 'int',
+        'applicable_redeemables_per_category_limit' => 'int',
         'exclusive_categories' => 'string[]',
-        'joint_categories' => 'string[]'
+        'joint_categories' => 'string[]',
+        'redeemables_application_mode' => 'string',
+        'redeemables_sorting_rule' => 'string'
     ];
 
     /**
@@ -77,8 +80,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => null,
         'applicable_redeemables_limit' => null,
         'applicable_exclusive_redeemables_limit' => null,
+        'applicable_redeemables_per_category_limit' => null,
         'exclusive_categories' => null,
-        'joint_categories' => null
+        'joint_categories' => null,
+        'redeemables_application_mode' => null,
+        'redeemables_sorting_rule' => null
     ];
 
     /**
@@ -90,8 +96,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => false,
 		'applicable_redeemables_limit' => false,
 		'applicable_exclusive_redeemables_limit' => false,
+		'applicable_redeemables_per_category_limit' => false,
 		'exclusive_categories' => false,
-		'joint_categories' => false
+		'joint_categories' => false,
+		'redeemables_application_mode' => false,
+		'redeemables_sorting_rule' => false
     ];
 
     /**
@@ -183,8 +192,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => 'redeemables_limit',
         'applicable_redeemables_limit' => 'applicable_redeemables_limit',
         'applicable_exclusive_redeemables_limit' => 'applicable_exclusive_redeemables_limit',
+        'applicable_redeemables_per_category_limit' => 'applicable_redeemables_per_category_limit',
         'exclusive_categories' => 'exclusive_categories',
-        'joint_categories' => 'joint_categories'
+        'joint_categories' => 'joint_categories',
+        'redeemables_application_mode' => 'redeemables_application_mode',
+        'redeemables_sorting_rule' => 'redeemables_sorting_rule'
     ];
 
     /**
@@ -196,8 +208,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => 'setRedeemablesLimit',
         'applicable_redeemables_limit' => 'setApplicableRedeemablesLimit',
         'applicable_exclusive_redeemables_limit' => 'setApplicableExclusiveRedeemablesLimit',
+        'applicable_redeemables_per_category_limit' => 'setApplicableRedeemablesPerCategoryLimit',
         'exclusive_categories' => 'setExclusiveCategories',
-        'joint_categories' => 'setJointCategories'
+        'joint_categories' => 'setJointCategories',
+        'redeemables_application_mode' => 'setRedeemablesApplicationMode',
+        'redeemables_sorting_rule' => 'setRedeemablesSortingRule'
     ];
 
     /**
@@ -209,8 +224,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         'redeemables_limit' => 'getRedeemablesLimit',
         'applicable_redeemables_limit' => 'getApplicableRedeemablesLimit',
         'applicable_exclusive_redeemables_limit' => 'getApplicableExclusiveRedeemablesLimit',
+        'applicable_redeemables_per_category_limit' => 'getApplicableRedeemablesPerCategoryLimit',
         'exclusive_categories' => 'getExclusiveCategories',
-        'joint_categories' => 'getJointCategories'
+        'joint_categories' => 'getJointCategories',
+        'redeemables_application_mode' => 'getRedeemablesApplicationMode',
+        'redeemables_sorting_rule' => 'getRedeemablesSortingRule'
     ];
 
     /**
@@ -254,6 +272,36 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const REDEEMABLES_APPLICATION_MODE_ALL = 'ALL';
+    public const REDEEMABLES_APPLICATION_MODE_PARTIAL = 'PARTIAL';
+    public const REDEEMABLES_SORTING_RULE_CATEGORY_HIERARCHY = 'CATEGORY_HIERARCHY';
+    public const REDEEMABLES_SORTING_RULE_REQUESTED_ORDER = 'REQUESTED_ORDER';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRedeemablesApplicationModeAllowableValues()
+    {
+        return [
+            self::REDEEMABLES_APPLICATION_MODE_ALL,
+            self::REDEEMABLES_APPLICATION_MODE_PARTIAL,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRedeemablesSortingRuleAllowableValues()
+    {
+        return [
+            self::REDEEMABLES_SORTING_RULE_CATEGORY_HIERARCHY,
+            self::REDEEMABLES_SORTING_RULE_REQUESTED_ORDER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -273,8 +321,11 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('redeemables_limit', $data ?? [], 30);
         $this->setIfExists('applicable_redeemables_limit', $data ?? [], 5);
         $this->setIfExists('applicable_exclusive_redeemables_limit', $data ?? [], 1);
+        $this->setIfExists('applicable_redeemables_per_category_limit', $data ?? [], 1);
         $this->setIfExists('exclusive_categories', $data ?? [], null);
         $this->setIfExists('joint_categories', $data ?? [], null);
+        $this->setIfExists('redeemables_application_mode', $data ?? [], null);
+        $this->setIfExists('redeemables_sorting_rule', $data ?? [], 'REQUESTED_ORDER');
     }
 
     /**
@@ -337,12 +388,38 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_limit', must be bigger than or equal to 1.";
         }
 
+        if (!is_null($this->container['applicable_redeemables_per_category_limit']) && ($this->container['applicable_redeemables_per_category_limit'] > 30)) {
+            $invalidProperties[] = "invalid value for 'applicable_redeemables_per_category_limit', must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['applicable_redeemables_per_category_limit']) && ($this->container['applicable_redeemables_per_category_limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'applicable_redeemables_per_category_limit', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['exclusive_categories'] === null) {
             $invalidProperties[] = "'exclusive_categories' can't be null";
         }
         if ($this->container['joint_categories'] === null) {
             $invalidProperties[] = "'joint_categories' can't be null";
         }
+        $allowedValues = $this->getRedeemablesApplicationModeAllowableValues();
+        if (!is_null($this->container['redeemables_application_mode']) && !in_array($this->container['redeemables_application_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'redeemables_application_mode', must be one of '%s'",
+                $this->container['redeemables_application_mode'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRedeemablesSortingRuleAllowableValues();
+        if (!is_null($this->container['redeemables_sorting_rule']) && !in_array($this->container['redeemables_sorting_rule'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'redeemables_sorting_rule', must be one of '%s'",
+                $this->container['redeemables_sorting_rule'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -382,10 +459,10 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         }
 
         if (($redeemables_limit > 30)) {
-            throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling QualificationsStackingRules., must be smaller than or equal to 30.');
+            throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
         }
         if (($redeemables_limit < 1)) {
-            throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling QualificationsStackingRules., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
         $this->container['redeemables_limit'] = $redeemables_limit;
@@ -417,10 +494,10 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         }
 
         if (($applicable_redeemables_limit > 30)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling QualificationsStackingRules., must be smaller than or equal to 30.');
+            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
         }
         if (($applicable_redeemables_limit < 1)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling QualificationsStackingRules., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
         $this->container['applicable_redeemables_limit'] = $applicable_redeemables_limit;
@@ -452,13 +529,48 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
         }
 
         if (($applicable_exclusive_redeemables_limit > 30)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling QualificationsStackingRules., must be smaller than or equal to 30.');
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
         }
         if (($applicable_exclusive_redeemables_limit < 1)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling QualificationsStackingRules., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
         $this->container['applicable_exclusive_redeemables_limit'] = $applicable_exclusive_redeemables_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicable_redeemables_per_category_limit
+     *
+     * @return int|null
+     */
+    public function getApplicableRedeemablesPerCategoryLimit()
+    {
+        return $this->container['applicable_redeemables_per_category_limit'];
+    }
+
+    /**
+     * Sets applicable_redeemables_per_category_limit
+     *
+     * @param int|null $applicable_redeemables_per_category_limit Defines how many redeemables per category can be applied in one request.
+     *
+     * @return self
+     */
+    public function setApplicableRedeemablesPerCategoryLimit($applicable_redeemables_per_category_limit)
+    {
+        if (is_null($applicable_redeemables_per_category_limit)) {
+            throw new \InvalidArgumentException('non-nullable applicable_redeemables_per_category_limit cannot be null');
+        }
+
+        if (($applicable_redeemables_per_category_limit > 30)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_per_category_limit when calling StackingRules., must be smaller than or equal to 30.');
+        }
+        if (($applicable_redeemables_per_category_limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_per_category_limit when calling StackingRules., must be bigger than or equal to 1.');
+        }
+
+        $this->container['applicable_redeemables_per_category_limit'] = $applicable_redeemables_per_category_limit;
 
         return $this;
     }
@@ -513,6 +625,80 @@ class QualificationsStackingRules implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable joint_categories cannot be null');
         }
         $this->container['joint_categories'] = $joint_categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemables_application_mode
+     *
+     * @return string|null
+     */
+    public function getRedeemablesApplicationMode()
+    {
+        return $this->container['redeemables_application_mode'];
+    }
+
+    /**
+     * Sets redeemables_application_mode
+     *
+     * @param string|null $redeemables_application_mode Defines redeemables application mode.
+     *
+     * @return self
+     */
+    public function setRedeemablesApplicationMode($redeemables_application_mode)
+    {
+        if (is_null($redeemables_application_mode)) {
+            throw new \InvalidArgumentException('non-nullable redeemables_application_mode cannot be null');
+        }
+        $allowedValues = $this->getRedeemablesApplicationModeAllowableValues();
+        if (!in_array($redeemables_application_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'redeemables_application_mode', must be one of '%s'",
+                    $redeemables_application_mode,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['redeemables_application_mode'] = $redeemables_application_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemables_sorting_rule
+     *
+     * @return string|null
+     */
+    public function getRedeemablesSortingRule()
+    {
+        return $this->container['redeemables_sorting_rule'];
+    }
+
+    /**
+     * Sets redeemables_sorting_rule
+     *
+     * @param string|null $redeemables_sorting_rule Defines redeemables sorting rule.
+     *
+     * @return self
+     */
+    public function setRedeemablesSortingRule($redeemables_sorting_rule)
+    {
+        if (is_null($redeemables_sorting_rule)) {
+            throw new \InvalidArgumentException('non-nullable redeemables_sorting_rule cannot be null');
+        }
+        $allowedValues = $this->getRedeemablesSortingRuleAllowableValues();
+        if (!in_array($redeemables_sorting_rule, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'redeemables_sorting_rule', must be one of '%s'",
+                    $redeemables_sorting_rule,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['redeemables_sorting_rule'] = $redeemables_sorting_rule;
 
         return $this;
     }
