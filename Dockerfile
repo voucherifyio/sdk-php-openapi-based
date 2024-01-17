@@ -19,4 +19,4 @@ COPY --from=composer /app /app
 
 VOLUME /app/data
 
-CMD ["php", "./__tests__/index.php"]
+CMD ["php", "-S", "0.0.0.0:5050", "./__tests__/index.php"]
