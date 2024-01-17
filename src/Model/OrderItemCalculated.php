@@ -67,6 +67,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'initial_quantity' => 'int',
         'amount' => 'int',
         'discount_amount' => 'int',
+        'applied_discount_amount' => 'int',
         'initial_amount' => 'int',
         'total_applied_discount_amount' => 'int',
         'price' => 'int',
@@ -94,6 +95,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'initial_quantity' => null,
         'amount' => null,
         'discount_amount' => null,
+        'applied_discount_amount' => null,
         'initial_amount' => null,
         'total_applied_discount_amount' => null,
         'price' => null,
@@ -119,6 +121,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
 		'initial_quantity' => false,
 		'amount' => false,
 		'discount_amount' => false,
+		'applied_discount_amount' => false,
 		'initial_amount' => false,
 		'total_applied_discount_amount' => false,
 		'price' => false,
@@ -224,6 +227,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'initial_quantity' => 'initial_quantity',
         'amount' => 'amount',
         'discount_amount' => 'discount_amount',
+        'applied_discount_amount' => 'applied_discount_amount',
         'initial_amount' => 'initial_amount',
         'total_applied_discount_amount' => 'total_applied_discount_amount',
         'price' => 'price',
@@ -249,6 +253,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'initial_quantity' => 'setInitialQuantity',
         'amount' => 'setAmount',
         'discount_amount' => 'setDiscountAmount',
+        'applied_discount_amount' => 'setAppliedDiscountAmount',
         'initial_amount' => 'setInitialAmount',
         'total_applied_discount_amount' => 'setTotalAppliedDiscountAmount',
         'price' => 'setPrice',
@@ -274,6 +279,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'initial_quantity' => 'getInitialQuantity',
         'amount' => 'getAmount',
         'discount_amount' => 'getDiscountAmount',
+        'applied_discount_amount' => 'getAppliedDiscountAmount',
         'initial_amount' => 'getInitialAmount',
         'total_applied_discount_amount' => 'getTotalAppliedDiscountAmount',
         'price' => 'getPrice',
@@ -378,6 +384,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('initial_quantity', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('discount_amount', $data ?? [], null);
+        $this->setIfExists('applied_discount_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
         $this->setIfExists('total_applied_discount_amount', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -700,6 +707,33 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
         }
         $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_discount_amount
+     *
+     * @return int|null
+     */
+    public function getAppliedDiscountAmount()
+    {
+        return $this->container['applied_discount_amount'];
+    }
+
+    /**
+     * Sets applied_discount_amount
+     *
+     * @param int|null $applied_discount_amount This field shows the order-level discount applied.
+     *
+     * @return self
+     */
+    public function setAppliedDiscountAmount($applied_discount_amount)
+    {
+        if (is_null($applied_discount_amount)) {
+            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+        }
+        $this->container['applied_discount_amount'] = $applied_discount_amount;
 
         return $this;
     }

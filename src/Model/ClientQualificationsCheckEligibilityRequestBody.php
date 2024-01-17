@@ -64,7 +64,7 @@ class ClientQualificationsCheckEligibilityRequestBody implements ModelInterface,
         'mode' => 'string',
         'tracking_id' => 'string',
         'scenario' => 'string',
-        'options' => '\OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptions',
+        'options' => '\OpenAPI\Client\Model\QualificationsOption',
         'metadata' => 'object'
     ];
 
@@ -551,7 +551,7 @@ class ClientQualificationsCheckEligibilityRequestBody implements ModelInterface,
     /**
      * Gets options
      *
-     * @return \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptions|null
+     * @return \OpenAPI\Client\Model\QualificationsOption|null
      */
     public function getOptions()
     {
@@ -561,7 +561,7 @@ class ClientQualificationsCheckEligibilityRequestBody implements ModelInterface,
     /**
      * Sets options
      *
-     * @param \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptions|null $options options
+     * @param \OpenAPI\Client\Model\QualificationsOption|null $options options
      *
      * @return self
      */

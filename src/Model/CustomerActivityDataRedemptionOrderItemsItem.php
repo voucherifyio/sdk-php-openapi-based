@@ -67,6 +67,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'initial_quantity' => 'int',
         'amount' => 'int',
         'discount_amount' => 'int',
+        'applied_discount_amount' => 'int',
         'initial_amount' => 'int',
         'total_applied_discount_amount' => 'int',
         'price' => 'int',
@@ -74,8 +75,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'product' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionOrderItemsItemProduct',
         'sku' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionOrderItemsItemSku',
         'object' => 'string',
-        'metadata' => 'object',
-        'applied_discount_amount' => 'int'
+        'metadata' => 'object'
     ];
 
     /**
@@ -95,6 +95,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'initial_quantity' => null,
         'amount' => null,
         'discount_amount' => null,
+        'applied_discount_amount' => null,
         'initial_amount' => null,
         'total_applied_discount_amount' => null,
         'price' => null,
@@ -102,8 +103,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'product' => null,
         'sku' => null,
         'object' => null,
-        'metadata' => null,
-        'applied_discount_amount' => null
+        'metadata' => null
     ];
 
     /**
@@ -121,6 +121,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
 		'initial_quantity' => false,
 		'amount' => false,
 		'discount_amount' => false,
+		'applied_discount_amount' => false,
 		'initial_amount' => false,
 		'total_applied_discount_amount' => false,
 		'price' => false,
@@ -128,8 +129,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
 		'product' => false,
 		'sku' => false,
 		'object' => false,
-		'metadata' => false,
-		'applied_discount_amount' => false
+		'metadata' => false
     ];
 
     /**
@@ -227,6 +227,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'initial_quantity' => 'initial_quantity',
         'amount' => 'amount',
         'discount_amount' => 'discount_amount',
+        'applied_discount_amount' => 'applied_discount_amount',
         'initial_amount' => 'initial_amount',
         'total_applied_discount_amount' => 'total_applied_discount_amount',
         'price' => 'price',
@@ -234,8 +235,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'product' => 'product',
         'sku' => 'sku',
         'object' => 'object',
-        'metadata' => 'metadata',
-        'applied_discount_amount' => 'applied_discount_amount'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -253,6 +253,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'initial_quantity' => 'setInitialQuantity',
         'amount' => 'setAmount',
         'discount_amount' => 'setDiscountAmount',
+        'applied_discount_amount' => 'setAppliedDiscountAmount',
         'initial_amount' => 'setInitialAmount',
         'total_applied_discount_amount' => 'setTotalAppliedDiscountAmount',
         'price' => 'setPrice',
@@ -260,8 +261,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'product' => 'setProduct',
         'sku' => 'setSku',
         'object' => 'setObject',
-        'metadata' => 'setMetadata',
-        'applied_discount_amount' => 'setAppliedDiscountAmount'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -279,6 +279,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'initial_quantity' => 'getInitialQuantity',
         'amount' => 'getAmount',
         'discount_amount' => 'getDiscountAmount',
+        'applied_discount_amount' => 'getAppliedDiscountAmount',
         'initial_amount' => 'getInitialAmount',
         'total_applied_discount_amount' => 'getTotalAppliedDiscountAmount',
         'price' => 'getPrice',
@@ -286,8 +287,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'product' => 'getProduct',
         'sku' => 'getSku',
         'object' => 'getObject',
-        'metadata' => 'getMetadata',
-        'applied_discount_amount' => 'getAppliedDiscountAmount'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -384,6 +384,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         $this->setIfExists('initial_quantity', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('discount_amount', $data ?? [], null);
+        $this->setIfExists('applied_discount_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
         $this->setIfExists('total_applied_discount_amount', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
@@ -392,7 +393,6 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'order_item');
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('applied_discount_amount', $data ?? [], null);
     }
 
     /**
@@ -709,6 +709,33 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     }
 
     /**
+     * Gets applied_discount_amount
+     *
+     * @return int|null
+     */
+    public function getAppliedDiscountAmount()
+    {
+        return $this->container['applied_discount_amount'];
+    }
+
+    /**
+     * Sets applied_discount_amount
+     *
+     * @param int|null $applied_discount_amount This field shows the order-level discount applied.
+     *
+     * @return self
+     */
+    public function setAppliedDiscountAmount($applied_discount_amount)
+    {
+        if (is_null($applied_discount_amount)) {
+            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+        }
+        $this->container['applied_discount_amount'] = $applied_discount_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets initial_amount
      *
      * @return int|null
@@ -930,33 +957,6 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets applied_discount_amount
-     *
-     * @return int|null
-     */
-    public function getAppliedDiscountAmount()
-    {
-        return $this->container['applied_discount_amount'];
-    }
-
-    /**
-     * Sets applied_discount_amount
-     *
-     * @param int|null $applied_discount_amount This field shows the order-level discount applied.
-     *
-     * @return self
-     */
-    public function setAppliedDiscountAmount($applied_discount_amount)
-    {
-        if (is_null($applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
-        }
-        $this->container['applied_discount_amount'] = $applied_discount_amount;
 
         return $this;
     }

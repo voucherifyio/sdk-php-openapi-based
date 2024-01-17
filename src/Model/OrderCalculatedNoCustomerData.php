@@ -454,9 +454,6 @@ class OrderCalculatedNoCustomerData implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['source_id'] === null) {
             $invalidProperties[] = "'source_id' can't be null";
         }
@@ -505,7 +502,7 @@ class OrderCalculatedNoCustomerData implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -515,7 +512,7 @@ class OrderCalculatedNoCustomerData implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets id
      *
-     * @param string $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+     * @param string|null $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
      *
      * @return self
      */

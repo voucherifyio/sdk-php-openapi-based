@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** | Timestamp representing the date and time when the object was created in ISO 8601 format. | [optional]
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the object was last updated in ISO 8601 format. | [optional]
 **object** | **string** | The type of object represented by JSON. | [default to 'validation_rules_assignment']
-**validation_status** | **string** | The validation status of the assignment |
-**validation_omitted_rules** | **string[]** | The list of omitted rules |
+**validation_status** | **string** | The validation status of the assignment | [optional]
+**validation_omitted_rules** | **string[]** | The list of omitted rules | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientQualificationsCheckEligibilityRequestBodyOptionsFilters
+ * QualificationsOptionFilters
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ClientQualificationsCheckEligibilityRequestBodyOptionsFilters Class Doc Comment
+ * QualificationsOptionFilters Class Doc Comment
  *
  * @category Class
  * @description A set of filters to return only a specific category or type of redeemable.
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClientQualificationsCheckEligibilityRequestBodyOptionsFilters implements ModelInterface, ArrayAccess, \JsonSerializable
+class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptionsFilters implements M
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientQualificationsCheckEligibilityRequestBody_options_filters';
+    protected static $openAPIModelName = 'QualificationsOption_filters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

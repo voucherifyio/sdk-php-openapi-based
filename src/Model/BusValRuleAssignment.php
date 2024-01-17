@@ -386,9 +386,6 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
 
-        if ($this->container['validation_status'] === null) {
-            $invalidProperties[] = "'validation_status' can't be null";
-        }
         $allowedValues = $this->getValidationStatusAllowableValues();
         if (!is_null($this->container['validation_status']) && !in_array($this->container['validation_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -398,9 +395,6 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
 
-        if ($this->container['validation_omitted_rules'] === null) {
-            $invalidProperties[] = "'validation_omitted_rules' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -618,7 +612,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets validation_status
      *
-     * @return string
+     * @return string|null
      */
     public function getValidationStatus()
     {
@@ -628,7 +622,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets validation_status
      *
-     * @param string $validation_status The validation status of the assignment
+     * @param string|null $validation_status The validation status of the assignment
      *
      * @return self
      */
@@ -655,7 +649,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets validation_omitted_rules
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getValidationOmittedRules()
     {
@@ -665,7 +659,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets validation_omitted_rules
      *
-     * @param string[] $validation_omitted_rules The list of omitted rules
+     * @param string[]|null $validation_omitted_rules The list of omitted rules
      *
      * @return self
      */

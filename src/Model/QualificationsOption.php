@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientQualificationsCheckEligibilityRequestBodyOptions
+ * QualificationsOption
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ClientQualificationsCheckEligibilityRequestBodyOptions Class Doc Comment
+ * QualificationsOption Class Doc Comment
  *
  * @category Class
  * @description Configure parameters returned in the response.
@@ -42,7 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInt
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientQualificationsCheckEligibilityRequestBody_options';
+    protected static $openAPIModelName = 'QualificationsOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInt
     protected static $openAPITypes = [
         'limit' => 'int',
         'starting_after' => '\DateTime',
-        'filters' => '\OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptionsFilters',
+        'filters' => '\OpenAPI\Client\Model\QualificationsOptionFilters',
         'expand' => 'string[]',
         'sorting_rule' => 'string'
     ];
@@ -390,7 +390,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInt
         }
 
         if (($limit > 100)) {
-            throw new \InvalidArgumentException('invalid value for $limit when calling ClientQualificationsCheckEligibilityRequestBodyOptions., must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for $limit when calling QualificationsOption., must be smaller than or equal to 100.');
         }
 
         $this->container['limit'] = $limit;
@@ -435,7 +435,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInt
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptionsFilters|null
+     * @return \OpenAPI\Client\Model\QualificationsOptionFilters|null
      */
     public function getFilters()
     {
@@ -445,7 +445,7 @@ class ClientQualificationsCheckEligibilityRequestBodyOptions implements ModelInt
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBodyOptionsFilters|null $filters filters
+     * @param \OpenAPI\Client\Model\QualificationsOptionFilters|null $filters filters
      *
      * @return self
      */

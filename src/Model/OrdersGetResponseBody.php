@@ -455,9 +455,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['source_id'] === null) {
             $invalidProperties[] = "'source_id' can't be null";
         }
@@ -506,7 +503,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -516,7 +513,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param string $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+     * @param string|null $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
      *
      * @return self
      */
