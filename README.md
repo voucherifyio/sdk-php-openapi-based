@@ -889,7 +889,7 @@ Class | Method | HTTP request | Description
 
 1. Copy `.env.example` to `.env` and fill in the values.
 2. Run `docker build -t php .` to build the image.
-3. Run `docker run --rm php` to run the tests and delete container immediately after.
+3. Run `docker run -p 5050:5050 --rm php` to run the tests and delete container immediately after.
 4. Make changes Your desire and run again command from step 3. It uses volumes so no need to rebuild the image.
 
 ## Author
