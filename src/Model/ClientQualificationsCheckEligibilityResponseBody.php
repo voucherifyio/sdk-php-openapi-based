@@ -62,7 +62,7 @@ class ClientQualificationsCheckEligibilityResponseBody implements ModelInterface
         'redeemables' => '\OpenAPI\Client\Model\QualificationsRedeemables',
         'tracking_id' => 'string',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
-        'stacking_rules' => '\OpenAPI\Client\Model\QualificationsStackingRules'
+        'stacking_rules' => '\OpenAPI\Client\Model\StackingRules'
     ];
 
     /**
@@ -396,7 +396,7 @@ class ClientQualificationsCheckEligibilityResponseBody implements ModelInterface
     /**
      * Gets stacking_rules
      *
-     * @return \OpenAPI\Client\Model\QualificationsStackingRules|null
+     * @return \OpenAPI\Client\Model\StackingRules|null
      */
     public function getStackingRules()
     {
@@ -406,7 +406,7 @@ class ClientQualificationsCheckEligibilityResponseBody implements ModelInterface
     /**
      * Sets stacking_rules
      *
-     * @param \OpenAPI\Client\Model\QualificationsStackingRules|null $stacking_rules stacking_rules
+     * @param \OpenAPI\Client\Model\StackingRules|null $stacking_rules stacking_rules
      *
      * @return self
      */

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **applicable_to** | [**\OpenAPI\Client\Model\ApplicableToResultList**](ApplicableToResultList.md) |  | [optional]
 **inapplicable_to** | [**\OpenAPI\Client\Model\InapplicableToResultList**](InapplicableToResultList.md) |  | [optional]
 **result** | [**\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResult**](ValidationsValidateResponseBodyRedeemablesItemResult.md) |  | [optional]
-**metadata** | **object** |  | [optional]
+**metadata** | **object** | The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable. | [optional]
 **categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

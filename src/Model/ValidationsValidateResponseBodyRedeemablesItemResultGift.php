@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationsValidateResponseBodyRedeemablesItemResultGift Class Doc Comment
  *
  * @category Class
+ * @description Stores the amount of gift card credits to be applied in the redemption.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,7 +51,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultGift implements ModelI
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResultGift';
+    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResult_gift';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
