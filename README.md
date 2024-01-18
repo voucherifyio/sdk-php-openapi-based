@@ -49,12 +49,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -839,7 +839,7 @@ Class | Method | HTTP request | Description
 
 ## Authorization
 
-### X-App-Id-1
+### X-App-Id
 
 - **Type**: API key
 - **API key parameter name**: X-App-Id
@@ -847,7 +847,7 @@ Class | Method | HTTP request | Description
 
 
 
-### X-App-Token-1
+### X-App-Token
 
 - **Type**: API key
 - **API key parameter name**: X-App-Token
@@ -855,7 +855,7 @@ Class | Method | HTTP request | Description
 
 
 
-### X-Client-Token-1
+### X-Client-Token
 
 - **Type**: API key
 - **API key parameter name**: X-Client-Token
@@ -863,19 +863,11 @@ Class | Method | HTTP request | Description
 
 
 
-### X-Client-Application-Id-1
+### X-Client-Application-Id
 
 - **Type**: API key
 - **API key parameter name**: X-Client-Application-Id
 - **Location**: HTTP header
-
-
-
-### Download-Token-1
-
-- **Type**: API key
-- **API key parameter name**: token
-- **Location**: URL query string
 
 
 ## Run local tests with docker

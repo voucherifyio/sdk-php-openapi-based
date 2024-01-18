@@ -29,12 +29,12 @@ Creates an order object and triggers an order creation event.  <!-- theme: info 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -68,7 +68,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -96,12 +96,12 @@ Creates a downloadable CSV file containing a list of orders.  The parameters lis
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -135,7 +135,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -163,12 +163,12 @@ Retrieve an order.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -202,7 +202,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -230,12 +230,12 @@ Import Orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -269,7 +269,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -297,12 +297,12 @@ Returns a list of orders.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -340,7 +340,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -368,12 +368,12 @@ Updates the specified order by setting the values of the parameters passed in th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -409,7 +409,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 

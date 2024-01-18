@@ -25,12 +25,12 @@ Check Eligibility
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-App-Id-1
+// Configure API key authorization: X-App-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
 
-// Configure API key authorization: X-App-Token-1
+// Configure API key authorization: X-App-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
@@ -64,7 +64,7 @@ try {
 
 ### Authorization
 
-[X-App-Id-1](../../README.md#X-App-Id-1), [X-App-Token-1](../../README.md#X-App-Token-1)
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
 
 ### HTTP request headers
 
@@ -92,12 +92,12 @@ Generate a list of redeemables that are applicable in the context of the custome
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: X-Client-Application-Id-1
+// Configure API key authorization: X-Client-Application-Id
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Application-Id', 'Bearer');
 
-// Configure API key authorization: X-Client-Token-1
+// Configure API key authorization: X-Client-Token
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Token', 'Bearer');
@@ -131,7 +131,7 @@ try {
 
 ### Authorization
 
-[X-Client-Application-Id-1](../../README.md#X-Client-Application-Id-1), [X-Client-Token-1](../../README.md#X-Client-Token-1)
+[X-Client-Application-Id](../../README.md#X-Client-Application-Id), [X-Client-Token](../../README.md#X-Client-Token)
 
 ### HTTP request headers
 
