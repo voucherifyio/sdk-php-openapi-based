@@ -3,8 +3,6 @@ FROM composer:2.6.6 AS composer
 
 WORKDIR /app
 
-VOLUME /app/data
-
 COPY . .
 
 RUN composer install
@@ -17,6 +15,4 @@ WORKDIR /app
 
 COPY --from=composer /app /app
 
-VOLUME /app/data
-
-CMD ["php", "./__tests__/index.php"]
+CMD ["php", "-S", "0.0.0.0:5050", "./__tests__/index.php"]
