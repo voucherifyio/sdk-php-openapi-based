@@ -242,30 +242,8 @@ class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters implements M
         return self::$openAPIModelName;
     }
 
-    public const ORDER_ID = 'id';
-    public const ORDER_ID2 = '-id';
-    public const ORDER_CAMPAIGN_ID = 'campaign_id';
-    public const ORDER_CAMPAIGN_ID2 = '-campaign_id';
-    public const ORDER_VOUCHER_ID = 'voucher_id';
-    public const ORDER_VOUCHER_ID2 = '-voucher_id';
-    public const ORDER_TYPE = 'type';
-    public const ORDER_TYPE2 = '-type';
-    public const ORDER_SOURCE_ID = 'source_id';
-    public const ORDER_SOURCE_ID2 = '-source_id';
-    public const ORDER_REASON = 'reason';
-    public const ORDER_REASON2 = '-reason';
-    public const ORDER_SOURCE = 'source';
-    public const ORDER_SOURCE2 = '-source';
-    public const ORDER_BALANCE = 'balance';
-    public const ORDER_BALANCE2 = '-balance';
-    public const ORDER_AMOUNT = 'amount';
-    public const ORDER_AMOUNT2 = '-amount';
-    public const ORDER_RELATED_TRANSACTION_ID = 'related_transaction_id';
-    public const ORDER_RELATED_TRANSACTION_ID2 = '-related_transaction_id';
-    public const ORDER_CREATED_AT = 'created_at';
-    public const ORDER_CREATED_AT2 = '-created_at';
-    public const ORDER_DETAILS = 'details';
-    public const ORDER_DETAILS2 = '-details';
+    public const ORDER_CREATED_AT = '-created_at';
+    public const ORDER_CREATED_AT2 = 'created_at';
     public const FIELDS_ID = 'id';
     public const FIELDS_CAMPAIGN_ID = 'campaign_id';
     public const FIELDS_VOUCHER_ID = 'voucher_id';
@@ -287,30 +265,8 @@ class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters implements M
     public function getOrderAllowableValues()
     {
         return [
-            self::ORDER_ID,
-            self::ORDER_ID2,
-            self::ORDER_CAMPAIGN_ID,
-            self::ORDER_CAMPAIGN_ID2,
-            self::ORDER_VOUCHER_ID,
-            self::ORDER_VOUCHER_ID2,
-            self::ORDER_TYPE,
-            self::ORDER_TYPE2,
-            self::ORDER_SOURCE_ID,
-            self::ORDER_SOURCE_ID2,
-            self::ORDER_REASON,
-            self::ORDER_REASON2,
-            self::ORDER_SOURCE,
-            self::ORDER_SOURCE2,
-            self::ORDER_BALANCE,
-            self::ORDER_BALANCE2,
-            self::ORDER_AMOUNT,
-            self::ORDER_AMOUNT2,
-            self::ORDER_RELATED_TRANSACTION_ID,
-            self::ORDER_RELATED_TRANSACTION_ID2,
             self::ORDER_CREATED_AT,
             self::ORDER_CREATED_AT2,
-            self::ORDER_DETAILS,
-            self::ORDER_DETAILS2,
         ];
     }
 

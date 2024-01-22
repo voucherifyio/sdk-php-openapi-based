@@ -6,6 +6,7 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | ------------- | ------------- | ------------- |
 | [**createExport()**](ExportsApi.md#createExport) | **POST** /v1/exports | Create Export |
 | [**deleteExport()**](ExportsApi.md#deleteExport) | **DELETE** /v1/exports/{exportId} | Delete Export |
+| [**downloadExport()**](ExportsApi.md#downloadExport) | **GET** /v1/exports/{export_Id} | Download Export |
 | [**getExport()**](ExportsApi.md#getExport) | **GET** /v1/exports/{exportId} | Get Export |
 | [**listExports()**](ExportsApi.md#listExports) | **GET** /v1/exports | List Exports |
 
@@ -138,6 +139,64 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `downloadExport()`
+
+```php
+downloadExport($export_id, $token): string
+```
+
+Download Export
+
+Download the contents of the exported CSV file.   <!-- theme: info -->  > 📘 Important notes > > **Base URL:**  > - `https://download.voucherify.io` (Europe)  > - `https://us1.download.voucherify.io` (US)  > - `https://as1.download.voucherify.io` (Asia)  > > **Token:** Can be found within the `result` parameter of the <!-- [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) -->[Get Export](ref:get-export) method response.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ExportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$export_id = exp_ex6zq0x0EEa9S0N68QcqhxcQ; // string | Unique export object ID.
+$token = 'token_example'; // string | Token that was issued to the export, to get this token, get the export first
+
+try {
+    $result = $apiInstance->downloadExport($export_id, $token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ExportsApi->downloadExport: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **export_id** | **string**| Unique export object ID. | |
+| **token** | **string**| Token that was issued to the export, to get this token, get the export first | [optional] |
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `text/plain`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

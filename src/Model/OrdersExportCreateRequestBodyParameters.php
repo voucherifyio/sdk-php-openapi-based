@@ -61,7 +61,7 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'order' => 'string',
         'fields' => 'string[]',
-        'filters' => '\OpenAPI\Client\Model\ExportOrderFilters'
+        'filters' => 'object'
     ];
 
     /**
@@ -242,32 +242,12 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
-    public const ORDER_ID = 'id';
-    public const ORDER_ID2 = '-id';
-    public const ORDER_SOURCE_ID = 'source_id';
-    public const ORDER_SOURCE_ID2 = '-source_id';
-    public const ORDER_CREATED_AT = 'created_at';
-    public const ORDER_CREATED_AT2 = '-created_at';
-    public const ORDER_UPDATED_AT = 'updated_at';
-    public const ORDER_UPDATED_AT2 = '-updated_at';
-    public const ORDER_STATUS = 'status';
-    public const ORDER_STATUS2 = '-status';
-    public const ORDER_AMOUNT = 'amount';
-    public const ORDER_AMOUNT2 = '-amount';
-    public const ORDER_DISCOUNT_AMOUNT = 'discount_amount';
-    public const ORDER_DISCOUNT_AMOUNT2 = '-discount_amount';
-    public const ORDER_ITEMS_DISCOUNT_AMOUNT = 'items_discount_amount';
-    public const ORDER_ITEMS_DISCOUNT_AMOUNT2 = '-items_discount_amount';
-    public const ORDER_TOTAL_DISCOUNT_AMOUNT = 'total_discount_amount';
-    public const ORDER_TOTAL_DISCOUNT_AMOUNT2 = '-total_discount_amount';
-    public const ORDER_TOTAL_AMOUNT = 'total_amount';
-    public const ORDER_TOTAL_AMOUNT2 = '-total_amount';
-    public const ORDER_CUSTOMER_ID = 'customer_id';
-    public const ORDER_CUSTOMER_ID2 = '-customer_id';
-    public const ORDER_REFERRER_ID = 'referrer_id';
-    public const ORDER_REFERRER_ID2 = '-referrer_id';
-    public const ORDER_METADATA = 'metadata';
-    public const ORDER_METADATA2 = '-metadata';
+    public const ORDER_CREATED_AT = '-created_at';
+    public const ORDER_CREATED_AT2 = 'created_at';
+    public const ORDER_UPDATED_AT = '-updated_at';
+    public const ORDER_UPDATED_AT2 = 'updated_at';
+    public const ORDER_STATUS = '-status';
+    public const ORDER_STATUS2 = 'status';
     public const FIELDS_ID = 'id';
     public const FIELDS_SOURCE_ID = 'source_id';
     public const FIELDS_CREATED_AT = 'created_at';
@@ -290,32 +270,12 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
     public function getOrderAllowableValues()
     {
         return [
-            self::ORDER_ID,
-            self::ORDER_ID2,
-            self::ORDER_SOURCE_ID,
-            self::ORDER_SOURCE_ID2,
             self::ORDER_CREATED_AT,
             self::ORDER_CREATED_AT2,
             self::ORDER_UPDATED_AT,
             self::ORDER_UPDATED_AT2,
             self::ORDER_STATUS,
             self::ORDER_STATUS2,
-            self::ORDER_AMOUNT,
-            self::ORDER_AMOUNT2,
-            self::ORDER_DISCOUNT_AMOUNT,
-            self::ORDER_DISCOUNT_AMOUNT2,
-            self::ORDER_ITEMS_DISCOUNT_AMOUNT,
-            self::ORDER_ITEMS_DISCOUNT_AMOUNT2,
-            self::ORDER_TOTAL_DISCOUNT_AMOUNT,
-            self::ORDER_TOTAL_DISCOUNT_AMOUNT2,
-            self::ORDER_TOTAL_AMOUNT,
-            self::ORDER_TOTAL_AMOUNT2,
-            self::ORDER_CUSTOMER_ID,
-            self::ORDER_CUSTOMER_ID2,
-            self::ORDER_REFERRER_ID,
-            self::ORDER_REFERRER_ID2,
-            self::ORDER_METADATA,
-            self::ORDER_METADATA2,
         ];
     }
 
@@ -490,7 +450,7 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
     /**
      * Gets filters
      *
-     * @return \OpenAPI\Client\Model\ExportOrderFilters|null
+     * @return object|null
      */
     public function getFilters()
     {
@@ -500,7 +460,7 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
     /**
      * Sets filters
      *
-     * @param \OpenAPI\Client\Model\ExportOrderFilters|null $filters filters
+     * @param object|null $filters Allowed additional properties must start with \"metadata.\"
      *
      * @return self
      */

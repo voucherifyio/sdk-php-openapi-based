@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**trackCustomEventClientSide**](docs/Api/EventsApi.md#trackcustomeventclientside) | **POST** /client/v1/events | Track Custom Event (client-side)
 *ExportsApi* | [**createExport**](docs/Api/ExportsApi.md#createexport) | **POST** /v1/exports | Create Export
 *ExportsApi* | [**deleteExport**](docs/Api/ExportsApi.md#deleteexport) | **DELETE** /v1/exports/{exportId} | Delete Export
+*ExportsApi* | [**downloadExport**](docs/Api/ExportsApi.md#downloadexport) | **GET** /v1/exports/{export_Id} | Download Export
 *ExportsApi* | [**getExport**](docs/Api/ExportsApi.md#getexport) | **GET** /v1/exports/{exportId} | Get Export
 *ExportsApi* | [**listExports**](docs/Api/ExportsApi.md#listexports) | **GET** /v1/exports | List Exports
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/Api/LoyaltiesApi.md#createinbulkloyaltytiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
@@ -171,7 +172,6 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**updateProductsInBulk**](docs/Api/ProductsApi.md#updateproductsinbulk) | **POST** /v1/products/bulk/async | Update Products in bulk
 *ProductsApi* | [**updateProductsMetadataInBulk**](docs/Api/ProductsApi.md#updateproductsmetadatainbulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in bulk
 *ProductsApi* | [**updateSku**](docs/Api/ProductsApi.md#updatesku) | **PUT** /v1/products/{productId}/skus/{skuId} | Update SKU
-*PromotionsApi* | [**createCampaign**](docs/Api/PromotionsApi.md#createcampaign) | **POST** /v1/campaigns | Create Campaign
 *PromotionsApi* | [**createPromotionStack**](docs/Api/PromotionsApi.md#createpromotionstack) | **POST** /v1/promotions/{campaignId}/stacks | Create Promotion Stack
 *PromotionsApi* | [**deletePromotionStack**](docs/Api/PromotionsApi.md#deletepromotionstack) | **DELETE** /v1/promotions/{campaignId}/stacks/{stackId} | Delete Promotion Stack
 *PromotionsApi* | [**deletePromotionTier**](docs/Api/PromotionsApi.md#deletepromotiontier) | **DELETE** /v1/promotions/tiers/{promotionTierId} | Delete Promotion Tier
@@ -409,7 +409,6 @@ Class | Method | HTTP request | Description
 - [EventsCreateResponseBody](docs/Model/EventsCreateResponseBody.md)
 - [Export](docs/Model/Export.md)
 - [ExportOrderBase](docs/Model/ExportOrderBase.md)
-- [ExportOrderFilters](docs/Model/ExportOrderFilters.md)
 - [ExportParameters](docs/Model/ExportParameters.md)
 - [ExportParametersFilters](docs/Model/ExportParametersFilters.md)
 - [ExportResult](docs/Model/ExportResult.md)
