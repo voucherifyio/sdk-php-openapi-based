@@ -241,176 +241,32 @@ class ExportsCreateRequestBodyParameters implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-    public const ORDER_CODE = 'code';
-    public const ORDER_CODE2 = '-code';
-    public const ORDER_VOUCHER_TYPE = 'voucher_type';
-    public const ORDER_VOUCHER_TYPE2 = '-voucher_type';
-    public const ORDER_VALUE = 'value';
-    public const ORDER_VALUE2 = '-value';
-    public const ORDER_DISCOUNT_TYPE = 'discount_type';
-    public const ORDER_DISCOUNT_TYPE2 = '-discount_type';
-    public const ORDER_CAMPAIGN = 'campaign';
-    public const ORDER_CAMPAIGN2 = '-campaign';
-    public const ORDER_CATEGORY = 'category';
-    public const ORDER_CATEGORY2 = '-category';
-    public const ORDER_START_DATE = 'start_date';
-    public const ORDER_START_DATE2 = '-start_date';
-    public const ORDER_EXPIRATION_DATE = 'expiration_date';
-    public const ORDER_EXPIRATION_DATE2 = '-expiration_date';
-    public const ORDER_GIFT_BALANCE = 'gift_balance';
-    public const ORDER_GIFT_BALANCE2 = '-gift_balance';
-    public const ORDER_LOYALTY_BALANCE = 'loyalty_balance';
-    public const ORDER_LOYALTY_BALANCE2 = '-loyalty_balance';
-    public const ORDER_REDEMPTION_QUANTITY = 'redemption_quantity';
-    public const ORDER_REDEMPTION_QUANTITY2 = '-redemption_quantity';
-    public const ORDER_REDEMPTION_COUNT = 'redemption_count';
-    public const ORDER_REDEMPTION_COUNT2 = '-redemption_count';
-    public const ORDER_ACTIVE = 'active';
-    public const ORDER_ACTIVE2 = '-active';
-    public const ORDER_QR_CODE = 'qr_code';
-    public const ORDER_QR_CODE2 = '-qr_code';
-    public const ORDER_BAR_CODE = 'bar_code';
-    public const ORDER_BAR_CODE2 = '-bar_code';
-    public const ORDER_METADATA = 'metadata';
-    public const ORDER_METADATA2 = '-metadata';
-    public const ORDER_ID = 'id';
-    public const ORDER_ID2 = '-id';
-    public const ORDER_IS_REFERRAL_CODE = 'is_referral_code';
-    public const ORDER_IS_REFERRAL_CODE2 = '-is_referral_code';
-    public const ORDER_CREATED_AT = 'created_at';
-    public const ORDER_CREATED_AT2 = '-created_at';
-    public const ORDER_UPDATED_AT = 'updated_at';
-    public const ORDER_UPDATED_AT2 = '-updated_at';
-    public const ORDER_VALIDITY_TIMEFRAME_INTERVAL = 'validity_timeframe_interval';
-    public const ORDER_VALIDITY_TIMEFRAME_INTERVAL2 = '-validity_timeframe_interval';
-    public const ORDER_VALIDITY_TIMEFRAME_DURATION = 'validity_timeframe_duration';
-    public const ORDER_VALIDITY_TIMEFRAME_DURATION2 = '-validity_timeframe_duration';
-    public const ORDER_VALIDITY_DAY_OF_WEEK = 'validity_day_of_week';
-    public const ORDER_VALIDITY_DAY_OF_WEEK2 = '-validity_day_of_week';
-    public const ORDER_DISCOUNT_AMOUNT_LIMIT = 'discount_amount_limit';
-    public const ORDER_DISCOUNT_AMOUNT_LIMIT2 = '-discount_amount_limit';
-    public const ORDER_CAMPAIGN_ID = 'campaign_id';
-    public const ORDER_CAMPAIGN_ID2 = '-campaign_id';
-    public const ORDER_ADDITIONAL_INFO = 'additional_info';
-    public const ORDER_ADDITIONAL_INFO2 = '-additional_info';
-    public const ORDER_CUSTOMER_ID = 'customer_id';
-    public const ORDER_CUSTOMER_ID2 = '-customer_id';
-    public const ORDER_DISCOUNT_UNIT_TYPE = 'discount_unit_type';
-    public const ORDER_DISCOUNT_UNIT_TYPE2 = '-discount_unit_type';
-    public const ORDER_DISCOUNT_UNIT_EFFECT = 'discount_unit_effect';
-    public const ORDER_DISCOUNT_UNIT_EFFECT2 = '-discount_unit_effect';
-    public const ORDER_CUSTOMER_SOURCE_ID = 'customer_source_id';
-    public const ORDER_CUSTOMER_SOURCE_ID2 = '-customer_source_id';
-    public const ORDER_OBJECT = 'object';
-    public const ORDER_OBJECT2 = '-object';
-    public const ORDER_DATE = 'date';
-    public const ORDER_DATE2 = '-date';
-    public const ORDER_VOUCHER_CODE = 'voucher_code';
-    public const ORDER_VOUCHER_CODE2 = '-voucher_code';
-    public const ORDER_PROMOTION_TIER_ID = 'promotion_tier_id';
-    public const ORDER_PROMOTION_TIER_ID2 = '-promotion_tier_id';
-    public const ORDER_CUSTOMER_NAME = 'customer_name';
-    public const ORDER_CUSTOMER_NAME2 = '-customer_name';
-    public const ORDER_TRACKING_ID = 'tracking_id';
-    public const ORDER_TRACKING_ID2 = '-tracking_id';
-    public const ORDER_ORDER_AMOUNT = 'order_amount';
-    public const ORDER_ORDER_AMOUNT2 = '-order_amount';
-    public const ORDER_GIFT_AMOUNT = 'gift_amount';
-    public const ORDER_GIFT_AMOUNT2 = '-gift_amount';
-    public const ORDER_LOYALTY_POINTS = 'loyalty_points';
-    public const ORDER_LOYALTY_POINTS2 = '-loyalty_points';
-    public const ORDER_RESULT = 'result';
-    public const ORDER_RESULT2 = '-result';
-    public const ORDER_FAILURE_CODE = 'failure_code';
-    public const ORDER_FAILURE_CODE2 = '-failure_code';
-    public const ORDER_FAILURE_MESSAGE = 'failure_message';
-    public const ORDER_FAILURE_MESSAGE2 = '-failure_message';
-    public const ORDER_NAME = 'name';
-    public const ORDER_NAME2 = '-name';
-    public const ORDER_DESCRIPTION = 'description';
-    public const ORDER_DESCRIPTION2 = '-description';
-    public const ORDER_EMAIL = 'email';
-    public const ORDER_EMAIL2 = '-email';
-    public const ORDER_SOURCE_ID = 'source_id';
-    public const ORDER_SOURCE_ID2 = '-source_id';
-    public const ORDER_ADDRESS_CITY = 'address_city';
-    public const ORDER_ADDRESS_CITY2 = '-address_city';
-    public const ORDER_ADDRESS_STATE = 'address_state';
-    public const ORDER_ADDRESS_STATE2 = '-address_state';
-    public const ORDER_ADDRESS_LINE_1 = 'address_line_1';
-    public const ORDER_ADDRESS_LINE_12 = '-address_line_1';
-    public const ORDER_ADDRESS_LINE_2 = 'address_line_2';
-    public const ORDER_ADDRESS_LINE_22 = '-address_line_2';
-    public const ORDER_ADDRESS_COUNTRY = 'address_country';
-    public const ORDER_ADDRESS_COUNTRY2 = '-address_country';
-    public const ORDER_ADDRESS_POSTAL_CODE = 'address_postal_code';
-    public const ORDER_ADDRESS_POSTAL_CODE2 = '-address_postal_code';
-    public const ORDER_REDEMPTIONS_TOTAL_REDEEMED = 'redemptions_total_redeemed';
-    public const ORDER_REDEMPTIONS_TOTAL_REDEEMED2 = '-redemptions_total_redeemed';
-    public const ORDER_REDEMPTIONS_TOTAL_FAILED = 'redemptions_total_failed';
-    public const ORDER_REDEMPTIONS_TOTAL_FAILED2 = '-redemptions_total_failed';
-    public const ORDER_REDEMPTIONS_TOTAL_SUCCEEDED = 'redemptions_total_succeeded';
-    public const ORDER_REDEMPTIONS_TOTAL_SUCCEEDED2 = '-redemptions_total_succeeded';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLED_BACK = 'redemptions_total_rolled_back';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLED_BACK2 = '-redemptions_total_rolled_back';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLBACK_FAILED = 'redemptions_total_rollback_failed';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLBACK_FAILED2 = '-redemptions_total_rollback_failed';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLBACK_SUCCEEDED = 'redemptions_total_rollback_succeeded';
-    public const ORDER_REDEMPTIONS_TOTAL_ROLLBACK_SUCCEEDED2 = '-redemptions_total_rollback_succeeded';
-    public const ORDER_ORDERS_TOTAL_AMOUNT = 'orders_total_amount';
-    public const ORDER_ORDERS_TOTAL_AMOUNT2 = '-orders_total_amount';
-    public const ORDER_ORDERS_TOTAL_COUNT = 'orders_total_count';
-    public const ORDER_ORDERS_TOTAL_COUNT2 = '-orders_total_count';
-    public const ORDER_ORDERS_AVERAGE_AMOUNT = 'orders_average_amount';
-    public const ORDER_ORDERS_AVERAGE_AMOUNT2 = '-orders_average_amount';
-    public const ORDER_ORDERS_LAST_ORDER_AMOUNT = 'orders_last_order_amount';
-    public const ORDER_ORDERS_LAST_ORDER_AMOUNT2 = '-orders_last_order_amount';
-    public const ORDER_ORDERS_LAST_ORDER_DATE = 'orders_last_order_date';
-    public const ORDER_ORDERS_LAST_ORDER_DATE2 = '-orders_last_order_date';
-    public const ORDER_LOYALTY_REFERRED_CUSTOMERS = 'loyalty_referred_customers';
-    public const ORDER_LOYALTY_REFERRED_CUSTOMERS2 = '-loyalty_referred_customers';
-    public const ORDER_PHONE = 'phone';
-    public const ORDER_PHONE2 = '-phone';
-    public const ORDER_BIRTHDAY = 'birthday';
-    public const ORDER_BIRTHDAY2 = '-birthday';
-    public const ORDER_BIRTHDATE = 'birthdate';
-    public const ORDER_BIRTHDATE2 = '-birthdate';
-    public const ORDER_CHANNEL = 'channel';
-    public const ORDER_CHANNEL2 = '-channel';
-    public const ORDER_IS_WINNER = 'is_winner';
-    public const ORDER_IS_WINNER2 = '-is_winner';
-    public const ORDER_STATUS = 'status';
-    public const ORDER_STATUS2 = '-status';
-    public const ORDER_AMOUNT = 'amount';
-    public const ORDER_AMOUNT2 = '-amount';
-    public const ORDER_DISCOUNT_AMOUNT = 'discount_amount';
-    public const ORDER_DISCOUNT_AMOUNT2 = '-discount_amount';
-    public const ORDER_ITEMS_DISCOUNT_AMOUNT = 'items_discount_amount';
-    public const ORDER_ITEMS_DISCOUNT_AMOUNT2 = '-items_discount_amount';
-    public const ORDER_TOTAL_DISCOUNT_AMOUNT = 'total_discount_amount';
-    public const ORDER_TOTAL_DISCOUNT_AMOUNT2 = '-total_discount_amount';
-    public const ORDER_TOTAL_AMOUNT = 'total_amount';
-    public const ORDER_TOTAL_AMOUNT2 = '-total_amount';
-    public const ORDER_REFERRER_ID = 'referrer_id';
-    public const ORDER_REFERRER_ID2 = '-referrer_id';
-    public const ORDER_VOUCHER_ID = 'voucher_id';
-    public const ORDER_VOUCHER_ID2 = '-voucher_id';
-    public const ORDER_POINTS = 'points';
-    public const ORDER_POINTS2 = '-points';
-    public const ORDER_EXPIRES_AT = 'expires_at';
-    public const ORDER_EXPIRES_AT2 = '-expires_at';
-    public const ORDER_TYPE = 'type';
-    public const ORDER_TYPE2 = '-type';
-    public const ORDER_REASON = 'reason';
-    public const ORDER_REASON2 = '-reason';
-    public const ORDER_SOURCE = 'source';
-    public const ORDER_SOURCE2 = '-source';
-    public const ORDER_BALANCE = 'balance';
-    public const ORDER_BALANCE2 = '-balance';
-    public const ORDER_RELATED_TRANSACTION_ID = 'related_transaction_id';
-    public const ORDER_RELATED_TRANSACTION_ID2 = '-related_transaction_id';
-    public const ORDER_DETAILS = 'details';
-    public const ORDER_DETAILS2 = '-details';
+    public const ORDER_CREATED_AT = '-created_at';
+    public const ORDER_CREATED_AT2 = 'created_at';
+    public const ORDER_UPDATED_AT = '-updated_at';
+    public const ORDER_UPDATED_AT2 = 'updated_at';
+    public const ORDER_CODE = '-code';
+    public const ORDER_CODE2 = 'code';
+    public const ORDER_ID = '-id';
+    public const ORDER_ID2 = 'id';
+    public const ORDER_VOUCHER_CODE = '-voucher_code';
+    public const ORDER_VOUCHER_CODE2 = 'voucher_code';
+    public const ORDER_TRACKING_ID = '-tracking_id';
+    public const ORDER_TRACKING_ID2 = 'tracking_id';
+    public const ORDER_CUSTOMER_ID = '-customer_id';
+    public const ORDER_CUSTOMER_ID2 = 'customer_id';
+    public const ORDER_NAME = '-name';
+    public const ORDER_NAME2 = 'name';
+    public const ORDER_EMAIL = '-email';
+    public const ORDER_EMAIL2 = 'email';
+    public const ORDER_SOURCE_ID = '-source_id';
+    public const ORDER_SOURCE_ID2 = 'source_id';
+    public const ORDER_CHANNEL = '-channel';
+    public const ORDER_CHANNEL2 = 'channel';
+    public const ORDER_STATUS = '-status';
+    public const ORDER_STATUS2 = 'status';
+    public const ORDER_EXPIRES_AT = '-expires_at';
+    public const ORDER_EXPIRES_AT2 = 'expires_at';
     public const FIELDS_CODE = 'code';
     public const FIELDS_VOUCHER_TYPE = 'voucher_type';
     public const FIELDS_VALUE = 'value';
@@ -505,176 +361,32 @@ class ExportsCreateRequestBodyParameters implements ModelInterface, ArrayAccess,
     public function getOrderAllowableValues()
     {
         return [
-            self::ORDER_CODE,
-            self::ORDER_CODE2,
-            self::ORDER_VOUCHER_TYPE,
-            self::ORDER_VOUCHER_TYPE2,
-            self::ORDER_VALUE,
-            self::ORDER_VALUE2,
-            self::ORDER_DISCOUNT_TYPE,
-            self::ORDER_DISCOUNT_TYPE2,
-            self::ORDER_CAMPAIGN,
-            self::ORDER_CAMPAIGN2,
-            self::ORDER_CATEGORY,
-            self::ORDER_CATEGORY2,
-            self::ORDER_START_DATE,
-            self::ORDER_START_DATE2,
-            self::ORDER_EXPIRATION_DATE,
-            self::ORDER_EXPIRATION_DATE2,
-            self::ORDER_GIFT_BALANCE,
-            self::ORDER_GIFT_BALANCE2,
-            self::ORDER_LOYALTY_BALANCE,
-            self::ORDER_LOYALTY_BALANCE2,
-            self::ORDER_REDEMPTION_QUANTITY,
-            self::ORDER_REDEMPTION_QUANTITY2,
-            self::ORDER_REDEMPTION_COUNT,
-            self::ORDER_REDEMPTION_COUNT2,
-            self::ORDER_ACTIVE,
-            self::ORDER_ACTIVE2,
-            self::ORDER_QR_CODE,
-            self::ORDER_QR_CODE2,
-            self::ORDER_BAR_CODE,
-            self::ORDER_BAR_CODE2,
-            self::ORDER_METADATA,
-            self::ORDER_METADATA2,
-            self::ORDER_ID,
-            self::ORDER_ID2,
-            self::ORDER_IS_REFERRAL_CODE,
-            self::ORDER_IS_REFERRAL_CODE2,
             self::ORDER_CREATED_AT,
             self::ORDER_CREATED_AT2,
             self::ORDER_UPDATED_AT,
             self::ORDER_UPDATED_AT2,
-            self::ORDER_VALIDITY_TIMEFRAME_INTERVAL,
-            self::ORDER_VALIDITY_TIMEFRAME_INTERVAL2,
-            self::ORDER_VALIDITY_TIMEFRAME_DURATION,
-            self::ORDER_VALIDITY_TIMEFRAME_DURATION2,
-            self::ORDER_VALIDITY_DAY_OF_WEEK,
-            self::ORDER_VALIDITY_DAY_OF_WEEK2,
-            self::ORDER_DISCOUNT_AMOUNT_LIMIT,
-            self::ORDER_DISCOUNT_AMOUNT_LIMIT2,
-            self::ORDER_CAMPAIGN_ID,
-            self::ORDER_CAMPAIGN_ID2,
-            self::ORDER_ADDITIONAL_INFO,
-            self::ORDER_ADDITIONAL_INFO2,
-            self::ORDER_CUSTOMER_ID,
-            self::ORDER_CUSTOMER_ID2,
-            self::ORDER_DISCOUNT_UNIT_TYPE,
-            self::ORDER_DISCOUNT_UNIT_TYPE2,
-            self::ORDER_DISCOUNT_UNIT_EFFECT,
-            self::ORDER_DISCOUNT_UNIT_EFFECT2,
-            self::ORDER_CUSTOMER_SOURCE_ID,
-            self::ORDER_CUSTOMER_SOURCE_ID2,
-            self::ORDER_OBJECT,
-            self::ORDER_OBJECT2,
-            self::ORDER_DATE,
-            self::ORDER_DATE2,
+            self::ORDER_CODE,
+            self::ORDER_CODE2,
+            self::ORDER_ID,
+            self::ORDER_ID2,
             self::ORDER_VOUCHER_CODE,
             self::ORDER_VOUCHER_CODE2,
-            self::ORDER_PROMOTION_TIER_ID,
-            self::ORDER_PROMOTION_TIER_ID2,
-            self::ORDER_CUSTOMER_NAME,
-            self::ORDER_CUSTOMER_NAME2,
             self::ORDER_TRACKING_ID,
             self::ORDER_TRACKING_ID2,
-            self::ORDER_ORDER_AMOUNT,
-            self::ORDER_ORDER_AMOUNT2,
-            self::ORDER_GIFT_AMOUNT,
-            self::ORDER_GIFT_AMOUNT2,
-            self::ORDER_LOYALTY_POINTS,
-            self::ORDER_LOYALTY_POINTS2,
-            self::ORDER_RESULT,
-            self::ORDER_RESULT2,
-            self::ORDER_FAILURE_CODE,
-            self::ORDER_FAILURE_CODE2,
-            self::ORDER_FAILURE_MESSAGE,
-            self::ORDER_FAILURE_MESSAGE2,
+            self::ORDER_CUSTOMER_ID,
+            self::ORDER_CUSTOMER_ID2,
             self::ORDER_NAME,
             self::ORDER_NAME2,
-            self::ORDER_DESCRIPTION,
-            self::ORDER_DESCRIPTION2,
             self::ORDER_EMAIL,
             self::ORDER_EMAIL2,
             self::ORDER_SOURCE_ID,
             self::ORDER_SOURCE_ID2,
-            self::ORDER_ADDRESS_CITY,
-            self::ORDER_ADDRESS_CITY2,
-            self::ORDER_ADDRESS_STATE,
-            self::ORDER_ADDRESS_STATE2,
-            self::ORDER_ADDRESS_LINE_1,
-            self::ORDER_ADDRESS_LINE_12,
-            self::ORDER_ADDRESS_LINE_2,
-            self::ORDER_ADDRESS_LINE_22,
-            self::ORDER_ADDRESS_COUNTRY,
-            self::ORDER_ADDRESS_COUNTRY2,
-            self::ORDER_ADDRESS_POSTAL_CODE,
-            self::ORDER_ADDRESS_POSTAL_CODE2,
-            self::ORDER_REDEMPTIONS_TOTAL_REDEEMED,
-            self::ORDER_REDEMPTIONS_TOTAL_REDEEMED2,
-            self::ORDER_REDEMPTIONS_TOTAL_FAILED,
-            self::ORDER_REDEMPTIONS_TOTAL_FAILED2,
-            self::ORDER_REDEMPTIONS_TOTAL_SUCCEEDED,
-            self::ORDER_REDEMPTIONS_TOTAL_SUCCEEDED2,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLED_BACK,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLED_BACK2,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLBACK_FAILED,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLBACK_FAILED2,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLBACK_SUCCEEDED,
-            self::ORDER_REDEMPTIONS_TOTAL_ROLLBACK_SUCCEEDED2,
-            self::ORDER_ORDERS_TOTAL_AMOUNT,
-            self::ORDER_ORDERS_TOTAL_AMOUNT2,
-            self::ORDER_ORDERS_TOTAL_COUNT,
-            self::ORDER_ORDERS_TOTAL_COUNT2,
-            self::ORDER_ORDERS_AVERAGE_AMOUNT,
-            self::ORDER_ORDERS_AVERAGE_AMOUNT2,
-            self::ORDER_ORDERS_LAST_ORDER_AMOUNT,
-            self::ORDER_ORDERS_LAST_ORDER_AMOUNT2,
-            self::ORDER_ORDERS_LAST_ORDER_DATE,
-            self::ORDER_ORDERS_LAST_ORDER_DATE2,
-            self::ORDER_LOYALTY_REFERRED_CUSTOMERS,
-            self::ORDER_LOYALTY_REFERRED_CUSTOMERS2,
-            self::ORDER_PHONE,
-            self::ORDER_PHONE2,
-            self::ORDER_BIRTHDAY,
-            self::ORDER_BIRTHDAY2,
-            self::ORDER_BIRTHDATE,
-            self::ORDER_BIRTHDATE2,
             self::ORDER_CHANNEL,
             self::ORDER_CHANNEL2,
-            self::ORDER_IS_WINNER,
-            self::ORDER_IS_WINNER2,
             self::ORDER_STATUS,
             self::ORDER_STATUS2,
-            self::ORDER_AMOUNT,
-            self::ORDER_AMOUNT2,
-            self::ORDER_DISCOUNT_AMOUNT,
-            self::ORDER_DISCOUNT_AMOUNT2,
-            self::ORDER_ITEMS_DISCOUNT_AMOUNT,
-            self::ORDER_ITEMS_DISCOUNT_AMOUNT2,
-            self::ORDER_TOTAL_DISCOUNT_AMOUNT,
-            self::ORDER_TOTAL_DISCOUNT_AMOUNT2,
-            self::ORDER_TOTAL_AMOUNT,
-            self::ORDER_TOTAL_AMOUNT2,
-            self::ORDER_REFERRER_ID,
-            self::ORDER_REFERRER_ID2,
-            self::ORDER_VOUCHER_ID,
-            self::ORDER_VOUCHER_ID2,
-            self::ORDER_POINTS,
-            self::ORDER_POINTS2,
             self::ORDER_EXPIRES_AT,
             self::ORDER_EXPIRES_AT2,
-            self::ORDER_TYPE,
-            self::ORDER_TYPE2,
-            self::ORDER_REASON,
-            self::ORDER_REASON2,
-            self::ORDER_SOURCE,
-            self::ORDER_SOURCE2,
-            self::ORDER_BALANCE,
-            self::ORDER_BALANCE2,
-            self::ORDER_RELATED_TRANSACTION_ID,
-            self::ORDER_RELATED_TRANSACTION_ID2,
-            self::ORDER_DETAILS,
-            self::ORDER_DETAILS2,
         ];
     }
 

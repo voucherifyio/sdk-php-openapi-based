@@ -78,6 +78,9 @@ class ExportsApi
         'deleteExport' => [
             'application/json',
         ],
+        'downloadExport' => [
+            'application/json',
+        ],
         'getExport' => [
             'application/json',
         ],
@@ -651,6 +654,304 @@ class ExportsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation downloadExport
+     *
+     * Download Export
+     *
+     * @param  string $export_id Unique export object ID. (required)
+     * @param  string $token Token that was issued to the export, to get this token, get the export first (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadExport'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function downloadExport($export_id, $token = null, string $contentType = self::contentTypes['downloadExport'][0])
+    {
+        list($response) = $this->downloadExportWithHttpInfo($export_id, $token, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation downloadExportWithHttpInfo
+     *
+     * Download Export
+     *
+     * @param  string $export_id Unique export object ID. (required)
+     * @param  string $token Token that was issued to the export, to get this token, get the export first (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadExport'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function downloadExportWithHttpInfo($export_id, $token = null, string $contentType = self::contentTypes['downloadExport'][0])
+    {
+        $request = $this->downloadExportRequest($export_id, $token, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('string' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('string' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'string', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'string';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation downloadExportAsync
+     *
+     * Download Export
+     *
+     * @param  string $export_id Unique export object ID. (required)
+     * @param  string $token Token that was issued to the export, to get this token, get the export first (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadExportAsync($export_id, $token = null, string $contentType = self::contentTypes['downloadExport'][0])
+    {
+        return $this->downloadExportAsyncWithHttpInfo($export_id, $token, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation downloadExportAsyncWithHttpInfo
+     *
+     * Download Export
+     *
+     * @param  string $export_id Unique export object ID. (required)
+     * @param  string $token Token that was issued to the export, to get this token, get the export first (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function downloadExportAsyncWithHttpInfo($export_id, $token = null, string $contentType = self::contentTypes['downloadExport'][0])
+    {
+        $returnType = 'string';
+        $request = $this->downloadExportRequest($export_id, $token, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'downloadExport'
+     *
+     * @param  string $export_id Unique export object ID. (required)
+     * @param  string $token Token that was issued to the export, to get this token, get the export first (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadExport'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function downloadExportRequest($export_id, $token = null, string $contentType = self::contentTypes['downloadExport'][0])
+    {
+
+        // verify the required parameter 'export_id' is set
+        if ($export_id === null || (is_array($export_id) && count($export_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $export_id when calling downloadExport'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/exports/{export_Id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $token,
+            'token', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($export_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'export_Id' . '}',
+                ObjectSerializer::toPathValue($export_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['text/plain', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

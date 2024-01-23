@@ -59,18 +59,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPITypes = [
         'junction' => 'string',
-        'id' => '\OpenAPI\Client\Model\FieldConditions',
-        'campaign_id' => '\OpenAPI\Client\Model\FieldConditions',
-        'voucher_id' => '\OpenAPI\Client\Model\FieldConditions',
-        'type' => '\OpenAPI\Client\Model\FieldConditions',
-        'source_id' => '\OpenAPI\Client\Model\FieldConditions',
-        'reason' => '\OpenAPI\Client\Model\FieldConditions',
-        'source' => '\OpenAPI\Client\Model\FieldConditions',
-        'balance' => '\OpenAPI\Client\Model\FieldConditions',
-        'amount' => '\OpenAPI\Client\Model\FieldConditions',
-        'related_transaction_id' => '\OpenAPI\Client\Model\FieldConditions',
         'created_at' => '\OpenAPI\Client\Model\FieldConditions',
-        'details' => '\OpenAPI\Client\Model\FieldConditions'
+        'voucher_id' => '\OpenAPI\Client\Model\FieldConditions',
+        'campaign_id' => '\OpenAPI\Client\Model\FieldConditions'
     ];
 
     /**
@@ -82,18 +73,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
       */
     protected static $openAPIFormats = [
         'junction' => null,
-        'id' => null,
-        'campaign_id' => null,
-        'voucher_id' => null,
-        'type' => null,
-        'source_id' => null,
-        'reason' => null,
-        'source' => null,
-        'balance' => null,
-        'amount' => null,
-        'related_transaction_id' => null,
         'created_at' => null,
-        'details' => null
+        'voucher_id' => null,
+        'campaign_id' => null
     ];
 
     /**
@@ -103,18 +85,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
       */
     protected static array $openAPINullables = [
         'junction' => false,
-		'id' => false,
-		'campaign_id' => false,
-		'voucher_id' => false,
-		'type' => false,
-		'source_id' => false,
-		'reason' => false,
-		'source' => false,
-		'balance' => false,
-		'amount' => false,
-		'related_transaction_id' => false,
 		'created_at' => false,
-		'details' => false
+		'voucher_id' => false,
+		'campaign_id' => false
     ];
 
     /**
@@ -204,18 +177,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
      */
     protected static $attributeMap = [
         'junction' => 'junction',
-        'id' => 'id',
-        'campaign_id' => 'campaign_id',
-        'voucher_id' => 'voucher_id',
-        'type' => 'type',
-        'source_id' => 'source_id',
-        'reason' => 'reason',
-        'source' => 'source',
-        'balance' => 'balance',
-        'amount' => 'amount',
-        'related_transaction_id' => 'related_transaction_id',
         'created_at' => 'created_at',
-        'details' => 'details'
+        'voucher_id' => 'voucher_id',
+        'campaign_id' => 'campaign_id'
     ];
 
     /**
@@ -225,18 +189,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
      */
     protected static $setters = [
         'junction' => 'setJunction',
-        'id' => 'setId',
-        'campaign_id' => 'setCampaignId',
-        'voucher_id' => 'setVoucherId',
-        'type' => 'setType',
-        'source_id' => 'setSourceId',
-        'reason' => 'setReason',
-        'source' => 'setSource',
-        'balance' => 'setBalance',
-        'amount' => 'setAmount',
-        'related_transaction_id' => 'setRelatedTransactionId',
         'created_at' => 'setCreatedAt',
-        'details' => 'setDetails'
+        'voucher_id' => 'setVoucherId',
+        'campaign_id' => 'setCampaignId'
     ];
 
     /**
@@ -246,18 +201,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
      */
     protected static $getters = [
         'junction' => 'getJunction',
-        'id' => 'getId',
-        'campaign_id' => 'getCampaignId',
-        'voucher_id' => 'getVoucherId',
-        'type' => 'getType',
-        'source_id' => 'getSourceId',
-        'reason' => 'getReason',
-        'source' => 'getSource',
-        'balance' => 'getBalance',
-        'amount' => 'getAmount',
-        'related_transaction_id' => 'getRelatedTransactionId',
         'created_at' => 'getCreatedAt',
-        'details' => 'getDetails'
+        'voucher_id' => 'getVoucherId',
+        'campaign_id' => 'getCampaignId'
     ];
 
     /**
@@ -333,18 +279,9 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
     public function __construct(array $data = null)
     {
         $this->setIfExists('junction', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('campaign_id', $data ?? [], null);
-        $this->setIfExists('voucher_id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
-        $this->setIfExists('reason', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('balance', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('related_transaction_id', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('details', $data ?? [], null);
+        $this->setIfExists('voucher_id', $data ?? [], null);
+        $this->setIfExists('campaign_id', $data ?? [], null);
     }
 
     /**
@@ -436,55 +373,28 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets id
+     * Gets created_at
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
      */
-    public function getId()
+    public function getCreatedAt()
     {
-        return $this->container['id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets id
+     * Sets created_at
      *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $id id
+     * @param \OpenAPI\Client\Model\FieldConditions|null $created_at created_at
      *
      * @return self
      */
-    public function setId($id)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaign_id'];
-    }
-
-    /**
-     * Sets campaign_id
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $campaign_id campaign_id
-     *
-     * @return self
-     */
-    public function setCampaignId($campaign_id)
-    {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
-        }
-        $this->container['campaign_id'] = $campaign_id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -517,244 +427,28 @@ class ExportVoucherTransactionsFilters implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets type
+     * Gets campaign_id
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
      */
-    public function getType()
+    public function getCampaignId()
     {
-        return $this->container['type'];
+        return $this->container['campaign_id'];
     }
 
     /**
-     * Sets type
+     * Sets campaign_id
      *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $type type
+     * @param \OpenAPI\Client\Model\FieldConditions|null $campaign_id campaign_id
      *
      * @return self
      */
-    public function setType($type)
+    public function setCampaignId($campaign_id)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($campaign_id)) {
+            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets source_id
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $source_id source_id
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $reason reason
-     *
-     * @return self
-     */
-    public function setReason($reason)
-    {
-        if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
-        }
-        $this->container['reason'] = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets balance
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getBalance()
-    {
-        return $this->container['balance'];
-    }
-
-    /**
-     * Sets balance
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $balance balance
-     *
-     * @return self
-     */
-    public function setBalance($balance)
-    {
-        if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
-        }
-        $this->container['balance'] = $balance;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets related_transaction_id
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getRelatedTransactionId()
-    {
-        return $this->container['related_transaction_id'];
-    }
-
-    /**
-     * Sets related_transaction_id
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $related_transaction_id related_transaction_id
-     *
-     * @return self
-     */
-    public function setRelatedTransactionId($related_transaction_id)
-    {
-        if (is_null($related_transaction_id)) {
-            throw new \InvalidArgumentException('non-nullable related_transaction_id cannot be null');
-        }
-        $this->container['related_transaction_id'] = $related_transaction_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return \OpenAPI\Client\Model\FieldConditions|null
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param \OpenAPI\Client\Model\FieldConditions|null $details details
-     *
-     * @return self
-     */
-    public function setDetails($details)
-    {
-        if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
-        }
-        $this->container['details'] = $details;
+        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }
