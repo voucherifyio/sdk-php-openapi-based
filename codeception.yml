@@ -3,8 +3,8 @@ support_namespace: Support
 paths:
     tests: __tests__
     output: __tests__/_output
-    data: __tests__/Support/Data
-    support: __tests__/Support
+    data: __tests__/SupportData
+    support: __tests__
     envs: .env
 actor_suffix: Tester
 extensions:
