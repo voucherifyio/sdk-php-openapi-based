@@ -28,3 +28,6 @@ build/phplint.cache
 /test-requirements.txt
 /.env
 /.idea/
+/__tests__/_generated/
+/__tests__/_output/
+/__tests__/Support/

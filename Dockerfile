@@ -15,4 +15,4 @@ WORKDIR /app
 
 COPY --from=composer /app /app
 
-CMD ["php", "-S", "0.0.0.0:5050", "./__tests__/index.php"]
+CMD ["php", "vendor/bin/codecept", "run", "Unit"]
