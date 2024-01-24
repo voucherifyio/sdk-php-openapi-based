@@ -54,3 +54,8 @@ Test example:
 
 ## Environment variables:
 `.env` file shall be in the root of the project and shall contain `X_APP_ID`, `X_APP_TOKEN` and `VOUCHERIFY_HOST` variables. Check `.env.example` for reference.
+
+## Run tests:
+```bash
+php vendor/bin/codecept run Unit
+```
