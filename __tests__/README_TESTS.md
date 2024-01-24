@@ -1,6 +1,8 @@
 ## Tool:
 We use `codeception` for testing. You shall have installed `codeception` via `composer` in order to run the tests.
 
+`__tests__/UnitTester.php` is used to configure `codeception` and to load `vendor/autoload.php` file. Please do not modify this file!
+
 
 ## How to write tests:
 All tests shall be in `__tests__/Unit/` folder. And shall be named as `*Test.php`. All test functions shall be named as `test*` (see example).
