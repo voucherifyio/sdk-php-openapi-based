@@ -5,6 +5,10 @@ require_once(dirname(dirname(__DIR__)) . '/vendor/autoload.php');
 //test
 class MainTest extends \Codeception\Test\Unit
 {
+    /**
+     * @TODO, refactor test
+     */
+
     protected $productsApiInstance;
     protected $campaignsApiInstance;
     protected $validationRulesApiInstance;

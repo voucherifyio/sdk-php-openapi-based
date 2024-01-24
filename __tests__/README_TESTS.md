@@ -1,11 +1,11 @@
 ## Tool:
-We use `codeception` for testing. You shall have installed `codeception` via `composer` in order to run the tests.
+We use `codeception` for testing. You should have installed `codeception` via `composer` in order to run the tests.
 
 `__tests__/UnitTester.php` is used to configure `codeception` and to load `vendor/autoload.php` file. Please do not modify this file!
 
 
 ## How to write tests:
-All tests shall be in `__tests__/Unit/` folder. And shall be named as `*Test.php`. All test functions shall be named as `test*` (see example).
+All tests should be in `__tests__/Unit/` folder. And should be named as `*Test.php`. All test functions should be named as `test*` (see example).
 
 Import sdk:
 
@@ -53,7 +53,7 @@ Test example:
 
 
 ## Environment variables:
-`.env` file shall be in the root of the project and shall contain `X_APP_ID`, `X_APP_TOKEN` and `VOUCHERIFY_HOST` variables. Check `.env.example` for reference.
+`.env` file should be in the root of the project and should contain `X_APP_ID`, `X_APP_TOKEN` and `VOUCHERIFY_HOST` variables. Check `.env.example` for reference.
 
 ## Run tests:
 
