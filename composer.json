@@ -30,14 +30,10 @@
         "codeception/module-asserts": "*"
     },
     "autoload": {
-        "psr-4": {
-            "OpenAPI\\Client\\": "src/"
-        }
+        "psr-4": { "OpenAPI\\Client\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "OpenAPI\\Client\\Test\\": "tests/"
-        }
+        "psr-4": { "OpenAPI\\Client\\Test\\" : "tests/" }
     },
     "scripts": {
         "test": [

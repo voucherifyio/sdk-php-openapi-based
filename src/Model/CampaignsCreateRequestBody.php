@@ -354,7 +354,7 @@ class CampaignsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public const CAMPAIGN_TYPE_DISCOUNT_COUPONS = 'DISCOUNT_COUPONS';
     public const CAMPAIGN_TYPE_REFERRAL_PROGRAM = 'REFERRAL_PROGRAM';
     public const CAMPAIGN_TYPE_GIFT_VOUCHERS = 'GIFT_VOUCHERS';
-    public const CAMPAIGN_TYPE_LOYALTY_CARD = 'LOYALTY_CARD';
+    public const CAMPAIGN_TYPE_LOYALTY_PROGRAM = 'LOYALTY_PROGRAM';
     public const CAMPAIGN_TYPE_PROMOTION = 'PROMOTION';
     public const CAMPAIGN_TYPE_LUCKY_DRAW = 'LUCKY_DRAW';
 
@@ -382,7 +382,7 @@ class CampaignsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
             self::CAMPAIGN_TYPE_DISCOUNT_COUPONS,
             self::CAMPAIGN_TYPE_REFERRAL_PROGRAM,
             self::CAMPAIGN_TYPE_GIFT_VOUCHERS,
-            self::CAMPAIGN_TYPE_LOYALTY_CARD,
+            self::CAMPAIGN_TYPE_LOYALTY_PROGRAM,
             self::CAMPAIGN_TYPE_PROMOTION,
             self::CAMPAIGN_TYPE_LUCKY_DRAW,
         ];
