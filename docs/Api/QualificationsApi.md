@@ -5,7 +5,6 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**checkEligibility()**](QualificationsApi.md#checkEligibility) | **POST** /v1/qualifications | Check Eligibility |
-| [**checkEligibilityClientSide()**](QualificationsApi.md#checkEligibilityClientSide) | **POST** /client/v1/qualifications | Check Eligibility (client-side) |
 
 
 ## `checkEligibility()`
@@ -65,73 +64,6 @@ try {
 ### Authorization
 
 [X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `checkEligibilityClientSide()`
-
-```php
-checkEligibilityClientSide($client_qualifications_check_eligibility_request_body): \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityResponseBody
-```
-
-Check Eligibility (client-side)
-
-Generate a list of redeemables that are applicable in the context of the customer and order.  The new qualifications method is an improved version of [Campaign Qualifications](ref:examine-campaigns-qualification), [Voucher Qualifications](ref:examine-vouchers-qualification), and [Promotions Validation](ref:validate-promotions) API requests. The new qualification method introduces the following improvements:  - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  > 👍 Scenario Guide > > Read our dedicated guide to learn about some use cases this endpoint can cover [here](doc:checking-eligibility).  ## Paging   The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables. To get the next batch of redeemables, you need to use the `starting_after` cursor.  To process of paging the redeemables works in the following manner:  - You send the first API request for Qualifications without the `starting_after` parameter. - The response will contain a parameter named `has_more`. If the parameter's value is set to `true`, then more redeemables are available. - Get the value of the `created_at` parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the `starting_after` parameter set to the value taken from the `created_at` parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the `has_more` parameter is set to `true`, apply steps 3-5 to get the next page of redeemables.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: X-Client-Application-Id
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Application-Id', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Application-Id', 'Bearer');
-
-// Configure API key authorization: X-Client-Token
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Token', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\QualificationsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$client_qualifications_check_eligibility_request_body = new \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBody(); // \OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBody | Define order and customer context.
-
-try {
-    $result = $apiInstance->checkEligibilityClientSide($client_qualifications_check_eligibility_request_body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling QualificationsApi->checkEligibilityClientSide: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **client_qualifications_check_eligibility_request_body** | [**\OpenAPI\Client\Model\ClientQualificationsCheckEligibilityRequestBody**](../Model/ClientQualificationsCheckEligibilityRequestBody.md)| Define order and customer context. | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ClientQualificationsCheckEligibilityResponseBody**](../Model/ClientQualificationsCheckEligibilityResponseBody.md)
-
-### Authorization
-
-[X-Client-Application-Id](../../README.md#X-Client-Application-Id), [X-Client-Token](../../README.md#X-Client-Token)
 
 ### HTTP request headers
 
