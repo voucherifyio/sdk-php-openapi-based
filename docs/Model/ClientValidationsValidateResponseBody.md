@@ -11,6 +11,5 @@ Name | Type | Description | Notes
 **order** | [**\OpenAPI\Client\Model\OrderCalculated**](OrderCalculated.md) |  | [optional]
 **tracking_id** | **string** | Hashed customer source ID. | [optional]
 **session** | [**\OpenAPI\Client\Model\Session**](Session.md) |  | [optional]
-**stacking_rules** | [**\OpenAPI\Client\Model\StackingRules**](StackingRules.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

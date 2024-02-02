@@ -65,8 +65,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'tracking_id' => 'string',
-        'session' => '\OpenAPI\Client\Model\Session',
-        'stacking_rules' => '\OpenAPI\Client\Model\StackingRules'
+        'session' => '\OpenAPI\Client\Model\Session'
     ];
 
     /**
@@ -83,8 +82,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         'inapplicable_redeemables' => null,
         'order' => null,
         'tracking_id' => null,
-        'session' => null,
-        'stacking_rules' => null
+        'session' => null
     ];
 
     /**
@@ -99,8 +97,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
 		'inapplicable_redeemables' => false,
 		'order' => false,
 		'tracking_id' => false,
-		'session' => false,
-		'stacking_rules' => false
+		'session' => false
     ];
 
     /**
@@ -195,8 +192,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         'inapplicable_redeemables' => 'inapplicable_redeemables',
         'order' => 'order',
         'tracking_id' => 'tracking_id',
-        'session' => 'session',
-        'stacking_rules' => 'stacking_rules'
+        'session' => 'session'
     ];
 
     /**
@@ -211,8 +207,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         'inapplicable_redeemables' => 'setInapplicableRedeemables',
         'order' => 'setOrder',
         'tracking_id' => 'setTrackingId',
-        'session' => 'setSession',
-        'stacking_rules' => 'setStackingRules'
+        'session' => 'setSession'
     ];
 
     /**
@@ -227,8 +222,7 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         'inapplicable_redeemables' => 'getInapplicableRedeemables',
         'order' => 'getOrder',
         'tracking_id' => 'getTrackingId',
-        'session' => 'getSession',
-        'stacking_rules' => 'getStackingRules'
+        'session' => 'getSession'
     ];
 
     /**
@@ -295,7 +289,6 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('session', $data ?? [], null);
-        $this->setIfExists('stacking_rules', $data ?? [], null);
     }
 
     /**
@@ -531,33 +524,6 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable session cannot be null');
         }
         $this->container['session'] = $session;
-
-        return $this;
-    }
-
-    /**
-     * Gets stacking_rules
-     *
-     * @return \OpenAPI\Client\Model\StackingRules|null
-     */
-    public function getStackingRules()
-    {
-        return $this->container['stacking_rules'];
-    }
-
-    /**
-     * Sets stacking_rules
-     *
-     * @param \OpenAPI\Client\Model\StackingRules|null $stacking_rules stacking_rules
-     *
-     * @return self
-     */
-    public function setStackingRules($stacking_rules)
-    {
-        if (is_null($stacking_rules)) {
-            throw new \InvalidArgumentException('non-nullable stacking_rules cannot be null');
-        }
-        $this->container['stacking_rules'] = $stacking_rules;
 
         return $this;
     }

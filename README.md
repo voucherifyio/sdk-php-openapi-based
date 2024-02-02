@@ -600,6 +600,8 @@ Class | Method | HTTP request | Description
 - [QualificationsFiltersCondition](docs/Model/QualificationsFiltersCondition.md)
 - [QualificationsOption](docs/Model/QualificationsOption.md)
 - [QualificationsOptionFilters](docs/Model/QualificationsOptionFilters.md)
+- [QualificationsOptionFiltersResourceType](docs/Model/QualificationsOptionFiltersResourceType.md)
+- [QualificationsOptionFiltersResourceTypeConditions](docs/Model/QualificationsOptionFiltersResourceTypeConditions.md)
 - [QualificationsRedeemable](docs/Model/QualificationsRedeemable.md)
 - [QualificationsRedeemableBase](docs/Model/QualificationsRedeemableBase.md)
 - [QualificationsRedeemables](docs/Model/QualificationsRedeemables.md)

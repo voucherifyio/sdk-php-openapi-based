@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **category_id** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
 **campaign_id** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
 **resource_id** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
-**resource_type** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
+**resource_type** | [**\OpenAPI\Client\Model\QualificationsOptionFiltersResourceType**](QualificationsOptionFiltersResourceType.md) |  | [optional]
 **voucher_type** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
 **code** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
 

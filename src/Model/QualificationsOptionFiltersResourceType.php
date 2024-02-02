@@ -1,6 +1,6 @@
 <?php
 /**
- * QualificationsOptionFilters
+ * QualificationsOptionFiltersResourceType
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * QualificationsOptionFilters Class Doc Comment
+ * QualificationsOptionFiltersResourceType Class Doc Comment
  *
  * @category Class
- * @description A set of filters to return only a specific category or type of redeemable.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonSerializable
+class QualificationsOptionFiltersResourceType implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'QualificationsOption_filters';
+    protected static $openAPIModelName = 'QualificationsOption_filters_resource_type';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +58,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'junction' => 'string',
-        'category_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
-        'campaign_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
-        'resource_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
-        'resource_type' => '\OpenAPI\Client\Model\QualificationsOptionFiltersResourceType',
-        'voucher_type' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
-        'code' => '\OpenAPI\Client\Model\QualificationsFieldConditions'
+        'conditions' => '\OpenAPI\Client\Model\QualificationsOptionFiltersResourceTypeConditions'
     ];
 
     /**
@@ -76,13 +69,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'junction' => null,
-        'category_id' => null,
-        'campaign_id' => null,
-        'resource_id' => null,
-        'resource_type' => null,
-        'voucher_type' => null,
-        'code' => null
+        'conditions' => null
     ];
 
     /**
@@ -91,13 +78,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'junction' => false,
-		'category_id' => false,
-		'campaign_id' => false,
-		'resource_id' => false,
-		'resource_type' => false,
-		'voucher_type' => false,
-		'code' => false
+        'conditions' => false
     ];
 
     /**
@@ -186,13 +167,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'junction' => 'junction',
-        'category_id' => 'category_id',
-        'campaign_id' => 'campaign_id',
-        'resource_id' => 'resource_id',
-        'resource_type' => 'resource_type',
-        'voucher_type' => 'voucher_type',
-        'code' => 'code'
+        'conditions' => 'conditions'
     ];
 
     /**
@@ -201,13 +176,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'junction' => 'setJunction',
-        'category_id' => 'setCategoryId',
-        'campaign_id' => 'setCampaignId',
-        'resource_id' => 'setResourceId',
-        'resource_type' => 'setResourceType',
-        'voucher_type' => 'setVoucherType',
-        'code' => 'setCode'
+        'conditions' => 'setConditions'
     ];
 
     /**
@@ -216,13 +185,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'junction' => 'getJunction',
-        'category_id' => 'getCategoryId',
-        'campaign_id' => 'getCampaignId',
-        'resource_id' => 'getResourceId',
-        'resource_type' => 'getResourceType',
-        'voucher_type' => 'getVoucherType',
-        'code' => 'getCode'
+        'conditions' => 'getConditions'
     ];
 
     /**
@@ -266,21 +229,6 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const JUNCTION__AND = 'and';
-    public const JUNCTION__OR = 'or';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getJunctionAllowableValues()
-    {
-        return [
-            self::JUNCTION__AND,
-            self::JUNCTION__OR,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -297,13 +245,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('junction', $data ?? [], null);
-        $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('campaign_id', $data ?? [], null);
-        $this->setIfExists('resource_id', $data ?? [], null);
-        $this->setIfExists('resource_type', $data ?? [], null);
-        $this->setIfExists('voucher_type', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('conditions', $data ?? [], null);
     }
 
     /**
@@ -333,15 +275,6 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getJunctionAllowableValues();
-        if (!is_null($this->container['junction']) && !in_array($this->container['junction'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'junction', must be one of '%s'",
-                $this->container['junction'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -358,200 +291,28 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets junction
+     * Gets conditions
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\QualificationsOptionFiltersResourceTypeConditions|null
      */
-    public function getJunction()
+    public function getConditions()
     {
-        return $this->container['junction'];
+        return $this->container['conditions'];
     }
 
     /**
-     * Sets junction
+     * Sets conditions
      *
-     * @param string|null $junction Logical Operator Between Filters. Filter by conditions set on the `junction` parameter indicating how the `conditions` should be accounted for in the query. An `AND` is an all-inclusive logical operator, meaning the `AND` operator displays a record if **ALL** the conditions separated by AND are TRUE, while  an `OR` operator displays a record if **ANY** of the conditions separated by OR is TRUE.
+     * @param \OpenAPI\Client\Model\QualificationsOptionFiltersResourceTypeConditions|null $conditions conditions
      *
      * @return self
      */
-    public function setJunction($junction)
+    public function setConditions($conditions)
     {
-        if (is_null($junction)) {
-            throw new \InvalidArgumentException('non-nullable junction cannot be null');
+        if (is_null($conditions)) {
+            throw new \InvalidArgumentException('non-nullable conditions cannot be null');
         }
-        $allowedValues = $this->getJunctionAllowableValues();
-        if (!in_array($junction, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'junction', must be one of '%s'",
-                    $junction,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['junction'] = $junction;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_id
-     *
-     * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
-     */
-    public function getCategoryId()
-    {
-        return $this->container['category_id'];
-    }
-
-    /**
-     * Sets category_id
-     *
-     * @param \OpenAPI\Client\Model\QualificationsFieldConditions|null $category_id category_id
-     *
-     * @return self
-     */
-    public function setCategoryId($category_id)
-    {
-        if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
-        }
-        $this->container['category_id'] = $category_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
-     *
-     * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaign_id'];
-    }
-
-    /**
-     * Sets campaign_id
-     *
-     * @param \OpenAPI\Client\Model\QualificationsFieldConditions|null $campaign_id campaign_id
-     *
-     * @return self
-     */
-    public function setCampaignId($campaign_id)
-    {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
-        }
-        $this->container['campaign_id'] = $campaign_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_id
-     *
-     * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
-     */
-    public function getResourceId()
-    {
-        return $this->container['resource_id'];
-    }
-
-    /**
-     * Sets resource_id
-     *
-     * @param \OpenAPI\Client\Model\QualificationsFieldConditions|null $resource_id resource_id
-     *
-     * @return self
-     */
-    public function setResourceId($resource_id)
-    {
-        if (is_null($resource_id)) {
-            throw new \InvalidArgumentException('non-nullable resource_id cannot be null');
-        }
-        $this->container['resource_id'] = $resource_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets resource_type
-     *
-     * @return \OpenAPI\Client\Model\QualificationsOptionFiltersResourceType|null
-     */
-    public function getResourceType()
-    {
-        return $this->container['resource_type'];
-    }
-
-    /**
-     * Sets resource_type
-     *
-     * @param \OpenAPI\Client\Model\QualificationsOptionFiltersResourceType|null $resource_type resource_type
-     *
-     * @return self
-     */
-    public function setResourceType($resource_type)
-    {
-        if (is_null($resource_type)) {
-            throw new \InvalidArgumentException('non-nullable resource_type cannot be null');
-        }
-        $this->container['resource_type'] = $resource_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets voucher_type
-     *
-     * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
-     */
-    public function getVoucherType()
-    {
-        return $this->container['voucher_type'];
-    }
-
-    /**
-     * Sets voucher_type
-     *
-     * @param \OpenAPI\Client\Model\QualificationsFieldConditions|null $voucher_type voucher_type
-     *
-     * @return self
-     */
-    public function setVoucherType($voucher_type)
-    {
-        if (is_null($voucher_type)) {
-            throw new \InvalidArgumentException('non-nullable voucher_type cannot be null');
-        }
-        $this->container['voucher_type'] = $voucher_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param \OpenAPI\Client\Model\QualificationsFieldConditions|null $code code
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
-        }
-        $this->container['code'] = $code;
+        $this->container['conditions'] = $conditions;
 
         return $this;
     }
