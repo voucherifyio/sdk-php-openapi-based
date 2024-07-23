@@ -729,13 +729,13 @@ class RedemptionsApi
      *
      * List Redemptions
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  string $result A filter on the list based on the redemption result. Available options are: &#x60;SUCCESS&#x60;, &#x60;FAILURE&#x60;. You can provide multiple values by repeating the param. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $result A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. (optional)
      * @param  string $campaign A filter by the campaign **name** that the redemption resources originate from. (optional)
-     * @param  string $customer Return redemptions performed by the customer with given &#x60;id&#x60; or &#x60;source_id&#x60;. (optional)
+     * @param  string $customer Return redemptions performed by the customer with given id or source_id. (optional)
      * @param  ParameterOrderListRedemptions $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param  ParameterFiltersListRedemptions $filters Filters for listing responses. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRedemptions'] to see the possible values for this operation
      *
@@ -754,13 +754,13 @@ class RedemptionsApi
      *
      * List Redemptions
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  string $result A filter on the list based on the redemption result. Available options are: &#x60;SUCCESS&#x60;, &#x60;FAILURE&#x60;. You can provide multiple values by repeating the param. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $result A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. (optional)
      * @param  string $campaign A filter by the campaign **name** that the redemption resources originate from. (optional)
-     * @param  string $customer Return redemptions performed by the customer with given &#x60;id&#x60; or &#x60;source_id&#x60;. (optional)
+     * @param  string $customer Return redemptions performed by the customer with given id or source_id. (optional)
      * @param  ParameterOrderListRedemptions $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param  ParameterFiltersListRedemptions $filters Filters for listing responses. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRedemptions'] to see the possible values for this operation
      *
@@ -861,13 +861,13 @@ class RedemptionsApi
      *
      * List Redemptions
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  string $result A filter on the list based on the redemption result. Available options are: &#x60;SUCCESS&#x60;, &#x60;FAILURE&#x60;. You can provide multiple values by repeating the param. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $result A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. (optional)
      * @param  string $campaign A filter by the campaign **name** that the redemption resources originate from. (optional)
-     * @param  string $customer Return redemptions performed by the customer with given &#x60;id&#x60; or &#x60;source_id&#x60;. (optional)
+     * @param  string $customer Return redemptions performed by the customer with given id or source_id. (optional)
      * @param  ParameterOrderListRedemptions $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param  ParameterFiltersListRedemptions $filters Filters for listing responses. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRedemptions'] to see the possible values for this operation
      *
@@ -889,13 +889,13 @@ class RedemptionsApi
      *
      * List Redemptions
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  string $result A filter on the list based on the redemption result. Available options are: &#x60;SUCCESS&#x60;, &#x60;FAILURE&#x60;. You can provide multiple values by repeating the param. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $result A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. (optional)
      * @param  string $campaign A filter by the campaign **name** that the redemption resources originate from. (optional)
-     * @param  string $customer Return redemptions performed by the customer with given &#x60;id&#x60; or &#x60;source_id&#x60;. (optional)
+     * @param  string $customer Return redemptions performed by the customer with given id or source_id. (optional)
      * @param  ParameterOrderListRedemptions $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param  ParameterFiltersListRedemptions $filters Filters for listing responses. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRedemptions'] to see the possible values for this operation
      *
@@ -946,13 +946,13 @@ class RedemptionsApi
     /**
      * Create request for operation 'listRedemptions'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  string $result A filter on the list based on the redemption result. Available options are: &#x60;SUCCESS&#x60;, &#x60;FAILURE&#x60;. You can provide multiple values by repeating the param. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $result A filter on the list based on the redemption result. Available options are: SUCCESS, FAILURE. You can provide multiple values by repeating the param. (optional)
      * @param  string $campaign A filter by the campaign **name** that the redemption resources originate from. (optional)
-     * @param  string $customer Return redemptions performed by the customer with given &#x60;id&#x60; or &#x60;source_id&#x60;. (optional)
+     * @param  string $customer Return redemptions performed by the customer with given id or source_id. (optional)
      * @param  ParameterOrderListRedemptions $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
-     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object &#x60;created_at&#x60; field. The value is a dictionary with the following options: &#x60;before&#x60;, &#x60;after&#x60;. A date value must be presented in ISO 8601 format (&#x60;2016-11-16T14:14:31Z&#x60; or &#x60;2016-11-16&#x60;). An example: &#x60;[created_at][before]&#x3D;2017-09-08T13:52:18.227Z&#x60; (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
      * @param  ParameterFiltersListRedemptions $filters Filters for listing responses. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRedemptions'] to see the possible values for this operation
      *
@@ -971,6 +971,9 @@ class RedemptionsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling RedemptionsApi.listRedemptions, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling RedemptionsApi.listRedemptions, must be bigger than or equal to 1.');
         }
         
 
@@ -1419,7 +1422,7 @@ class RedemptionsApi
      *
      * @param  string $redemption_id The original redemption ID to be rolled back (undone). (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbackCreateRequestBody $redemptions_rollback_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackRedemption'] to see the possible values for this operation
      *
@@ -1440,7 +1443,7 @@ class RedemptionsApi
      *
      * @param  string $redemption_id The original redemption ID to be rolled back (undone). (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbackCreateRequestBody $redemptions_rollback_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackRedemption'] to see the possible values for this operation
      *
@@ -1543,7 +1546,7 @@ class RedemptionsApi
      *
      * @param  string $redemption_id The original redemption ID to be rolled back (undone). (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbackCreateRequestBody $redemptions_rollback_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackRedemption'] to see the possible values for this operation
      *
@@ -1567,7 +1570,7 @@ class RedemptionsApi
      *
      * @param  string $redemption_id The original redemption ID to be rolled back (undone). (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbackCreateRequestBody $redemptions_rollback_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackRedemption'] to see the possible values for this operation
      *
@@ -1620,7 +1623,7 @@ class RedemptionsApi
      *
      * @param  string $redemption_id The original redemption ID to be rolled back (undone). (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbackCreateRequestBody $redemptions_rollback_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackRedemption'] to see the possible values for this operation
      *
@@ -1753,9 +1756,9 @@ class RedemptionsApi
      *
      * Rollback Stackable Redemptions
      *
-     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. &#x60;r_JQfm73zWSJFQxs3bGxweYjgm&#x60;. (required)
+     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbacksCreateRequestBody $redemptions_rollbacks_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackStackedRedemptions'] to see the possible values for this operation
      *
@@ -1774,9 +1777,9 @@ class RedemptionsApi
      *
      * Rollback Stackable Redemptions
      *
-     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. &#x60;r_JQfm73zWSJFQxs3bGxweYjgm&#x60;. (required)
+     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbacksCreateRequestBody $redemptions_rollbacks_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackStackedRedemptions'] to see the possible values for this operation
      *
@@ -1877,9 +1880,9 @@ class RedemptionsApi
      *
      * Rollback Stackable Redemptions
      *
-     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. &#x60;r_JQfm73zWSJFQxs3bGxweYjgm&#x60;. (required)
+     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbacksCreateRequestBody $redemptions_rollbacks_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackStackedRedemptions'] to see the possible values for this operation
      *
@@ -1901,9 +1904,9 @@ class RedemptionsApi
      *
      * Rollback Stackable Redemptions
      *
-     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. &#x60;r_JQfm73zWSJFQxs3bGxweYjgm&#x60;. (required)
+     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbacksCreateRequestBody $redemptions_rollbacks_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackStackedRedemptions'] to see the possible values for this operation
      *
@@ -1954,9 +1957,9 @@ class RedemptionsApi
     /**
      * Create request for operation 'rollbackStackedRedemptions'
      *
-     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. &#x60;r_JQfm73zWSJFQxs3bGxweYjgm&#x60;. (required)
+     * @param  string $parent_redemption_id Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. (required)
      * @param  string $reason Reason for the rollback. (optional)
-     * @param  string $tracking_id Customer&#39;s &#x60;source_id&#x60;. (optional)
+     * @param  string $tracking_id Customers source_id. (optional)
      * @param  \OpenAPI\Client\Model\RedemptionsRollbacksCreateRequestBody $redemptions_rollbacks_create_request_body Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rollbackStackedRedemptions'] to see the possible values for this operation
      *

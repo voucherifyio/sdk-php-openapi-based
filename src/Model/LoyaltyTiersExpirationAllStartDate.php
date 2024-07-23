@@ -79,7 +79,7 @@ class LoyaltyTiersExpirationAllStartDate implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false
+        'type' => true
     ];
 
     /**
@@ -291,9 +291,6 @@ class LoyaltyTiersExpirationAllStartDate implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -321,7 +318,7 @@ class LoyaltyTiersExpirationAllStartDate implements ModelInterface, ArrayAccess,
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -331,17 +328,24 @@ class LoyaltyTiersExpirationAllStartDate implements ModelInterface, ArrayAccess,
     /**
      * Sets type
      *
-     * @param string $type What triggers the tier to be valid for a customer.     `IMMEDIATE`: After reaching the minimum required points.  `NEXT_PERIOD`: When the next qualification period starts.
+     * @param string|null $type What triggers the tier to be valid for a customer.     `IMMEDIATE`: After reaching the minimum required points.  `NEXT_PERIOD`: When the next qualification period starts.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",

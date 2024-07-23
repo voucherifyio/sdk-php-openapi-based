@@ -87,11 +87,11 @@ class RedemptionsRollbackCreateRequestBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'reason' => false,
-		'tracking_id' => false,
+        'reason' => true,
+		'tracking_id' => true,
 		'customer' => false,
 		'order' => false,
-		'metadata' => false
+		'metadata' => true
     ];
 
     /**
@@ -339,7 +339,14 @@ class RedemptionsRollbackCreateRequestBody implements ModelInterface, ArrayAcces
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -366,7 +373,14 @@ class RedemptionsRollbackCreateRequestBody implements ModelInterface, ArrayAcces
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -447,7 +461,14 @@ class RedemptionsRollbackCreateRequestBody implements ModelInterface, ArrayAcces
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

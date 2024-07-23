@@ -100,18 +100,18 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false,
-		'product_id' => false,
-		'sku' => false,
+        'id' => true,
+		'source_id' => true,
+		'product_id' => true,
+		'sku' => true,
 		'price' => true,
 		'currency' => true,
-		'attributes' => false,
+		'attributes' => true,
 		'image_url' => true,
-		'metadata' => false,
-		'created_at' => false,
+		'metadata' => true,
+		'created_at' => true,
 		'updated_at' => true,
-		'object' => false
+		'object' => true
     ];
 
     /**
@@ -409,7 +409,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -436,7 +443,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -463,7 +477,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -490,7 +511,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setSku($sku)
     {
         if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku'] = $sku;
 
@@ -585,7 +613,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -646,7 +681,14 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -666,14 +708,21 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the SKU was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the SKU was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -693,7 +742,7 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the SKU was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the SKU was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -727,17 +776,24 @@ class CustomerActivityDataRedemptionRewardSku implements ModelInterface, ArrayAc
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. This object stores information about the `SKU`.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the `SKU`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

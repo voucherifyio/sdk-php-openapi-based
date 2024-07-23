@@ -393,7 +393,7 @@ class LoyaltiesMembersRewardsListResponseBodyDataItem implements ModelInterface,
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */

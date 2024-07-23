@@ -453,7 +453,7 @@ class ProductsApi
      *
      * Create SKU
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusCreateRequestBody $products_skus_create_request_body Specify the SKU parameters to be created. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSku'] to see the possible values for this operation
      *
@@ -472,7 +472,7 @@ class ProductsApi
      *
      * Create SKU
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusCreateRequestBody $products_skus_create_request_body Specify the SKU parameters to be created. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSku'] to see the possible values for this operation
      *
@@ -573,7 +573,7 @@ class ProductsApi
      *
      * Create SKU
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusCreateRequestBody $products_skus_create_request_body Specify the SKU parameters to be created. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSku'] to see the possible values for this operation
      *
@@ -595,7 +595,7 @@ class ProductsApi
      *
      * Create SKU
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusCreateRequestBody $products_skus_create_request_body Specify the SKU parameters to be created. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSku'] to see the possible values for this operation
      *
@@ -646,7 +646,7 @@ class ProductsApi
     /**
      * Create request for operation 'createSku'
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusCreateRequestBody $products_skus_create_request_body Specify the SKU parameters to be created. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSku'] to see the possible values for this operation
      *
@@ -760,7 +760,7 @@ class ProductsApi
      * Delete Product
      *
      * @param  string $product_id A Voucherify product ID or source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the product will be removed permanently. Going forward, the user will be able to create another product with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  bool $force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProduct'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -778,7 +778,7 @@ class ProductsApi
      * Delete Product
      *
      * @param  string $product_id A Voucherify product ID or source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the product will be removed permanently. Going forward, the user will be able to create another product with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  bool $force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProduct'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -839,7 +839,7 @@ class ProductsApi
      * Delete Product
      *
      * @param  string $product_id A Voucherify product ID or source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the product will be removed permanently. Going forward, the user will be able to create another product with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  bool $force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -861,7 +861,7 @@ class ProductsApi
      * Delete Product
      *
      * @param  string $product_id A Voucherify product ID or source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the product will be removed permanently. Going forward, the user will be able to create another product with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  bool $force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -899,7 +899,7 @@ class ProductsApi
      * Create request for operation 'deleteProduct'
      *
      * @param  string $product_id A Voucherify product ID or source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the product will be removed permanently. Going forward, the user will be able to create another product with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  bool $force If this flag is set to true, the product and all related SKUs will be removed permanently. If it is set to false or not set at all, the product and all related SKUs will be moved to the bin. Going forward, the user will be able to create another product with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProduct'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1013,9 +1013,9 @@ class ProductsApi
      *
      * Delete SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the SKU will be removed permanently. Going forward, the user will be able to create another SKU with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
+     * @param  bool $force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSku'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1032,9 +1032,9 @@ class ProductsApi
      *
      * Delete SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the SKU will be removed permanently. Going forward, the user will be able to create another SKU with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
+     * @param  bool $force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSku'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1094,9 +1094,9 @@ class ProductsApi
      *
      * Delete SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the SKU will be removed permanently. Going forward, the user will be able to create another SKU with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
+     * @param  bool $force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSku'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1117,9 +1117,9 @@ class ProductsApi
      *
      * Delete SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the SKU will be removed permanently. Going forward, the user will be able to create another SKU with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
+     * @param  bool $force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSku'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1156,9 +1156,9 @@ class ProductsApi
     /**
      * Create request for operation 'deleteSku'
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the SKU will be removed permanently. Going forward, the user will be able to create another SKU with exactly the same &#x60;source_id&#x60;. (optional)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
+     * @param  bool $force If this flag is set to true, the SKU will be removed permanently. If it is set to false or not set at all, the SKU will be moved to the bin. Going forward, the user will be able to create another SKU with exactly the same source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSku'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1873,14 +1873,14 @@ class ProductsApi
      *
      * Import Products using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importProductsUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProductsImportCsvCreateResponseBody
      */
-    public function importProductsUsingCsv($file, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
+    public function importProductsUsingCsv($file = null, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
     {
         list($response) = $this->importProductsUsingCsvWithHttpInfo($file, $contentType);
         return $response;
@@ -1891,14 +1891,14 @@ class ProductsApi
      *
      * Import Products using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importProductsUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProductsImportCsvCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importProductsUsingCsvWithHttpInfo($file, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
+    public function importProductsUsingCsvWithHttpInfo($file = null, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
     {
         $request = $this->importProductsUsingCsvRequest($file, $contentType);
 
@@ -1991,13 +1991,13 @@ class ProductsApi
      *
      * Import Products using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importProductsUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importProductsUsingCsvAsync($file, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
+    public function importProductsUsingCsvAsync($file = null, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
     {
         return $this->importProductsUsingCsvAsyncWithHttpInfo($file, $contentType)
             ->then(
@@ -2012,13 +2012,13 @@ class ProductsApi
      *
      * Import Products using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importProductsUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importProductsUsingCsvAsyncWithHttpInfo($file, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
+    public function importProductsUsingCsvAsyncWithHttpInfo($file = null, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ProductsImportCsvCreateResponseBody';
         $request = $this->importProductsUsingCsvRequest($file, $contentType);
@@ -2062,21 +2062,15 @@ class ProductsApi
     /**
      * Create request for operation 'importProductsUsingCsv'
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importProductsUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importProductsUsingCsvRequest($file, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
+    public function importProductsUsingCsvRequest($file = null, string $contentType = self::contentTypes['importProductsUsingCsv'][0])
     {
 
-        // verify the required parameter 'file' is set
-        if ($file === null || (is_array($file) && count($file) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling importProductsUsingCsv'
-            );
-        }
 
 
         $resourcePath = '/v1/products/importCSV';
@@ -2170,14 +2164,14 @@ class ProductsApi
      *
      * Import SKUs using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importSkusUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SkusImportCsvCreateResponseBody
      */
-    public function importSkusUsingCsv($file, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
+    public function importSkusUsingCsv($file = null, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
     {
         list($response) = $this->importSkusUsingCsvWithHttpInfo($file, $contentType);
         return $response;
@@ -2188,14 +2182,14 @@ class ProductsApi
      *
      * Import SKUs using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importSkusUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SkusImportCsvCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importSkusUsingCsvWithHttpInfo($file, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
+    public function importSkusUsingCsvWithHttpInfo($file = null, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
     {
         $request = $this->importSkusUsingCsvRequest($file, $contentType);
 
@@ -2288,13 +2282,13 @@ class ProductsApi
      *
      * Import SKUs using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importSkusUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importSkusUsingCsvAsync($file, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
+    public function importSkusUsingCsvAsync($file = null, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
     {
         return $this->importSkusUsingCsvAsyncWithHttpInfo($file, $contentType)
             ->then(
@@ -2309,13 +2303,13 @@ class ProductsApi
      *
      * Import SKUs using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importSkusUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importSkusUsingCsvAsyncWithHttpInfo($file, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
+    public function importSkusUsingCsvAsyncWithHttpInfo($file = null, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SkusImportCsvCreateResponseBody';
         $request = $this->importSkusUsingCsvRequest($file, $contentType);
@@ -2359,21 +2353,15 @@ class ProductsApi
     /**
      * Create request for operation 'importSkusUsingCsv'
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importSkusUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importSkusUsingCsvRequest($file, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
+    public function importSkusUsingCsvRequest($file = null, string $contentType = self::contentTypes['importSkusUsingCsv'][0])
     {
 
-        // verify the required parameter 'file' is set
-        if ($file === null || (is_array($file) && count($file) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling importSkusUsingCsv'
-            );
-        }
 
 
         $resourcePath = '/v1/skus/importCSV';
@@ -2467,9 +2455,9 @@ class ProductsApi
      *
      * List Products
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProducts'] to see the possible values for this operation
@@ -2489,9 +2477,9 @@ class ProductsApi
      *
      * List Products
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProducts'] to see the possible values for this operation
@@ -2593,9 +2581,9 @@ class ProductsApi
      *
      * List Products
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProducts'] to see the possible values for this operation
@@ -2618,9 +2606,9 @@ class ProductsApi
      *
      * List Products
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProducts'] to see the possible values for this operation
@@ -2672,9 +2660,9 @@ class ProductsApi
     /**
      * Create request for operation 'listProducts'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProducts'] to see the possible values for this operation
@@ -2694,6 +2682,9 @@ class ProductsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ProductsApi.listProducts, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ProductsApi.listProducts, must be bigger than or equal to 1.');
         }
         
 
@@ -2824,10 +2815,10 @@ class ProductsApi
      *
      * List SKUs in Product
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSkusInProduct'] to see the possible values for this operation
@@ -2847,10 +2838,10 @@ class ProductsApi
      *
      * List SKUs in Product
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSkusInProduct'] to see the possible values for this operation
@@ -2952,10 +2943,10 @@ class ProductsApi
      *
      * List SKUs in Product
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSkusInProduct'] to see the possible values for this operation
@@ -2978,10 +2969,10 @@ class ProductsApi
      *
      * List SKUs in Product
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSkusInProduct'] to see the possible values for this operation
@@ -3033,10 +3024,10 @@ class ProductsApi
     /**
      * Create request for operation 'listSkusInProduct'
      *
-     * @param  string $product_id A Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $product_id A Voucherify product ID or product source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSkusInProduct'] to see the possible values for this operation
@@ -3063,6 +3054,9 @@ class ProductsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ProductsApi.listSkusInProduct, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ProductsApi.listSkusInProduct, must be bigger than or equal to 1.');
         }
         
 
@@ -4079,8 +4073,8 @@ class ProductsApi
      *
      * Update SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusUpdateRequestBody $products_skus_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSku'] to see the possible values for this operation
      *
@@ -4099,8 +4093,8 @@ class ProductsApi
      *
      * Update SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusUpdateRequestBody $products_skus_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSku'] to see the possible values for this operation
      *
@@ -4201,8 +4195,8 @@ class ProductsApi
      *
      * Update SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusUpdateRequestBody $products_skus_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSku'] to see the possible values for this operation
      *
@@ -4224,8 +4218,8 @@ class ProductsApi
      *
      * Update SKU
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusUpdateRequestBody $products_skus_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSku'] to see the possible values for this operation
      *
@@ -4276,8 +4270,8 @@ class ProductsApi
     /**
      * Create request for operation 'updateSku'
      *
-     * @param  string $product_id A unique Voucherify &lt;!-- [product](OpenAPI.json/components/schemas/Product) --&gt;[product](ref:get-product) ID or product source ID. (required)
-     * @param  string $sku_id A Voucherify &lt;!-- [SKU](OpenAPI.json/components/schemas/Sku) --&gt;[SKU ID](ref:get-sku) or SKU source ID. (required)
+     * @param  string $product_id A unique Voucherify product ID or product source ID. (required)
+     * @param  string $sku_id A Voucherify SKU ID or SKU source ID. (required)
      * @param  \OpenAPI\Client\Model\ProductsSkusUpdateRequestBody $products_skus_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSku'] to see the possible values for this operation
      *

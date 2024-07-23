@@ -89,12 +89,12 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'name' => true,
 		'rules' => false,
-		'error' => false,
-		'applicable_to' => false,
-		'type' => false,
-		'context_type' => false
+		'error' => true,
+		'applicable_to' => true,
+		'type' => true,
+		'context_type' => true
     ];
 
     /**
@@ -508,7 +508,14 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -562,7 +569,14 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setError($error)
     {
         if (is_null($error)) {
-            throw new \InvalidArgumentException('non-nullable error cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'error');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['error'] = $error;
 
@@ -589,7 +603,14 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setApplicableTo($applicable_to)
     {
         if (is_null($applicable_to)) {
-            throw new \InvalidArgumentException('non-nullable applicable_to cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applicable_to');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_to', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applicable_to'] = $applicable_to;
 
@@ -616,10 +637,17 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -653,10 +681,17 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setContextType($context_type)
     {
         if (is_null($context_type)) {
-            throw new \InvalidArgumentException('non-nullable context_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'context_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('context_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getContextTypeAllowableValues();
-        if (!in_array($context_type, $allowedValues, true)) {
+        if (!is_null($context_type) && !in_array($context_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'context_type', must be one of '%s'",

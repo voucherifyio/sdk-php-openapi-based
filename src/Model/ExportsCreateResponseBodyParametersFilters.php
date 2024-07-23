@@ -84,7 +84,7 @@ class ExportsCreateResponseBodyParametersFilters implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'junction' => false,
+        'junction' => true,
 		'campaign_id' => false,
 		'voucher_id' => false,
 		'created_at' => false
@@ -355,10 +355,17 @@ class ExportsCreateResponseBodyParametersFilters implements ModelInterface, Arra
     public function setJunction($junction)
     {
         if (is_null($junction)) {
-            throw new \InvalidArgumentException('non-nullable junction cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'junction');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('junction', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getJunctionAllowableValues();
-        if (!in_array($junction, $allowedValues, true)) {
+        if (!is_null($junction) && !in_array($junction, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'junction', must be one of '%s'",

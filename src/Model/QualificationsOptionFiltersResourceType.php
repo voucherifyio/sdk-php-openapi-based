@@ -78,7 +78,7 @@ class QualificationsOptionFiltersResourceType implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'conditions' => false
+        'conditions' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class QualificationsOptionFiltersResourceType implements ModelInterface, ArrayAc
     public function setConditions($conditions)
     {
         if (is_null($conditions)) {
-            throw new \InvalidArgumentException('non-nullable conditions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'conditions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('conditions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['conditions'] = $conditions;
 

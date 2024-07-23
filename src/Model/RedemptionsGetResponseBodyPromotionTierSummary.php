@@ -80,8 +80,8 @@ class RedemptionsGetResponseBodyPromotionTierSummary implements ModelInterface, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'redemptions' => false,
-		'orders' => false
+        'redemptions' => true,
+		'orders' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class RedemptionsGetResponseBodyPromotionTierSummary implements ModelInterface, 
     public function setRedemptions($redemptions)
     {
         if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemptions'] = $redemptions;
 
@@ -344,7 +351,14 @@ class RedemptionsGetResponseBodyPromotionTierSummary implements ModelInterface, 
     public function setOrders($orders)
     {
         if (is_null($orders)) {
-            throw new \InvalidArgumentException('non-nullable orders cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'orders');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('orders', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['orders'] = $orders;
 

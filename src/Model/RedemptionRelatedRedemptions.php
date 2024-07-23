@@ -80,8 +80,8 @@ class RedemptionRelatedRedemptions implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rollbacks' => false,
-		'redemptions' => false
+        'rollbacks' => true,
+		'redemptions' => true
     ];
 
     /**
@@ -317,7 +317,14 @@ class RedemptionRelatedRedemptions implements ModelInterface, ArrayAccess, \Json
     public function setRollbacks($rollbacks)
     {
         if (is_null($rollbacks)) {
-            throw new \InvalidArgumentException('non-nullable rollbacks cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollbacks');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollbacks', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollbacks'] = $rollbacks;
 
@@ -344,7 +351,14 @@ class RedemptionRelatedRedemptions implements ModelInterface, ArrayAccess, \Json
     public function setRedemptions($redemptions)
     {
         if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemptions'] = $redemptions;
 

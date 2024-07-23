@@ -87,11 +87,11 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'balance' => false,
-		'exchange_ratio' => false,
-		'points_ratio' => false,
-		'transfers' => false
+        'points' => true,
+		'balance' => true,
+		'exchange_ratio' => true,
+		'points_ratio' => true,
+		'transfers' => true
     ];
 
     /**
@@ -339,7 +339,14 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -366,7 +373,14 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -393,7 +407,14 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setExchangeRatio($exchange_ratio)
     {
         if (is_null($exchange_ratio)) {
-            throw new \InvalidArgumentException('non-nullable exchange_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exchange_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exchange_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['exchange_ratio'] = $exchange_ratio;
 
@@ -420,7 +441,14 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setPointsRatio($points_ratio)
     {
         if (is_null($points_ratio)) {
-            throw new \InvalidArgumentException('non-nullable points_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points_ratio'] = $points_ratio;
 
@@ -447,7 +475,14 @@ class RedeemableLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setTransfers($transfers)
     {
         if (is_null($transfers)) {
-            throw new \InvalidArgumentException('non-nullable transfers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'transfers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('transfers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['transfers'] = $transfers;
 

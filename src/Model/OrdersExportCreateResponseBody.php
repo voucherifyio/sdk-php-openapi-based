@@ -95,15 +95,15 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'status' => false,
-		'channel' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
+		'status' => true,
+		'channel' => true,
 		'result' => true,
-		'user_id' => false,
-		'exported_object' => false,
-		'parameters' => false
+		'user_id' => true,
+		'exported_object' => true,
+		'parameters' => true
     ];
 
     /**
@@ -371,12 +371,6 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -386,12 +380,6 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -401,15 +389,6 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
             );
         }
 
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
         $allowedValues = $this->getExportedObjectAllowableValues();
         if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -437,7 +416,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -447,14 +426,21 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets id
      *
-     * @param string $id Unique export ID.
+     * @param string|null $id Unique export ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -464,7 +450,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -474,17 +460,24 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets object
      *
-     * @param string $object The type of object being represented. This object stores information about the export.
+     * @param string|null $object The type of object being represented. This object stores information about the export.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -501,7 +494,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -511,14 +504,21 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -528,7 +528,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -538,17 +538,24 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets status
      *
-     * @param string $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
+     * @param string|null $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -582,7 +589,14 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel'] = $channel;
 
@@ -592,7 +606,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets result
      *
-     * @return object
+     * @return object|null
      */
     public function getResult()
     {
@@ -602,7 +616,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets result
      *
-     * @param object $result Contains the URL of the CSV file.
+     * @param object|null $result Contains the URL of the CSV file.
      *
      * @return self
      */
@@ -626,7 +640,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets user_id
      *
-     * @return string
+     * @return string|null
      */
     public function getUserId()
     {
@@ -636,14 +650,21 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets user_id
      *
-     * @param string $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE.
+     * @param string|null $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE.
      *
      * @return self
      */
     public function setUserId($user_id)
     {
         if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'user_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['user_id'] = $user_id;
 
@@ -653,7 +674,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets exported_object
      *
-     * @return string
+     * @return string|null
      */
     public function getExportedObject()
     {
@@ -663,17 +684,24 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets exported_object
      *
-     * @param string $exported_object The type of object to be exported.
+     * @param string|null $exported_object The type of object to be exported.
      *
      * @return self
      */
     public function setExportedObject($exported_object)
     {
         if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exported_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exported_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
+        if (!is_null($exported_object) && !in_array($exported_object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'exported_object', must be one of '%s'",
@@ -707,7 +735,14 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 

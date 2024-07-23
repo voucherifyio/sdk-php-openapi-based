@@ -89,12 +89,12 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false,
-		'override' => false,
-		'name' => false,
-		'metadata' => false,
-		'price' => false
+        'id' => true,
+		'source_id' => true,
+		'override' => true,
+		'name' => true,
+		'metadata' => true,
+		'price' => true
     ];
 
     /**
@@ -346,7 +346,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -373,7 +380,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -400,7 +414,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setOverride($override)
     {
         if (is_null($override)) {
-            throw new \InvalidArgumentException('non-nullable override cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'override');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('override', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['override'] = $override;
 
@@ -427,7 +448,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -454,7 +482,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -481,7 +516,14 @@ class OrderItemCalculatedProduct implements ModelInterface, ArrayAccess, \JsonSe
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 

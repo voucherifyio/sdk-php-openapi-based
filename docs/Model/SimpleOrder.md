@@ -19,6 +19,6 @@ Name | Type | Description | Notes
 **total_amount** | **int** | Order amount after undoing all the discounts through the rollback redemption. | [optional]
 **items** | [**\OpenAPI\Client\Model\SimpleOrderItem[]**](SimpleOrderItem.md) | Array of items applied to the order. | [optional]
 **metadata** | **object** | A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. | [optional]
-**object** | **string** | The type of object represented by JSON. | [default to 'order']
+**object** | **string** | The type of the object represented by JSON. | [optional] [default to 'order']
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -102,19 +102,19 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => false,
-		'assignment_id' => false,
-		'voucher' => false,
-		'product' => false,
-		'sku' => false,
-		'loyalty_tier_id' => false,
-		'id' => false,
-		'name' => false,
-		'object' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'parameters' => false,
-		'type' => false
+        'customer' => true,
+		'assignment_id' => true,
+		'voucher' => true,
+		'product' => true,
+		'sku' => true,
+		'loyalty_tier_id' => true,
+		'id' => true,
+		'name' => true,
+		'object' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'parameters' => true,
+		'type' => true
     ];
 
     /**
@@ -442,7 +442,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer'] = $customer;
 
@@ -462,14 +469,21 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     /**
      * Sets assignment_id
      *
-     * @param string|null $assignment_id assignment_id
+     * @param string|null $assignment_id Unique reward assignment ID assigned by Voucherify.
      *
      * @return self
      */
     public function setAssignmentId($assignment_id)
     {
         if (is_null($assignment_id)) {
-            throw new \InvalidArgumentException('non-nullable assignment_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assignment_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assignment_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assignment_id'] = $assignment_id;
 
@@ -496,7 +510,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher'] = $voucher;
 
@@ -523,7 +544,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setProduct($product)
     {
         if (is_null($product)) {
-            throw new \InvalidArgumentException('non-nullable product cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product'] = $product;
 
@@ -550,7 +578,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setSku($sku)
     {
         if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku'] = $sku;
 
@@ -570,14 +605,21 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     /**
      * Sets loyalty_tier_id
      *
-     * @param string|null $loyalty_tier_id loyalty_tier_id
+     * @param string|null $loyalty_tier_id Unique loyalty tier ID assigned by Voucherify.
      *
      * @return self
      */
     public function setLoyaltyTierId($loyalty_tier_id)
     {
         if (is_null($loyalty_tier_id)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_tier_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_tier_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_tier_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_tier_id'] = $loyalty_tier_id;
 
@@ -604,7 +646,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -631,7 +680,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -658,10 +714,17 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -695,7 +758,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -722,7 +792,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -749,7 +826,14 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 
@@ -776,10 +860,17 @@ class CustomerActivityDataRedemptionReward implements ModelInterface, ArrayAcces
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",

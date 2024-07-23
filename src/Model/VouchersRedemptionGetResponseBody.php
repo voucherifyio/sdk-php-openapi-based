@@ -65,7 +65,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
         'url' => 'string',
         'data_ref' => 'string',
         'total' => 'int',
-        'redemption_entries' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItem[]'
+        'redemption_entries' => 'RedemptionEntry[]'
     ];
 
     /**
@@ -92,11 +92,11 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
       */
     protected static array $openAPINullables = [
         'quantity' => true,
-		'redeemed_quantity' => false,
-		'object' => false,
-		'url' => false,
-		'data_ref' => false,
-		'total' => false,
+		'redeemed_quantity' => true,
+		'object' => true,
+		'url' => true,
+		'data_ref' => true,
+		'total' => true,
 		'redemption_entries' => false
     ];
 
@@ -318,24 +318,6 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
-        if ($this->container['redeemed_quantity'] === null) {
-            $invalidProperties[] = "'redeemed_quantity' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         if ($this->container['redemption_entries'] === null) {
             $invalidProperties[] = "'redemption_entries' can't be null";
         }
@@ -357,7 +339,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets quantity
      *
-     * @return int
+     * @return int|null
      */
     public function getQuantity()
     {
@@ -367,7 +349,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets quantity
      *
-     * @param int $quantity The maximum number of times a voucher can be redeemed.
+     * @param int|null $quantity The maximum number of times a voucher can be redeemed.
      *
      * @return self
      */
@@ -391,7 +373,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets redeemed_quantity
      *
-     * @return int
+     * @return int|null
      */
     public function getRedeemedQuantity()
     {
@@ -401,14 +383,21 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets redeemed_quantity
      *
-     * @param int $redeemed_quantity The number of times the voucher was redeemed successfully.
+     * @param int|null $redeemed_quantity The number of times the voucher was redeemed successfully.
      *
      * @return self
      */
     public function setRedeemedQuantity($redeemed_quantity)
     {
         if (is_null($redeemed_quantity)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_quantity'] = $redeemed_quantity;
 
@@ -418,7 +407,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -428,14 +417,21 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about redemptions in a dictionary.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about redemptions in a dictionary.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -445,7 +441,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -455,14 +451,21 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets url
      *
-     * @param string $url URL
+     * @param string|null $url URL
      *
      * @return self
      */
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 
@@ -472,7 +475,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -482,14 +485,21 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of `redemption_entries`.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of `redemption_entries`.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -499,7 +509,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -509,14 +519,21 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets total
      *
-     * @param int $total Total number of redemption objects.
+     * @param int|null $total Total number of redemption objects.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -526,7 +543,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets redemption_entries
      *
-     * @return \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItem[]
+     * @return RedemptionEntry[]
      */
     public function getRedemptionEntries()
     {
@@ -536,7 +553,7 @@ class VouchersRedemptionGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets redemption_entries
      *
-     * @param \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItem[] $redemption_entries redemption_entries
+     * @param RedemptionEntry[] $redemption_entries Contains the array of successful and failed redemption objects.
      *
      * @return self
      */

@@ -1261,8 +1261,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1281,8 +1281,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1383,8 +1383,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1406,8 +1406,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1458,8 +1458,8 @@ class RewardsApi
      * Create request for operation 'listRewardAssignments'
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1484,6 +1484,9 @@ class RewardsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling RewardsApi.listRewardAssignments, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling RewardsApi.listRewardAssignments, must be bigger than or equal to 1.');
         }
         
 

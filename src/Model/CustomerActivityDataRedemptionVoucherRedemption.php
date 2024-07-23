@@ -60,7 +60,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     protected static $openAPITypes = [
         'quantity' => 'int',
         'redeemed_quantity' => 'int',
-        'redeemed_amount' => 'int',
         'redeemed_points' => 'int',
         'object' => 'string',
         'url' => 'string'
@@ -76,7 +75,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     protected static $openAPIFormats = [
         'quantity' => null,
         'redeemed_quantity' => null,
-        'redeemed_amount' => null,
         'redeemed_points' => null,
         'object' => null,
         'url' => null
@@ -88,12 +86,11 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'quantity' => false,
-		'redeemed_quantity' => false,
-		'redeemed_amount' => false,
-		'redeemed_points' => false,
-		'object' => false,
-		'url' => false
+        'quantity' => true,
+		'redeemed_quantity' => true,
+		'redeemed_points' => true,
+		'object' => true,
+		'url' => true
     ];
 
     /**
@@ -184,7 +181,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     protected static $attributeMap = [
         'quantity' => 'quantity',
         'redeemed_quantity' => 'redeemed_quantity',
-        'redeemed_amount' => 'redeemed_amount',
         'redeemed_points' => 'redeemed_points',
         'object' => 'object',
         'url' => 'url'
@@ -198,7 +194,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     protected static $setters = [
         'quantity' => 'setQuantity',
         'redeemed_quantity' => 'setRedeemedQuantity',
-        'redeemed_amount' => 'setRedeemedAmount',
         'redeemed_points' => 'setRedeemedPoints',
         'object' => 'setObject',
         'url' => 'setUrl'
@@ -212,7 +207,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     protected static $getters = [
         'quantity' => 'getQuantity',
         'redeemed_quantity' => 'getRedeemedQuantity',
-        'redeemed_amount' => 'getRedeemedAmount',
         'redeemed_points' => 'getRedeemedPoints',
         'object' => 'getObject',
         'url' => 'getUrl'
@@ -277,7 +271,6 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     {
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('redeemed_quantity', $data ?? [], null);
-        $this->setIfExists('redeemed_amount', $data ?? [], null);
         $this->setIfExists('redeemed_points', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'list');
         $this->setIfExists('url', $data ?? [], null);
@@ -345,7 +338,14 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     public function setQuantity($quantity)
     {
         if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['quantity'] = $quantity;
 
@@ -372,36 +372,16 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     public function setRedeemedQuantity($redeemed_quantity)
     {
         if (is_null($redeemed_quantity)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_quantity'] = $redeemed_quantity;
-
-        return $this;
-    }
-
-    /**
-     * Gets redeemed_amount
-     *
-     * @return int|null
-     */
-    public function getRedeemedAmount()
-    {
-        return $this->container['redeemed_amount'];
-    }
-
-    /**
-     * Sets redeemed_amount
-     *
-     * @param int|null $redeemed_amount Total amount redeemed. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 balance is written as 10000.
-     *
-     * @return self
-     */
-    public function setRedeemedAmount($redeemed_amount)
-    {
-        if (is_null($redeemed_amount)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_amount cannot be null');
-        }
-        $this->container['redeemed_amount'] = $redeemed_amount;
 
         return $this;
     }
@@ -426,7 +406,14 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     public function setRedeemedPoints($redeemed_points)
     {
         if (is_null($redeemed_points)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_points'] = $redeemed_points;
 
@@ -446,14 +433,21 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the url attribute.
+     * @param string|null $object The type of the object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the url attribute.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -480,7 +474,14 @@ class CustomerActivityDataRedemptionVoucherRedemption implements ModelInterface,
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 

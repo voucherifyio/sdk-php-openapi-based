@@ -79,7 +79,7 @@ class VoucherTransactionsExportFilterConditions implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'voucher_id' => false
+        'voucher_id' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class VoucherTransactionsExportFilterConditions implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['voucher_id'] === null) {
-            $invalidProperties[] = "'voucher_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class VoucherTransactionsExportFilterConditions implements ModelInterface, Array
     /**
      * Gets voucher_id
      *
-     * @return \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherId
+     * @return \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherId|null
      */
     public function getVoucherId()
     {
@@ -307,14 +304,21 @@ class VoucherTransactionsExportFilterConditions implements ModelInterface, Array
     /**
      * Sets voucher_id
      *
-     * @param \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherId $voucher_id voucher_id
+     * @param \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherId|null $voucher_id voucher_id
      *
      * @return self
      */
     public function setVoucherId($voucher_id)
     {
         if (is_null($voucher_id)) {
-            throw new \InvalidArgumentException('non-nullable voucher_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher_id'] = $voucher_id;
 

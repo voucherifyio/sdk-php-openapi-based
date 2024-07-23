@@ -92,14 +92,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
+        'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
 		'address' => true,
-		'metadata' => false
+		'metadata' => true
     ];
 
     /**
@@ -359,7 +359,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -386,7 +393,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -413,7 +427,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmail($email)
     {
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['email'] = $email;
 
@@ -440,7 +461,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPhone($phone)
     {
         if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['phone'] = $phone;
 
@@ -460,14 +488,21 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets birthday
      *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
+     * @param \DateTime|null $birthday `Deprecated`. ~~Customer's birthdate; format YYYY-MM-DD~~.
      *
      * @return self
      */
     public function setBirthday($birthday)
     {
         if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthday');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthday', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthday'] = $birthday;
 
@@ -494,7 +529,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBirthdate($birthdate)
     {
         if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthdate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthdate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthdate'] = $birthdate;
 
@@ -555,7 +597,14 @@ class CustomerBase implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

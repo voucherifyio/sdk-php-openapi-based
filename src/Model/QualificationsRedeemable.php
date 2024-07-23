@@ -108,22 +108,22 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
 		'result' => false,
 		'order' => false,
-		'validation_rule_id' => false,
+		'validation_rule_id' => true,
 		'applicable_to' => false,
 		'inapplicable_to' => false,
-		'metadata' => false,
-		'categories' => false,
-		'banner' => false,
-		'name' => false,
-		'campaign_name' => false,
-		'campaign_id' => false,
+		'metadata' => true,
+		'categories' => true,
+		'banner' => true,
+		'name' => true,
+		'campaign_name' => true,
+		'campaign_id' => true,
 		'validation_rules_assignments' => false,
-		'redeemables' => false
+		'redeemables' => true
     ];
 
     /**
@@ -443,7 +443,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -470,10 +477,17 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -500,14 +514,21 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the object was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -588,7 +609,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setValidationRuleId($validation_rule_id)
     {
         if (is_null($validation_rule_id)) {
-            throw new \InvalidArgumentException('non-nullable validation_rule_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validation_rule_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_rule_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['validation_rule_id'] = $validation_rule_id;
 
@@ -669,7 +697,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -696,7 +731,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setCategories($categories)
     {
         if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['categories'] = $categories;
 
@@ -723,7 +765,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 
@@ -750,7 +799,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -777,7 +833,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setCampaignName($campaign_name)
     {
         if (is_null($campaign_name)) {
-            throw new \InvalidArgumentException('non-nullable campaign_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_name'] = $campaign_name;
 
@@ -804,7 +867,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -858,7 +928,14 @@ class QualificationsRedeemable implements ModelInterface, ArrayAccess, \JsonSeri
     public function setRedeemables($redeemables)
     {
         if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemables'] = $redeemables;
 

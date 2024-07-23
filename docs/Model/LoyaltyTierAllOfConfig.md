@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**points** | [**\OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints**](LoyaltyTierAllOfConfigPoints.md) |  |
+**points** | [**\OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints**](LoyaltyTierAllOfConfigPoints.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

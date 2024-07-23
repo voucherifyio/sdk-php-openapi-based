@@ -92,14 +92,14 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_redeemed' => false,
-		'total_failed' => false,
-		'total_succeeded' => false,
-		'total_rolled_back' => false,
-		'total_rollback_failed' => false,
-		'total_rollback_succeeded' => false,
-		'gift' => false,
-		'loyalty_card' => false
+        'total_redeemed' => true,
+		'total_failed' => true,
+		'total_succeeded' => true,
+		'total_rolled_back' => true,
+		'total_rollback_failed' => true,
+		'total_rollback_succeeded' => true,
+		'gift' => true,
+		'loyalty_card' => true
     ];
 
     /**
@@ -324,30 +324,6 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['total_redeemed'] === null) {
-            $invalidProperties[] = "'total_redeemed' can't be null";
-        }
-        if ($this->container['total_failed'] === null) {
-            $invalidProperties[] = "'total_failed' can't be null";
-        }
-        if ($this->container['total_succeeded'] === null) {
-            $invalidProperties[] = "'total_succeeded' can't be null";
-        }
-        if ($this->container['total_rolled_back'] === null) {
-            $invalidProperties[] = "'total_rolled_back' can't be null";
-        }
-        if ($this->container['total_rollback_failed'] === null) {
-            $invalidProperties[] = "'total_rollback_failed' can't be null";
-        }
-        if ($this->container['total_rollback_succeeded'] === null) {
-            $invalidProperties[] = "'total_rollback_succeeded' can't be null";
-        }
-        if ($this->container['gift'] === null) {
-            $invalidProperties[] = "'gift' can't be null";
-        }
-        if ($this->container['loyalty_card'] === null) {
-            $invalidProperties[] = "'loyalty_card' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -366,7 +342,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_redeemed
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalRedeemed()
     {
@@ -376,14 +352,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_redeemed
      *
-     * @param int $total_redeemed Total number of redemptions made by the customer.
+     * @param int|null $total_redeemed Total number of redemptions made by the customer.
      *
      * @return self
      */
     public function setTotalRedeemed($total_redeemed)
     {
         if (is_null($total_redeemed)) {
-            throw new \InvalidArgumentException('non-nullable total_redeemed cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_redeemed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_redeemed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_redeemed'] = $total_redeemed;
 
@@ -393,7 +376,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_failed
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalFailed()
     {
@@ -403,14 +386,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_failed
      *
-     * @param int $total_failed Total number of redemptions that failed.
+     * @param int|null $total_failed Total number of redemptions that failed.
      *
      * @return self
      */
     public function setTotalFailed($total_failed)
     {
         if (is_null($total_failed)) {
-            throw new \InvalidArgumentException('non-nullable total_failed cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_failed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_failed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_failed'] = $total_failed;
 
@@ -420,7 +410,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_succeeded
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalSucceeded()
     {
@@ -430,14 +420,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_succeeded
      *
-     * @param int $total_succeeded Total number of redemptions that succeeded.
+     * @param int|null $total_succeeded Total number of redemptions that succeeded.
      *
      * @return self
      */
     public function setTotalSucceeded($total_succeeded)
     {
         if (is_null($total_succeeded)) {
-            throw new \InvalidArgumentException('non-nullable total_succeeded cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_succeeded');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_succeeded', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_succeeded'] = $total_succeeded;
 
@@ -447,7 +444,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_rolled_back
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalRolledBack()
     {
@@ -457,14 +454,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_rolled_back
      *
-     * @param int $total_rolled_back Total number of redemptions that were rolled back for the customer.
+     * @param int|null $total_rolled_back Total number of redemptions that were rolled back for the customer.
      *
      * @return self
      */
     public function setTotalRolledBack($total_rolled_back)
     {
         if (is_null($total_rolled_back)) {
-            throw new \InvalidArgumentException('non-nullable total_rolled_back cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_rolled_back');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_rolled_back', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_rolled_back'] = $total_rolled_back;
 
@@ -474,7 +478,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_rollback_failed
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalRollbackFailed()
     {
@@ -484,14 +488,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_rollback_failed
      *
-     * @param int $total_rollback_failed Total number of redemption rollbacks that failed.
+     * @param int|null $total_rollback_failed Total number of redemption rollbacks that failed.
      *
      * @return self
      */
     public function setTotalRollbackFailed($total_rollback_failed)
     {
         if (is_null($total_rollback_failed)) {
-            throw new \InvalidArgumentException('non-nullable total_rollback_failed cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_rollback_failed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_rollback_failed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_rollback_failed'] = $total_rollback_failed;
 
@@ -501,7 +512,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_rollback_succeeded
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalRollbackSucceeded()
     {
@@ -511,14 +522,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_rollback_succeeded
      *
-     * @param int $total_rollback_succeeded Total number of redemption rollbacks that succeeded.
+     * @param int|null $total_rollback_succeeded Total number of redemption rollbacks that succeeded.
      *
      * @return self
      */
     public function setTotalRollbackSucceeded($total_rollback_succeeded)
     {
         if (is_null($total_rollback_succeeded)) {
-            throw new \InvalidArgumentException('non-nullable total_rollback_succeeded cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_rollback_succeeded');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_rollback_succeeded', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_rollback_succeeded'] = $total_rollback_succeeded;
 
@@ -528,7 +546,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets gift
      *
-     * @return \OpenAPI\Client\Model\CustomerSummaryRedemptionsGift
+     * @return \OpenAPI\Client\Model\CustomerSummaryRedemptionsGift|null
      */
     public function getGift()
     {
@@ -538,14 +556,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets gift
      *
-     * @param \OpenAPI\Client\Model\CustomerSummaryRedemptionsGift $gift gift
+     * @param \OpenAPI\Client\Model\CustomerSummaryRedemptionsGift|null $gift gift
      *
      * @return self
      */
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -555,7 +580,7 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets loyalty_card
      *
-     * @return \OpenAPI\Client\Model\CustomerSummaryRedemptionsLoyaltyCard
+     * @return \OpenAPI\Client\Model\CustomerSummaryRedemptionsLoyaltyCard|null
      */
     public function getLoyaltyCard()
     {
@@ -565,14 +590,21 @@ class CustomerSummaryRedemptions implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets loyalty_card
      *
-     * @param \OpenAPI\Client\Model\CustomerSummaryRedemptionsLoyaltyCard $loyalty_card loyalty_card
+     * @param \OpenAPI\Client\Model\CustomerSummaryRedemptionsLoyaltyCard|null $loyalty_card loyalty_card
      *
      * @return self
      */
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 

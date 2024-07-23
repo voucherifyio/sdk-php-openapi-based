@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * RedemptionGift Class Doc Comment
  *
  * @category Class
- * @description Contains the amount being subtracted from the gift card for the redemption.
+ * @description Contains the amount subtracted from the gift card for the redemption.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -79,7 +79,7 @@ class RedemptionGift implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false
+        'amount' => true
     ];
 
     /**
@@ -304,14 +304,21 @@ class RedemptionGift implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param int|null $amount The amount subtracted from the gift card expressed as the smallest currency unit (e.g. 100 cents for $1.00).
+     * @param int|null $amount Amount subtracted from the gift card as a result of the redemption. The amount is expressed as the smallest currency unit (e.g. 100 cents for $1.00).
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 

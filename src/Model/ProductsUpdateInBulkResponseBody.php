@@ -79,7 +79,7 @@ class ProductsUpdateInBulkResponseBody implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'async_action_id' => false
+        'async_action_id' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class ProductsUpdateInBulkResponseBody implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['async_action_id'] === null) {
-            $invalidProperties[] = "'async_action_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class ProductsUpdateInBulkResponseBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets async_action_id
      *
-     * @return string
+     * @return string|null
      */
     public function getAsyncActionId()
     {
@@ -307,14 +304,21 @@ class ProductsUpdateInBulkResponseBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets async_action_id
      *
-     * @param string $async_action_id The ID of the scheduled asynchronous action.
+     * @param string|null $async_action_id The ID of the scheduled asynchronous action.
      *
      * @return self
      */
     public function setAsyncActionId($async_action_id)
     {
         if (is_null($async_action_id)) {
-            throw new \InvalidArgumentException('non-nullable async_action_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'async_action_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('async_action_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['async_action_id'] = $async_action_id;
 

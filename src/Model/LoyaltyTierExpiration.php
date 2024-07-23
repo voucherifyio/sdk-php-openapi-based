@@ -91,13 +91,13 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer_id' => false,
-		'campaign_id' => false,
-		'tier_id' => false,
-		'start_date' => false,
-		'expiration_date' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'customer_id' => true,
+		'campaign_id' => true,
+		'tier_id' => true,
+		'start_date' => true,
+		'expiration_date' => true,
+		'created_at' => true,
+		'updated_at' => true
     ];
 
     /**
@@ -318,18 +318,6 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
-        }
-        if ($this->container['tier_id'] === null) {
-            $invalidProperties[] = "'tier_id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -348,7 +336,7 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -358,14 +346,21 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique customer ID of the customer making the purchase.
+     * @param string|null $customer_id Unique customer ID of the customer making the purchase.
      *
      * @return self
      */
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -375,7 +370,7 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets campaign_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaignId()
     {
@@ -385,14 +380,21 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets campaign_id
      *
-     * @param string $campaign_id Unique campaign ID, assigned by Voucherify.
+     * @param string|null $campaign_id Unique campaign ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -402,7 +404,7 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets tier_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTierId()
     {
@@ -412,14 +414,21 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets tier_id
      *
-     * @param string $tier_id Unique tier ID, assigned by Voucherify.
+     * @param string|null $tier_id Unique tier ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setTierId($tier_id)
     {
         if (is_null($tier_id)) {
-            throw new \InvalidArgumentException('non-nullable tier_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tier_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tier_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tier_id'] = $tier_id;
 
@@ -446,7 +455,14 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -473,7 +489,14 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -483,7 +506,7 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -493,14 +516,21 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the loyalty tier was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the loyalty tier was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -520,14 +550,21 @@ class LoyaltyTierExpiration implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty tier was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty tier was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 

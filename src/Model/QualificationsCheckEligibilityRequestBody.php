@@ -61,7 +61,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static $openAPITypes = [
         'customer' => '\OpenAPI\Client\Model\Customer',
         'order' => '\OpenAPI\Client\Model\Order',
-        'mode' => 'string',
         'tracking_id' => 'string',
         'scenario' => 'string',
         'options' => '\OpenAPI\Client\Model\QualificationsOption',
@@ -78,7 +77,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static $openAPIFormats = [
         'customer' => null,
         'order' => null,
-        'mode' => null,
         'tracking_id' => null,
         'scenario' => null,
         'options' => null,
@@ -93,11 +91,10 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static array $openAPINullables = [
         'customer' => false,
 		'order' => false,
-		'mode' => false,
-		'tracking_id' => false,
-		'scenario' => false,
+		'tracking_id' => true,
+		'scenario' => true,
 		'options' => false,
-		'metadata' => false
+		'metadata' => true
     ];
 
     /**
@@ -188,7 +185,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static $attributeMap = [
         'customer' => 'customer',
         'order' => 'order',
-        'mode' => 'mode',
         'tracking_id' => 'tracking_id',
         'scenario' => 'scenario',
         'options' => 'options',
@@ -203,7 +199,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static $setters = [
         'customer' => 'setCustomer',
         'order' => 'setOrder',
-        'mode' => 'setMode',
         'tracking_id' => 'setTrackingId',
         'scenario' => 'setScenario',
         'options' => 'setOptions',
@@ -218,7 +213,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     protected static $getters = [
         'customer' => 'getCustomer',
         'order' => 'getOrder',
-        'mode' => 'getMode',
         'tracking_id' => 'getTrackingId',
         'scenario' => 'getScenario',
         'options' => 'getOptions',
@@ -266,8 +260,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
-    public const MODE_BASIC = 'BASIC';
-    public const MODE_ADVANCED = 'ADVANCED';
     public const SCENARIO_ALL = 'ALL';
     public const SCENARIO_CUSTOMER_WALLET = 'CUSTOMER_WALLET';
     public const SCENARIO_AUDIENCE_ONLY = 'AUDIENCE_ONLY';
@@ -276,19 +268,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     public const SCENARIO_PROMOTION_STACKS = 'PROMOTION_STACKS';
     public const SCENARIO_PRODUCTS_BY_CUSTOMER = 'PRODUCTS_BY_CUSTOMER';
     public const SCENARIO_PRODUCTS_DISCOUNT_BY_CUSTOMER = 'PRODUCTS_DISCOUNT_BY_CUSTOMER';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getModeAllowableValues()
-    {
-        return [
-            self::MODE_BASIC,
-            self::MODE_ADVANCED,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -326,7 +305,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     {
         $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
-        $this->setIfExists('mode', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('scenario', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
@@ -359,15 +337,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getModeAllowableValues();
-        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'mode', must be one of '%s'",
-                $this->container['mode'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getScenarioAllowableValues();
         if (!is_null($this->container['scenario']) && !in_array($this->container['scenario'], $allowedValues, true)) {
@@ -448,43 +417,6 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     }
 
     /**
-     * Gets mode
-     *
-     * @return string|null
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param string|null $mode Defines which resources Voucherify will use. The `ADVANCED` mode is available after purchase only.
-     *
-     * @return self
-     */
-    public function setMode($mode)
-    {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
-        }
-        $allowedValues = $this->getModeAllowableValues();
-        if (!in_array($mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'mode', must be one of '%s'",
-                    $mode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
      * Gets tracking_id
      *
      * @return string|null
@@ -504,7 +436,14 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -531,10 +470,17 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     public function setScenario($scenario)
     {
         if (is_null($scenario)) {
-            throw new \InvalidArgumentException('non-nullable scenario cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'scenario');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scenario', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getScenarioAllowableValues();
-        if (!in_array($scenario, $allowedValues, true)) {
+        if (!is_null($scenario) && !in_array($scenario, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'scenario', must be one of '%s'",
@@ -595,7 +541,14 @@ class QualificationsCheckEligibilityRequestBody implements ModelInterface, Array
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

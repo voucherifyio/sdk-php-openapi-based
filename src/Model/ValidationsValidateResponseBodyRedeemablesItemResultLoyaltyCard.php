@@ -78,7 +78,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false
+        'points' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard implements
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

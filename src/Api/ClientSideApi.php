@@ -1030,8 +1030,8 @@ class ClientSideApi
      *
      * Update Customer&#39;s consents (client-side)
      *
-     * @param  string $customer_id A Voucherify customer identifier or &#x60;source_id&#x60; (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  string $customer_id A Voucherify customer identifier or source_id (required)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsentsClientSide'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1048,8 +1048,8 @@ class ClientSideApi
      *
      * Update Customer&#39;s consents (client-side)
      *
-     * @param  string $customer_id A Voucherify customer identifier or &#x60;source_id&#x60; (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  string $customer_id A Voucherify customer identifier or source_id (required)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsentsClientSide'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1109,8 +1109,8 @@ class ClientSideApi
      *
      * Update Customer&#39;s consents (client-side)
      *
-     * @param  string $customer_id A Voucherify customer identifier or &#x60;source_id&#x60; (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  string $customer_id A Voucherify customer identifier or source_id (required)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsentsClientSide'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1131,8 +1131,8 @@ class ClientSideApi
      *
      * Update Customer&#39;s consents (client-side)
      *
-     * @param  string $customer_id A Voucherify customer identifier or &#x60;source_id&#x60; (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  string $customer_id A Voucherify customer identifier or source_id (required)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsentsClientSide'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1169,8 +1169,8 @@ class ClientSideApi
     /**
      * Create request for operation 'updateCustomersConsentsClientSide'
      *
-     * @param  string $customer_id A Voucherify customer identifier or &#x60;source_id&#x60; (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  string $customer_id A Voucherify customer identifier or source_id (required)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsentsClientSide'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

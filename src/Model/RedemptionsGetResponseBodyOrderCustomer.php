@@ -80,8 +80,8 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false
+        'id' => true,
+		'object' => true
     ];
 
     /**
@@ -295,12 +295,6 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -328,7 +322,7 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -338,14 +332,21 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
     /**
      * Sets id
      *
-     * @param string $id A unique identifier of an existing customer.
+     * @param string|null $id A unique identifier of an existing customer.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -355,7 +356,7 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -365,17 +366,24 @@ class RedemptionsGetResponseBodyOrderCustomer implements ModelInterface, ArrayAc
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

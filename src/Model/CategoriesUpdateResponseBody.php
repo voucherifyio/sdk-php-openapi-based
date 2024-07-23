@@ -89,12 +89,12 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'hierarchy' => false,
-		'object' => false,
-		'created_at' => false,
-		'updated_at' => false
+        'id' => true,
+		'name' => true,
+		'hierarchy' => true,
+		'object' => true,
+		'created_at' => true,
+		'updated_at' => true
     ];
 
     /**
@@ -324,18 +324,6 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['hierarchy'] === null) {
-            $invalidProperties[] = "'hierarchy' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -345,12 +333,6 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -369,7 +351,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -379,14 +361,21 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets id
      *
-     * @param string $id Unique category ID assigned by Voucherify.
+     * @param string|null $id Unique category ID assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -396,7 +385,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -406,14 +395,21 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets name
      *
-     * @param string $name Category name.
+     * @param string|null $name Category name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -423,7 +419,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets hierarchy
      *
-     * @return int
+     * @return int|null
      */
     public function getHierarchy()
     {
@@ -433,14 +429,21 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets hierarchy
      *
-     * @param int $hierarchy Category hierarchy.
+     * @param int|null $hierarchy Category hierarchy.
      *
      * @return self
      */
     public function setHierarchy($hierarchy)
     {
         if (is_null($hierarchy)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hierarchy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hierarchy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['hierarchy'] = $hierarchy;
 
@@ -450,7 +453,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -460,17 +463,24 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -487,7 +497,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -497,14 +507,21 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the category was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the category was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -514,7 +531,7 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets updated_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -524,14 +541,21 @@ class CategoriesUpdateResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Timestamp representing the date and time when the category was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the category was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 

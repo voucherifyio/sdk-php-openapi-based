@@ -88,12 +88,12 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'city' => false,
-		'state' => false,
-		'line_1' => false,
-		'line_2' => false,
-		'country' => false,
-		'postal_code' => false
+        'city' => true,
+		'state' => true,
+		'line_1' => true,
+		'line_2' => true,
+		'country' => true,
+		'postal_code' => true
     ];
 
     /**
@@ -345,7 +345,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setCity($city)
     {
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'city');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('city', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['city'] = $city;
 
@@ -372,7 +379,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['state'] = $state;
 
@@ -399,7 +413,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setLine1($line_1)
     {
         if (is_null($line_1)) {
-            throw new \InvalidArgumentException('non-nullable line_1 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'line_1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('line_1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['line_1'] = $line_1;
 
@@ -426,7 +447,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setLine2($line_2)
     {
         if (is_null($line_2)) {
-            throw new \InvalidArgumentException('non-nullable line_2 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'line_2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('line_2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['line_2'] = $line_2;
 
@@ -453,7 +481,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setCountry($country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['country'] = $country;
 
@@ -480,7 +515,14 @@ class CustomerActivityDataCustomerAddress implements ModelInterface, ArrayAccess
     public function setPostalCode($postal_code)
     {
         if (is_null($postal_code)) {
-            throw new \InvalidArgumentException('non-nullable postal_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'postal_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('postal_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['postal_code'] = $postal_code;
 

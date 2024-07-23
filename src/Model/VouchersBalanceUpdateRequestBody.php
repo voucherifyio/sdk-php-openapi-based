@@ -83,9 +83,9 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-		'source_id' => false,
-		'reason' => false
+        'amount' => true,
+		'source_id' => true,
+		'reason' => true
     ];
 
     /**
@@ -290,9 +290,6 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -311,7 +308,7 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAmount()
     {
@@ -321,14 +318,21 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets amount
      *
-     * @param int $amount The incremental amount to be added to or removed from the current balance on the gift card or loyalty card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000. To remove balance, simply add a minus sign before the value, i.e. to remove $20, use -2000.
+     * @param int|null $amount The incremental amount to be added to or removed from the current balance on the gift card or loyalty card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000. To remove balance, simply add a minus sign before the value, i.e. to remove $20, use -2000.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -355,7 +359,14 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -382,7 +393,14 @@ class VouchersBalanceUpdateRequestBody implements ModelInterface, ArrayAccess, \
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 

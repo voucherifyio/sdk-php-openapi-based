@@ -245,9 +245,9 @@ $apiInstance = new OpenAPI\Client\Api\ProductCollectionsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
-$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
+$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
 
 try {
     $result = $apiInstance->listProductCollections($limit, $page, $order);
@@ -261,9 +261,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
-| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
+| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
 
 ### Return type
 
@@ -317,9 +317,9 @@ $apiInstance = new OpenAPI\Client\Api\ProductCollectionsApi(
     $config
 );
 $product_collection_id = 'product_collection_id_example'; // string | Unique product collection ID.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
-$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
+$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
 $starting_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format.
 
 try {
@@ -335,9 +335,9 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product_collection_id** | **string**| Unique product collection ID. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
-| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
+| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
 | **starting_after** | **\DateTime**| Timestamp representing the date and time to use in starting_after cursor to get more data. Represented in ISO 8601 format. | [optional] |
 
 ### Return type

@@ -82,9 +82,9 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order' => false,
-		'fields' => false,
-		'filters' => false
+        'order' => true,
+		'fields' => true,
+		'filters' => true
     ];
 
     /**
@@ -270,6 +270,7 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public const FIELDS_CODE = 'code';
     public const FIELDS_VOUCHER_TYPE = 'voucher_type';
     public const FIELDS_VALUE = 'value';
+    public const FIELDS_FORMULA = 'formula';
     public const FIELDS_DISCOUNT_TYPE = 'discount_type';
     public const FIELDS_CAMPAIGN = 'campaign';
     public const FIELDS_CATEGORY = 'category';
@@ -294,8 +295,10 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public const FIELDS_CAMPAIGN_ID = 'campaign_id';
     public const FIELDS_ADDITIONAL_INFO = 'additional_info';
     public const FIELDS_CUSTOMER_ID = 'customer_id';
+    public const FIELDS_DISCOUNT_EFFECT = 'discount_effect';
     public const FIELDS_DISCOUNT_UNIT_TYPE = 'discount_unit_type';
     public const FIELDS_DISCOUNT_UNIT_EFFECT = 'discount_unit_effect';
+    public const FIELDS_VALIDATION_RULES_ID = 'validation_rules_id';
     public const FIELDS_CUSTOMER_SOURCE_ID = 'customer_source_id';
     public const FIELDS_OBJECT = 'object';
     public const FIELDS_DATE = 'date';
@@ -303,6 +306,7 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public const FIELDS_PROMOTION_TIER_ID = 'promotion_tier_id';
     public const FIELDS_CUSTOMER_NAME = 'customer_name';
     public const FIELDS_TRACKING_ID = 'tracking_id';
+    public const FIELDS_ORDER_ID = 'order_id';
     public const FIELDS_ORDER_AMOUNT = 'order_amount';
     public const FIELDS_GIFT_AMOUNT = 'gift_amount';
     public const FIELDS_LOYALTY_POINTS = 'loyalty_points';
@@ -401,6 +405,7 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
             self::FIELDS_CODE,
             self::FIELDS_VOUCHER_TYPE,
             self::FIELDS_VALUE,
+            self::FIELDS_FORMULA,
             self::FIELDS_DISCOUNT_TYPE,
             self::FIELDS_CAMPAIGN,
             self::FIELDS_CATEGORY,
@@ -425,8 +430,10 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
             self::FIELDS_CAMPAIGN_ID,
             self::FIELDS_ADDITIONAL_INFO,
             self::FIELDS_CUSTOMER_ID,
+            self::FIELDS_DISCOUNT_EFFECT,
             self::FIELDS_DISCOUNT_UNIT_TYPE,
             self::FIELDS_DISCOUNT_UNIT_EFFECT,
+            self::FIELDS_VALIDATION_RULES_ID,
             self::FIELDS_CUSTOMER_SOURCE_ID,
             self::FIELDS_OBJECT,
             self::FIELDS_DATE,
@@ -434,6 +441,7 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
             self::FIELDS_PROMOTION_TIER_ID,
             self::FIELDS_CUSTOMER_NAME,
             self::FIELDS_TRACKING_ID,
+            self::FIELDS_ORDER_ID,
             self::FIELDS_ORDER_AMOUNT,
             self::FIELDS_GIFT_AMOUNT,
             self::FIELDS_LOYALTY_POINTS,
@@ -577,10 +585,17 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getOrderAllowableValues();
-        if (!in_array($order, $allowedValues, true)) {
+        if (!is_null($order) && !in_array($order, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'order', must be one of '%s'",
@@ -614,10 +629,17 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public function setFields($fields)
     {
         if (is_null($fields)) {
-            throw new \InvalidArgumentException('non-nullable fields cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'fields');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fields', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getFieldsAllowableValues();
-        if (array_diff($fields, $allowedValues)) {
+        if (!is_null($fields) && array_diff($fields, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'fields', must be one of '%s'",
@@ -650,7 +672,14 @@ class ExportsCreateResponseBodyParameters implements ModelInterface, ArrayAccess
     public function setFilters($filters)
     {
         if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['filters'] = $filters;
 

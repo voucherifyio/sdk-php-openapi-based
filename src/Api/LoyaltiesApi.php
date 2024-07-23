@@ -509,7 +509,7 @@ class LoyaltiesApi
      *
      * Delete Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEarningRule'] to see the possible values for this operation
      *
@@ -527,7 +527,7 @@ class LoyaltiesApi
      *
      * Delete Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEarningRule'] to see the possible values for this operation
      *
@@ -588,7 +588,7 @@ class LoyaltiesApi
      *
      * Delete Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEarningRule'] to see the possible values for this operation
      *
@@ -610,7 +610,7 @@ class LoyaltiesApi
      *
      * Delete Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEarningRule'] to see the possible values for this operation
      *
@@ -648,7 +648,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'deleteEarningRule'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteEarningRule'] to see the possible values for this operation
      *
@@ -768,8 +768,8 @@ class LoyaltiesApi
      *
      * Delete Loyalty Campaign
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLoyaltyProgram'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -787,8 +787,8 @@ class LoyaltiesApi
      *
      * Delete Loyalty Campaign
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLoyaltyProgram'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -888,8 +888,8 @@ class LoyaltiesApi
      *
      * Delete Loyalty Campaign
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLoyaltyProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -910,8 +910,8 @@ class LoyaltiesApi
      *
      * Delete Loyalty Campaign
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLoyaltyProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -961,8 +961,8 @@ class LoyaltiesApi
     /**
      * Create request for operation 'deleteLoyaltyProgram'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. (optional)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLoyaltyProgram'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1076,7 +1076,7 @@ class LoyaltiesApi
      *
      * Delete Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRewardAssignment1'] to see the possible values for this operation
      *
@@ -1094,7 +1094,7 @@ class LoyaltiesApi
      *
      * Delete Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRewardAssignment1'] to see the possible values for this operation
      *
@@ -1155,7 +1155,7 @@ class LoyaltiesApi
      *
      * Delete Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRewardAssignment1'] to see the possible values for this operation
      *
@@ -1177,7 +1177,7 @@ class LoyaltiesApi
      *
      * Delete Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRewardAssignment1'] to see the possible values for this operation
      *
@@ -1215,7 +1215,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'deleteRewardAssignment1'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteRewardAssignment1'] to see the possible values for this operation
      *
@@ -2593,7 +2593,7 @@ class LoyaltiesApi
      *
      * Get Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEarningRule'] to see the possible values for this operation
      *
@@ -2612,7 +2612,7 @@ class LoyaltiesApi
      *
      * Get Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEarningRule'] to see the possible values for this operation
      *
@@ -2713,7 +2713,7 @@ class LoyaltiesApi
      *
      * Get Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEarningRule'] to see the possible values for this operation
      *
@@ -2735,7 +2735,7 @@ class LoyaltiesApi
      *
      * Get Earning Rule
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEarningRule'] to see the possible values for this operation
      *
@@ -2786,7 +2786,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'getEarningRule'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $earning_rule_id A unique earning rule ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEarningRule'] to see the possible values for this operation
      *
@@ -3219,7 +3219,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment1'] to see the possible values for this operation
      *
@@ -3238,7 +3238,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment1'] to see the possible values for this operation
      *
@@ -3339,7 +3339,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment1'] to see the possible values for this operation
      *
@@ -3361,7 +3361,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment1'] to see the possible values for this operation
      *
@@ -3412,7 +3412,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'getRewardAssignment1'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment1'] to see the possible values for this operation
      *
@@ -3532,7 +3532,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment2'] to see the possible values for this operation
      *
@@ -3551,7 +3551,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment2'] to see the possible values for this operation
      *
@@ -3652,7 +3652,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment2'] to see the possible values for this operation
      *
@@ -3674,7 +3674,7 @@ class LoyaltiesApi
      *
      * Get Reward Assignment
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment2'] to see the possible values for this operation
      *
@@ -3725,7 +3725,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'getRewardAssignment2'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id A unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardAssignment2'] to see the possible values for this operation
      *
@@ -3845,7 +3845,7 @@ class LoyaltiesApi
      *
      * Get Reward Details
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardDetails'] to see the possible values for this operation
      *
@@ -3864,7 +3864,7 @@ class LoyaltiesApi
      *
      * Get Reward Details
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardDetails'] to see the possible values for this operation
      *
@@ -3965,7 +3965,7 @@ class LoyaltiesApi
      *
      * Get Reward Details
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardDetails'] to see the possible values for this operation
      *
@@ -3987,7 +3987,7 @@ class LoyaltiesApi
      *
      * Get Reward Details
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardDetails'] to see the possible values for this operation
      *
@@ -4038,7 +4038,7 @@ class LoyaltiesApi
     /**
      * Create request for operation 'getRewardDetails'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $assignment_id Unique reward assignment ID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRewardDetails'] to see the possible values for this operation
      *
@@ -4159,8 +4159,8 @@ class LoyaltiesApi
      * List Loyalty Card Transactions
      *
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4179,8 +4179,8 @@ class LoyaltiesApi
      * List Loyalty Card Transactions
      *
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4281,8 +4281,8 @@ class LoyaltiesApi
      * List Loyalty Card Transactions
      *
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4304,8 +4304,8 @@ class LoyaltiesApi
      * List Loyalty Card Transactions
      *
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4356,8 +4356,8 @@ class LoyaltiesApi
      * Create request for operation 'listLoyaltyCardTransactions'
      *
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4382,6 +4382,9 @@ class LoyaltiesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyCardTransactions, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyCardTransactions, must be bigger than or equal to 1.');
         }
         
 
@@ -4492,8 +4495,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions1'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4513,8 +4516,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions1'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4616,8 +4619,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4640,8 +4643,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4693,8 +4696,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. (required)
      * @param  string $member_id A unique code identifying the loyalty card that you are looking to retrieve transaction data for. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyCardTransactions1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4726,6 +4729,9 @@ class LoyaltiesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyCardTransactions1, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyCardTransactions1, must be bigger than or equal to 1.');
         }
         
 
@@ -4844,8 +4850,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id Unique campaign ID or name. (required)
      * @param  string $loyalty_tier_id Unique loyalty tier ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTierEarningRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4865,8 +4871,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id Unique campaign ID or name. (required)
      * @param  string $loyalty_tier_id Unique loyalty tier ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTierEarningRules'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -4968,8 +4974,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id Unique campaign ID or name. (required)
      * @param  string $loyalty_tier_id Unique loyalty tier ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTierEarningRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4992,8 +4998,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id Unique campaign ID or name. (required)
      * @param  string $loyalty_tier_id Unique loyalty tier ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTierEarningRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5045,8 +5051,8 @@ class LoyaltiesApi
      *
      * @param  string $campaign_id Unique campaign ID or name. (required)
      * @param  string $loyalty_tier_id Unique loyalty tier ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTierEarningRules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5078,6 +5084,9 @@ class LoyaltiesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyTierEarningRules, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listLoyaltyTierEarningRules, must be bigger than or equal to 1.');
         }
         
 
@@ -5508,7 +5517,7 @@ class LoyaltiesApi
      * List Loyalty Tiers
      *
      * @param  string $campaign_id Unique loyalty campaign ID or name. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param  ParameterOrderListLoyaltyTiers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTiers'] to see the possible values for this operation
      *
@@ -5528,7 +5537,7 @@ class LoyaltiesApi
      * List Loyalty Tiers
      *
      * @param  string $campaign_id Unique loyalty campaign ID or name. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param  ParameterOrderListLoyaltyTiers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTiers'] to see the possible values for this operation
      *
@@ -5630,7 +5639,7 @@ class LoyaltiesApi
      * List Loyalty Tiers
      *
      * @param  string $campaign_id Unique loyalty campaign ID or name. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param  ParameterOrderListLoyaltyTiers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTiers'] to see the possible values for this operation
      *
@@ -5653,7 +5662,7 @@ class LoyaltiesApi
      * List Loyalty Tiers
      *
      * @param  string $campaign_id Unique loyalty campaign ID or name. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param  ParameterOrderListLoyaltyTiers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTiers'] to see the possible values for this operation
      *
@@ -5705,7 +5714,7 @@ class LoyaltiesApi
      * Create request for operation 'listLoyaltyTiers'
      *
      * @param  string $campaign_id Unique loyalty campaign ID or name. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param  ParameterOrderListLoyaltyTiers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLoyaltyTiers'] to see the possible values for this operation
      *
@@ -6130,7 +6139,7 @@ class LoyaltiesApi
      * List Member Rewards
      *
      * @param  string $member_id Unique loyalty card assigned to a particular customer. (required)
-     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMemberRewards'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6149,7 +6158,7 @@ class LoyaltiesApi
      * List Member Rewards
      *
      * @param  string $member_id Unique loyalty card assigned to a particular customer. (required)
-     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMemberRewards'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6250,7 +6259,7 @@ class LoyaltiesApi
      * List Member Rewards
      *
      * @param  string $member_id Unique loyalty card assigned to a particular customer. (required)
-     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMemberRewards'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6272,7 +6281,7 @@ class LoyaltiesApi
      * List Member Rewards
      *
      * @param  string $member_id Unique loyalty card assigned to a particular customer. (required)
-     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMemberRewards'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6323,7 +6332,7 @@ class LoyaltiesApi
      * Create request for operation 'listMemberRewards'
      *
      * @param  string $member_id Unique loyalty card assigned to a particular customer. (required)
-     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. (optional)
+     * @param  bool $affordable_only Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMemberRewards'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6437,10 +6446,10 @@ class LoyaltiesApi
      *
      * Get Points Expiration
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $member_id Loyalty card code. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPointsExpiration'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6458,10 +6467,10 @@ class LoyaltiesApi
      *
      * Get Points Expiration
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $member_id Loyalty card code. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPointsExpiration'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -6561,10 +6570,10 @@ class LoyaltiesApi
      *
      * Get Points Expiration
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $member_id Loyalty card code. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPointsExpiration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6585,10 +6594,10 @@ class LoyaltiesApi
      *
      * Get Points Expiration
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $member_id Loyalty card code. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPointsExpiration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6638,10 +6647,10 @@ class LoyaltiesApi
     /**
      * Create request for operation 'listPointsExpiration'
      *
-     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. (required)
+     * @param  string $campaign_id The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. (required)
      * @param  string $member_id Loyalty card code. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPointsExpiration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6673,6 +6682,9 @@ class LoyaltiesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listPointsExpiration, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling LoyaltiesApi.listPointsExpiration, must be bigger than or equal to 1.');
         }
         
 

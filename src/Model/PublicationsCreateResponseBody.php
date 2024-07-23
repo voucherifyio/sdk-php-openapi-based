@@ -102,19 +102,19 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'customer_id' => false,
-		'tracking_id' => false,
-		'metadata' => false,
-		'channel' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
+		'customer_id' => true,
+		'tracking_id' => true,
+		'metadata' => true,
+		'channel' => true,
 		'source_id' => true,
-		'result' => false,
+		'result' => true,
 		'customer' => false,
-		'vouchers_id' => false,
+		'vouchers_id' => true,
 		'voucher' => false,
-		'vouchers' => false
+		'vouchers' => true
     ];
 
     /**
@@ -460,7 +460,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -480,17 +487,24 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the `publication`.
+     * @param string|null $object The type of the object represented by the JSON. This object stores information about the `publication`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -517,14 +531,21 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the publication was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -551,7 +572,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -578,7 +606,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -605,7 +640,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -632,10 +674,17 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'channel', must be one of '%s'",
@@ -703,10 +752,17 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -767,7 +823,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setVouchersId($vouchers_id)
     {
         if (is_null($vouchers_id)) {
-            throw new \InvalidArgumentException('non-nullable vouchers_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vouchers_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vouchers_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['vouchers_id'] = $vouchers_id;
 
@@ -821,7 +884,14 @@ class PublicationsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     public function setVouchers($vouchers)
     {
         if (is_null($vouchers)) {
-            throw new \InvalidArgumentException('non-nullable vouchers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vouchers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vouchers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['vouchers'] = $vouchers;
 

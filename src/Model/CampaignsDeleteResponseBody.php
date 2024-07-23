@@ -79,7 +79,7 @@ class CampaignsDeleteResponseBody implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'async_action_id' => false
+        'async_action_id' => true
     ];
 
     /**
@@ -311,7 +311,14 @@ class CampaignsDeleteResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setAsyncActionId($async_action_id)
     {
         if (is_null($async_action_id)) {
-            throw new \InvalidArgumentException('non-nullable async_action_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'async_action_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('async_action_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['async_action_id'] = $async_action_id;
 

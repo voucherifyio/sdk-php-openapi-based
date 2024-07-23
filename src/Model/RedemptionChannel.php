@@ -81,8 +81,8 @@ class RedemptionChannel implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'channel_id' => false,
-		'channel_type' => false
+        'channel_id' => true,
+		'channel_type' => true
     ];
 
     /**
@@ -342,7 +342,14 @@ class RedemptionChannel implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setChannelId($channel_id)
     {
         if (is_null($channel_id)) {
-            throw new \InvalidArgumentException('non-nullable channel_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel_id'] = $channel_id;
 
@@ -369,10 +376,17 @@ class RedemptionChannel implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setChannelType($channel_type)
     {
         if (is_null($channel_type)) {
-            throw new \InvalidArgumentException('non-nullable channel_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getChannelTypeAllowableValues();
-        if (!in_array($channel_type, $allowedValues, true)) {
+        if (!is_null($channel_type) && !in_array($channel_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'channel_type', must be one of '%s'",

@@ -63,14 +63,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         'created_at' => '\DateTime',
         'customer_id' => 'string',
         'tracking_id' => 'string',
-        'metadata' => 'object',
+        'metadata' => '\OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItemMetadata',
         'channel' => 'string',
         'source_id' => 'string',
         'customer' => '\OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals',
+        'vouchers' => 'string[]',
         'vouchers_id' => 'string[]',
         'result' => 'string',
         'voucher' => '\OpenAPI\Client\Model\ListPublicationsItemVoucher',
-        'vouchers' => 'string[]',
         'failure_code' => 'string',
         'failure_message' => 'string'
     ];
@@ -92,10 +92,10 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         'channel' => null,
         'source_id' => null,
         'customer' => null,
+        'vouchers' => null,
         'vouchers_id' => null,
         'result' => null,
         'voucher' => null,
-        'vouchers' => null,
         'failure_code' => null,
         'failure_message' => null
     ];
@@ -106,21 +106,21 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'customer_id' => false,
-		'tracking_id' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
+		'customer_id' => true,
+		'tracking_id' => true,
 		'metadata' => false,
-		'channel' => false,
+		'channel' => true,
 		'source_id' => true,
 		'customer' => false,
-		'vouchers_id' => false,
+		'vouchers' => false,
+		'vouchers_id' => true,
 		'result' => false,
 		'voucher' => false,
-		'vouchers' => false,
-		'failure_code' => false,
-		'failure_message' => false
+		'failure_code' => true,
+		'failure_message' => true
     ];
 
     /**
@@ -218,10 +218,10 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         'channel' => 'channel',
         'source_id' => 'source_id',
         'customer' => 'customer',
+        'vouchers' => 'vouchers',
         'vouchers_id' => 'vouchers_id',
         'result' => 'result',
         'voucher' => 'voucher',
-        'vouchers' => 'vouchers',
         'failure_code' => 'failure_code',
         'failure_message' => 'failure_message'
     ];
@@ -241,10 +241,10 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         'channel' => 'setChannel',
         'source_id' => 'setSourceId',
         'customer' => 'setCustomer',
+        'vouchers' => 'setVouchers',
         'vouchers_id' => 'setVouchersId',
         'result' => 'setResult',
         'voucher' => 'setVoucher',
-        'vouchers' => 'setVouchers',
         'failure_code' => 'setFailureCode',
         'failure_message' => 'setFailureMessage'
     ];
@@ -264,10 +264,10 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         'channel' => 'getChannel',
         'source_id' => 'getSourceId',
         'customer' => 'getCustomer',
+        'vouchers' => 'getVouchers',
         'vouchers_id' => 'getVouchersId',
         'result' => 'getResult',
         'voucher' => 'getVoucher',
-        'vouchers' => 'getVouchers',
         'failure_code' => 'getFailureCode',
         'failure_message' => 'getFailureMessage'
     ];
@@ -366,10 +366,10 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('vouchers', $data ?? [], null);
         $this->setIfExists('vouchers_id', $data ?? [], null);
         $this->setIfExists('result', $data ?? [], null);
         $this->setIfExists('voucher', $data ?? [], null);
-        $this->setIfExists('vouchers', $data ?? [], null);
         $this->setIfExists('failure_code', $data ?? [], null);
         $this->setIfExists('failure_message', $data ?? [], null);
     }
@@ -454,7 +454,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -474,17 +481,24 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the `publication`.
+     * @param string|null $object The type of the object represented by the JSON. This object stores information about the `publication`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -511,14 +525,21 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the publication was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -545,7 +566,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -572,7 +600,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -582,7 +617,7 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Gets metadata
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItemMetadata|null
      */
     public function getMetadata()
     {
@@ -592,7 +627,7 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Sets metadata
      *
-     * @param object|null $metadata metadata
+     * @param \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItemMetadata|null $metadata metadata
      *
      * @return self
      */
@@ -626,7 +661,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel'] = $channel;
 
@@ -695,6 +737,33 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     }
 
     /**
+     * Gets vouchers
+     *
+     * @return string[]|null
+     */
+    public function getVouchers()
+    {
+        return $this->container['vouchers'];
+    }
+
+    /**
+     * Sets vouchers
+     *
+     * @param string[]|null $vouchers Contains the voucher IDs that was assigned by Voucherify. and Contains the unique voucher codes that was assigned by Voucherify.
+     *
+     * @return self
+     */
+    public function setVouchers($vouchers)
+    {
+        if (is_null($vouchers)) {
+            throw new \InvalidArgumentException('non-nullable vouchers cannot be null');
+        }
+        $this->container['vouchers'] = $vouchers;
+
+        return $this;
+    }
+
+    /**
      * Gets vouchers_id
      *
      * @return string[]|null
@@ -707,14 +776,21 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Sets vouchers_id
      *
-     * @param string[]|null $vouchers_id Contains the unique internal voucher ID that was assigned by Voucherify.
+     * @param string[]|null $vouchers_id Contains the unique internal voucher IDs that was assigned by Voucherify.
      *
      * @return self
      */
     public function setVouchersId($vouchers_id)
     {
         if (is_null($vouchers_id)) {
-            throw new \InvalidArgumentException('non-nullable vouchers_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vouchers_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vouchers_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['vouchers_id'] = $vouchers_id;
 
@@ -786,33 +862,6 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     }
 
     /**
-     * Gets vouchers
-     *
-     * @return string[]|null
-     */
-    public function getVouchers()
-    {
-        return $this->container['vouchers'];
-    }
-
-    /**
-     * Sets vouchers
-     *
-     * @param string[]|null $vouchers Contains the unique voucher codes that was assigned by Voucherify.
-     *
-     * @return self
-     */
-    public function setVouchers($vouchers)
-    {
-        if (is_null($vouchers)) {
-            throw new \InvalidArgumentException('non-nullable vouchers cannot be null');
-        }
-        $this->container['vouchers'] = $vouchers;
-
-        return $this;
-    }
-
-    /**
      * Gets failure_code
      *
      * @return string|null
@@ -832,7 +881,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -859,7 +915,14 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 

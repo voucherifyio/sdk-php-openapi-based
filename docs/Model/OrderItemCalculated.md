@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **subtotal_amount** | **int** | Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;applied_discount_amount&#x60; | [optional]
 **product** | [**\OpenAPI\Client\Model\OrderItemCalculatedProduct**](OrderItemCalculatedProduct.md) |  | [optional]
 **sku** | [**\OpenAPI\Client\Model\OrderItemCalculatedSku**](OrderItemCalculatedSku.md) |  | [optional]
-**object** | **string** | The type of object represented by JSON. | [default to 'order_item']
+**object** | **string** | The type of the object represented by JSON. | [optional] [default to 'order_item']
 **metadata** | **object** | A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

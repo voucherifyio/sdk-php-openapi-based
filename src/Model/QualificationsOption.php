@@ -87,11 +87,11 @@ class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'limit' => false,
+        'limit' => true,
 		'starting_after' => true,
-		'filters' => false,
-		'expand' => false,
-		'sorting_rule' => false
+		'filters' => true,
+		'expand' => true,
+		'sorting_rule' => true
     ];
 
     /**
@@ -386,10 +386,17 @@ class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setLimit($limit)
     {
         if (is_null($limit)) {
-            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($limit > 100)) {
+        if (!is_null($limit) && ($limit > 100)) {
             throw new \InvalidArgumentException('invalid value for $limit when calling QualificationsOption., must be smaller than or equal to 100.');
         }
 
@@ -452,7 +459,14 @@ class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setFilters($filters)
     {
         if (is_null($filters)) {
-            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['filters'] = $filters;
 
@@ -479,10 +493,17 @@ class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setExpand($expand)
     {
         if (is_null($expand)) {
-            throw new \InvalidArgumentException('non-nullable expand cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expand');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expand', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExpandAllowableValues();
-        if (array_diff($expand, $allowedValues)) {
+        if (!is_null($expand) && array_diff($expand, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'expand', must be one of '%s'",
@@ -515,10 +536,17 @@ class QualificationsOption implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSortingRule($sorting_rule)
     {
         if (is_null($sorting_rule)) {
-            throw new \InvalidArgumentException('non-nullable sorting_rule cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sorting_rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sorting_rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getSortingRuleAllowableValues();
-        if (!in_array($sorting_rule, $allowedValues, true)) {
+        if (!is_null($sorting_rule) && !in_array($sorting_rule, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'sorting_rule', must be one of '%s'",

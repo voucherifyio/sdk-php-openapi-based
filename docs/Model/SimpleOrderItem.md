@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **string** | The type of object represented by JSON. This object stores information about the &#x60;order_item&#x60;. | [optional] [default to 'order_item']
+**object** | **string** | The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;. | [optional] [default to 'order_item']
 **source_id** | **string** | The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service. | [optional]
 **related_object** | **string** | Used along with the source_id property, can be set to either sku or product. | [optional]
 **product_id** | **string** | A unique product ID assigned by Voucherify. | [optional]

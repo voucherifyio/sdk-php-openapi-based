@@ -87,11 +87,11 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'price' => false,
-		'attributes' => false,
-		'metadata' => false,
-		'image_url' => false
+        'name' => true,
+		'price' => true,
+		'attributes' => true,
+		'metadata' => true,
+		'image_url' => true
     ];
 
     /**
@@ -339,7 +339,14 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -366,7 +373,14 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -393,7 +407,14 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -420,7 +441,14 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -447,7 +475,14 @@ class ProductsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setImageUrl($image_url)
     {
         if (is_null($image_url)) {
-            throw new \InvalidArgumentException('non-nullable image_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['image_url'] = $image_url;
 

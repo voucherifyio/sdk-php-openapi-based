@@ -81,8 +81,8 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'type' => false
+        'id' => true,
+		'type' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -317,14 +311,21 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id Unique event ID.
+     * @param string|null $id Unique event ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -334,7 +335,7 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -344,14 +345,21 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
     /**
      * Sets type
      *
-     * @param string $type Type of custom event.
+     * @param string|null $type Type of custom event.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 

@@ -81,8 +81,8 @@ class RedemptionRewardResultParametersProduct implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'sku_id' => false
+        'id' => true,
+		'sku_id' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class RedemptionRewardResultParametersProduct implements ModelInterface, ArrayAc
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -345,7 +352,14 @@ class RedemptionRewardResultParametersProduct implements ModelInterface, ArrayAc
     public function setSkuId($sku_id)
     {
         if (is_null($sku_id)) {
-            throw new \InvalidArgumentException('non-nullable sku_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku_id'] = $sku_id;
 

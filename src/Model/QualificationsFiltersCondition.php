@@ -58,12 +58,12 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is' => 'mixed',
-        'is_not' => 'mixed',
+        'is' => 'string[]',
+        'is_not' => 'string[]',
         'has_value' => 'mixed',
         'is_unknown' => 'mixed',
-        'in' => 'mixed',
-        'not_in' => 'mixed'
+        'in' => 'string[]',
+        'not_in' => 'string[]'
     ];
 
     /**
@@ -328,7 +328,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets is
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getIs()
     {
@@ -338,7 +338,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets is
      *
-     * @param mixed|null $is is
+     * @param string[]|null $is is
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets is_not
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getIsNot()
     {
@@ -372,7 +372,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets is_not
      *
-     * @param mixed|null $is_not is_not
+     * @param string[]|null $is_not is_not
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets in
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getIn()
     {
@@ -474,7 +474,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets in
      *
-     * @param mixed|null $in in
+     * @param string[]|null $in in
      *
      * @return self
      */
@@ -498,7 +498,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets not_in
      *
-     * @return mixed|null
+     * @return string[]|null
      */
     public function getNotIn()
     {
@@ -508,7 +508,7 @@ class QualificationsFiltersCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets not_in
      *
-     * @param mixed|null $not_in not_in
+     * @param string[]|null $not_in not_in
      *
      * @return self
      */

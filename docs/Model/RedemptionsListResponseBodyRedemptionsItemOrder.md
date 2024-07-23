@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request. | [optional]
 **source_id** | **string** | Unique source ID of an existing order that will be linked to the redemption of this request. | [optional]
-**created_at** | **\DateTime** | Timestamp representing the date and time when the order was created in ISO 8601 format. | [optional]
+**created_at** | **\DateTime** | Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format. | [optional]
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the order was last updated in ISO 8601 format. | [optional]
 **status** | **string** | The order status. | [optional]
 **amount** | **int** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. | [optional]
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **metadata** | **object** |  | [optional]
 **customer_id** | **string** | Unique customer ID of the customer making the purchase. | [optional]
 **referrer_id** | **string** | Unique referrer ID. | [optional]
-**object** | **string** | The type of object represented by JSON. | [optional] [default to 'order']
+**object** | **string** | The type of the object represented by JSON. | [optional] [default to 'order']
 **redemptions** | **object** |  | [optional]
 **customer** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrderCustomer**](RedemptionsListResponseBodyRedemptionsItemOrderCustomer.md) |  | [optional]
 **referrer** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrderReferrer**](RedemptionsListResponseBodyRedemptionsItemOrderReferrer.md) |  | [optional]

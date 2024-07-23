@@ -103,19 +103,19 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'customer_id' => true,
-		'tracking_id' => false,
-		'date' => false,
-		'amount' => false,
+		'tracking_id' => true,
+		'date' => true,
+		'amount' => true,
 		'order' => false,
 		'reward' => false,
 		'customer' => false,
-		'result' => false,
+		'result' => true,
 		'voucher' => false,
 		'promotion_tier' => false,
-		'redemption' => false,
-		'object' => false
+		'redemption' => true,
+		'object' => true
     ];
 
     /**
@@ -419,7 +419,14 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -480,7 +487,14 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -500,14 +514,21 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date
      *
-     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 
@@ -527,14 +548,21 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
+     * @param int|null $amount For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. In the case of redemption rollback, the numbers are expressed as negative integers.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -642,10 +670,17 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -733,7 +768,14 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -753,14 +795,21 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the `redemption`.
+     * @param string|null $object The type of the object represented by the JSON. This object stores information about the `redemption`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 

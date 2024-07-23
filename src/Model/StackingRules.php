@@ -61,8 +61,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'redeemables_limit' => 'int',
         'applicable_redeemables_limit' => 'int',
-        'applicable_exclusive_redeemables_limit' => 'int',
         'applicable_redeemables_per_category_limit' => 'int',
+        'applicable_exclusive_redeemables_limit' => 'int',
+        'applicable_exclusive_redeemables_per_category_limit' => 'int',
         'exclusive_categories' => 'string[]',
         'joint_categories' => 'string[]',
         'redeemables_application_mode' => 'string',
@@ -79,8 +80,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'redeemables_limit' => null,
         'applicable_redeemables_limit' => null,
-        'applicable_exclusive_redeemables_limit' => null,
         'applicable_redeemables_per_category_limit' => null,
+        'applicable_exclusive_redeemables_limit' => null,
+        'applicable_exclusive_redeemables_per_category_limit' => null,
         'exclusive_categories' => null,
         'joint_categories' => null,
         'redeemables_application_mode' => null,
@@ -93,14 +95,15 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'redeemables_limit' => false,
-		'applicable_redeemables_limit' => false,
-		'applicable_exclusive_redeemables_limit' => false,
-		'applicable_redeemables_per_category_limit' => false,
-		'exclusive_categories' => false,
-		'joint_categories' => false,
-		'redeemables_application_mode' => false,
-		'redeemables_sorting_rule' => false
+        'redeemables_limit' => true,
+		'applicable_redeemables_limit' => true,
+		'applicable_redeemables_per_category_limit' => true,
+		'applicable_exclusive_redeemables_limit' => true,
+		'applicable_exclusive_redeemables_per_category_limit' => true,
+		'exclusive_categories' => true,
+		'joint_categories' => true,
+		'redeemables_application_mode' => true,
+		'redeemables_sorting_rule' => true
     ];
 
     /**
@@ -191,8 +194,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'redeemables_limit' => 'redeemables_limit',
         'applicable_redeemables_limit' => 'applicable_redeemables_limit',
-        'applicable_exclusive_redeemables_limit' => 'applicable_exclusive_redeemables_limit',
         'applicable_redeemables_per_category_limit' => 'applicable_redeemables_per_category_limit',
+        'applicable_exclusive_redeemables_limit' => 'applicable_exclusive_redeemables_limit',
+        'applicable_exclusive_redeemables_per_category_limit' => 'applicable_exclusive_redeemables_per_category_limit',
         'exclusive_categories' => 'exclusive_categories',
         'joint_categories' => 'joint_categories',
         'redeemables_application_mode' => 'redeemables_application_mode',
@@ -207,8 +211,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'redeemables_limit' => 'setRedeemablesLimit',
         'applicable_redeemables_limit' => 'setApplicableRedeemablesLimit',
-        'applicable_exclusive_redeemables_limit' => 'setApplicableExclusiveRedeemablesLimit',
         'applicable_redeemables_per_category_limit' => 'setApplicableRedeemablesPerCategoryLimit',
+        'applicable_exclusive_redeemables_limit' => 'setApplicableExclusiveRedeemablesLimit',
+        'applicable_exclusive_redeemables_per_category_limit' => 'setApplicableExclusiveRedeemablesPerCategoryLimit',
         'exclusive_categories' => 'setExclusiveCategories',
         'joint_categories' => 'setJointCategories',
         'redeemables_application_mode' => 'setRedeemablesApplicationMode',
@@ -223,8 +228,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'redeemables_limit' => 'getRedeemablesLimit',
         'applicable_redeemables_limit' => 'getApplicableRedeemablesLimit',
-        'applicable_exclusive_redeemables_limit' => 'getApplicableExclusiveRedeemablesLimit',
         'applicable_redeemables_per_category_limit' => 'getApplicableRedeemablesPerCategoryLimit',
+        'applicable_exclusive_redeemables_limit' => 'getApplicableExclusiveRedeemablesLimit',
+        'applicable_exclusive_redeemables_per_category_limit' => 'getApplicableExclusiveRedeemablesPerCategoryLimit',
         'exclusive_categories' => 'getExclusiveCategories',
         'joint_categories' => 'getJointCategories',
         'redeemables_application_mode' => 'getRedeemablesApplicationMode',
@@ -320,8 +326,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('redeemables_limit', $data ?? [], 30);
         $this->setIfExists('applicable_redeemables_limit', $data ?? [], 5);
-        $this->setIfExists('applicable_exclusive_redeemables_limit', $data ?? [], 1);
         $this->setIfExists('applicable_redeemables_per_category_limit', $data ?? [], 1);
+        $this->setIfExists('applicable_exclusive_redeemables_limit', $data ?? [], 1);
+        $this->setIfExists('applicable_exclusive_redeemables_per_category_limit', $data ?? [], 1);
         $this->setIfExists('exclusive_categories', $data ?? [], null);
         $this->setIfExists('joint_categories', $data ?? [], null);
         $this->setIfExists('redeemables_application_mode', $data ?? [], null);
@@ -355,53 +362,46 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['redeemables_limit'] === null) {
-            $invalidProperties[] = "'redeemables_limit' can't be null";
-        }
-        if (($this->container['redeemables_limit'] > 30)) {
+        if (!is_null($this->container['redeemables_limit']) && ($this->container['redeemables_limit'] > 30)) {
             $invalidProperties[] = "invalid value for 'redeemables_limit', must be smaller than or equal to 30.";
         }
 
-        if (($this->container['redeemables_limit'] < 1)) {
+        if (!is_null($this->container['redeemables_limit']) && ($this->container['redeemables_limit'] < 1)) {
             $invalidProperties[] = "invalid value for 'redeemables_limit', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['applicable_redeemables_limit'] === null) {
-            $invalidProperties[] = "'applicable_redeemables_limit' can't be null";
-        }
-        if (($this->container['applicable_redeemables_limit'] > 30)) {
+        if (!is_null($this->container['applicable_redeemables_limit']) && ($this->container['applicable_redeemables_limit'] > 30)) {
             $invalidProperties[] = "invalid value for 'applicable_redeemables_limit', must be smaller than or equal to 30.";
         }
 
-        if (($this->container['applicable_redeemables_limit'] < 1)) {
+        if (!is_null($this->container['applicable_redeemables_limit']) && ($this->container['applicable_redeemables_limit'] < 1)) {
             $invalidProperties[] = "invalid value for 'applicable_redeemables_limit', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['applicable_exclusive_redeemables_limit'] === null) {
-            $invalidProperties[] = "'applicable_exclusive_redeemables_limit' can't be null";
-        }
-        if (($this->container['applicable_exclusive_redeemables_limit'] > 30)) {
-            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_limit', must be smaller than or equal to 30.";
-        }
-
-        if (($this->container['applicable_exclusive_redeemables_limit'] < 1)) {
-            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_limit', must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['applicable_redeemables_per_category_limit']) && ($this->container['applicable_redeemables_per_category_limit'] > 30)) {
-            $invalidProperties[] = "invalid value for 'applicable_redeemables_per_category_limit', must be smaller than or equal to 30.";
+        if (!is_null($this->container['applicable_redeemables_per_category_limit']) && ($this->container['applicable_redeemables_per_category_limit'] > 5)) {
+            $invalidProperties[] = "invalid value for 'applicable_redeemables_per_category_limit', must be smaller than or equal to 5.";
         }
 
         if (!is_null($this->container['applicable_redeemables_per_category_limit']) && ($this->container['applicable_redeemables_per_category_limit'] < 1)) {
             $invalidProperties[] = "invalid value for 'applicable_redeemables_per_category_limit', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['exclusive_categories'] === null) {
-            $invalidProperties[] = "'exclusive_categories' can't be null";
+        if (!is_null($this->container['applicable_exclusive_redeemables_limit']) && ($this->container['applicable_exclusive_redeemables_limit'] > 5)) {
+            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_limit', must be smaller than or equal to 5.";
         }
-        if ($this->container['joint_categories'] === null) {
-            $invalidProperties[] = "'joint_categories' can't be null";
+
+        if (!is_null($this->container['applicable_exclusive_redeemables_limit']) && ($this->container['applicable_exclusive_redeemables_limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_limit', must be bigger than or equal to 1.";
         }
+
+        if (!is_null($this->container['applicable_exclusive_redeemables_per_category_limit']) && ($this->container['applicable_exclusive_redeemables_per_category_limit'] > 5)) {
+            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_per_category_limit', must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['applicable_exclusive_redeemables_per_category_limit']) && ($this->container['applicable_exclusive_redeemables_per_category_limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'applicable_exclusive_redeemables_per_category_limit', must be bigger than or equal to 1.";
+        }
+
         $allowedValues = $this->getRedeemablesApplicationModeAllowableValues();
         if (!is_null($this->container['redeemables_application_mode']) && !in_array($this->container['redeemables_application_mode'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -438,7 +438,7 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets redeemables_limit
      *
-     * @return int
+     * @return int|null
      */
     public function getRedeemablesLimit()
     {
@@ -448,20 +448,27 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets redeemables_limit
      *
-     * @param int $redeemables_limit Defines how many redeemables can be sent in one stacking request (note: more redeemables means more processing time!).
+     * @param int|null $redeemables_limit Defines how many redeemables can be sent in one stacking request (note: more redeemables means more processing time!).
      *
      * @return self
      */
     public function setRedeemablesLimit($redeemables_limit)
     {
         if (is_null($redeemables_limit)) {
-            throw new \InvalidArgumentException('non-nullable redeemables_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($redeemables_limit > 30)) {
+        if (!is_null($redeemables_limit) && ($redeemables_limit > 30)) {
             throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
         }
-        if (($redeemables_limit < 1)) {
+        if (!is_null($redeemables_limit) && ($redeemables_limit < 1)) {
             throw new \InvalidArgumentException('invalid value for $redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
@@ -473,7 +480,7 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets applicable_redeemables_limit
      *
-     * @return int
+     * @return int|null
      */
     public function getApplicableRedeemablesLimit()
     {
@@ -483,59 +490,31 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets applicable_redeemables_limit
      *
-     * @param int $applicable_redeemables_limit Defines how many of the sent redeemables will be applied to the order. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be labelled as SKIPPED.
+     * @param int|null $applicable_redeemables_limit Defines how many of the sent redeemables will be applied to the order. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be labelled as SKIPPED.
      *
      * @return self
      */
     public function setApplicableRedeemablesLimit($applicable_redeemables_limit)
     {
         if (is_null($applicable_redeemables_limit)) {
-            throw new \InvalidArgumentException('non-nullable applicable_redeemables_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applicable_redeemables_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_redeemables_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($applicable_redeemables_limit > 30)) {
+        if (!is_null($applicable_redeemables_limit) && ($applicable_redeemables_limit > 30)) {
             throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
         }
-        if (($applicable_redeemables_limit < 1)) {
+        if (!is_null($applicable_redeemables_limit) && ($applicable_redeemables_limit < 1)) {
             throw new \InvalidArgumentException('invalid value for $applicable_redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
         $this->container['applicable_redeemables_limit'] = $applicable_redeemables_limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets applicable_exclusive_redeemables_limit
-     *
-     * @return int
-     */
-    public function getApplicableExclusiveRedeemablesLimit()
-    {
-        return $this->container['applicable_exclusive_redeemables_limit'];
-    }
-
-    /**
-     * Sets applicable_exclusive_redeemables_limit
-     *
-     * @param int $applicable_exclusive_redeemables_limit Defines how many redeemables with an exclusive category can be applied in one request.
-     *
-     * @return self
-     */
-    public function setApplicableExclusiveRedeemablesLimit($applicable_exclusive_redeemables_limit)
-    {
-        if (is_null($applicable_exclusive_redeemables_limit)) {
-            throw new \InvalidArgumentException('non-nullable applicable_exclusive_redeemables_limit cannot be null');
-        }
-
-        if (($applicable_exclusive_redeemables_limit > 30)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be smaller than or equal to 30.');
-        }
-        if (($applicable_exclusive_redeemables_limit < 1)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
-        }
-
-        $this->container['applicable_exclusive_redeemables_limit'] = $applicable_exclusive_redeemables_limit;
 
         return $this;
     }
@@ -560,13 +539,20 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setApplicableRedeemablesPerCategoryLimit($applicable_redeemables_per_category_limit)
     {
         if (is_null($applicable_redeemables_per_category_limit)) {
-            throw new \InvalidArgumentException('non-nullable applicable_redeemables_per_category_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applicable_redeemables_per_category_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_redeemables_per_category_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($applicable_redeemables_per_category_limit > 30)) {
-            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_per_category_limit when calling StackingRules., must be smaller than or equal to 30.');
+        if (!is_null($applicable_redeemables_per_category_limit) && ($applicable_redeemables_per_category_limit > 5)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_redeemables_per_category_limit when calling StackingRules., must be smaller than or equal to 5.');
         }
-        if (($applicable_redeemables_per_category_limit < 1)) {
+        if (!is_null($applicable_redeemables_per_category_limit) && ($applicable_redeemables_per_category_limit < 1)) {
             throw new \InvalidArgumentException('invalid value for $applicable_redeemables_per_category_limit when calling StackingRules., must be bigger than or equal to 1.');
         }
 
@@ -576,9 +562,93 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets applicable_exclusive_redeemables_limit
+     *
+     * @return int|null
+     */
+    public function getApplicableExclusiveRedeemablesLimit()
+    {
+        return $this->container['applicable_exclusive_redeemables_limit'];
+    }
+
+    /**
+     * Sets applicable_exclusive_redeemables_limit
+     *
+     * @param int|null $applicable_exclusive_redeemables_limit Defines how many redeemables with an exclusive category can be applied in one request.
+     *
+     * @return self
+     */
+    public function setApplicableExclusiveRedeemablesLimit($applicable_exclusive_redeemables_limit)
+    {
+        if (is_null($applicable_exclusive_redeemables_limit)) {
+            array_push($this->openAPINullablesSetToNull, 'applicable_exclusive_redeemables_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_exclusive_redeemables_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($applicable_exclusive_redeemables_limit) && ($applicable_exclusive_redeemables_limit > 5)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be smaller than or equal to 5.');
+        }
+        if (!is_null($applicable_exclusive_redeemables_limit) && ($applicable_exclusive_redeemables_limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_limit when calling StackingRules., must be bigger than or equal to 1.');
+        }
+
+        $this->container['applicable_exclusive_redeemables_limit'] = $applicable_exclusive_redeemables_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets applicable_exclusive_redeemables_per_category_limit
+     *
+     * @return int|null
+     */
+    public function getApplicableExclusiveRedeemablesPerCategoryLimit()
+    {
+        return $this->container['applicable_exclusive_redeemables_per_category_limit'];
+    }
+
+    /**
+     * Sets applicable_exclusive_redeemables_per_category_limit
+     *
+     * @param int|null $applicable_exclusive_redeemables_per_category_limit Defines how many redeemables with an exclusive category per category in stacking rules can be applied in one request.
+     *
+     * @return self
+     */
+    public function setApplicableExclusiveRedeemablesPerCategoryLimit($applicable_exclusive_redeemables_per_category_limit)
+    {
+        if (is_null($applicable_exclusive_redeemables_per_category_limit)) {
+            array_push($this->openAPINullablesSetToNull, 'applicable_exclusive_redeemables_per_category_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_exclusive_redeemables_per_category_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($applicable_exclusive_redeemables_per_category_limit) && ($applicable_exclusive_redeemables_per_category_limit > 5)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_per_category_limit when calling StackingRules., must be smaller than or equal to 5.');
+        }
+        if (!is_null($applicable_exclusive_redeemables_per_category_limit) && ($applicable_exclusive_redeemables_per_category_limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $applicable_exclusive_redeemables_per_category_limit when calling StackingRules., must be bigger than or equal to 1.');
+        }
+
+        $this->container['applicable_exclusive_redeemables_per_category_limit'] = $applicable_exclusive_redeemables_per_category_limit;
+
+        return $this;
+    }
+
+    /**
      * Gets exclusive_categories
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getExclusiveCategories()
     {
@@ -588,14 +658,21 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets exclusive_categories
      *
-     * @param string[] $exclusive_categories Lists all exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint.
+     * @param string[]|null $exclusive_categories Lists all exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint.
      *
      * @return self
      */
     public function setExclusiveCategories($exclusive_categories)
     {
         if (is_null($exclusive_categories)) {
-            throw new \InvalidArgumentException('non-nullable exclusive_categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exclusive_categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exclusive_categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['exclusive_categories'] = $exclusive_categories;
 
@@ -605,7 +682,7 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets joint_categories
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getJointCategories()
     {
@@ -615,14 +692,21 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets joint_categories
      *
-     * @param string[] $joint_categories Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns.
+     * @param string[]|null $joint_categories Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns.
      *
      * @return self
      */
     public function setJointCategories($joint_categories)
     {
         if (is_null($joint_categories)) {
-            throw new \InvalidArgumentException('non-nullable joint_categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'joint_categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('joint_categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['joint_categories'] = $joint_categories;
 
@@ -649,10 +733,17 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRedeemablesApplicationMode($redeemables_application_mode)
     {
         if (is_null($redeemables_application_mode)) {
-            throw new \InvalidArgumentException('non-nullable redeemables_application_mode cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables_application_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables_application_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRedeemablesApplicationModeAllowableValues();
-        if (!in_array($redeemables_application_mode, $allowedValues, true)) {
+        if (!is_null($redeemables_application_mode) && !in_array($redeemables_application_mode, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'redeemables_application_mode', must be one of '%s'",
@@ -686,10 +777,17 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRedeemablesSortingRule($redeemables_sorting_rule)
     {
         if (is_null($redeemables_sorting_rule)) {
-            throw new \InvalidArgumentException('non-nullable redeemables_sorting_rule cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables_sorting_rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables_sorting_rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRedeemablesSortingRuleAllowableValues();
-        if (!in_array($redeemables_sorting_rule, $allowedValues, true)) {
+        if (!is_null($redeemables_sorting_rule) && !in_array($redeemables_sorting_rule, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'redeemables_sorting_rule', must be one of '%s'",

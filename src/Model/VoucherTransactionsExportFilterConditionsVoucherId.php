@@ -79,7 +79,7 @@ class VoucherTransactionsExportFilterConditionsVoucherId implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'conditions' => false
+        'conditions' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class VoucherTransactionsExportFilterConditionsVoucherId implements ModelInterfa
     {
         $invalidProperties = [];
 
-        if ($this->container['conditions'] === null) {
-            $invalidProperties[] = "'conditions' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class VoucherTransactionsExportFilterConditionsVoucherId implements ModelInterfa
     /**
      * Gets conditions
      *
-     * @return \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherIdConditions
+     * @return \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherIdConditions|null
      */
     public function getConditions()
     {
@@ -307,14 +304,21 @@ class VoucherTransactionsExportFilterConditionsVoucherId implements ModelInterfa
     /**
      * Sets conditions
      *
-     * @param \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherIdConditions $conditions conditions
+     * @param \OpenAPI\Client\Model\VoucherTransactionsExportFilterConditionsVoucherIdConditions|null $conditions conditions
      *
      * @return self
      */
     public function setConditions($conditions)
     {
         if (is_null($conditions)) {
-            throw new \InvalidArgumentException('non-nullable conditions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'conditions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('conditions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['conditions'] = $conditions;
 

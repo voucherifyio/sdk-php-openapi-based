@@ -101,18 +101,18 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'source_id' => true,
-		'product_id' => false,
+		'product_id' => true,
 		'sku' => true,
 		'price' => true,
 		'currency' => true,
-		'attributes' => false,
+		'attributes' => true,
 		'image_url' => true,
-		'metadata' => false,
-		'created_at' => false,
+		'metadata' => true,
+		'created_at' => true,
 		'updated_at' => true,
-		'object' => false
+		'object' => true
     ];
 
     /**
@@ -366,39 +366,6 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
-        }
-        if ($this->container['image_url'] === null) {
-            $invalidProperties[] = "'image_url' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -426,7 +393,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -436,14 +403,21 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id A unique identifier that represents the SKU and is assigned by Voucherify.
+     * @param string|null $id A unique identifier that represents the SKU and is assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -453,7 +427,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -463,7 +437,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source_id
      *
-     * @param string $source_id A unique SKU identifier from your inventory system.
+     * @param string|null $source_id A unique SKU identifier from your inventory system.
      *
      * @return self
      */
@@ -487,7 +461,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets product_id
      *
-     * @return string
+     * @return string|null
      */
     public function getProductId()
     {
@@ -497,14 +471,21 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product_id
      *
-     * @param string $product_id The parent product's unique ID.
+     * @param string|null $product_id The parent product's unique ID.
      *
      * @return self
      */
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -514,7 +495,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sku
      *
-     * @return string
+     * @return string|null
      */
     public function getSku()
     {
@@ -524,7 +505,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sku
      *
-     * @param string $sku Unique user-defined SKU name.
+     * @param string|null $sku Unique user-defined SKU name.
      *
      * @return self
      */
@@ -548,7 +529,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price
      *
-     * @return int
+     * @return int|null
      */
     public function getPrice()
     {
@@ -558,7 +539,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price
      *
-     * @param int $price Unit price. It is represented by a value multiplied by 100 to accurately reflect 2 decimal places, such as `$100.00` being expressed as `10000`.
+     * @param int|null $price Unit price. It is represented by a value multiplied by 100 to accurately reflect 2 decimal places, such as `$100.00` being expressed as `10000`.
      *
      * @return self
      */
@@ -616,7 +597,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attributes
      *
-     * @return object
+     * @return object|null
      */
     public function getAttributes()
     {
@@ -626,14 +607,21 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attributes
      *
-     * @param object $attributes The attributes object stores values for all custom attributes inherited by the SKU from the parent product. A set of key/value pairs that are attached to a SKU object and are unique to each SKU within a product family.
+     * @param object|null $attributes The attributes object stores values for all custom attributes inherited by the SKU from the parent product. A set of key/value pairs that are attached to a SKU object and are unique to each SKU within a product family.
      *
      * @return self
      */
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -643,7 +631,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets image_url
      *
-     * @return string
+     * @return string|null
      */
     public function getImageUrl()
     {
@@ -653,7 +641,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets image_url
      *
-     * @param string $image_url The HTTPS URL pointing to the .png or .jpg file that will be used to render the SKU image.
+     * @param string|null $image_url The HTTPS URL pointing to the .png or .jpg file that will be used to render the SKU image.
      *
      * @return self
      */
@@ -677,7 +665,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -687,14 +675,21 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the SKU. A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the SKU. A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -704,7 +699,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -714,14 +709,21 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the SKU was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the SKU was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -731,7 +733,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets updated_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -741,7 +743,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Timestamp representing the date and time when the SKU was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the SKU was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -765,7 +767,7 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -775,17 +777,24 @@ class Sku implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the `SKU`.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the `SKU`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

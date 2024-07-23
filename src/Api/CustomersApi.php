@@ -447,7 +447,7 @@ class CustomersApi
      *
      * Delete Customer Permanently
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['customerPermanentlyDeletion'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -465,7 +465,7 @@ class CustomersApi
      *
      * Delete Customer Permanently
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['customerPermanentlyDeletion'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -565,7 +565,7 @@ class CustomersApi
      *
      * Delete Customer Permanently
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['customerPermanentlyDeletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -586,7 +586,7 @@ class CustomersApi
      *
      * Delete Customer Permanently
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['customerPermanentlyDeletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -636,7 +636,7 @@ class CustomersApi
     /**
      * Create request for operation 'customerPermanentlyDeletion'
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['customerPermanentlyDeletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -740,7 +740,7 @@ class CustomersApi
      *
      * Delete Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -757,7 +757,7 @@ class CustomersApi
      *
      * Delete Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -817,7 +817,7 @@ class CustomersApi
      *
      * Delete Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -838,7 +838,7 @@ class CustomersApi
      *
      * Delete Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -875,7 +875,7 @@ class CustomersApi
     /**
      * Create request for operation 'deleteCustomer'
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -979,7 +979,7 @@ class CustomersApi
      *
      * Get Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -997,7 +997,7 @@ class CustomersApi
      *
      * Get Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1097,7 +1097,7 @@ class CustomersApi
      *
      * Get Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1118,7 +1118,7 @@ class CustomersApi
      *
      * Get Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1168,7 +1168,7 @@ class CustomersApi
     /**
      * Create request for operation 'getCustomer'
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1272,14 +1272,14 @@ class CustomersApi
      *
      * Import and Update Customers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importCustomersUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CustomersImportCsvCreateResponseBody
      */
-    public function importCustomersUsingCsv($file, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
+    public function importCustomersUsingCsv($file = null, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
     {
         list($response) = $this->importCustomersUsingCsvWithHttpInfo($file, $contentType);
         return $response;
@@ -1290,14 +1290,14 @@ class CustomersApi
      *
      * Import and Update Customers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importCustomersUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CustomersImportCsvCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importCustomersUsingCsvWithHttpInfo($file, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
+    public function importCustomersUsingCsvWithHttpInfo($file = null, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
     {
         $request = $this->importCustomersUsingCsvRequest($file, $contentType);
 
@@ -1390,13 +1390,13 @@ class CustomersApi
      *
      * Import and Update Customers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importCustomersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importCustomersUsingCsvAsync($file, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
+    public function importCustomersUsingCsvAsync($file = null, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
     {
         return $this->importCustomersUsingCsvAsyncWithHttpInfo($file, $contentType)
             ->then(
@@ -1411,13 +1411,13 @@ class CustomersApi
      *
      * Import and Update Customers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importCustomersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importCustomersUsingCsvAsyncWithHttpInfo($file, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
+    public function importCustomersUsingCsvAsyncWithHttpInfo($file = null, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CustomersImportCsvCreateResponseBody';
         $request = $this->importCustomersUsingCsvRequest($file, $contentType);
@@ -1461,21 +1461,15 @@ class CustomersApi
     /**
      * Create request for operation 'importCustomersUsingCsv'
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importCustomersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importCustomersUsingCsvRequest($file, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
+    public function importCustomersUsingCsvRequest($file = null, string $contentType = self::contentTypes['importCustomersUsingCsv'][0])
     {
 
-        // verify the required parameter 'file' is set
-        if ($file === null || (is_array($file) && count($file) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling importCustomersUsingCsv'
-            );
-        }
 
 
         $resourcePath = '/v1/customers/importCSV';
@@ -1569,12 +1563,12 @@ class CustomersApi
      *
      * List Customer Activities
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. (optional)
-     * @param  string $starting_after_id By applying this filter value, you will get events starting after an event with the given ID. (optional)
-     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
      * @param  string $campaign_id By applying this parameter you request only events related to specific campaign identified by its ID. (optional)
      * @param  string $product_id By applying this parameter you request only events related to specific product identified by its ID. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
@@ -1584,6 +1578,7 @@ class CustomersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CustomersActivitiesListResponseBody
+     * @deprecated
      */
     public function listCustomerActivities($customer_id, $limit = null, $order = null, $starting_after = null, $starting_after_id = null, $campaign_type = null, $campaign_id = null, $product_id = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['listCustomerActivities'][0])
     {
@@ -1596,12 +1591,12 @@ class CustomersApi
      *
      * List Customer Activities
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. (optional)
-     * @param  string $starting_after_id By applying this filter value, you will get events starting after an event with the given ID. (optional)
-     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
      * @param  string $campaign_id By applying this parameter you request only events related to specific campaign identified by its ID. (optional)
      * @param  string $product_id By applying this parameter you request only events related to specific product identified by its ID. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
@@ -1611,6 +1606,7 @@ class CustomersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CustomersActivitiesListResponseBody, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function listCustomerActivitiesWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after = null, $starting_after_id = null, $campaign_type = null, $campaign_id = null, $product_id = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['listCustomerActivities'][0])
     {
@@ -1705,12 +1701,12 @@ class CustomersApi
      *
      * List Customer Activities
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. (optional)
-     * @param  string $starting_after_id By applying this filter value, you will get events starting after an event with the given ID. (optional)
-     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
      * @param  string $campaign_id By applying this parameter you request only events related to specific campaign identified by its ID. (optional)
      * @param  string $product_id By applying this parameter you request only events related to specific product identified by its ID. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
@@ -1719,6 +1715,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listCustomerActivitiesAsync($customer_id, $limit = null, $order = null, $starting_after = null, $starting_after_id = null, $campaign_type = null, $campaign_id = null, $product_id = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['listCustomerActivities'][0])
     {
@@ -1735,12 +1732,12 @@ class CustomersApi
      *
      * List Customer Activities
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. (optional)
-     * @param  string $starting_after_id By applying this filter value, you will get events starting after an event with the given ID. (optional)
-     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
      * @param  string $campaign_id By applying this parameter you request only events related to specific campaign identified by its ID. (optional)
      * @param  string $product_id By applying this parameter you request only events related to specific product identified by its ID. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
@@ -1749,6 +1746,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listCustomerActivitiesAsyncWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after = null, $starting_after_id = null, $campaign_type = null, $campaign_id = null, $product_id = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['listCustomerActivities'][0])
     {
@@ -1794,12 +1792,12 @@ class CustomersApi
     /**
      * Create request for operation 'listCustomerActivities'
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. (optional)
-     * @param  string $starting_after_id By applying this filter value, you will get events starting after an event with the given ID. (optional)
-     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrder $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM (optional)
      * @param  string $campaign_id By applying this parameter you request only events related to specific campaign identified by its ID. (optional)
      * @param  string $product_id By applying this parameter you request only events related to specific product identified by its ID. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
@@ -1808,6 +1806,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function listCustomerActivitiesRequest($customer_id, $limit = null, $order = null, $starting_after = null, $starting_after_id = null, $campaign_type = null, $campaign_id = null, $product_id = null, $start_date = null, $end_date = null, string $contentType = self::contentTypes['listCustomerActivities'][0])
     {
@@ -2296,8 +2295,8 @@ class CustomersApi
      *
      * List Customers
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $email Limit the customers to the ones that have this specific email address. (optional)
      * @param  string $city Limit the customers to the ones that are located in the specified city. (optional)
      * @param  string $name Filter customers by the name property. (optional)
@@ -2306,8 +2305,8 @@ class CustomersApi
      * @param  \DateTime $created_at_after Filter customers by date customer was created. (optional)
      * @param  \DateTime $updated_at_before Filter customers by date customer was updated last time. (optional)
      * @param  \DateTime $updated_at_after Filter customers by date customer was updated last time. (optional)
-     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | (optional)
+     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2325,8 +2324,8 @@ class CustomersApi
      *
      * List Customers
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $email Limit the customers to the ones that have this specific email address. (optional)
      * @param  string $city Limit the customers to the ones that are located in the specified city. (optional)
      * @param  string $name Filter customers by the name property. (optional)
@@ -2335,8 +2334,8 @@ class CustomersApi
      * @param  \DateTime $created_at_after Filter customers by date customer was created. (optional)
      * @param  \DateTime $updated_at_before Filter customers by date customer was updated last time. (optional)
      * @param  \DateTime $updated_at_after Filter customers by date customer was updated last time. (optional)
-     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | (optional)
+     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2436,8 +2435,8 @@ class CustomersApi
      *
      * List Customers
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $email Limit the customers to the ones that have this specific email address. (optional)
      * @param  string $city Limit the customers to the ones that are located in the specified city. (optional)
      * @param  string $name Filter customers by the name property. (optional)
@@ -2446,8 +2445,8 @@ class CustomersApi
      * @param  \DateTime $created_at_after Filter customers by date customer was created. (optional)
      * @param  \DateTime $updated_at_before Filter customers by date customer was updated last time. (optional)
      * @param  \DateTime $updated_at_after Filter customers by date customer was updated last time. (optional)
-     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | (optional)
+     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2468,8 +2467,8 @@ class CustomersApi
      *
      * List Customers
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $email Limit the customers to the ones that have this specific email address. (optional)
      * @param  string $city Limit the customers to the ones that are located in the specified city. (optional)
      * @param  string $name Filter customers by the name property. (optional)
@@ -2478,8 +2477,8 @@ class CustomersApi
      * @param  \DateTime $created_at_after Filter customers by date customer was created. (optional)
      * @param  \DateTime $updated_at_before Filter customers by date customer was updated last time. (optional)
      * @param  \DateTime $updated_at_after Filter customers by date customer was updated last time. (optional)
-     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | (optional)
+     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2529,8 +2528,8 @@ class CustomersApi
     /**
      * Create request for operation 'listCustomers'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $email Limit the customers to the ones that have this specific email address. (optional)
      * @param  string $city Limit the customers to the ones that are located in the specified city. (optional)
      * @param  string $name Filter customers by the name property. (optional)
@@ -2539,8 +2538,8 @@ class CustomersApi
      * @param  \DateTime $created_at_after Filter customers by date customer was created. (optional)
      * @param  \DateTime $updated_at_before Filter customers by date customer was updated last time. (optional)
      * @param  \DateTime $updated_at_after Filter customers by date customer was updated last time. (optional)
-     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
-     * @param  \DateTime $starting_after A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | (optional)
+     * @param  ParameterOrderListCustomers $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  \DateTime $starting_after A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2558,6 +2557,9 @@ class CustomersApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling CustomersApi.listCustomers, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling CustomersApi.listCustomers, must be bigger than or equal to 1.');
         }
         
 
@@ -2758,7 +2760,7 @@ class CustomersApi
      *
      * Update Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  \OpenAPI\Client\Model\CustomersUpdateRequestBody $customers_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
@@ -2777,7 +2779,7 @@ class CustomersApi
      *
      * Update Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  \OpenAPI\Client\Model\CustomersUpdateRequestBody $customers_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
@@ -2878,7 +2880,7 @@ class CustomersApi
      *
      * Update Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  \OpenAPI\Client\Model\CustomersUpdateRequestBody $customers_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
@@ -2900,7 +2902,7 @@ class CustomersApi
      *
      * Update Customer
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  \OpenAPI\Client\Model\CustomersUpdateRequestBody $customers_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
@@ -2951,7 +2953,7 @@ class CustomersApi
     /**
      * Create request for operation 'updateCustomer'
      *
-     * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. (required)
+     * @param  string $customer_id A Voucherify customers id or source_id. (required)
      * @param  \OpenAPI\Client\Model\CustomersUpdateRequestBody $customers_update_request_body Specify the parameters to be updated. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
@@ -3065,7 +3067,7 @@ class CustomersApi
      * Update Customer&#39;s consents
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsents'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3083,7 +3085,7 @@ class CustomersApi
      * Update Customer&#39;s consents
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsents'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3144,7 +3146,7 @@ class CustomersApi
      * Update Customer&#39;s consents
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3166,7 +3168,7 @@ class CustomersApi
      * Update Customer&#39;s consents
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3204,7 +3206,7 @@ class CustomersApi
      * Create request for operation 'updateCustomersConsents'
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
-     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
+     * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersConsents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3602,7 +3604,7 @@ class CustomersApi
      *
      * Update Customers&#39; Metadata in bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3620,7 +3622,7 @@ class CustomersApi
      *
      * Update Customers&#39; Metadata in bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3720,7 +3722,7 @@ class CustomersApi
      *
      * Update Customers&#39; Metadata in bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3741,7 +3743,7 @@ class CustomersApi
      *
      * Update Customers&#39; Metadata in bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3791,7 +3793,7 @@ class CustomersApi
     /**
      * Create request for operation 'updateCustomersMetadataInBulk'
      *
-     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update along with the metadata key value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

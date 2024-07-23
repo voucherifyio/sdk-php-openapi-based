@@ -59,8 +59,8 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is' => 'string',
-        'is_not' => 'string',
+        'is' => 'string[]',
+        'is_not' => 'string[]',
         'in' => 'string[]',
         'not_in' => 'string[]'
     ];
@@ -85,10 +85,10 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is' => false,
-		'is_not' => false,
-		'in' => false,
-		'not_in' => false
+        'is' => true,
+		'is_not' => true,
+		'in' => true,
+		'not_in' => true
     ];
 
     /**
@@ -365,24 +365,6 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getIsAllowableValues();
-        if (!is_null($this->container['is']) && !in_array($this->container['is'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is', must be one of '%s'",
-                $this->container['is'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getIsNotAllowableValues();
-        if (!is_null($this->container['is_not']) && !in_array($this->container['is_not'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is_not', must be one of '%s'",
-                $this->container['is_not'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -401,7 +383,7 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Gets is
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getIs()
     {
@@ -411,21 +393,27 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Sets is
      *
-     * @param string|null $is Types of usable resources.
+     * @param string[]|null $is is
      *
      * @return self
      */
     public function setIs($is)
     {
         if (is_null($is)) {
-            throw new \InvalidArgumentException('non-nullable is cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getIsAllowableValues();
-        if (!in_array($is, $allowedValues, true)) {
+        if (!is_null($is) && array_diff($is, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'is', must be one of '%s'",
-                    $is,
+                    "Invalid value for 'is', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
@@ -438,7 +426,7 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Gets is_not
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getIsNot()
     {
@@ -448,21 +436,27 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Sets is_not
      *
-     * @param string|null $is_not Types of usable resources.
+     * @param string[]|null $is_not is_not
      *
      * @return self
      */
     public function setIsNot($is_not)
     {
         if (is_null($is_not)) {
-            throw new \InvalidArgumentException('non-nullable is_not cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_not');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_not', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getIsNotAllowableValues();
-        if (!in_array($is_not, $allowedValues, true)) {
+        if (!is_null($is_not) && array_diff($is_not, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'is_not', must be one of '%s'",
-                    $is_not,
+                    "Invalid value for 'is_not', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
@@ -485,17 +479,24 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Sets in
      *
-     * @param string[]|null $in Array of qualified redeemables. Accepts more than one value. Returns the resource types entered in the array.
+     * @param string[]|null $in in
      *
      * @return self
      */
     public function setIn($in)
     {
         if (is_null($in)) {
-            throw new \InvalidArgumentException('non-nullable in cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getInAllowableValues();
-        if (array_diff($in, $allowedValues)) {
+        if (!is_null($in) && array_diff($in, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'in', must be one of '%s'",
@@ -521,17 +522,24 @@ class QualificationsOptionFiltersResourceTypeConditions implements ModelInterfac
     /**
      * Sets not_in
      *
-     * @param string[]|null $not_in Array of qualified redeemables. Accepts more than one value. Returns the resource types except those entered in the array.
+     * @param string[]|null $not_in not_in
      *
      * @return self
      */
     public function setNotIn($not_in)
     {
         if (is_null($not_in)) {
-            throw new \InvalidArgumentException('non-nullable not_in cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getNotInAllowableValues();
-        if (array_diff($not_in, $allowedValues)) {
+        if (!is_null($not_in) && array_diff($not_in, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'not_in', must be one of '%s'",

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique publication ID, assigned by Voucherify. | [optional]
-**object** | **string** | The type of object represented by the JSON. This object stores information about the &#x60;publication&#x60;. | [optional] [default to 'publication']
-**created_at** | **\DateTime** | Timestamp representing the date and time when the publication was created in ISO 8601 format. | [optional]
+**object** | **string** | The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;. | [optional] [default to 'publication']
+**created_at** | **\DateTime** | Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format. | [optional]
 **customer_id** | **string** | Unique customer ID of the customer receiving the publication. | [optional]
 **tracking_id** | **string** | Customer&#39;s &#x60;source_id&#x60;. | [optional]
 **metadata** | **object** |  | [optional]

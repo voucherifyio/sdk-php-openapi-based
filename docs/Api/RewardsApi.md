@@ -319,8 +319,8 @@ $apiInstance = new OpenAPI\Client\Api\RewardsApi(
     $config
 );
 $reward_id = 'reward_id_example'; // string | A unique reward ID.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
 
 try {
     $result = $apiInstance->listRewardAssignments($reward_id, $limit, $page);
@@ -335,8 +335,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **reward_id** | **string**| A unique reward ID. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
 
 ### Return type
 

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * SimpleCampaign Class Doc Comment
  *
  * @category Class
- * @description Request body schema for creating a discount voucher campaign using **POST** &#x60;/campaigns&#x60;.
+ * @description Simplified campaign data.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,13 +64,21 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_type' => 'string',
         'type' => 'string',
         'is_referral_code' => 'bool',
-        'voucher' => 'object',
-        'lucky_draw' => 'object',
+        'voucher' => '\OpenAPI\Client\Model\SimpleCampaignVoucher',
+        'lucky_draw' => '\OpenAPI\Client\Model\SimpleCampaignLuckyDraw',
         'referral_program' => '\OpenAPI\Client\Model\ReferralProgram',
         'auto_join' => 'bool',
         'join_once' => 'bool',
         'active' => 'bool',
+        'category' => 'string',
+        'category_id' => 'string',
+        'categories' => '\OpenAPI\Client\Model\Category[]',
+        'metadata' => 'object',
+        'start_date' => '\DateTime',
+        'expiration_date' => '\DateTime',
+        'description' => 'string',
         'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'object' => 'string'
     ];
 
@@ -93,7 +101,15 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_join' => null,
         'join_once' => null,
         'active' => null,
+        'category' => null,
+        'category_id' => null,
+        'categories' => null,
+        'metadata' => null,
+        'start_date' => 'date-time',
+        'expiration_date' => 'date-time',
+        'description' => null,
         'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'object' => null
     ];
 
@@ -103,19 +119,27 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'campaign_type' => false,
-		'type' => false,
-		'is_referral_code' => false,
+        'id' => true,
+		'name' => true,
+		'campaign_type' => true,
+		'type' => true,
+		'is_referral_code' => true,
 		'voucher' => false,
-		'lucky_draw' => false,
+		'lucky_draw' => true,
 		'referral_program' => false,
-		'auto_join' => false,
-		'join_once' => false,
-		'active' => false,
-		'created_at' => false,
-		'object' => false
+		'auto_join' => true,
+		'join_once' => true,
+		'active' => true,
+		'category' => true,
+		'category_id' => true,
+		'categories' => true,
+		'metadata' => true,
+		'start_date' => true,
+		'expiration_date' => true,
+		'description' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'object' => true
     ];
 
     /**
@@ -215,7 +239,15 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_join' => 'auto_join',
         'join_once' => 'join_once',
         'active' => 'active',
+        'category' => 'category',
+        'category_id' => 'category_id',
+        'categories' => 'categories',
+        'metadata' => 'metadata',
+        'start_date' => 'start_date',
+        'expiration_date' => 'expiration_date',
+        'description' => 'description',
         'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
         'object' => 'object'
     ];
 
@@ -236,7 +268,15 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_join' => 'setAutoJoin',
         'join_once' => 'setJoinOnce',
         'active' => 'setActive',
+        'category' => 'setCategory',
+        'category_id' => 'setCategoryId',
+        'categories' => 'setCategories',
+        'metadata' => 'setMetadata',
+        'start_date' => 'setStartDate',
+        'expiration_date' => 'setExpirationDate',
+        'description' => 'setDescription',
         'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'object' => 'setObject'
     ];
 
@@ -257,7 +297,15 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         'auto_join' => 'getAutoJoin',
         'join_once' => 'getJoinOnce',
         'active' => 'getActive',
+        'category' => 'getCategory',
+        'category_id' => 'getCategoryId',
+        'categories' => 'getCategories',
+        'metadata' => 'getMetadata',
+        'start_date' => 'getStartDate',
+        'expiration_date' => 'getExpirationDate',
+        'description' => 'getDescription',
         'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'object' => 'getObject'
     ];
 
@@ -357,7 +405,15 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('auto_join', $data ?? [], null);
         $this->setIfExists('join_once', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
+        $this->setIfExists('category_id', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('expiration_date', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'campaign');
     }
 
@@ -434,14 +490,21 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Campaign name.
+     * @param string|null $id Campaign ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -468,7 +531,14 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -495,7 +565,14 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaignType($campaign_type)
     {
         if (is_null($campaign_type)) {
-            throw new \InvalidArgumentException('non-nullable campaign_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_type'] = $campaign_type;
 
@@ -522,10 +599,17 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -559,7 +643,14 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 
@@ -569,7 +660,7 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets voucher
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\SimpleCampaignVoucher|null
      */
     public function getVoucher()
     {
@@ -579,7 +670,7 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets voucher
      *
-     * @param object|null $voucher voucher
+     * @param \OpenAPI\Client\Model\SimpleCampaignVoucher|null $voucher voucher
      *
      * @return self
      */
@@ -596,7 +687,7 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets lucky_draw
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\SimpleCampaignLuckyDraw|null
      */
     public function getLuckyDraw()
     {
@@ -606,14 +697,21 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lucky_draw
      *
-     * @param object|null $lucky_draw lucky_draw
+     * @param \OpenAPI\Client\Model\SimpleCampaignLuckyDraw|null $lucky_draw lucky_draw
      *
      * @return self
      */
     public function setLuckyDraw($lucky_draw)
     {
         if (is_null($lucky_draw)) {
-            throw new \InvalidArgumentException('non-nullable lucky_draw cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'lucky_draw');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('lucky_draw', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['lucky_draw'] = $lucky_draw;
 
@@ -660,14 +758,21 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets auto_join
      *
-     * @param bool|null $auto_join Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+     * @param bool|null $auto_join Indicates whether customers will be able to auto-join the campaign if any earning rule is fulfilled.
      *
      * @return self
      */
     public function setAutoJoin($auto_join)
     {
         if (is_null($auto_join)) {
-            throw new \InvalidArgumentException('non-nullable auto_join cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'auto_join');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('auto_join', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['auto_join'] = $auto_join;
 
@@ -694,7 +799,14 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setJoinOnce($join_once)
     {
         if (is_null($join_once)) {
-            throw new \InvalidArgumentException('non-nullable join_once cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'join_once');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('join_once', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['join_once'] = $join_once;
 
@@ -714,16 +826,261 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets active
      *
-     * @param bool|null $active Indicates whether campaign is active
+     * @param bool|null $active Indicates whether the campaign is active.
      *
      * @return self
      */
     public function setActive($active)
     {
         if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category Unique category name.
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets category_id
+     *
+     * @return string|null
+     */
+    public function getCategoryId()
+    {
+        return $this->container['category_id'];
+    }
+
+    /**
+     * Sets category_id
+     *
+     * @param string|null $category_id The unique category ID that this campaign belongs to.
+     *
+     * @return self
+     */
+    public function setCategoryId($category_id)
+    {
+        if (is_null($category_id)) {
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category_id'] = $category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to a campaign. The metadata object stores all custom attributes assigned to the campaign.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime|null $start_date Activation timestamp defines when the campaign starts to be active in ISO 8601 format. Campaign is inactive *before* this date.
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_date
+     *
+     * @return \DateTime|null
+     */
+    public function getExpirationDate()
+    {
+        return $this->container['expiration_date'];
+    }
+
+    /**
+     * Sets expiration_date
+     *
+     * @param \DateTime|null $expiration_date Expiration timestamp defines when the campaign expires in ISO 8601 format.  Campaign is inactive *after* this date.
+     *
+     * @return self
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        if (is_null($expiration_date)) {
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expiration_date'] = $expiration_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description An optional field to keep extra textual information about the campaign such as a campaign description and details.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -741,16 +1098,57 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the campaign was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the campaign was created. Timestamp is presented in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the campaign was updated in the ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
@@ -768,17 +1166,24 @@ class SimpleCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. This object stores information about the campaign.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the campaign.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

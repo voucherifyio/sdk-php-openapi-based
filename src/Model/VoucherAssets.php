@@ -81,8 +81,8 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'qr' => false,
-		'barcode' => false
+        'qr' => true,
+		'barcode' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQr($qr)
     {
         if (is_null($qr)) {
-            throw new \InvalidArgumentException('non-nullable qr cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'qr');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('qr', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['qr'] = $qr;
 
@@ -345,7 +352,14 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBarcode($barcode)
     {
         if (is_null($barcode)) {
-            throw new \InvalidArgumentException('non-nullable barcode cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'barcode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('barcode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['barcode'] = $barcode;
 

@@ -15,7 +15,7 @@ trackCustomEvent($events_create_request_body): \OpenAPI\Client\Model\EventsCreat
 
 Track Custom Event
 
-To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn't exist in Voucherify, the customer will be created.
+To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
 
 ### Example
 

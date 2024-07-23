@@ -81,8 +81,8 @@ class LoyaltyTierBasePoints implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'from' => false,
-		'to' => false
+        'from' => true,
+		'to' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class LoyaltyTierBasePoints implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setFrom($from)
     {
         if (is_null($from)) {
-            throw new \InvalidArgumentException('non-nullable from cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'from');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('from', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['from'] = $from;
 
@@ -345,7 +352,14 @@ class LoyaltyTierBasePoints implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setTo($to)
     {
         if (is_null($to)) {
-            throw new \InvalidArgumentException('non-nullable to cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'to');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('to', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['to'] = $to;
 

@@ -112,24 +112,24 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sku_id' => false,
-		'product_id' => false,
-		'related_object' => false,
-		'source_id' => false,
-		'quantity' => false,
-		'discount_quantity' => false,
-		'initial_quantity' => false,
-		'amount' => false,
-		'discount_amount' => false,
-		'applied_discount_amount' => false,
-		'initial_amount' => false,
-		'total_applied_discount_amount' => false,
-		'price' => false,
-		'subtotal_amount' => false,
-		'product' => false,
-		'sku' => false,
-		'object' => false,
-		'metadata' => false
+        'sku_id' => true,
+		'product_id' => true,
+		'related_object' => true,
+		'source_id' => true,
+		'quantity' => true,
+		'discount_quantity' => true,
+		'initial_quantity' => true,
+		'amount' => true,
+		'discount_amount' => true,
+		'applied_discount_amount' => true,
+		'initial_amount' => true,
+		'total_applied_discount_amount' => true,
+		'price' => true,
+		'subtotal_amount' => true,
+		'product' => true,
+		'sku' => true,
+		'object' => true,
+		'metadata' => true
     ];
 
     /**
@@ -431,9 +431,6 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -478,7 +475,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSkuId($sku_id)
     {
         if (is_null($sku_id)) {
-            throw new \InvalidArgumentException('non-nullable sku_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku_id'] = $sku_id;
 
@@ -505,7 +509,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -532,10 +543,17 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setRelatedObject($related_object)
     {
         if (is_null($related_object)) {
-            throw new \InvalidArgumentException('non-nullable related_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectAllowableValues();
-        if (!in_array($related_object, $allowedValues, true)) {
+        if (!is_null($related_object) && !in_array($related_object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object', must be one of '%s'",
@@ -569,7 +587,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -596,7 +621,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setQuantity($quantity)
     {
         if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['quantity'] = $quantity;
 
@@ -623,7 +655,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDiscountQuantity($discount_quantity)
     {
         if (is_null($discount_quantity)) {
-            throw new \InvalidArgumentException('non-nullable discount_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_quantity'] = $discount_quantity;
 
@@ -650,7 +689,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setInitialQuantity($initial_quantity)
     {
         if (is_null($initial_quantity)) {
-            throw new \InvalidArgumentException('non-nullable initial_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_quantity'] = $initial_quantity;
 
@@ -677,7 +723,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -704,7 +757,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -731,7 +791,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAppliedDiscountAmount($applied_discount_amount)
     {
         if (is_null($applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applied_discount_amount'] = $applied_discount_amount;
 
@@ -758,7 +825,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
 
@@ -785,7 +859,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
     {
         if (is_null($total_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
@@ -812,7 +893,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -839,7 +927,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSubtotalAmount($subtotal_amount)
     {
         if (is_null($subtotal_amount)) {
-            throw new \InvalidArgumentException('non-nullable subtotal_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subtotal_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subtotal_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subtotal_amount'] = $subtotal_amount;
 
@@ -866,7 +961,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setProduct($product)
     {
         if (is_null($product)) {
-            throw new \InvalidArgumentException('non-nullable product cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product'] = $product;
 
@@ -893,7 +995,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setSku($sku)
     {
         if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku'] = $sku;
 
@@ -903,7 +1012,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -913,17 +1022,24 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -957,7 +1073,14 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

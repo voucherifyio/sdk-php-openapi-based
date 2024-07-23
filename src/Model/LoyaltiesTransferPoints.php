@@ -84,10 +84,10 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-		'points' => false,
-		'reason' => false,
-		'source_id' => false
+        'code' => true,
+		'points' => true,
+		'reason' => true,
+		'source_id' => true
     ];
 
     /**
@@ -296,15 +296,6 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -323,7 +314,7 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -333,14 +324,21 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets code
      *
-     * @param string $code Unique loyalty card code from which the user wants to transfer loyalty points (source).
+     * @param string|null $code Unique loyalty card code from which the user wants to transfer loyalty points (source).
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -350,7 +348,7 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -360,14 +358,21 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets points
      *
-     * @param int $points The number of loyalty points that the user wants to transfer to another loyalty card. The number of points cannot be higher than the current balance on the loyalty card (source).
+     * @param int|null $points The number of loyalty points that the user wants to transfer to another loyalty card. The number of points cannot be higher than the current balance on the loyalty card (source).
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -394,7 +399,14 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -404,7 +416,7 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -414,14 +426,21 @@ class LoyaltiesTransferPoints implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets source_id
      *
-     * @param string $source_id The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
+     * @param string|null $source_id The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
