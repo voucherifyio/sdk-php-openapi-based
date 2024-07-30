@@ -53,18 +53,39 @@ class CampaignsTest extends TestCase {
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdCampaign, $keysToRemove);
 
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating promotion campaign');
+
+        $createdCampaignJSON = json_decode($createdCampaign);
+        $this->voucherify->setPromotionCampaign($createdCampaignJSON);
     }
 
     public function testCreateLoyaltyCampaign() {
         $createdCampaign = createLoyaltyCampaign($this->campaignsApiInstance);
-        consoleLog($createdCampaign);
-        // $snapshot = 'campaigns/createdLoyaltyCampaign';
-        // $keysToRemove = []; 
-        // [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdCampaign, $keysToRemove);
+
+        $snapshot = 'campaigns/createdLoyaltyCampaign';
+        $keysToRemove = ['id', 'name', 'created_at']; 
+        [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdCampaign, $keysToRemove);
     
-        // $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty campaign');
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty campaign');
+    }
+
+    public function testDeletePromotionCampaign() {
+        $deletedPromotionCampaign = deleteCampaign($this->campaignsApiInstance, $this->voucherify->getPromotionCampaign()->id);
+        consoleLog($deletedPromotionCampaign);
+        $this->assertNotNull($deletedPromotionCampaign, 'Error during test with deleting promotion campaign');
     }
     
+    public function testAddVoucherToCampaign() {
+        $createdVoucher = addVouchersToCampaign($this->campaignsApiInstance, $this->voucherify->getDiscountCampaign()->id, 1);
+
+        $snapshot = 'campaigns/addedVoucherToCampaign';
+        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'rule_id', 'related_object_id']; 
+        [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdVoucher, $keysToRemove);
+    
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty campaign');
+
+        $createdVoucherJSON = json_decode($createdVoucher);
+        $this->voucherify->setVoucher($createdVoucherJSON);
+    }
 
 }
 ?>

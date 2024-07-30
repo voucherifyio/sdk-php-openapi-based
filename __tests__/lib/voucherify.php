@@ -7,6 +7,7 @@ class VoucherifyData
     private $product = null;
     private $customer = null;
     private $discountCampaign = null;
+    private $promotionCampaign = null;
     private $loyaltyCampaign = null;
     private $voucher = null;
     private $voucherWithMoreThanValidationRule = null;
@@ -36,6 +37,16 @@ class VoucherifyData
     public function getDiscountCampaign()
     {
         return $this->discountCampaign;
+    }
+
+    public function setPromotionCampaign($promotionCampaign)
+    {
+        $this->promotionCampaign = $promotionCampaign;
+    }
+
+    public function getPromotionCampaign()
+    {
+        return $this->promotionCampaign;
     }
 
     public function setProduct($product)

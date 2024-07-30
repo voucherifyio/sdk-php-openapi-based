@@ -12,6 +12,7 @@ use OpenAPI\Client\Model\CampaignsCreateResponseBody;
 use OpenAPI\Client\Model\CampaignsCreateRequestBodyVoucher;
 use OpenAPI\Client\Model\Discount;
 use OpenAPI\Client\Model\CampaignsCreateRequestBodyPromotion;
+use OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody;
 use OpenAPI\Client\Model\CampaignLoyaltyCard;
 use \OpenAPI\Client\Model\Error;
 
@@ -114,6 +115,24 @@ function createLoyaltyCampaign(CampaignsApi $campaignsApiInstance): ?CampaignsCr
     }
 }
 
+function deleteCampaign(CampaignsApi $campaignsApiInstance, string $campaignId) {
+    try {
+        $deletedCampaign = $campaignsApiInstance->deleteCampaign($campaignId);
+        return $deletedCampaign;
+    } catch (Error $err) {
+        error_log('Error during deleting campaign: ' . $err);
+        return null;
+    }
+}
 
+function addVouchersToCampaign(CampaignsApi $campaignsApiInstance, string $campaignId, int $vouchersCount): ?CampaignsVouchersCreateCombinedResponseBody {
+    try {
+        $createdVoucher = $campaignsApiInstance->addVouchersToCampaign($campaignId, $vouchersCount);
+        return $createdVoucher;
+    } catch (Error $err) {
+        error_log('Error during adding vouchers to campaign: ' . $err);
+        return null;
+    }
+}
 
 ?>
