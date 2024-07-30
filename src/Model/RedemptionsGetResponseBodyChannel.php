@@ -80,8 +80,8 @@ class RedemptionsGetResponseBodyChannel implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'channel_id' => false,
-		'channel_type' => false
+        'channel_id' => true,
+		'channel_type' => true
     ];
 
     /**
@@ -334,14 +334,21 @@ class RedemptionsGetResponseBodyChannel implements ModelInterface, ArrayAccess, 
     /**
      * Sets channel_id
      *
-     * @param string|null $channel_id Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API.
+     * @param string|null $channel_id channel_id
      *
      * @return self
      */
     public function setChannelId($channel_id)
     {
         if (is_null($channel_id)) {
-            throw new \InvalidArgumentException('non-nullable channel_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel_id'] = $channel_id;
 
@@ -368,10 +375,17 @@ class RedemptionsGetResponseBodyChannel implements ModelInterface, ArrayAccess, 
     public function setChannelType($channel_type)
     {
         if (is_null($channel_type)) {
-            throw new \InvalidArgumentException('non-nullable channel_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getChannelTypeAllowableValues();
-        if (!in_array($channel_type, $allowedValues, true)) {
+        if (!is_null($channel_type) && !in_array($channel_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'channel_type', must be one of '%s'",

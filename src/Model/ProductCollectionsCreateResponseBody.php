@@ -91,13 +91,13 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'type' => false,
-		'filter' => false,
-		'products' => false,
-		'created_at' => false,
-		'object' => false
+        'id' => true,
+		'name' => true,
+		'type' => true,
+		'filter' => true,
+		'products' => true,
+		'created_at' => true,
+		'object' => true
     ];
 
     /**
@@ -346,15 +346,6 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -364,12 +355,6 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -397,7 +382,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -407,14 +392,21 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id Product collection ID.
+     * @param string|null $id Product collection ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -424,7 +416,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -434,14 +426,21 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets name
      *
-     * @param string $name Unique user-defined product collection name.
+     * @param string|null $name Unique user-defined product collection name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -451,7 +450,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -461,17 +460,24 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets type
      *
-     * @param string $type Describes whether the product collection is dynamic (products come in and leave based on set criteria) or static (manually selected products).
+     * @param string|null $type Describes whether the product collection is dynamic (products come in and leave based on set criteria) or static (manually selected products).
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -505,7 +511,14 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     public function setFilter($filter)
     {
         if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['filter'] = $filter;
 
@@ -532,7 +545,14 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     public function setProducts($products)
     {
         if (is_null($products)) {
-            throw new \InvalidArgumentException('non-nullable products cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'products');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('products', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['products'] = $products;
 
@@ -542,7 +562,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -552,14 +572,21 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the product collection was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the product collection was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -569,7 +596,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -579,17 +606,24 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the static product collection.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the static product collection.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

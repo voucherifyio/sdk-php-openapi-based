@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** |  |
+**type** | **string** |  | [optional]
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
 **code_config** | [**\OpenAPI\Client\Model\CodeConfig**](CodeConfig.md) |  | [optional]
 **redemption** | [**\OpenAPI\Client\Model\CampaignsCreateRequestBodyVoucherRedemption**](CampaignsCreateRequestBodyVoucherRedemption.md) |  | [optional]

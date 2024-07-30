@@ -84,10 +84,10 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'period_type' => false,
-		'period_value' => false,
-		'rounding_type' => false,
-		'rounding_value' => false
+        'period_type' => true,
+		'period_value' => true,
+		'rounding_type' => true,
+		'rounding_value' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['period_type'] === null) {
-            $invalidProperties[] = "'period_type' can't be null";
-        }
-        if ($this->container['period_value'] === null) {
-            $invalidProperties[] = "'period_value' can't be null";
-        }
-        if ($this->container['rounding_type'] === null) {
-            $invalidProperties[] = "'rounding_type' can't be null";
-        }
-        if ($this->container['rounding_value'] === null) {
-            $invalidProperties[] = "'rounding_value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Gets period_type
      *
-     * @return string
+     * @return string|null
      */
     public function getPeriodType()
     {
@@ -336,14 +324,21 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Sets period_type
      *
-     * @param string $period_type Type of period
+     * @param string|null $period_type Type of period
      *
      * @return self
      */
     public function setPeriodType($period_type)
     {
         if (is_null($period_type)) {
-            throw new \InvalidArgumentException('non-nullable period_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'period_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('period_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['period_type'] = $period_type;
 
@@ -353,7 +348,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Gets period_value
      *
-     * @return int
+     * @return int|null
      */
     public function getPeriodValue()
     {
@@ -363,14 +358,21 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Sets period_value
      *
-     * @param int $period_value Value of the period
+     * @param int|null $period_value Value of the period
      *
      * @return self
      */
     public function setPeriodValue($period_value)
     {
         if (is_null($period_value)) {
-            throw new \InvalidArgumentException('non-nullable period_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'period_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('period_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['period_value'] = $period_value;
 
@@ -380,7 +382,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Gets rounding_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRoundingType()
     {
@@ -390,14 +392,21 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Sets rounding_type
      *
-     * @param string $rounding_type Type of rounding
+     * @param string|null $rounding_type Type of rounding
      *
      * @return self
      */
     public function setRoundingType($rounding_type)
     {
         if (is_null($rounding_type)) {
-            throw new \InvalidArgumentException('non-nullable rounding_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rounding_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rounding_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rounding_type'] = $rounding_type;
 
@@ -407,7 +416,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Gets rounding_value
      *
-     * @return int
+     * @return int|null
      */
     public function getRoundingValue()
     {
@@ -417,14 +426,21 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     /**
      * Sets rounding_value
      *
-     * @param int $rounding_value Value of rounding
+     * @param int|null $rounding_value Value of rounding
      *
      * @return self
      */
     public function setRoundingValue($rounding_value)
     {
         if (is_null($rounding_value)) {
-            throw new \InvalidArgumentException('non-nullable rounding_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rounding_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rounding_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rounding_value'] = $rounding_value;
 

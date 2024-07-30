@@ -83,8 +83,8 @@ class VoucherTransactionsFilters implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order' => false,
-		'fields' => false,
+        'order' => true,
+		'fields' => true,
 		'filters' => false
     ];
 
@@ -387,10 +387,17 @@ class VoucherTransactionsFilters implements ModelInterface, ArrayAccess, \JsonSe
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getOrderAllowableValues();
-        if (!in_array($order, $allowedValues, true)) {
+        if (!is_null($order) && !in_array($order, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'order', must be one of '%s'",
@@ -424,10 +431,17 @@ class VoucherTransactionsFilters implements ModelInterface, ArrayAccess, \JsonSe
     public function setFields($fields)
     {
         if (is_null($fields)) {
-            throw new \InvalidArgumentException('non-nullable fields cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'fields');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fields', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getFieldsAllowableValues();
-        if (array_diff($fields, $allowedValues)) {
+        if (!is_null($fields) && array_diff($fields, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'fields', must be one of '%s'",

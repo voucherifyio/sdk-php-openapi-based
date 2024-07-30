@@ -79,7 +79,7 @@ class LoyaltiesMembersTransactionsExportCreateRequestBody implements ModelInterf
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'parameters' => false
+        'parameters' => true
     ];
 
     /**
@@ -311,7 +311,14 @@ class LoyaltiesMembersTransactionsExportCreateRequestBody implements ModelInterf
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 

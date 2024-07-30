@@ -64,11 +64,13 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'gift' => '\OpenAPI\Client\Model\Gift',
         'loyalty_card' => '\OpenAPI\Client\Model\CampaignLoyaltyCard',
         'redemption' => '\OpenAPI\Client\Model\CampaignVoucherRedemption',
-        'code_config' => '\OpenAPI\Client\Model\CodeConfigRequiredLengthCharsetPattern',
+        'code_config' => '\OpenAPI\Client\Model\CodeConfig',
         'is_referral_code' => 'bool',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\CampaignBaseValidityTimeframe'
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
+        'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours'
     ];
 
     /**
@@ -88,7 +90,9 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => null,
         'start_date' => 'date-time',
         'expiration_date' => 'date-time',
-        'validity_timeframe' => null
+        'validity_timeframe' => null,
+        'validity_day_of_week' => null,
+        'validity_hours' => null
     ];
 
     /**
@@ -97,16 +101,18 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
+        'type' => true,
 		'discount' => false,
 		'gift' => false,
 		'loyalty_card' => false,
-		'redemption' => false,
+		'redemption' => true,
 		'code_config' => false,
-		'is_referral_code' => false,
-		'start_date' => false,
-		'expiration_date' => false,
-		'validity_timeframe' => false
+		'is_referral_code' => true,
+		'start_date' => true,
+		'expiration_date' => true,
+		'validity_timeframe' => false,
+		'validity_day_of_week' => true,
+		'validity_hours' => false
     ];
 
     /**
@@ -204,7 +210,9 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'is_referral_code',
         'start_date' => 'start_date',
         'expiration_date' => 'expiration_date',
-        'validity_timeframe' => 'validity_timeframe'
+        'validity_timeframe' => 'validity_timeframe',
+        'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours'
     ];
 
     /**
@@ -222,7 +230,9 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'setIsReferralCode',
         'start_date' => 'setStartDate',
         'expiration_date' => 'setExpirationDate',
-        'validity_timeframe' => 'setValidityTimeframe'
+        'validity_timeframe' => 'setValidityTimeframe',
+        'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours'
     ];
 
     /**
@@ -240,7 +250,9 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'getIsReferralCode',
         'start_date' => 'getStartDate',
         'expiration_date' => 'getExpirationDate',
-        'validity_timeframe' => 'getValidityTimeframe'
+        'validity_timeframe' => 'getValidityTimeframe',
+        'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours'
     ];
 
     /**
@@ -284,6 +296,31 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const VALIDITY_DAY_OF_WEEK_0 = 0;
+    public const VALIDITY_DAY_OF_WEEK_1 = 1;
+    public const VALIDITY_DAY_OF_WEEK_2 = 2;
+    public const VALIDITY_DAY_OF_WEEK_3 = 3;
+    public const VALIDITY_DAY_OF_WEEK_4 = 4;
+    public const VALIDITY_DAY_OF_WEEK_5 = 5;
+    public const VALIDITY_DAY_OF_WEEK_6 = 6;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValidityDayOfWeekAllowableValues()
+    {
+        return [
+            self::VALIDITY_DAY_OF_WEEK_0,
+            self::VALIDITY_DAY_OF_WEEK_1,
+            self::VALIDITY_DAY_OF_WEEK_2,
+            self::VALIDITY_DAY_OF_WEEK_3,
+            self::VALIDITY_DAY_OF_WEEK_4,
+            self::VALIDITY_DAY_OF_WEEK_5,
+            self::VALIDITY_DAY_OF_WEEK_6,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -310,6 +347,8 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
+        $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
     }
 
     /**
@@ -339,17 +378,8 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['redemption'] === null) {
-            $invalidProperties[] = "'redemption' can't be null";
-        }
         if ($this->container['code_config'] === null) {
             $invalidProperties[] = "'code_config' can't be null";
-        }
-        if ($this->container['is_referral_code'] === null) {
-            $invalidProperties[] = "'is_referral_code' can't be null";
         }
         return $invalidProperties;
     }
@@ -369,7 +399,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -379,14 +409,21 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type Type of voucher.
+     * @param string|null $type Type of voucher.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 
@@ -477,7 +514,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets redemption
      *
-     * @return \OpenAPI\Client\Model\CampaignVoucherRedemption
+     * @return \OpenAPI\Client\Model\CampaignVoucherRedemption|null
      */
     public function getRedemption()
     {
@@ -487,14 +524,21 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets redemption
      *
-     * @param \OpenAPI\Client\Model\CampaignVoucherRedemption $redemption redemption
+     * @param \OpenAPI\Client\Model\CampaignVoucherRedemption|null $redemption redemption
      *
      * @return self
      */
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -504,7 +548,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets code_config
      *
-     * @return \OpenAPI\Client\Model\CodeConfigRequiredLengthCharsetPattern
+     * @return \OpenAPI\Client\Model\CodeConfig
      */
     public function getCodeConfig()
     {
@@ -514,7 +558,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code_config
      *
-     * @param \OpenAPI\Client\Model\CodeConfigRequiredLengthCharsetPattern $code_config code_config
+     * @param \OpenAPI\Client\Model\CodeConfig $code_config code_config
      *
      * @return self
      */
@@ -531,7 +575,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_referral_code
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsReferralCode()
     {
@@ -541,14 +585,21 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_referral_code
      *
-     * @param bool $is_referral_code Flag indicating whether this voucher is a referral code; `true` for campaign type `REFERRAL_PROGRAM`.
+     * @param bool|null $is_referral_code Flag indicating whether this voucher is a referral code; `true` for campaign type `REFERRAL_PROGRAM`.
      *
      * @return self
      */
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 
@@ -575,7 +626,14 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -602,7 +660,14 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -612,7 +677,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\CampaignBaseValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -622,7 +687,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\CampaignBaseValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -632,6 +697,76 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable validity_timeframe cannot be null');
         }
         $this->container['validity_timeframe'] = $validity_timeframe;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_day_of_week
+     *
+     * @return int[]|null
+     */
+    public function getValidityDayOfWeek()
+    {
+        return $this->container['validity_day_of_week'];
+    }
+
+    /**
+     * Sets validity_day_of_week
+     *
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
+     *
+     * @return self
+     */
+    public function setValidityDayOfWeek($validity_day_of_week)
+    {
+        if (is_null($validity_day_of_week)) {
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getValidityDayOfWeekAllowableValues();
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'validity_day_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }

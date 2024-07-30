@@ -83,9 +83,9 @@ class LuckyDraw implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'winners_count' => false,
-		'unique_winners_per_draw' => false,
-		'unique_winners' => false
+        'winners_count' => true,
+		'unique_winners_per_draw' => true,
+		'unique_winners' => true
     ];
 
     /**
@@ -325,7 +325,14 @@ class LuckyDraw implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setWinnersCount($winners_count)
     {
         if (is_null($winners_count)) {
-            throw new \InvalidArgumentException('non-nullable winners_count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'winners_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('winners_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -354,7 +361,14 @@ class LuckyDraw implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUniqueWinnersPerDraw($unique_winners_per_draw)
     {
         if (is_null($unique_winners_per_draw)) {
-            throw new \InvalidArgumentException('non-nullable unique_winners_per_draw cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_winners_per_draw');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_winners_per_draw', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unique_winners_per_draw'] = $unique_winners_per_draw;
 
@@ -381,7 +395,14 @@ class LuckyDraw implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setUniqueWinners($unique_winners)
     {
         if (is_null($unique_winners)) {
-            throw new \InvalidArgumentException('non-nullable unique_winners cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_winners');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_winners', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unique_winners'] = $unique_winners;
 

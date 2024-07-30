@@ -81,8 +81,8 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'hierarchy' => false
+        'name' => true,
+		'hierarchy' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['hierarchy'] === null) {
-            $invalidProperties[] = "'hierarchy' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -317,14 +311,21 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets name
      *
-     * @param string $name Category name.
+     * @param string|null $name Category name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -334,7 +335,7 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets hierarchy
      *
-     * @return int
+     * @return int|null
      */
     public function getHierarchy()
     {
@@ -344,14 +345,21 @@ class CategoriesCreateRequestBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets hierarchy
      *
-     * @param int $hierarchy Category hierarchy.
+     * @param int|null $hierarchy Category hierarchy.
      *
      * @return self
      */
     public function setHierarchy($hierarchy)
     {
         if (is_null($hierarchy)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hierarchy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hierarchy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['hierarchy'] = $hierarchy;
 

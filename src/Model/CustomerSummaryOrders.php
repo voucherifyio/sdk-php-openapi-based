@@ -86,11 +86,11 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_amount' => false,
-		'total_count' => false,
-		'average_amount' => false,
-		'last_order_amount' => false,
-		'last_order_date' => false
+        'total_amount' => true,
+		'total_count' => true,
+		'average_amount' => true,
+		'last_order_amount' => true,
+		'last_order_date' => true
     ];
 
     /**
@@ -303,18 +303,6 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['total_amount'] === null) {
-            $invalidProperties[] = "'total_amount' can't be null";
-        }
-        if ($this->container['total_count'] === null) {
-            $invalidProperties[] = "'total_count' can't be null";
-        }
-        if ($this->container['average_amount'] === null) {
-            $invalidProperties[] = "'average_amount' can't be null";
-        }
-        if ($this->container['last_order_amount'] === null) {
-            $invalidProperties[] = "'last_order_amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -333,7 +321,7 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets total_amount
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalAmount()
     {
@@ -343,14 +331,21 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets total_amount
      *
-     * @param int $total_amount The total amount spent by the customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
+     * @param int|null $total_amount The total amount spent by the customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
      *
      * @return self
      */
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -360,7 +355,7 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets total_count
      *
-     * @return int
+     * @return int|null
      */
     public function getTotalCount()
     {
@@ -370,14 +365,21 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets total_count
      *
-     * @param int $total_count Total number of orders made by the customer.
+     * @param int|null $total_count Total number of orders made by the customer.
      *
      * @return self
      */
     public function setTotalCount($total_count)
     {
         if (is_null($total_count)) {
-            throw new \InvalidArgumentException('non-nullable total_count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_count'] = $total_count;
 
@@ -387,7 +389,7 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets average_amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAverageAmount()
     {
@@ -397,14 +399,21 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets average_amount
      *
-     * @param int $average_amount Average amount spent on orders. `total_amount` &divide; `total_count`. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
+     * @param int|null $average_amount Average amount spent on orders. `total_amount` &divide; `total_count`. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
      *
      * @return self
      */
     public function setAverageAmount($average_amount)
     {
         if (is_null($average_amount)) {
-            throw new \InvalidArgumentException('non-nullable average_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'average_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('average_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['average_amount'] = $average_amount;
 
@@ -414,7 +423,7 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets last_order_amount
      *
-     * @return int
+     * @return int|null
      */
     public function getLastOrderAmount()
     {
@@ -424,14 +433,21 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets last_order_amount
      *
-     * @param int $last_order_amount Amount spent on last order. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
+     * @param int|null $last_order_amount Amount spent on last order. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
      *
      * @return self
      */
     public function setLastOrderAmount($last_order_amount)
     {
         if (is_null($last_order_amount)) {
-            throw new \InvalidArgumentException('non-nullable last_order_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_order_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_order_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_order_amount'] = $last_order_amount;
 
@@ -458,7 +474,14 @@ class CustomerSummaryOrders implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setLastOrderDate($last_order_date)
     {
         if (is_null($last_order_date)) {
-            throw new \InvalidArgumentException('non-nullable last_order_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_order_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_order_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_order_date'] = $last_order_date;
 

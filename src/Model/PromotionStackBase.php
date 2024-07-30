@@ -80,8 +80,8 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'tiers' => false
+        'name' => true,
+		'tiers' => true
     ];
 
     /**
@@ -282,12 +282,6 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['tiers'] === null) {
-            $invalidProperties[] = "'tiers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -306,7 +300,7 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -316,14 +310,21 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string $name Promotion stack name.
+     * @param string|null $name Promotion stack name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -333,7 +334,7 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets tiers
      *
-     * @return \OpenAPI\Client\Model\PromotionStackBaseTiers
+     * @return \OpenAPI\Client\Model\PromotionStackBaseTiers|null
      */
     public function getTiers()
     {
@@ -343,14 +344,21 @@ class PromotionStackBase implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tiers
      *
-     * @param \OpenAPI\Client\Model\PromotionStackBaseTiers $tiers tiers
+     * @param \OpenAPI\Client\Model\PromotionStackBaseTiers|null $tiers tiers
      *
      * @return self
      */
     public function setTiers($tiers)
     {
         if (is_null($tiers)) {
-            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tiers'] = $tiers;
 

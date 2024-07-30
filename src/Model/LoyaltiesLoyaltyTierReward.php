@@ -403,7 +403,7 @@ class LoyaltiesLoyaltyTierReward implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the loyalty tier reward.
+     * @param string $object The type of the object represented by JSON. This object stores information about the loyalty tier reward.
      *
      * @return self
      */

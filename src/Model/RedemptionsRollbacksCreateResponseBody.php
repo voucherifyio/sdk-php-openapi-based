@@ -83,7 +83,7 @@ class RedemptionsRollbacksCreateResponseBody implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rollbacks' => false,
+        'rollbacks' => true,
 		'parent_rollback' => false,
 		'order' => false
     ];
@@ -325,7 +325,14 @@ class RedemptionsRollbacksCreateResponseBody implements ModelInterface, ArrayAcc
     public function setRollbacks($rollbacks)
     {
         if (is_null($rollbacks)) {
-            throw new \InvalidArgumentException('non-nullable rollbacks cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollbacks');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollbacks', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollbacks'] = $rollbacks;
 

@@ -80,8 +80,8 @@ class ExportVoucherTransactionsBase implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'exported_object' => false,
-		'parameters' => false
+        'exported_object' => true,
+		'parameters' => true
     ];
 
     /**
@@ -295,9 +295,6 @@ class ExportVoucherTransactionsBase implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
         $allowedValues = $this->getExportedObjectAllowableValues();
         if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -325,7 +322,7 @@ class ExportVoucherTransactionsBase implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets exported_object
      *
-     * @return string
+     * @return string|null
      */
     public function getExportedObject()
     {
@@ -335,17 +332,24 @@ class ExportVoucherTransactionsBase implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets exported_object
      *
-     * @param string $exported_object The type of object to be exported.
+     * @param string|null $exported_object The type of object to be exported.
      *
      * @return self
      */
     public function setExportedObject($exported_object)
     {
         if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exported_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exported_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
+        if (!is_null($exported_object) && !in_array($exported_object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'exported_object', must be one of '%s'",
@@ -379,7 +383,14 @@ class ExportVoucherTransactionsBase implements ModelInterface, ArrayAccess, \Jso
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 

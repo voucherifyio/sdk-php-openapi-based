@@ -89,12 +89,12 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'data' => false,
-		'total' => false,
-		'has_more' => false,
-		'more_starting_after' => false
+        'object' => true,
+		'data_ref' => true,
+		'data' => true,
+		'total' => true,
+		'has_more' => true,
+		'more_starting_after' => true
     ];
 
     /**
@@ -337,9 +337,6 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -349,9 +346,6 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
 
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
         $allowedValues = $this->getDataRefAllowableValues();
         if (!is_null($this->container['data_ref']) && !in_array($this->container['data_ref'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -361,15 +355,6 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
             );
         }
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['has_more'] === null) {
-            $invalidProperties[] = "'has_more' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -388,7 +373,7 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -398,17 +383,24 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. Default is `list`.
+     * @param string|null $object The type of the object represented by JSON. Default is `list`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -425,7 +417,7 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -435,17 +427,24 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of qualified redeemables.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of qualified redeemables.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDataRefAllowableValues();
-        if (!in_array($data_ref, $allowedValues, true)) {
+        if (!is_null($data_ref) && !in_array($data_ref, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'data_ref', must be one of '%s'",
@@ -462,7 +461,7 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\QualificationsRedeemable[]
+     * @return \OpenAPI\Client\Model\QualificationsRedeemable[]|null
      */
     public function getData()
     {
@@ -472,14 +471,21 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\QualificationsRedeemable[] $data Array of qualified redeemables.
+     * @param \OpenAPI\Client\Model\QualificationsRedeemable[]|null $data Array of qualified redeemables.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -489,7 +495,7 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -499,14 +505,21 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets total
      *
-     * @param int $total The number of redeemables returned in the API request.
+     * @param int|null $total The number of redeemables returned in the API request.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -516,7 +529,7 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets has_more
      *
-     * @return bool
+     * @return bool|null
      */
     public function getHasMore()
     {
@@ -526,14 +539,21 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets has_more
      *
-     * @param bool $has_more As results are always limited, the `has_more` flag indicates whether there are more records for given parameters. This let's you know if you are able to run another request (with different options) to get more records returned in the results.
+     * @param bool|null $has_more As results are always limited, the `has_more` flag indicates if there are more records for given parameters. This lets you know if you can run another request (with different options) to get more records returned in the results.
      *
      * @return self
      */
     public function setHasMore($has_more)
     {
         if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_more');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_more', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_more'] = $has_more;
 
@@ -553,14 +573,21 @@ class QualificationsRedeemables implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets more_starting_after
      *
-     * @param \DateTime|null $more_starting_after Timestamp representing the date and time to use in starting_after cursor to get more redeemables.
+     * @param \DateTime|null $more_starting_after Timestamp representing the date and time to use in `starting_after` cursor to get more redeemables.
      *
      * @return self
      */
     public function setMoreStartingAfter($more_starting_after)
     {
         if (is_null($more_starting_after)) {
-            throw new \InvalidArgumentException('non-nullable more_starting_after cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'more_starting_after');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('more_starting_after', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['more_starting_after'] = $more_starting_after;
 

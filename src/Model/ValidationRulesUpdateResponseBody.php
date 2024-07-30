@@ -99,17 +99,17 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'name' => true,
 		'rules' => false,
-		'error' => false,
-		'applicable_to' => false,
-		'type' => false,
-		'context_type' => false,
-		'id' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'assignments_count' => false,
-		'object' => false
+		'error' => true,
+		'applicable_to' => true,
+		'type' => true,
+		'context_type' => true,
+		'id' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'assignments_count' => true,
+		'object' => true
     ];
 
     /**
@@ -523,15 +523,6 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -567,7 +558,14 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -621,7 +619,14 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setError($error)
     {
         if (is_null($error)) {
-            throw new \InvalidArgumentException('non-nullable error cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'error');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['error'] = $error;
 
@@ -648,7 +653,14 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setApplicableTo($applicable_to)
     {
         if (is_null($applicable_to)) {
-            throw new \InvalidArgumentException('non-nullable applicable_to cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applicable_to');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applicable_to', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applicable_to'] = $applicable_to;
 
@@ -675,10 +687,17 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -712,10 +731,17 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setContextType($context_type)
     {
         if (is_null($context_type)) {
-            throw new \InvalidArgumentException('non-nullable context_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'context_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('context_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getContextTypeAllowableValues();
-        if (!in_array($context_type, $allowedValues, true)) {
+        if (!is_null($context_type) && !in_array($context_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'context_type', must be one of '%s'",
@@ -732,7 +758,7 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -742,14 +768,21 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets id
      *
-     * @param string $id Unique validation rule ID.
+     * @param string|null $id Unique validation rule ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -759,7 +792,7 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -769,14 +802,21 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the validation rule was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the validation rule was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -796,14 +836,21 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the validation rule was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the validation rule was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -830,7 +877,14 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     public function setAssignmentsCount($assignments_count)
     {
         if (is_null($assignments_count)) {
-            throw new \InvalidArgumentException('non-nullable assignments_count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assignments_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assignments_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assignments_count'] = $assignments_count;
 
@@ -840,7 +894,7 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -850,14 +904,21 @@ class ValidationRulesUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the validation rule.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the validation rule.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 

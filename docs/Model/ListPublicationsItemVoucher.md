@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **string** | Voucher code. |
-**object** | **string** | The type of object represented by JSON. | [default to 'voucher']
-**campaign** | **string** | Campaign name |
+**code** | **string** | Voucher code. | [optional]
+**object** | **string** | The type of the object represented by JSON. | [optional] [default to 'voucher']
+**campaign** | **string** | Campaign name | [optional]
 **gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) |  | [optional]
 **loyalty_card** | **object** | Defines the loyalty card details. | [optional]
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]

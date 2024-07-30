@@ -78,7 +78,7 @@ class CampaignsUpdateRequestBodyOptions implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'recalculate_tiers' => false
+        'recalculate_tiers' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class CampaignsUpdateRequestBodyOptions implements ModelInterface, ArrayAccess, 
     public function setRecalculateTiers($recalculate_tiers)
     {
         if (is_null($recalculate_tiers)) {
-            throw new \InvalidArgumentException('non-nullable recalculate_tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'recalculate_tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('recalculate_tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['recalculate_tiers'] = $recalculate_tiers;
 

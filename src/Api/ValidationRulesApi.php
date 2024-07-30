@@ -72,6 +72,9 @@ class ValidationRulesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createValidationRuleAssignment' => [
+            'application/json',
+        ],
         'createValidationRules' => [
             'application/json',
         ],
@@ -142,6 +145,327 @@ class ValidationRulesApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createValidationRuleAssignment
+     *
+     * Create Validation Rules Assignments
+     *
+     * @param  string $validation_rule_id Unique validation rule ID. (required)
+     * @param  bool $force If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)
+     * @param  \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateRequestBody $validation_rules_assignments_create_request_body Specify the resource that you would like to assign the validation rule to. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createValidationRuleAssignment'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody
+     */
+    public function createValidationRuleAssignment($validation_rule_id, $force = null, $validation_rules_assignments_create_request_body = null, string $contentType = self::contentTypes['createValidationRuleAssignment'][0])
+    {
+        list($response) = $this->createValidationRuleAssignmentWithHttpInfo($validation_rule_id, $force, $validation_rules_assignments_create_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createValidationRuleAssignmentWithHttpInfo
+     *
+     * Create Validation Rules Assignments
+     *
+     * @param  string $validation_rule_id Unique validation rule ID. (required)
+     * @param  bool $force If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)
+     * @param  \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateRequestBody $validation_rules_assignments_create_request_body Specify the resource that you would like to assign the validation rule to. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createValidationRuleAssignment'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createValidationRuleAssignmentWithHttpInfo($validation_rule_id, $force = null, $validation_rules_assignments_create_request_body = null, string $contentType = self::contentTypes['createValidationRuleAssignment'][0])
+    {
+        $request = $this->createValidationRuleAssignmentRequest($validation_rule_id, $force, $validation_rules_assignments_create_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createValidationRuleAssignmentAsync
+     *
+     * Create Validation Rules Assignments
+     *
+     * @param  string $validation_rule_id Unique validation rule ID. (required)
+     * @param  bool $force If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)
+     * @param  \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateRequestBody $validation_rules_assignments_create_request_body Specify the resource that you would like to assign the validation rule to. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createValidationRuleAssignment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createValidationRuleAssignmentAsync($validation_rule_id, $force = null, $validation_rules_assignments_create_request_body = null, string $contentType = self::contentTypes['createValidationRuleAssignment'][0])
+    {
+        return $this->createValidationRuleAssignmentAsyncWithHttpInfo($validation_rule_id, $force, $validation_rules_assignments_create_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createValidationRuleAssignmentAsyncWithHttpInfo
+     *
+     * Create Validation Rules Assignments
+     *
+     * @param  string $validation_rule_id Unique validation rule ID. (required)
+     * @param  bool $force If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)
+     * @param  \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateRequestBody $validation_rules_assignments_create_request_body Specify the resource that you would like to assign the validation rule to. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createValidationRuleAssignment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createValidationRuleAssignmentAsyncWithHttpInfo($validation_rule_id, $force = null, $validation_rules_assignments_create_request_body = null, string $contentType = self::contentTypes['createValidationRuleAssignment'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\ValidationRulesAssignmentsCreateResponseBody';
+        $request = $this->createValidationRuleAssignmentRequest($validation_rule_id, $force, $validation_rules_assignments_create_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createValidationRuleAssignment'
+     *
+     * @param  string $validation_rule_id Unique validation rule ID. (required)
+     * @param  bool $force If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)
+     * @param  \OpenAPI\Client\Model\ValidationRulesAssignmentsCreateRequestBody $validation_rules_assignments_create_request_body Specify the resource that you would like to assign the validation rule to. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createValidationRuleAssignment'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createValidationRuleAssignmentRequest($validation_rule_id, $force = null, $validation_rules_assignments_create_request_body = null, string $contentType = self::contentTypes['createValidationRuleAssignment'][0])
+    {
+
+        // verify the required parameter 'validation_rule_id' is set
+        if ($validation_rule_id === null || (is_array($validation_rule_id) && count($validation_rule_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $validation_rule_id when calling createValidationRuleAssignment'
+            );
+        }
+
+
+
+
+        $resourcePath = '/v1/validation-rules/{validationRuleId}/assignments';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $force,
+            'force', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($validation_rule_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'validationRuleId' . '}',
+                ObjectSerializer::toPathValue($validation_rule_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($validation_rules_assignments_create_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($validation_rules_assignments_create_request_body));
+            } else {
+                $httpBody = $validation_rules_assignments_create_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -1227,9 +1551,9 @@ class ValidationRulesApi
      * List Validation Rule Assignments
      *
      * @param  string $validation_rule_id Unique validation rule ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRuleAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1248,9 +1572,9 @@ class ValidationRulesApi
      * List Validation Rule Assignments
      *
      * @param  string $validation_rule_id Unique validation rule ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRuleAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1351,9 +1675,9 @@ class ValidationRulesApi
      * List Validation Rule Assignments
      *
      * @param  string $validation_rule_id Unique validation rule ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRuleAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1375,9 +1699,9 @@ class ValidationRulesApi
      * List Validation Rule Assignments
      *
      * @param  string $validation_rule_id Unique validation rule ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRuleAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1428,9 +1752,9 @@ class ValidationRulesApi
      * Create request for operation 'listValidationRuleAssignments'
      *
      * @param  string $validation_rule_id Unique validation rule ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRuleAssignments $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRuleAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1455,6 +1779,9 @@ class ValidationRulesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRuleAssignments, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRuleAssignments, must be bigger than or equal to 1.');
         }
         
 
@@ -1573,9 +1900,9 @@ class ValidationRulesApi
      *
      * List Validation Rules
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must start on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRules'] to see the possible values for this operation
@@ -1595,9 +1922,9 @@ class ValidationRulesApi
      *
      * List Validation Rules
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must start on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRules'] to see the possible values for this operation
@@ -1699,9 +2026,9 @@ class ValidationRulesApi
      *
      * List Validation Rules
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must start on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRules'] to see the possible values for this operation
@@ -1724,9 +2051,9 @@ class ValidationRulesApi
      *
      * List Validation Rules
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must start on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRules'] to see the possible values for this operation
@@ -1778,9 +2105,9 @@ class ValidationRulesApi
     /**
      * Create request for operation 'listValidationRules'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListValidationRules $order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  \DateTime $start_date Timestamp representing the date and time which results must start on. Represented in ISO 8601 format. (optional)
      * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRules'] to see the possible values for this operation
@@ -1800,6 +2127,9 @@ class ValidationRulesApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRules, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRules, must be bigger than or equal to 1.');
         }
         
 
@@ -1932,9 +2262,9 @@ class ValidationRulesApi
      *
      * @param  string $related_object_id The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param  string $rule Validation rule ID. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  string $order Sorts the results using one of the filtering options: &#x60;-created_at&#x60;, &#x60;created_at&#x60;, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  string $order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRulesAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1954,9 +2284,9 @@ class ValidationRulesApi
      *
      * @param  string $related_object_id The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param  string $rule Validation rule ID. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  string $order Sorts the results using one of the filtering options: &#x60;-created_at&#x60;, &#x60;created_at&#x60;, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  string $order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRulesAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2058,9 +2388,9 @@ class ValidationRulesApi
      *
      * @param  string $related_object_id The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param  string $rule Validation rule ID. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  string $order Sorts the results using one of the filtering options: &#x60;-created_at&#x60;, &#x60;created_at&#x60;, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  string $order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRulesAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2083,9 +2413,9 @@ class ValidationRulesApi
      *
      * @param  string $related_object_id The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param  string $rule Validation rule ID. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  string $order Sorts the results using one of the filtering options: &#x60;-created_at&#x60;, &#x60;created_at&#x60;, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  string $order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRulesAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2137,9 +2467,9 @@ class ValidationRulesApi
      *
      * @param  string $related_object_id The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)
      * @param  string $rule Validation rule ID. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  string $order Sorts the results using one of the filtering options: &#x60;-created_at&#x60;, &#x60;created_at&#x60;, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  string $order Sorts the results using one of the filtering options: -created_at, created_at, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listValidationRulesAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2152,6 +2482,9 @@ class ValidationRulesApi
 
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRulesAssignments, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ValidationRulesApi.listValidationRulesAssignments, must be bigger than or equal to 1.');
         }
         
         if ($limit !== null && $limit > 100) {

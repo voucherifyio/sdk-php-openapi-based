@@ -78,7 +78,7 @@ class RedemptionsGetResponseBodyGift implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false
+        'amount' => true
     ];
 
     /**
@@ -303,14 +303,21 @@ class RedemptionsGetResponseBodyGift implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets amount
      *
-     * @param int|null $amount The amount subtracted from the gift card expressed as the smallest currency unit (e.g. 100 cents for $1.00).
+     * @param int|null $amount Amount subtracted from the gift card as a result of the redemption. The amount is expressed as the smallest currency unit (e.g. 100 cents for $1.00). and Amount returned to the gift card as a result of the redemption rollback and expressed as a negative integer. The amount is expressed as the smallest currency unit (e.g. -100 cents for $1.00 returned).
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 

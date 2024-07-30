@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * EarningRuleBaseSegment Class Doc Comment
  *
  * @category Class
- * @description Contains the id of a customer segment. Required for the customer.segment.entered option in event.
+ * @description Contains the ID of a customer segment. Required for the customer.segment.entered option in event.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -79,7 +79,7 @@ class EarningRuleBaseSegment implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false
+        'id' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class EarningRuleBaseSegment implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class EarningRuleBaseSegment implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -307,14 +304,21 @@ class EarningRuleBaseSegment implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string $id Contains a unique identifier of a customer segment. Assigned by the Voucherify API.
+     * @param string|null $id Contains a unique identifier of a customer segment. Assigned by the Voucherify API.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

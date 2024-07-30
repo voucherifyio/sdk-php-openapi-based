@@ -91,13 +91,13 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-		'key' => false,
-		'message' => false,
-		'details' => false,
-		'request_id' => false,
-		'resource_id' => false,
-		'resource_type' => false
+        'code' => true,
+		'key' => true,
+		'message' => true,
+		'details' => true,
+		'request_id' => true,
+		'resource_id' => true,
+		'resource_type' => true
     ];
 
     /**
@@ -318,21 +318,6 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['details'] === null) {
-            $invalidProperties[] = "'details' can't be null";
-        }
-        if ($this->container['request_id'] === null) {
-            $invalidProperties[] = "'request_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -351,7 +336,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets code
      *
-     * @return int
+     * @return int|null
      */
     public function getCode()
     {
@@ -361,14 +346,21 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param int $code Error's HTTP status code.
+     * @param int|null $code Error's HTTP status code.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -378,7 +370,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets key
      *
-     * @return string
+     * @return string|null
      */
     public function getKey()
     {
@@ -388,14 +380,21 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets key
      *
-     * @param string $key Short string describing the kind of error which occurred.
+     * @param string|null $key Short string describing the kind of error which occurred.
      *
      * @return self
      */
     public function setKey($key)
     {
         if (is_null($key)) {
-            throw new \InvalidArgumentException('non-nullable key cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'key');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('key', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['key'] = $key;
 
@@ -405,7 +404,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -415,14 +414,21 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string $message A human-readable message providing a short description about the error.
+     * @param string|null $message A human-readable message providing a short description about the error.
      *
      * @return self
      */
     public function setMessage($message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['message'] = $message;
 
@@ -432,7 +438,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return string
+     * @return string|null
      */
     public function getDetails()
     {
@@ -442,14 +448,21 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param string $details A human-readable message providing more details about the error.
+     * @param string|null $details A human-readable message providing more details about the error.
      *
      * @return self
      */
     public function setDetails($details)
     {
         if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['details'] = $details;
 
@@ -459,7 +472,7 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets request_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRequestId()
     {
@@ -469,14 +482,21 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_id
      *
-     * @param string $request_id This ID is useful when troubleshooting and/or finding the root cause of an error response by our support team.
+     * @param string|null $request_id This ID is useful when troubleshooting and/or finding the root cause of an error response by our support team.
      *
      * @return self
      */
     public function setRequestId($request_id)
     {
         if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'request_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('request_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['request_id'] = $request_id;
 
@@ -503,7 +523,14 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setResourceId($resource_id)
     {
         if (is_null($resource_id)) {
-            throw new \InvalidArgumentException('non-nullable resource_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'resource_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('resource_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['resource_id'] = $resource_id;
 
@@ -530,7 +557,14 @@ class Error implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setResourceType($resource_type)
     {
         if (is_null($resource_type)) {
-            throw new \InvalidArgumentException('non-nullable resource_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'resource_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('resource_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['resource_type'] = $resource_type;
 

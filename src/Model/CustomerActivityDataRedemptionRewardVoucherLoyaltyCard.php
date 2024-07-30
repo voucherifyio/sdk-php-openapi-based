@@ -60,7 +60,7 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     protected static $openAPITypes = [
         'points' => 'int',
         'balance' => 'int',
-        'next_expiration_date' => '\DateTime',
+        'next_expiration_date' => 'string',
         'next_expiration_points' => 'int'
     ];
 
@@ -74,7 +74,7 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     protected static $openAPIFormats = [
         'points' => null,
         'balance' => null,
-        'next_expiration_date' => 'date',
+        'next_expiration_date' => null,
         'next_expiration_points' => null
     ];
 
@@ -84,10 +84,10 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'balance' => false,
-		'next_expiration_date' => false,
-		'next_expiration_points' => false
+        'points' => true,
+		'balance' => true,
+		'next_expiration_date' => true,
+		'next_expiration_points' => true
     ];
 
     /**
@@ -331,7 +331,14 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -358,7 +365,14 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -368,7 +382,7 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     /**
      * Gets next_expiration_date
      *
-     * @return \DateTime|null
+     * @return string|null
      */
     public function getNextExpirationDate()
     {
@@ -378,14 +392,21 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     /**
      * Sets next_expiration_date
      *
-     * @param \DateTime|null $next_expiration_date The next closest date when the next set of points are due to expire.
+     * @param string|null $next_expiration_date next_expiration_date
      *
      * @return self
      */
     public function setNextExpirationDate($next_expiration_date)
     {
         if (is_null($next_expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_date'] = $next_expiration_date;
 
@@ -412,7 +433,14 @@ class CustomerActivityDataRedemptionRewardVoucherLoyaltyCard implements ModelInt
     public function setNextExpirationPoints($next_expiration_points)
     {
         if (is_null($next_expiration_points)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_points'] = $next_expiration_points;
 

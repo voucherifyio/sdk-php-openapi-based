@@ -81,8 +81,8 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'type' => false
+        'id' => true,
+		'type' => true
     ];
 
     /**
@@ -296,12 +296,6 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -311,7 +305,7 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
             );
         }
 
-        if (!preg_match("/voucher/", $this->container['type'])) {
+        if (!is_null($this->container['type']) && !preg_match("/voucher/", $this->container['type'])) {
             $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /voucher/.";
         }
 
@@ -333,7 +327,7 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -343,14 +337,21 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
     /**
      * Sets id
      *
-     * @param string $id Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
+     * @param string|null $id Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -360,7 +361,7 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -370,17 +371,24 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
     /**
      * Sets type
      *
-     * @param string $type The object being modified, i.e. voucher.
+     * @param string|null $type The object being modified, i.e. voucher.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -390,7 +398,7 @@ class VoucherTransactionDetailsBalanceRelatedObject implements ModelInterface, A
             );
         }
 
-        if ((!preg_match("/voucher/", $type))) {
+        if (!is_null($type) && (!preg_match("/voucher/", $type))) {
             throw new \InvalidArgumentException("invalid value for \$type when calling VoucherTransactionDetailsBalanceRelatedObject., must conform to the pattern /voucher/.");
         }
 

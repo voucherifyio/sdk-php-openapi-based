@@ -89,12 +89,12 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'rule_id' => false,
-		'related_object_id' => false,
-		'related_object_type' => false,
-		'created_at' => false,
-		'object' => false
+        'id' => true,
+		'rule_id' => true,
+		'related_object_id' => true,
+		'related_object_type' => true,
+		'created_at' => true,
+		'object' => true
     ];
 
     /**
@@ -347,18 +347,6 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['rule_id'] === null) {
-            $invalidProperties[] = "'rule_id' can't be null";
-        }
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
         if (!is_null($this->container['related_object_type']) && !in_array($this->container['related_object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -368,12 +356,6 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -401,7 +383,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -411,14 +393,21 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets id
      *
-     * @param string $id Validation rule assignment ID.
+     * @param string|null $id Validation rule assignment ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -428,7 +417,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets rule_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRuleId()
     {
@@ -438,14 +427,21 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets rule_id
      *
-     * @param string $rule_id Validation rule ID.
+     * @param string|null $rule_id Validation rule ID.
      *
      * @return self
      */
     public function setRuleId($rule_id)
     {
         if (is_null($rule_id)) {
-            throw new \InvalidArgumentException('non-nullable rule_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rule_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rule_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rule_id'] = $rule_id;
 
@@ -455,7 +451,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -465,14 +461,21 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id The resource ID to which the validation rule was assigned.
+     * @param string|null $related_object_id The resource ID to which the validation rule was assigned.
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -482,7 +485,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -492,17 +495,24 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type The type of resource to which the validation rule was assigned.
+     * @param string|null $related_object_type The type of resource to which the validation rule was assigned.
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",
@@ -519,7 +529,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -529,14 +539,21 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the validation rule assignment was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the validation rule assignment was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -546,7 +563,7 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -556,17 +573,24 @@ class ValidationRuleAssignment implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by the ID.
+     * @param string|null $object The type of the object represented by the ID.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

@@ -82,9 +82,9 @@ class CustomerActivityDataRedemptionRewardVoucherGift implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-		'balance' => false,
-		'effect' => false
+        'amount' => true,
+		'balance' => true,
+		'effect' => true
     ];
 
     /**
@@ -348,7 +348,14 @@ class CustomerActivityDataRedemptionRewardVoucherGift implements ModelInterface,
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -375,7 +382,14 @@ class CustomerActivityDataRedemptionRewardVoucherGift implements ModelInterface,
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -402,10 +416,17 @@ class CustomerActivityDataRedemptionRewardVoucherGift implements ModelInterface,
     public function setEffect($effect)
     {
         if (is_null($effect)) {
-            throw new \InvalidArgumentException('non-nullable effect cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'effect');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('effect', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getEffectAllowableValues();
-        if (!in_array($effect, $allowedValues, true)) {
+        if (!is_null($effect) && !in_array($effect, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'effect', must be one of '%s'",

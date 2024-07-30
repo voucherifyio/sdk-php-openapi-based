@@ -85,10 +85,10 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'data' => false,
-		'total' => false
+        'object' => true,
+		'data_ref' => true,
+		'data' => true,
+		'total' => true
     ];
 
     /**
@@ -297,18 +297,6 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +315,7 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -337,14 +325,21 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about validation rule assignments.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about validation rule assignments.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -354,7 +349,7 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -364,14 +359,21 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the JSON property that contains the array of validation rule assignments.
+     * @param string|null $data_ref Identifies the name of the JSON property that contains the array of validation rule assignments.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -381,7 +383,7 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleAssignment[]
+     * @return \OpenAPI\Client\Model\ValidationRuleAssignment[]|null
      */
     public function getData()
     {
@@ -391,14 +393,21 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleAssignment[] $data A dictionary that contains an array of validation rule assignments.
+     * @param \OpenAPI\Client\Model\ValidationRuleAssignment[]|null $data A dictionary that contains an array of validation rule assignments.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -408,7 +417,7 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -418,14 +427,21 @@ class ValidationRulesAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets total
      *
-     * @param int $total Total number of validation rule assignments.
+     * @param int|null $total Total number of validation rule assignments.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

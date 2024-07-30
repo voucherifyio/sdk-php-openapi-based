@@ -79,7 +79,7 @@ class LoyaltyTierAllOfConfig implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false
+        'points' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class LoyaltyTierAllOfConfig implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class LoyaltyTierAllOfConfig implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets points
      *
-     * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints
+     * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints|null
      */
     public function getPoints()
     {
@@ -307,14 +304,21 @@ class LoyaltyTierAllOfConfig implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets points
      *
-     * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints $points points
+     * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints|null $points points
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

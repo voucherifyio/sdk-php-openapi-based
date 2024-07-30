@@ -91,13 +91,13 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-		'total' => false,
-		'balance' => false,
-		'type' => false,
-		'operation_type' => false,
-		'object' => false,
-		'related_object' => false
+        'amount' => true,
+		'total' => true,
+		'balance' => true,
+		'type' => true,
+		'operation_type' => true,
+		'object' => true,
+		'related_object' => true
     ];
 
     /**
@@ -359,18 +359,6 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['balance'] === null) {
-            $invalidProperties[] = "'balance' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -380,9 +368,6 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['operation_type'] === null) {
-            $invalidProperties[] = "'operation_type' can't be null";
-        }
         $allowedValues = $this->getOperationTypeAllowableValues();
         if (!is_null($this->container['operation_type']) && !in_array($this->container['operation_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -392,9 +377,6 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -404,9 +386,6 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['related_object'] === null) {
-            $invalidProperties[] = "'related_object' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -425,7 +404,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAmount()
     {
@@ -435,14 +414,21 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets amount
      *
-     * @param int $amount The incremental amount added (positive integer) or subtracted (negative integer) to the current balance on the gift card or loyalty card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+     * @param int|null $amount The incremental amount added (positive integer) or subtracted (negative integer) to the current balance on the gift card or loyalty card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -452,7 +438,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -462,14 +448,21 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets total
      *
-     * @param int $total Total income incurred over the lifespan of the gift card or loyalty card.
+     * @param int|null $total Total income incurred over the lifespan of the gift card or loyalty card.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -479,7 +472,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets balance
      *
-     * @return int
+     * @return int|null
      */
     public function getBalance()
     {
@@ -489,14 +482,21 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets balance
      *
-     * @param int $balance The balance after adding or subtracting a specified amount. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+     * @param int|null $balance The balance after adding or subtracting a specified amount. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
      *
      * @return self
      */
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -506,7 +506,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -516,17 +516,24 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets type
      *
-     * @param string $type The type of voucher being modified.
+     * @param string|null $type The type of voucher being modified.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -543,7 +550,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets operation_type
      *
-     * @return string
+     * @return string|null
      */
     public function getOperationType()
     {
@@ -553,17 +560,24 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets operation_type
      *
-     * @param string $operation_type operation_type
+     * @param string|null $operation_type operation_type
      *
      * @return self
      */
     public function setOperationType($operation_type)
     {
         if (is_null($operation_type)) {
-            throw new \InvalidArgumentException('non-nullable operation_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'operation_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('operation_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getOperationTypeAllowableValues();
-        if (!in_array($operation_type, $allowedValues, true)) {
+        if (!is_null($operation_type) && !in_array($operation_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'operation_type', must be one of '%s'",
@@ -580,7 +594,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -590,17 +604,24 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. Default is `balance`.
+     * @param string|null $object The type of the object represented by JSON. Default is `balance`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -617,7 +638,7 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets related_object
      *
-     * @return \OpenAPI\Client\Model\VouchersBalanceUpdateResponseBodyRelatedObject
+     * @return \OpenAPI\Client\Model\VouchersBalanceUpdateResponseBodyRelatedObject|null
      */
     public function getRelatedObject()
     {
@@ -627,14 +648,21 @@ class VouchersBalanceUpdateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets related_object
      *
-     * @param \OpenAPI\Client\Model\VouchersBalanceUpdateResponseBodyRelatedObject $related_object related_object
+     * @param \OpenAPI\Client\Model\VouchersBalanceUpdateResponseBodyRelatedObject|null $related_object related_object
      *
      * @return self
      */
     public function setRelatedObject($related_object)
     {
         if (is_null($related_object)) {
-            throw new \InvalidArgumentException('non-nullable related_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object'] = $related_object;
 
