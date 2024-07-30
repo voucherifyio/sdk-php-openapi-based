@@ -365,7 +365,7 @@ class CustomerActivityDataOrderItemsItemSku implements ModelInterface, ArrayAcce
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s SKU ID (if it is different than Voucherify's SKU ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
+     * @param string|null $source_id The merchant's SKU ID (if it is different than Voucherify's SKU ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
      *
      * @return self
      */

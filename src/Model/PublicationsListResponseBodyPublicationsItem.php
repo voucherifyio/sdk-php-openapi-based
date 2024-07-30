@@ -688,7 +688,7 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+     * @param string|null $source_id The merchant's publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
      *
      * @return self
      */

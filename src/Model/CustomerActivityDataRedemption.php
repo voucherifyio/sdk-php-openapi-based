@@ -397,6 +397,7 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public const RESULT_FAILURE = 'FAILURE';
     public const STATUS_SUCCEEDED = 'SUCCEEDED';
     public const STATUS_FAILED = 'FAILED';
+    public const STATUS_ROLLED_BACK = 'ROLLED BACK';
     public const RELATED_OBJECT_TYPE_VOUCHER = 'voucher';
     public const RELATED_OBJECT_TYPE_PROMOTION_TIER = 'promotion_tier';
 
@@ -436,6 +437,7 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
         return [
             self::STATUS_SUCCEEDED,
             self::STATUS_FAILED,
+            self::STATUS_ROLLED_BACK,
         ];
     }
 
@@ -1111,7 +1113,7 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets status
      *
-     * @param string|null $status Redemption status.
+     * @param string|null $status status
      *
      * @return self
      */

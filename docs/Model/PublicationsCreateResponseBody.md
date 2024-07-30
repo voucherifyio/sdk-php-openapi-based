@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **tracking_id** | **string** | Customer&#39;s &#x60;source_id&#x60;. | [optional]
 **metadata** | **object** |  | [optional]
 **channel** | **string** | How the publication was originated. It can be your own custom channel or an example value provided here. | [optional] [default to 'API']
-**source_id** | **string** | The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. | [optional]
+**source_id** | **string** | The merchant&#39;s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. | [optional]
 **result** | **string** | Status of the publication attempt. | [optional] [default to 'SUCCESS']
 **customer** | [**\OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals**](CustomerWithSummaryLoyaltyReferrals.md) |  | [optional]
 **vouchers_id** | **string[]** | Contains the unique internal voucher ID that was assigned by Voucherify. | [optional]

@@ -116,7 +116,7 @@ $customer = new \OpenAPI\Client\Model\Customer(); // Customer | Contains informa
 $join_once = True; // bool | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer.
 $voucher = 'voucher_example'; // string | Code of voucher being published.
 $campaign = new \OpenAPI\Client\Model\CreatePublicationCampaign(); // CreatePublicationCampaign | Create publication with campaign.
-$source_id = 'source_id_example'; // string | The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request.
+$source_id = 'source_id_example'; // string | The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request.
 $metadata = array('key' => new \stdClass); // object | The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format.
 
 try {
@@ -135,7 +135,7 @@ try {
 | **join_once** | **bool**| Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. | [optional] |
 | **voucher** | **string**| Code of voucher being published. | [optional] |
 | **campaign** | [**CreatePublicationCampaign**](../Model/.md)| Create publication with campaign. | [optional] |
-| **source_id** | **string**| The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. | [optional] |
+| **source_id** | **string**| The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. | [optional] |
 | **metadata** | [**object**](../Model/.md)| The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. | [optional] |
 
 ### Return type

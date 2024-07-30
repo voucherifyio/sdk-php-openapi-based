@@ -59,7 +59,7 @@ class ValidationsRedeemableSkippedResult implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'details' => '\OpenAPI\Client\Model\ValidationsRedeemableSkippedDetails'
+        'details' => '\OpenAPI\Client\Model\ValidationsRedeemableSkippedResultDetails'
     ];
 
     /**
@@ -294,7 +294,7 @@ class ValidationsRedeemableSkippedResult implements ModelInterface, ArrayAccess,
     /**
      * Gets details
      *
-     * @return \OpenAPI\Client\Model\ValidationsRedeemableSkippedDetails|null
+     * @return \OpenAPI\Client\Model\ValidationsRedeemableSkippedResultDetails|null
      */
     public function getDetails()
     {
@@ -304,7 +304,7 @@ class ValidationsRedeemableSkippedResult implements ModelInterface, ArrayAccess,
     /**
      * Sets details
      *
-     * @param \OpenAPI\Client\Model\ValidationsRedeemableSkippedDetails|null $details details
+     * @param \OpenAPI\Client\Model\ValidationsRedeemableSkippedResultDetails|null $details details
      *
      * @return self
      */

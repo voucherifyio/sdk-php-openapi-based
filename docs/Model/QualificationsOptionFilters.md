@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **resource_type** | [**\OpenAPI\Client\Model\QualificationsOptionFiltersResourceType**](QualificationsOptionFiltersResourceType.md) |  | [optional]
 **voucher_type** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
 **code** | [**\OpenAPI\Client\Model\QualificationsFieldConditions**](QualificationsFieldConditions.md) |  | [optional]
+**holder_role** | [**\OpenAPI\Client\Model\HolderRole**](HolderRole.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

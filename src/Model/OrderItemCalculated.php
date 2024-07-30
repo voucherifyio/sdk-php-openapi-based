@@ -68,8 +68,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'amount' => 'int',
         'discount_amount' => 'int',
         'applied_discount_amount' => 'int',
+        'applied_discount_quantity' => 'int',
+        'applied_quantity' => 'int',
+        'applied_quantity_amount' => 'int',
         'initial_amount' => 'int',
-        'total_applied_discount_amount' => 'int',
         'price' => 'int',
         'subtotal_amount' => 'int',
         'product' => '\OpenAPI\Client\Model\OrderItemCalculatedProduct',
@@ -96,8 +98,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'amount' => null,
         'discount_amount' => null,
         'applied_discount_amount' => null,
+        'applied_discount_quantity' => null,
+        'applied_quantity' => null,
+        'applied_quantity_amount' => null,
         'initial_amount' => null,
-        'total_applied_discount_amount' => null,
         'price' => null,
         'subtotal_amount' => null,
         'product' => null,
@@ -122,8 +126,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
 		'amount' => true,
 		'discount_amount' => true,
 		'applied_discount_amount' => true,
+		'applied_discount_quantity' => true,
+		'applied_quantity' => true,
+		'applied_quantity_amount' => true,
 		'initial_amount' => true,
-		'total_applied_discount_amount' => true,
 		'price' => true,
 		'subtotal_amount' => true,
 		'product' => true,
@@ -228,8 +234,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'amount' => 'amount',
         'discount_amount' => 'discount_amount',
         'applied_discount_amount' => 'applied_discount_amount',
+        'applied_discount_quantity' => 'applied_discount_quantity',
+        'applied_quantity' => 'applied_quantity',
+        'applied_quantity_amount' => 'applied_quantity_amount',
         'initial_amount' => 'initial_amount',
-        'total_applied_discount_amount' => 'total_applied_discount_amount',
         'price' => 'price',
         'subtotal_amount' => 'subtotal_amount',
         'product' => 'product',
@@ -254,8 +262,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'amount' => 'setAmount',
         'discount_amount' => 'setDiscountAmount',
         'applied_discount_amount' => 'setAppliedDiscountAmount',
+        'applied_discount_quantity' => 'setAppliedDiscountQuantity',
+        'applied_quantity' => 'setAppliedQuantity',
+        'applied_quantity_amount' => 'setAppliedQuantityAmount',
         'initial_amount' => 'setInitialAmount',
-        'total_applied_discount_amount' => 'setTotalAppliedDiscountAmount',
         'price' => 'setPrice',
         'subtotal_amount' => 'setSubtotalAmount',
         'product' => 'setProduct',
@@ -280,8 +290,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         'amount' => 'getAmount',
         'discount_amount' => 'getDiscountAmount',
         'applied_discount_amount' => 'getAppliedDiscountAmount',
+        'applied_discount_quantity' => 'getAppliedDiscountQuantity',
+        'applied_quantity' => 'getAppliedQuantity',
+        'applied_quantity_amount' => 'getAppliedQuantityAmount',
         'initial_amount' => 'getInitialAmount',
-        'total_applied_discount_amount' => 'getTotalAppliedDiscountAmount',
         'price' => 'getPrice',
         'subtotal_amount' => 'getSubtotalAmount',
         'product' => 'getProduct',
@@ -385,8 +397,10 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('applied_discount_amount', $data ?? [], null);
+        $this->setIfExists('applied_discount_quantity', $data ?? [], null);
+        $this->setIfExists('applied_quantity', $data ?? [], null);
+        $this->setIfExists('applied_quantity_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
-        $this->setIfExists('total_applied_discount_amount', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('subtotal_amount', $data ?? [], null);
         $this->setIfExists('product', $data ?? [], null);
@@ -468,7 +482,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id A unique SKU ID assigned by Voucherify.
+     * @param string|null $sku_id Unique identifier of the SKU. It is assigned by Voucherify.
      *
      * @return self
      */
@@ -502,7 +516,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets product_id
      *
-     * @param string|null $product_id A unique product ID assigned by Voucherify.
+     * @param string|null $product_id Unique identifier of the product. It is assigned by Voucherify.
      *
      * @return self
      */
@@ -580,7 +594,7 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+     * @param string|null $source_id The merchant's product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
      *
      * @return self
      */
@@ -806,6 +820,108 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets applied_discount_quantity
+     *
+     * @return int|null
+     */
+    public function getAppliedDiscountQuantity()
+    {
+        return $this->container['applied_discount_quantity'];
+    }
+
+    /**
+     * Sets applied_discount_quantity
+     *
+     * @param int|null $applied_discount_quantity Number of the discounted items applied in the transaction.
+     *
+     * @return self
+     */
+    public function setAppliedDiscountQuantity($applied_discount_quantity)
+    {
+        if (is_null($applied_discount_quantity)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_discount_quantity'] = $applied_discount_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_quantity
+     *
+     * @return int|null
+     */
+    public function getAppliedQuantity()
+    {
+        return $this->container['applied_quantity'];
+    }
+
+    /**
+     * Sets applied_quantity
+     *
+     * @param int|null $applied_quantity Quantity of items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+     *
+     * @return self
+     */
+    public function setAppliedQuantity($applied_quantity)
+    {
+        if (is_null($applied_quantity)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_quantity'] = $applied_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_quantity_amount
+     *
+     * @return int|null
+     */
+    public function getAppliedQuantityAmount()
+    {
+        return $this->container['applied_quantity_amount'];
+    }
+
+    /**
+     * Sets applied_quantity_amount
+     *
+     * @param int|null $applied_quantity_amount Amount for the items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+     *
+     * @return self
+     */
+    public function setAppliedQuantityAmount($applied_quantity_amount)
+    {
+        if (is_null($applied_quantity_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_quantity_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_quantity_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_quantity_amount'] = $applied_quantity_amount;
+
+        return $this;
+    }
+
+    /**
      * Gets initial_amount
      *
      * @return int|null
@@ -835,40 +951,6 @@ class OrderItemCalculated implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['initial_amount'] = $initial_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_applied_discount_amount
-     *
-     * @return int|null
-     */
-    public function getTotalAppliedDiscountAmount()
-    {
-        return $this->container['total_applied_discount_amount'];
-    }
-
-    /**
-     * Sets total_applied_discount_amount
-     *
-     * @param int|null $total_applied_discount_amount Sum of all order-level AND all product-specific discounts applied in a particular request.   `total_applied_discount_amount` = `applied_discount_amount` + `items_applied_discount_amount`
-     *
-     * @return self
-     */
-    public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
-    {
-        if (is_null($total_applied_discount_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'total_applied_discount_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_applied_discount_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
         return $this;
     }

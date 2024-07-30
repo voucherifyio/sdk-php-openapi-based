@@ -344,7 +344,7 @@ class CustomerActivityDataRedemptionRewardParametersProduct implements ModelInte
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id A unique SKU ID assigned by Voucherify.
+     * @param string|null $sku_id Unique identifier of the SKU. It is assigned by Voucherify.
      *
      * @return self
      */

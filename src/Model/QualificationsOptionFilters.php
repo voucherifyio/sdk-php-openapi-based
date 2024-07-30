@@ -66,7 +66,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'resource_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
         'resource_type' => '\OpenAPI\Client\Model\QualificationsOptionFiltersResourceType',
         'voucher_type' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
-        'code' => '\OpenAPI\Client\Model\QualificationsFieldConditions'
+        'code' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
+        'holder_role' => '\OpenAPI\Client\Model\HolderRole'
     ];
 
     /**
@@ -84,7 +85,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'resource_id' => null,
         'resource_type' => null,
         'voucher_type' => null,
-        'code' => null
+        'code' => null,
+        'holder_role' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
 		'resource_id' => false,
 		'resource_type' => true,
 		'voucher_type' => false,
-		'code' => false
+		'code' => false,
+		'holder_role' => true
     ];
 
     /**
@@ -196,7 +199,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'resource_id' => 'resource_id',
         'resource_type' => 'resource_type',
         'voucher_type' => 'voucher_type',
-        'code' => 'code'
+        'code' => 'code',
+        'holder_role' => 'holder_role'
     ];
 
     /**
@@ -212,7 +216,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'resource_id' => 'setResourceId',
         'resource_type' => 'setResourceType',
         'voucher_type' => 'setVoucherType',
-        'code' => 'setCode'
+        'code' => 'setCode',
+        'holder_role' => 'setHolderRole'
     ];
 
     /**
@@ -228,7 +233,8 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'resource_id' => 'getResourceId',
         'resource_type' => 'getResourceType',
         'voucher_type' => 'getVoucherType',
-        'code' => 'getCode'
+        'code' => 'getCode',
+        'holder_role' => 'getHolderRole'
     ];
 
     /**
@@ -311,6 +317,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('resource_type', $data ?? [], null);
         $this->setIfExists('voucher_type', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('holder_role', $data ?? [], null);
     }
 
     /**
@@ -607,6 +614,40 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets holder_role
+     *
+     * @return \OpenAPI\Client\Model\HolderRole|null
+     */
+    public function getHolderRole()
+    {
+        return $this->container['holder_role'];
+    }
+
+    /**
+     * Sets holder_role
+     *
+     * @param \OpenAPI\Client\Model\HolderRole|null $holder_role holder_role
+     *
+     * @return self
+     */
+    public function setHolderRole($holder_role)
+    {
+        if (is_null($holder_role)) {
+            array_push($this->openAPINullablesSetToNull, 'holder_role');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_role', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['holder_role'] = $holder_role;
 
         return $this;
     }

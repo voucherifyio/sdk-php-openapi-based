@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **amount** | **int** | For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. In the case of redemption rollback, the numbers are expressed as negative integers. | [optional]
 **reason** | **string** | System generated cause for the redemption being invalid in the context of the provided parameters. | [optional]
 **result** | **string** | Redemption result. | [optional]
-**status** | **string** | Redemption status. | [optional]
+**status** | **string** |  | [optional]
 **related_redemptions** | [**\OpenAPI\Client\Model\CustomerActivityDataRedemptionRelatedRedemptions**](CustomerActivityDataRedemptionRelatedRedemptions.md) |  | [optional]
 **parent_redemption_id** | **string** | Unique redemption ID of the parent redemption. | [optional]
 **redemption** | **string** | Unique redemption ID of the parent redemption. | [optional]

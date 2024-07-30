@@ -68,6 +68,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'reward' => '\OpenAPI\Client\Model\SimpleRedemptionRewardResult',
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'result' => 'string',
+        'status' => 'string',
         'voucher' => '\OpenAPI\Client\Model\SimpleVoucher',
         'promotion_tier' => '\OpenAPI\Client\Model\SimplePromotionTier',
         'redemption' => 'string',
@@ -91,6 +92,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'reward' => null,
         'customer' => null,
         'result' => null,
+        'status' => null,
         'voucher' => null,
         'promotion_tier' => null,
         'redemption' => null,
@@ -112,6 +114,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
 		'reward' => false,
 		'customer' => false,
 		'result' => true,
+		'status' => true,
 		'voucher' => false,
 		'promotion_tier' => false,
 		'redemption' => true,
@@ -213,6 +216,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'reward' => 'reward',
         'customer' => 'customer',
         'result' => 'result',
+        'status' => 'status',
         'voucher' => 'voucher',
         'promotion_tier' => 'promotion_tier',
         'redemption' => 'redemption',
@@ -234,6 +238,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'reward' => 'setReward',
         'customer' => 'setCustomer',
         'result' => 'setResult',
+        'status' => 'setStatus',
         'voucher' => 'setVoucher',
         'promotion_tier' => 'setPromotionTier',
         'redemption' => 'setRedemption',
@@ -255,6 +260,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'reward' => 'getReward',
         'customer' => 'getCustomer',
         'result' => 'getResult',
+        'status' => 'getStatus',
         'voucher' => 'getVoucher',
         'promotion_tier' => 'getPromotionTier',
         'redemption' => 'getRedemption',
@@ -304,6 +310,9 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const RESULT_SUCCESS = 'SUCCESS';
     public const RESULT_FAILURE = 'FAILURE';
+    public const STATUS_SUCCEEDED = 'SUCCEEDED';
+    public const STATUS_FAILED = 'FAILED';
+    public const STATUS_ROLLED_BACK = 'ROLLED BACK';
 
     /**
      * Gets allowable values of the enum
@@ -315,6 +324,20 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::RESULT_SUCCESS,
             self::RESULT_FAILURE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_SUCCEEDED,
+            self::STATUS_FAILED,
+            self::STATUS_ROLLED_BACK,
         ];
     }
 
@@ -342,6 +365,7 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('reward', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('result', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('voucher', $data ?? [], null);
         $this->setIfExists('promotion_tier', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
@@ -380,6 +404,15 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'result', must be one of '%s'",
                 $this->container['result'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -690,6 +723,50 @@ class SimpleRedemption implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

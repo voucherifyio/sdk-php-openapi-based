@@ -60,21 +60,19 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\CampaignsApi(
+$apiInstance = new OpenAPI\Client\Api\AsyncActionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-$code = 'code_example'; // string | A custom **code** that identifies the voucher.
-$campaigns_vouchers_create_request_body = {"category_id":"cat_0bb81a481615a37b5e","start_date":"2022-09-24T00:00:00Z","expiration_date":"2022-09-25T23:59:59Z","active":false,"redemption":{"quantity":null},"additional_info":"Voucher added using API","metadata":{"Season":"Fall"}}; // \OpenAPI\Client\Model\CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite.
+$async_action_id = 'async_action_id_example'; // string | Unique ID of the asynchronous operation.
 
 try {
-    $result = $apiInstance->addVoucherWithSpecificCodeToCampaign($campaign_id, $code, $campaigns_vouchers_create_request_body);
+    $result = $apiInstance->getAsyncAction($async_action_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CampaignsApi->addVoucherWithSpecificCodeToCampaign: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AsyncActionsApi->getAsyncAction: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -85,6 +83,8 @@ All URIs are relative to *https://api.voucherify.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AsyncActionsApi* | [**getAsyncAction**](docs/Api/AsyncActionsApi.md#getasyncaction) | **GET** /v1/async-actions/{asyncActionId} | Get Async Action
+*AsyncActionsApi* | [**listAsyncActions**](docs/Api/AsyncActionsApi.md#listasyncactions) | **GET** /v1/async-actions | List Async Actions
 *CampaignsApi* | [**addVoucherWithSpecificCodeToCampaign**](docs/Api/CampaignsApi.md#addvoucherwithspecificcodetocampaign) | **POST** /v1/campaigns/{campaignId}/vouchers/{code} | Add Voucher with Specific Code to Campaign
 *CampaignsApi* | [**addVouchersToCampaign**](docs/Api/CampaignsApi.md#addvoucherstocampaign) | **POST** /v1/campaigns/{campaignId}/vouchers | Add Vouchers to Campaign
 *CampaignsApi* | [**createCampaign**](docs/Api/CampaignsApi.md#createcampaign) | **POST** /v1/campaigns | Create Campaign
@@ -198,13 +198,19 @@ Class | Method | HTTP request | Description
 *RedemptionsApi* | [**redeemStackedDiscounts**](docs/Api/RedemptionsApi.md#redeemstackeddiscounts) | **POST** /v1/redemptions | Redeem Stackable Discounts
 *RedemptionsApi* | [**rollbackRedemption**](docs/Api/RedemptionsApi.md#rollbackredemption) | **POST** /v1/redemptions/{redemptionId}/rollback | Rollback Redemption
 *RedemptionsApi* | [**rollbackStackedRedemptions**](docs/Api/RedemptionsApi.md#rollbackstackedredemptions) | **POST** /v1/redemptions/{parentRedemptionId}/rollbacks | Rollback Stackable Redemptions
+*RewardsApi* | [**createReward**](docs/Api/RewardsApi.md#createreward) | **POST** /v1/rewards | Create Reward
 *RewardsApi* | [**createRewardAssignment**](docs/Api/RewardsApi.md#createrewardassignment) | **POST** /v1/rewards/{rewardId}/assignments | Create Reward Assignment
 *RewardsApi* | [**deleteReward**](docs/Api/RewardsApi.md#deletereward) | **DELETE** /v1/rewards/{rewardId} | Delete Reward
 *RewardsApi* | [**deleteRewardAssignment**](docs/Api/RewardsApi.md#deleterewardassignment) | **DELETE** /v1/rewards/{rewardId}/assignments/{assignmentId} | Delete Reward Assignment
+*RewardsApi* | [**getReward**](docs/Api/RewardsApi.md#getreward) | **GET** /v1/rewards/{rewardId} | Get Reward
 *RewardsApi* | [**getRewardAssignment**](docs/Api/RewardsApi.md#getrewardassignment) | **GET** /v1/rewards/{rewardId}/assignments/{assignmentId} | Get Reward Assignment
 *RewardsApi* | [**listRewardAssignments**](docs/Api/RewardsApi.md#listrewardassignments) | **GET** /v1/rewards/{rewardId}/assignments | List Reward Assignments
+*RewardsApi* | [**listRewards**](docs/Api/RewardsApi.md#listrewards) | **GET** /v1/rewards | List Rewards
+*RewardsApi* | [**updateReward**](docs/Api/RewardsApi.md#updatereward) | **PUT** /v1/rewards/{rewardId} | Update Reward
 *RewardsApi* | [**updateRewardAssignment**](docs/Api/RewardsApi.md#updaterewardassignment) | **PUT** /v1/rewards/{rewardId}/assignments/{assignmentId} | Update Reward Assignment
+*SegmentsApi* | [**createSegment**](docs/Api/SegmentsApi.md#createsegment) | **POST** /v1/segments | Create Segment
 *SegmentsApi* | [**deleteSegment**](docs/Api/SegmentsApi.md#deletesegment) | **DELETE** /v1/segments/{segmentId} | Delete Segment
+*SegmentsApi* | [**getSegment**](docs/Api/SegmentsApi.md#getsegment) | **GET** /v1/segments/{segmentId} | Get Segment
 *ValidationRulesApi* | [**createValidationRuleAssignment**](docs/Api/ValidationRulesApi.md#createvalidationruleassignment) | **POST** /v1/validation-rules/{validationRuleId}/assignments | Create Validation Rules Assignments
 *ValidationRulesApi* | [**createValidationRules**](docs/Api/ValidationRulesApi.md#createvalidationrules) | **POST** /v1/validation-rules | Create Validation Rules
 *ValidationRulesApi* | [**deleteValidationRuleAssignment**](docs/Api/ValidationRulesApi.md#deletevalidationruleassignment) | **DELETE** /v1/validation-rules/{validationRuleId}/assignments/{assignmentId} | Delete Validation Rule Assignment
@@ -231,7 +237,11 @@ Class | Method | HTTP request | Description
 - [ApplicableTo](docs/Model/ApplicableTo.md)
 - [ApplicableToResultList](docs/Model/ApplicableToResultList.md)
 - [AreaStoreCampaignAssignment](docs/Model/AreaStoreCampaignAssignment.md)
+- [AsyncAction](docs/Model/AsyncAction.md)
+- [AsyncActionBase](docs/Model/AsyncActionBase.md)
+- [AsyncActionGetResponseBody](docs/Model/AsyncActionGetResponseBody.md)
 - [AsyncActions](docs/Model/AsyncActions.md)
+- [AsyncActionsListResponseBody](docs/Model/AsyncActionsListResponseBody.md)
 - [BusValRuleAssignment](docs/Model/BusValRuleAssignment.md)
 - [Campaign](docs/Model/Campaign.md)
 - [CampaignBase](docs/Model/CampaignBase.md)
@@ -416,6 +426,8 @@ Class | Method | HTTP request | Description
 - [FilterConditionsString](docs/Model/FilterConditionsString.md)
 - [FiltersCondition](docs/Model/FiltersCondition.md)
 - [Gift](docs/Model/Gift.md)
+- [HolderRole](docs/Model/HolderRole.md)
+- [HolderRoleConditions](docs/Model/HolderRoleConditions.md)
 - [InapplicableTo](docs/Model/InapplicableTo.md)
 - [InapplicableToResultList](docs/Model/InapplicableToResultList.md)
 - [ListPublicationsItemBase](docs/Model/ListPublicationsItemBase.md)
@@ -727,6 +739,19 @@ Class | Method | HTTP request | Description
 - [RewardsAssignmentsUpdateRequestBodyParameters](docs/Model/RewardsAssignmentsUpdateRequestBodyParameters.md)
 - [RewardsAssignmentsUpdateRequestBodyParametersLoyalty](docs/Model/RewardsAssignmentsUpdateRequestBodyParametersLoyalty.md)
 - [RewardsAssignmentsUpdateResponseBody](docs/Model/RewardsAssignmentsUpdateResponseBody.md)
+- [RewardsCreateRequestBody](docs/Model/RewardsCreateRequestBody.md)
+- [RewardsCreateRequestBodyParameters](docs/Model/RewardsCreateRequestBodyParameters.md)
+- [RewardsCreateRequestBodyParametersCampaign](docs/Model/RewardsCreateRequestBodyParametersCampaign.md)
+- [RewardsCreateRequestBodyParametersCoin](docs/Model/RewardsCreateRequestBodyParametersCoin.md)
+- [RewardsCreateRequestBodyParametersProduct](docs/Model/RewardsCreateRequestBodyParametersProduct.md)
+- [RewardsListResponseBody](docs/Model/RewardsListResponseBody.md)
+- [RewardsUpdateRequestBody](docs/Model/RewardsUpdateRequestBody.md)
+- [RewardsUpdateRequestBodyParameters](docs/Model/RewardsUpdateRequestBodyParameters.md)
+- [RewardsUpdateRequestBodyParametersCampaign](docs/Model/RewardsUpdateRequestBodyParametersCampaign.md)
+- [Segment](docs/Model/Segment.md)
+- [SegmentsCreateRequestBody](docs/Model/SegmentsCreateRequestBody.md)
+- [SegmentsCreateResponseBody](docs/Model/SegmentsCreateResponseBody.md)
+- [SegmentsGetResponseBody](docs/Model/SegmentsGetResponseBody.md)
 - [Session](docs/Model/Session.md)
 - [SimpleCampaign](docs/Model/SimpleCampaign.md)
 - [SimpleCampaignLuckyDraw](docs/Model/SimpleCampaignLuckyDraw.md)
@@ -789,8 +814,8 @@ Class | Method | HTTP request | Description
 - [ValidationsRedeemableInapplicableResult](docs/Model/ValidationsRedeemableInapplicableResult.md)
 - [ValidationsRedeemableInapplicableResultDetails](docs/Model/ValidationsRedeemableInapplicableResultDetails.md)
 - [ValidationsRedeemableSkipped](docs/Model/ValidationsRedeemableSkipped.md)
-- [ValidationsRedeemableSkippedDetails](docs/Model/ValidationsRedeemableSkippedDetails.md)
 - [ValidationsRedeemableSkippedResult](docs/Model/ValidationsRedeemableSkippedResult.md)
+- [ValidationsRedeemableSkippedResultDetails](docs/Model/ValidationsRedeemableSkippedResultDetails.md)
 - [ValidationsValidateRequestBody](docs/Model/ValidationsValidateRequestBody.md)
 - [ValidationsValidateResponseBody](docs/Model/ValidationsValidateResponseBody.md)
 - [ValidationsValidateResponseBodyRedeemablesItem](docs/Model/ValidationsValidateResponseBodyRedeemablesItem.md)
@@ -870,22 +895,6 @@ Class | Method | HTTP request | Description
 
 - **Type**: API key
 - **API key parameter name**: X-Client-Application-Id
-- **Location**: HTTP header
-
-
-
-### X-Management-Id
-
-- **Type**: API key
-- **API key parameter name**: X-Management-Id
-- **Location**: HTTP header
-
-
-
-### X-Management-Token
-
-- **Type**: API key
-- **API key parameter name**: X-Management-Token
 - **Location**: HTTP header
 
 

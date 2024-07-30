@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidationsRedeemableSkippedDetails
+ * SegmentsCreateRequestBody
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ValidationsRedeemableSkippedDetails Class Doc Comment
+ * SegmentsCreateRequestBody Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -41,7 +41,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class SegmentsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Redeemable_Skipped_Details';
+    protected static $openAPIModelName = 'SegmentsCreateRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'key' => 'string',
-        'message' => 'string'
+        'name' => 'string',
+        'type' => 'string',
+        'customers' => 'string[]',
+        'filter' => 'object'
     ];
 
     /**
@@ -70,8 +72,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'key' => null,
-        'message' => null
+        'name' => null,
+        'type' => null,
+        'customers' => null,
+        'filter' => null
     ];
 
     /**
@@ -80,8 +84,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'key' => true,
-		'message' => true
+        'name' => true,
+		'type' => true,
+		'customers' => true,
+		'filter' => true
     ];
 
     /**
@@ -170,8 +176,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'key',
-        'message' => 'message'
+        'name' => 'name',
+        'type' => 'type',
+        'customers' => 'customers',
+        'filter' => 'filter'
     ];
 
     /**
@@ -180,8 +188,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey',
-        'message' => 'setMessage'
+        'name' => 'setName',
+        'type' => 'setType',
+        'customers' => 'setCustomers',
+        'filter' => 'setFilter'
     ];
 
     /**
@@ -190,8 +200,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey',
-        'message' => 'getMessage'
+        'name' => 'getName',
+        'type' => 'getType',
+        'customers' => 'getCustomers',
+        'filter' => 'getFilter'
     ];
 
     /**
@@ -235,27 +247,19 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    public const KEY_APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED = 'applicable_redeemables_limit_exceeded';
-    public const KEY_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED = 'applicable_redeemables_per_category_limit_exceeded';
-    public const KEY_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT_EXCEEDED = 'applicable_exclusive_redeemables_limit_exceeded';
-    public const KEY_APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED = 'applicable_exclusive_redeemables_per_category_limit_exceeded';
-    public const KEY_EXCLUSION_RULES_NOT_MET = 'exclusion_rules_not_met';
-    public const KEY_PRECEDING_VALIDATION_FAILED = 'preceding_validation_failed';
+    public const TYPE__STATIC = 'static';
+    public const TYPE_AUTO_UPDATE = 'auto-update';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getKeyAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::KEY_APPLICABLE_REDEEMABLES_LIMIT_EXCEEDED,
-            self::KEY_APPLICABLE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED,
-            self::KEY_APPLICABLE_EXCLUSIVE_REDEEMABLES_LIMIT_EXCEEDED,
-            self::KEY_APPLICABLE_EXCLUSIVE_REDEEMABLES_PER_CATEGORY_LIMIT_EXCEEDED,
-            self::KEY_EXCLUSION_RULES_NOT_MET,
-            self::KEY_PRECEDING_VALIDATION_FAILED,
+            self::TYPE__STATIC,
+            self::TYPE_AUTO_UPDATE,
         ];
     }
 
@@ -274,8 +278,10 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('key', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('customers', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
     }
 
     /**
@@ -305,11 +311,11 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getKeyAllowableValues();
-        if (!is_null($this->container['key']) && !in_array($this->container['key'], $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'key', must be one of '%s'",
-                $this->container['key'],
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -330,79 +336,147 @@ class ValidationsRedeemableSkippedDetails implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets key
+     * Gets name
      *
      * @return string|null
      */
-    public function getKey()
+    public function getName()
     {
-        return $this->container['key'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets key
+     * Sets name
      *
-     * @param string|null $key key
+     * @param string|null $name Segment name.
      *
      * @return self
      */
-    public function setKey($key)
+    public function setName($name)
     {
-        if (is_null($key)) {
-            array_push($this->openAPINullablesSetToNull, 'key');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('key', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getKeyAllowableValues();
-        if (!is_null($key) && !in_array($key, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'key', must be one of '%s'",
-                    $key,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['key'] = $key;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets type
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getType()
     {
-        return $this->container['message'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets message
+     * Sets type
      *
-     * @param string|null $message message
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setType($type)
     {
-        if (is_null($message)) {
-            array_push($this->openAPINullablesSetToNull, 'message');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('message', $nullablesSetToNull);
+            $index = array_search('type', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['message'] = $message;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets customers
+     *
+     * @return string[]|null
+     */
+    public function getCustomers()
+    {
+        return $this->container['customers'];
+    }
+
+    /**
+     * Sets customers
+     *
+     * @param string[]|null $customers Array of customer IDs.
+     *
+     * @return self
+     */
+    public function setCustomers($customers)
+    {
+        if (is_null($customers)) {
+            array_push($this->openAPINullablesSetToNull, 'customers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customers'] = $customers;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter
+     *
+     * @return object|null
+     */
+    public function getFilter()
+    {
+        return $this->container['filter'];
+    }
+
+    /**
+     * Sets filter
+     *
+     * @param object|null $filter Defines a set of criteria for an `auto-update` segment type.
+     *
+     * @return self
+     */
+    public function setFilter($filter)
+    {
+        if (is_null($filter)) {
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['filter'] = $filter;
 
         return $this;
     }

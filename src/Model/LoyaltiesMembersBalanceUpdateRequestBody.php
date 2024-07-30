@@ -504,7 +504,7 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
+     * @param string|null $source_id The merchant's transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
      *
      * @return self
      */

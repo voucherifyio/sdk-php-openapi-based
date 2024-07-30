@@ -345,7 +345,7 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
+     * @param string|null $source_id The merchant's order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
      *
      * @return self
      */

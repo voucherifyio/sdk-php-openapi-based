@@ -4,13 +4,84 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createReward()**](RewardsApi.md#createReward) | **POST** /v1/rewards | Create Reward |
 | [**createRewardAssignment()**](RewardsApi.md#createRewardAssignment) | **POST** /v1/rewards/{rewardId}/assignments | Create Reward Assignment |
 | [**deleteReward()**](RewardsApi.md#deleteReward) | **DELETE** /v1/rewards/{rewardId} | Delete Reward |
 | [**deleteRewardAssignment()**](RewardsApi.md#deleteRewardAssignment) | **DELETE** /v1/rewards/{rewardId}/assignments/{assignmentId} | Delete Reward Assignment |
+| [**getReward()**](RewardsApi.md#getReward) | **GET** /v1/rewards/{rewardId} | Get Reward |
 | [**getRewardAssignment()**](RewardsApi.md#getRewardAssignment) | **GET** /v1/rewards/{rewardId}/assignments/{assignmentId} | Get Reward Assignment |
 | [**listRewardAssignments()**](RewardsApi.md#listRewardAssignments) | **GET** /v1/rewards/{rewardId}/assignments | List Reward Assignments |
+| [**listRewards()**](RewardsApi.md#listRewards) | **GET** /v1/rewards | List Rewards |
+| [**updateReward()**](RewardsApi.md#updateReward) | **PUT** /v1/rewards/{rewardId} | Update Reward |
 | [**updateRewardAssignment()**](RewardsApi.md#updateRewardAssignment) | **PUT** /v1/rewards/{rewardId}/assignments/{assignmentId} | Update Reward Assignment |
 
+
+## `createReward()`
+
+```php
+createReward($rewards_create_request_body): \OpenAPI\Client\Model\Reward
+```
+
+Create Reward
+
+Create a new reward.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\RewardsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$rewards_create_request_body = {"name":"Digital - Gift Card Reward","type":"CAMPAIGN","metadata":{"Type":"Gift"},"parameters":{"campaign":{"id":"camp_hC2GdqYtOmTT45zfhib62cK1","balance":3000}}}; // \OpenAPI\Client\Model\RewardsCreateRequestBody | Define parameters of the new reward.
+
+try {
+    $result = $apiInstance->createReward($rewards_create_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RewardsApi->createReward: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **rewards_create_request_body** | [**\OpenAPI\Client\Model\RewardsCreateRequestBody**](../Model/RewardsCreateRequestBody.md)| Define parameters of the new reward. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Reward**](../Model/Reward.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `createRewardAssignment()`
 
@@ -215,6 +286,73 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getReward()`
+
+```php
+getReward($reward_id): \OpenAPI\Client\Model\Reward
+```
+
+Get Reward
+
+Retrieve a reward by the reward ID.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\RewardsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$reward_id = 'reward_id_example'; // string | A unique reward ID.
+
+try {
+    $result = $apiInstance->getReward($reward_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RewardsApi->getReward: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reward_id** | **string**| A unique reward ID. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Reward**](../Model/Reward.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getRewardAssignment()`
 
 ```php
@@ -349,6 +487,146 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listRewards()`
+
+```php
+listRewards($limit, $page, $assignment_id): \OpenAPI\Client\Model\RewardsListResponseBody
+```
+
+List Rewards
+
+Retrieve rewards.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\RewardsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
+$assignment_id = 'assignment_id_example'; // string | A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID.
+
+try {
+    $result = $apiInstance->listRewards($limit, $page, $assignment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RewardsApi->listRewards: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
+| **assignment_id** | **string**| A unique reward assignment ID. Use this parameter to get the reward details in the context of an assignment ID. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\RewardsListResponseBody**](../Model/RewardsListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateReward()`
+
+```php
+updateReward($reward_id, $rewards_update_request_body): \OpenAPI\Client\Model\Reward
+```
+
+Update Reward
+
+Update the details of a reward.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\RewardsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$reward_id = 'reward_id_example'; // string | A unique reward ID.
+$rewards_update_request_body = {"name":"Digital - Gift Card Reward","metadata":{"Type":"Gift"},"parameters":{"campaign":{"id":"camp_hC2GdqYtOmTT45zfhib62cK1","balance":3000}}}; // \OpenAPI\Client\Model\RewardsUpdateRequestBody | Define the parameters to be updated for the reward.
+
+try {
+    $result = $apiInstance->updateReward($reward_id, $rewards_update_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RewardsApi->updateReward: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reward_id** | **string**| A unique reward ID. | |
+| **rewards_update_request_body** | [**\OpenAPI\Client\Model\RewardsUpdateRequestBody**](../Model/RewardsUpdateRequestBody.md)| Define the parameters to be updated for the reward. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Reward**](../Model/Reward.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

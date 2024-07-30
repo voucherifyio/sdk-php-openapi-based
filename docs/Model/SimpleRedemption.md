@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **reward** | [**\OpenAPI\Client\Model\SimpleRedemptionRewardResult**](SimpleRedemptionRewardResult.md) |  | [optional]
 **customer** | [**\OpenAPI\Client\Model\SimpleCustomer**](SimpleCustomer.md) |  | [optional]
 **result** | **string** | Redemption result. | [optional]
+**status** | **string** |  | [optional]
 **voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) |  | [optional]
 **promotion_tier** | [**\OpenAPI\Client\Model\SimplePromotionTier**](SimplePromotionTier.md) |  | [optional]
 **redemption** | **string** | Unique redemption ID of the parent redemption. | [optional]
