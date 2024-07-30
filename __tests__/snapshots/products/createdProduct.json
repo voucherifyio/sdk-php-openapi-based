@@ -1,0 +1,12 @@
+{
+  "id": "prod_0f1af5b376435fc593",
+  "source_id": "ZK0I1qYM2F",
+  "name": "VfcS0RvXyD",
+  "price": 20000,
+  "attributes": ["color", "memory", "processor"],
+  "metadata": [],
+  "image_url": null,
+  "created_at": "2024-07-24T13:21:17+00:00",
+  "updated_at": null,
+  "object": "product"
+}

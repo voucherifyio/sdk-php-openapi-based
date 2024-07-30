@@ -1,0 +1,20 @@
+{
+  "name": "iZUBGhQQFD",
+  "rules": [],
+  "applicable_to": {
+    "included": [
+      {
+        "object": "product",
+        "id": "prod_0f22a020e5556bfff3",
+        "strict": false,
+        "effect": "APPLY_TO_EVERY"
+      }
+    ],
+    "included_all": false
+  },
+  "type": "basic",
+  "context_type": "global",
+  "id": "val_MxIIY0S1sR8K",
+  "created_at": "2024-07-30T12:15:18+00:00",
+  "object": "validation_rules"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "camp_IPKycyugrifIiMKScDaIdbHY",
+  "name": "TLj3zIyP87",
+  "campaign_type": "DISCOUNT_COUPONS",
+  "type": "AUTO_UPDATE",
+  "voucher": {
+    "type": "DISCOUNT_VOUCHER",
+    "discount": {
+      "type": "AMOUNT",
+      "amount_off": 1000
+    },
+    "redemption": {
+      "quantity": null
+    },
+    "code_config": {
+      "length": 8,
+      "charset": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "pattern": "########"
+    },
+    "is_referral_code": false
+  },
+  "auto_join": false,
+  "join_once": false,
+  "use_voucher_metadata_schema": true,
+  "vouchers_count": 0,
+  "active": true,
+  "created_at": "2024-07-30T12:40:24+00:00",
+  "creation_status": "DONE",
+  "vouchers_generation_status": "DONE",
+  "protected": false,
+  "category_id": null,
+  "categories": [],
+  "object": "campaign",
+  "validation_rules_assignments": {
+    "object": "list",
+    "data_ref": "data",
+    "data": [
+      {
+        "id": "asgm_ZNYC3Vh1sNFzUtog",
+        "rule_id": "val_uU9ERQxFFyfZ",
+        "related_object_id": "camp_IPKycyugrifIiMKScDaIdbHY",
+        "related_object_type": "campaign",
+        "created_at": "2024-07-30T12:40:24+00:00",
+        "object": "validation_rules_assignment"
+      }
+    ],
+    "total": 1
+  }
+}
