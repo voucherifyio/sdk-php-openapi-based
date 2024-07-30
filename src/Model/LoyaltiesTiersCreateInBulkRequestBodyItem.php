@@ -86,10 +86,10 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'earning_rules' => false,
-		'rewards' => false,
-		'points' => false,
+        'name' => true,
+		'earning_rules' => true,
+		'rewards' => true,
+		'points' => true,
 		'metadata' => false
     ];
 
@@ -303,12 +303,6 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +321,7 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -337,14 +331,21 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     /**
      * Sets name
      *
-     * @param string $name Loyalty Tier name.
+     * @param string|null $name Loyalty Tier name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -371,7 +372,14 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     public function setEarningRules($earning_rules)
     {
         if (is_null($earning_rules)) {
-            throw new \InvalidArgumentException('non-nullable earning_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'earning_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('earning_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['earning_rules'] = $earning_rules;
 
@@ -398,7 +406,14 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     public function setRewards($rewards)
     {
         if (is_null($rewards)) {
-            throw new \InvalidArgumentException('non-nullable rewards cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rewards');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rewards', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rewards'] = $rewards;
 
@@ -408,7 +423,7 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     /**
      * Gets points
      *
-     * @return \OpenAPI\Client\Model\LoyaltyTierBasePoints
+     * @return \OpenAPI\Client\Model\LoyaltyTierBasePoints|null
      */
     public function getPoints()
     {
@@ -418,14 +433,21 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
     /**
      * Sets points
      *
-     * @param \OpenAPI\Client\Model\LoyaltyTierBasePoints $points points
+     * @param \OpenAPI\Client\Model\LoyaltyTierBasePoints|null $points points
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

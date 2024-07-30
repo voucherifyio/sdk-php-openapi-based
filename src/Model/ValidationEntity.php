@@ -92,14 +92,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'session_id' => false,
-		'status' => false,
-		'created_at' => false,
-		'customer_id' => false,
-		'redeemables' => false,
-		'skipped_redeemables' => false,
-		'inapplicable_redeemables' => false
+        'id' => true,
+		'session_id' => true,
+		'status' => true,
+		'created_at' => true,
+		'customer_id' => true,
+		'redeemables' => true,
+		'skipped_redeemables' => true,
+		'inapplicable_redeemables' => true
     ];
 
     /**
@@ -383,7 +383,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -410,7 +417,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSessionId($session_id)
     {
         if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'session_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('session_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['session_id'] = $session_id;
 
@@ -437,10 +451,17 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -467,14 +488,21 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the validation was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the validation was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -501,7 +529,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -528,7 +563,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRedeemables($redeemables)
     {
         if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemables'] = $redeemables;
 
@@ -555,7 +597,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSkippedRedeemables($skipped_redeemables)
     {
         if (is_null($skipped_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable skipped_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'skipped_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skipped_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['skipped_redeemables'] = $skipped_redeemables;
 
@@ -582,7 +631,14 @@ class ValidationEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInapplicableRedeemables($inapplicable_redeemables)
     {
         if (is_null($inapplicable_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inapplicable_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inapplicable_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['inapplicable_redeemables'] = $inapplicable_redeemables;
 

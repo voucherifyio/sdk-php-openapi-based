@@ -92,14 +92,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'date' => false,
-		'rollback_id' => false,
-		'rollback_date' => false,
-		'related_object_type' => false,
-		'related_object_id' => false,
-		'related_object_parent_id' => false,
-		'stacked' => false,
-		'rollback_stacked' => false
+        'date' => true,
+		'rollback_id' => true,
+		'rollback_date' => true,
+		'related_object_type' => true,
+		'related_object_id' => true,
+		'related_object_parent_id' => true,
+		'stacked' => true,
+		'rollback_stacked' => true
     ];
 
     /**
@@ -352,14 +352,21 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets date
      *
-     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 
@@ -386,7 +393,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRollbackId($rollback_id)
     {
         if (is_null($rollback_id)) {
-            throw new \InvalidArgumentException('non-nullable rollback_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollback_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollback_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollback_id'] = $rollback_id;
 
@@ -406,14 +420,21 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rollback_date
      *
-     * @param \DateTime|null $rollback_date Timestamp representing the date and tiem when the redemption rollback was created in ISO 8601 format.
+     * @param \DateTime|null $rollback_date Timestamp representing the date and tiem when the redemption rollback was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setRollbackDate($rollback_date)
     {
         if (is_null($rollback_date)) {
-            throw new \InvalidArgumentException('non-nullable rollback_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollback_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollback_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollback_date'] = $rollback_date;
 
@@ -440,7 +461,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_type'] = $related_object_type;
 
@@ -467,7 +495,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -494,7 +529,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRelatedObjectParentId($related_object_parent_id)
     {
         if (is_null($related_object_parent_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_parent_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_parent_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_parent_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_parent_id'] = $related_object_parent_id;
 
@@ -521,7 +563,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStacked($stacked)
     {
         if (is_null($stacked)) {
-            throw new \InvalidArgumentException('non-nullable stacked cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'stacked');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('stacked', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['stacked'] = $stacked;
 
@@ -548,7 +597,14 @@ class OrderRedemptions implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRollbackStacked($rollback_stacked)
     {
         if (is_null($rollback_stacked)) {
-            throw new \InvalidArgumentException('non-nullable rollback_stacked cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollback_stacked');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollback_stacked', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollback_stacked'] = $rollback_stacked;
 

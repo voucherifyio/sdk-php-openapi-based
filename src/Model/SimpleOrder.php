@@ -109,22 +109,22 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false,
-		'status' => false,
+        'id' => true,
+		'source_id' => true,
+		'status' => true,
 		'customer_id' => true,
 		'referrer_id' => true,
-		'amount' => false,
-		'discount_amount' => false,
-		'applied_discount_amount' => false,
-		'items_discount_amount' => false,
-		'items_applied_discount_amount' => false,
-		'total_discount_amount' => false,
-		'total_applied_discount_amount' => false,
-		'total_amount' => false,
-		'items' => false,
-		'metadata' => false,
-		'object' => false
+		'amount' => true,
+		'discount_amount' => true,
+		'applied_discount_amount' => true,
+		'items_discount_amount' => true,
+		'items_applied_discount_amount' => true,
+		'total_discount_amount' => true,
+		'total_applied_discount_amount' => true,
+		'total_amount' => true,
+		'items' => true,
+		'metadata' => true,
+		'object' => true
     ];
 
     /**
@@ -422,9 +422,6 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -469,7 +466,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -496,7 +500,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -523,10 +534,17 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -628,7 +646,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -655,7 +680,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -682,7 +714,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAppliedDiscountAmount($applied_discount_amount)
     {
         if (is_null($applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applied_discount_amount'] = $applied_discount_amount;
 
@@ -709,7 +748,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setItemsDiscountAmount($items_discount_amount)
     {
         if (is_null($items_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_discount_amount'] = $items_discount_amount;
 
@@ -736,7 +782,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setItemsAppliedDiscountAmount($items_applied_discount_amount)
     {
         if (is_null($items_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_applied_discount_amount'] = $items_applied_discount_amount;
 
@@ -763,7 +816,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTotalDiscountAmount($total_discount_amount)
     {
         if (is_null($total_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_discount_amount'] = $total_discount_amount;
 
@@ -790,7 +850,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
     {
         if (is_null($total_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
@@ -817,7 +884,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -844,7 +918,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setItems($items)
     {
         if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items'] = $items;
 
@@ -871,7 +952,14 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -881,7 +969,7 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -891,17 +979,24 @@ class SimpleOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

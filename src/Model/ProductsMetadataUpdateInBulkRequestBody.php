@@ -81,8 +81,8 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'source_ids' => false,
-		'metadata' => false
+        'source_ids' => true,
+		'metadata' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['source_ids'] === null) {
-            $invalidProperties[] = "'source_ids' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Gets source_ids
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getSourceIds()
     {
@@ -317,14 +311,21 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Sets source_ids
      *
-     * @param string[] $source_ids Array of unique product source IDs.
+     * @param string[]|null $source_ids Array of unique product source IDs.
      *
      * @return self
      */
     public function setSourceIds($source_ids)
     {
         if (is_null($source_ids)) {
-            throw new \InvalidArgumentException('non-nullable source_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_ids'] = $source_ids;
 
@@ -334,7 +335,7 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -344,14 +345,21 @@ class ProductsMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the product. A set of key/value pairs that you can attach to a product object. It can be useful for storing additional information about the product in a structured format.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the product. A set of key/value pairs that you can attach to a product object. It can be useful for storing additional information about the product in a structured format.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

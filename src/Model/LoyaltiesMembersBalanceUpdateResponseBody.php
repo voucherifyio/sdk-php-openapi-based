@@ -91,13 +91,13 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'total' => false,
-		'balance' => false,
-		'type' => false,
-		'object' => false,
-		'related_object' => false,
-		'operation_type' => false
+        'points' => true,
+		'total' => true,
+		'balance' => true,
+		'type' => true,
+		'object' => true,
+		'related_object' => true,
+		'operation_type' => true
     ];
 
     /**
@@ -361,22 +361,10 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['balance'] === null) {
-            $invalidProperties[] = "'balance' can't be null";
-        }
-        if (($this->container['balance'] < 0)) {
+        if (!is_null($this->container['balance']) && ($this->container['balance'] < 0)) {
             $invalidProperties[] = "invalid value for 'balance', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -386,9 +374,6 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
             );
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -398,13 +383,10 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
             );
         }
 
-        if (!preg_match("/balance/", $this->container['object'])) {
+        if (!is_null($this->container['object']) && !preg_match("/balance/", $this->container['object'])) {
             $invalidProperties[] = "invalid value for 'object', must be conform to the pattern /balance/.";
         }
 
-        if ($this->container['related_object'] === null) {
-            $invalidProperties[] = "'related_object' can't be null";
-        }
         $allowedValues = $this->getOperationTypeAllowableValues();
         if (!is_null($this->container['operation_type']) && !in_array($this->container['operation_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -432,7 +414,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -442,14 +424,21 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets points
      *
-     * @param int $points The incremental points removed or added to the current balance on the loyalty card.
+     * @param int|null $points The incremental points removed or added to the current balance on the loyalty card.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -459,7 +448,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -469,14 +458,21 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets total
      *
-     * @param int $total The total of points accrued over the lifetime of the loyalty card.
+     * @param int|null $total The total of points accrued over the lifetime of the loyalty card.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -486,7 +482,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets balance
      *
-     * @return int
+     * @return int|null
      */
     public function getBalance()
     {
@@ -496,17 +492,24 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets balance
      *
-     * @param int $balance The balance after adding/removing points.
+     * @param int|null $balance The balance after adding/removing points.
      *
      * @return self
      */
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($balance < 0)) {
+        if (!is_null($balance) && ($balance < 0)) {
             throw new \InvalidArgumentException('invalid value for $balance when calling LoyaltiesMembersBalanceUpdateResponseBody., must be bigger than or equal to 0.');
         }
 
@@ -518,7 +521,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -528,17 +531,24 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets type
      *
-     * @param string $type The type of voucher being modified.
+     * @param string|null $type The type of voucher being modified.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -555,7 +565,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -565,17 +575,24 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. Default is balance.
+     * @param string|null $object The type of the object represented by JSON. Default is balance.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -585,7 +602,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
             );
         }
 
-        if ((!preg_match("/balance/", $object))) {
+        if (!is_null($object) && (!preg_match("/balance/", $object))) {
             throw new \InvalidArgumentException("invalid value for \$object when calling LoyaltiesMembersBalanceUpdateResponseBody., must conform to the pattern /balance/.");
         }
 
@@ -597,7 +614,7 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Gets related_object
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject|null
      */
     public function getRelatedObject()
     {
@@ -607,14 +624,21 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     /**
      * Sets related_object
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject $related_object related_object
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject|null $related_object related_object
      *
      * @return self
      */
     public function setRelatedObject($related_object)
     {
         if (is_null($related_object)) {
-            throw new \InvalidArgumentException('non-nullable related_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object'] = $related_object;
 
@@ -641,10 +665,17 @@ class LoyaltiesMembersBalanceUpdateResponseBody implements ModelInterface, Array
     public function setOperationType($operation_type)
     {
         if (is_null($operation_type)) {
-            throw new \InvalidArgumentException('non-nullable operation_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'operation_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('operation_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getOperationTypeAllowableValues();
-        if (!in_array($operation_type, $allowedValues, true)) {
+        if (!is_null($operation_type) && !in_array($operation_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'operation_type', must be one of '%s'",

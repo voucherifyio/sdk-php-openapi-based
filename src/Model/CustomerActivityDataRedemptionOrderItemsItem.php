@@ -68,14 +68,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'amount' => 'int',
         'discount_amount' => 'int',
         'applied_discount_amount' => 'int',
+        'applied_discount_quantity' => 'int',
+        'applied_quantity' => 'int',
+        'applied_quantity_amount' => 'int',
         'initial_amount' => 'int',
-        'total_applied_discount_amount' => 'int',
         'price' => 'int',
         'subtotal_amount' => 'int',
         'product' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionOrderItemsItemProduct',
         'sku' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionOrderItemsItemSku',
         'object' => 'string',
-        'metadata' => 'object'
+        'metadata' => 'object',
+        'id' => 'string'
     ];
 
     /**
@@ -96,14 +99,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'amount' => null,
         'discount_amount' => null,
         'applied_discount_amount' => null,
+        'applied_discount_quantity' => null,
+        'applied_quantity' => null,
+        'applied_quantity_amount' => null,
         'initial_amount' => null,
-        'total_applied_discount_amount' => null,
         'price' => null,
         'subtotal_amount' => null,
         'product' => null,
         'sku' => null,
         'object' => null,
-        'metadata' => null
+        'metadata' => null,
+        'id' => null
     ];
 
     /**
@@ -112,24 +118,27 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sku_id' => false,
-		'product_id' => false,
+        'sku_id' => true,
+		'product_id' => true,
 		'related_object' => false,
-		'source_id' => false,
+		'source_id' => true,
 		'quantity' => false,
 		'discount_quantity' => false,
-		'initial_quantity' => false,
+		'initial_quantity' => true,
 		'amount' => false,
-		'discount_amount' => false,
+		'discount_amount' => true,
 		'applied_discount_amount' => false,
-		'initial_amount' => false,
-		'total_applied_discount_amount' => false,
-		'price' => false,
+		'applied_discount_quantity' => true,
+		'applied_quantity' => true,
+		'applied_quantity_amount' => true,
+		'initial_amount' => true,
+		'price' => true,
 		'subtotal_amount' => false,
 		'product' => false,
 		'sku' => false,
 		'object' => false,
-		'metadata' => false
+		'metadata' => false,
+		'id' => true
     ];
 
     /**
@@ -228,14 +237,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'amount' => 'amount',
         'discount_amount' => 'discount_amount',
         'applied_discount_amount' => 'applied_discount_amount',
+        'applied_discount_quantity' => 'applied_discount_quantity',
+        'applied_quantity' => 'applied_quantity',
+        'applied_quantity_amount' => 'applied_quantity_amount',
         'initial_amount' => 'initial_amount',
-        'total_applied_discount_amount' => 'total_applied_discount_amount',
         'price' => 'price',
         'subtotal_amount' => 'subtotal_amount',
         'product' => 'product',
         'sku' => 'sku',
         'object' => 'object',
-        'metadata' => 'metadata'
+        'metadata' => 'metadata',
+        'id' => 'id'
     ];
 
     /**
@@ -254,14 +266,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'amount' => 'setAmount',
         'discount_amount' => 'setDiscountAmount',
         'applied_discount_amount' => 'setAppliedDiscountAmount',
+        'applied_discount_quantity' => 'setAppliedDiscountQuantity',
+        'applied_quantity' => 'setAppliedQuantity',
+        'applied_quantity_amount' => 'setAppliedQuantityAmount',
         'initial_amount' => 'setInitialAmount',
-        'total_applied_discount_amount' => 'setTotalAppliedDiscountAmount',
         'price' => 'setPrice',
         'subtotal_amount' => 'setSubtotalAmount',
         'product' => 'setProduct',
         'sku' => 'setSku',
         'object' => 'setObject',
-        'metadata' => 'setMetadata'
+        'metadata' => 'setMetadata',
+        'id' => 'setId'
     ];
 
     /**
@@ -280,14 +295,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         'amount' => 'getAmount',
         'discount_amount' => 'getDiscountAmount',
         'applied_discount_amount' => 'getAppliedDiscountAmount',
+        'applied_discount_quantity' => 'getAppliedDiscountQuantity',
+        'applied_quantity' => 'getAppliedQuantity',
+        'applied_quantity_amount' => 'getAppliedQuantityAmount',
         'initial_amount' => 'getInitialAmount',
-        'total_applied_discount_amount' => 'getTotalAppliedDiscountAmount',
         'price' => 'getPrice',
         'subtotal_amount' => 'getSubtotalAmount',
         'product' => 'getProduct',
         'sku' => 'getSku',
         'object' => 'getObject',
-        'metadata' => 'getMetadata'
+        'metadata' => 'getMetadata',
+        'id' => 'getId'
     ];
 
     /**
@@ -385,14 +403,17 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('applied_discount_amount', $data ?? [], null);
+        $this->setIfExists('applied_discount_quantity', $data ?? [], null);
+        $this->setIfExists('applied_quantity', $data ?? [], null);
+        $this->setIfExists('applied_quantity_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
-        $this->setIfExists('total_applied_discount_amount', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('subtotal_amount', $data ?? [], null);
         $this->setIfExists('product', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'order_item');
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -468,14 +489,21 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id A unique SKU ID assigned by Voucherify.
+     * @param string|null $sku_id Unique identifier of the SKU. It is assigned by Voucherify.
      *
      * @return self
      */
     public function setSkuId($sku_id)
     {
         if (is_null($sku_id)) {
-            throw new \InvalidArgumentException('non-nullable sku_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku_id'] = $sku_id;
 
@@ -495,14 +523,21 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets product_id
      *
-     * @param string|null $product_id A unique product ID assigned by Voucherify.
+     * @param string|null $product_id Unique identifier of the product. It is assigned by Voucherify.
      *
      * @return self
      */
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -522,7 +557,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets related_object
      *
-     * @param string|null $related_object Used along with the source_id property, can be set to either sku or product.
+     * @param string|null $related_object related_object
      *
      * @return self
      */
@@ -559,14 +594,21 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+     * @param string|null $source_id The merchant's product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -586,7 +628,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets quantity
      *
-     * @param int|null $quantity The quantity of the particular item in the cart.
+     * @param int|null $quantity The quantity of the particular item in the cart. and Quantity of the particular item in the cart.
      *
      * @return self
      */
@@ -613,7 +655,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets discount_quantity
      *
-     * @param int|null $discount_quantity Number of dicounted items.
+     * @param int|null $discount_quantity Number of dicounted items. and Number of discounted items.
      *
      * @return self
      */
@@ -647,7 +689,14 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     public function setInitialQuantity($initial_quantity)
     {
         if (is_null($initial_quantity)) {
-            throw new \InvalidArgumentException('non-nullable initial_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_quantity'] = $initial_quantity;
 
@@ -667,7 +716,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets amount
      *
-     * @param int|null $amount The total amount of the order item (price * quantity).
+     * @param int|null $amount The total amount of the order item (price * quantity). and Total amount of the order item (price * quantity).
      *
      * @return self
      */
@@ -701,7 +750,14 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -721,7 +777,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets applied_discount_amount
      *
-     * @param int|null $applied_discount_amount This field shows the order-level discount applied.
+     * @param int|null $applied_discount_amount This field shows the order-level discount applied. and Order-level discount amount applied in the transaction.
      *
      * @return self
      */
@@ -731,6 +787,108 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
             throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
         }
         $this->container['applied_discount_amount'] = $applied_discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_discount_quantity
+     *
+     * @return int|null
+     */
+    public function getAppliedDiscountQuantity()
+    {
+        return $this->container['applied_discount_quantity'];
+    }
+
+    /**
+     * Sets applied_discount_quantity
+     *
+     * @param int|null $applied_discount_quantity Number of the discounted items applied in the transaction.
+     *
+     * @return self
+     */
+    public function setAppliedDiscountQuantity($applied_discount_quantity)
+    {
+        if (is_null($applied_discount_quantity)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_discount_quantity'] = $applied_discount_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_quantity
+     *
+     * @return int|null
+     */
+    public function getAppliedQuantity()
+    {
+        return $this->container['applied_quantity'];
+    }
+
+    /**
+     * Sets applied_quantity
+     *
+     * @param int|null $applied_quantity Quantity of items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+     *
+     * @return self
+     */
+    public function setAppliedQuantity($applied_quantity)
+    {
+        if (is_null($applied_quantity)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_quantity'] = $applied_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets applied_quantity_amount
+     *
+     * @return int|null
+     */
+    public function getAppliedQuantityAmount()
+    {
+        return $this->container['applied_quantity_amount'];
+    }
+
+    /**
+     * Sets applied_quantity_amount
+     *
+     * @param int|null $applied_quantity_amount Amount for the items changed by the application of a new quantity items. It can be positive when an item is added or negative if an item is replaced.
+     *
+     * @return self
+     */
+    public function setAppliedQuantityAmount($applied_quantity_amount)
+    {
+        if (is_null($applied_quantity_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'applied_quantity_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_quantity_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['applied_quantity_amount'] = $applied_quantity_amount;
 
         return $this;
     }
@@ -755,36 +913,16 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_applied_discount_amount
-     *
-     * @return int|null
-     */
-    public function getTotalAppliedDiscountAmount()
-    {
-        return $this->container['total_applied_discount_amount'];
-    }
-
-    /**
-     * Sets total_applied_discount_amount
-     *
-     * @param int|null $total_applied_discount_amount Sum of all order-level AND all product-specific discounts applied in a particular request.   `total_applied_discount_amount` = `applied_discount_amount` + `items_applied_discount_amount`
-     *
-     * @return self
-     */
-    public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
-    {
-        if (is_null($total_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_applied_discount_amount cannot be null');
-        }
-        $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
         return $this;
     }
@@ -809,7 +947,14 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -829,7 +974,7 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
     /**
      * Sets subtotal_amount
      *
-     * @param int|null $subtotal_amount Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the `amount`.    `subtotal_amount`=`amount`-`applied_discount_amount`
+     * @param int|null $subtotal_amount Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the `amount`.    `subtotal_amount`=`amount`-`applied_discount_amount` and Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the `amount`.    `subtotal_amount`=`amount`-`discount_amount`
      *
      * @return self
      */
@@ -957,6 +1102,40 @@ class CustomerActivityDataRedemptionOrderItemsItem implements ModelInterface, Ar
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier of the order line item.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

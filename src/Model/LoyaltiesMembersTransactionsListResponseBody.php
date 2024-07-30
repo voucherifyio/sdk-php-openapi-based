@@ -85,10 +85,10 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'data' => false,
-		'has_more' => false
+        'object' => true,
+		'data_ref' => true,
+		'data' => true,
+		'has_more' => true
     ];
 
     /**
@@ -323,9 +323,6 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -335,13 +332,10 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
             );
         }
 
-        if (!preg_match("/list/", $this->container['object'])) {
+        if (!is_null($this->container['object']) && !preg_match("/list/", $this->container['object'])) {
             $invalidProperties[] = "invalid value for 'object', must be conform to the pattern /list/.";
         }
 
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
         $allowedValues = $this->getDataRefAllowableValues();
         if (!is_null($this->container['data_ref']) && !in_array($this->container['data_ref'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -351,16 +345,10 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
             );
         }
 
-        if (!preg_match("/data/", $this->container['data_ref'])) {
+        if (!is_null($this->container['data_ref']) && !preg_match("/data/", $this->container['data_ref'])) {
             $invalidProperties[] = "invalid value for 'data_ref', must be conform to the pattern /data/.";
         }
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['has_more'] === null) {
-            $invalidProperties[] = "'has_more' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -379,7 +367,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -389,17 +377,24 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -409,7 +404,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
             );
         }
 
-        if ((!preg_match("/list/", $object))) {
+        if (!is_null($object) && (!preg_match("/list/", $object))) {
             throw new \InvalidArgumentException("invalid value for \$object when calling LoyaltiesMembersTransactionsListResponseBody., must conform to the pattern /list/.");
         }
 
@@ -421,7 +416,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -431,17 +426,24 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of transaction objects.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of transaction objects.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDataRefAllowableValues();
-        if (!in_array($data_ref, $allowedValues, true)) {
+        if (!is_null($data_ref) && !in_array($data_ref, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'data_ref', must be one of '%s'",
@@ -451,7 +453,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
             );
         }
 
-        if ((!preg_match("/data/", $data_ref))) {
+        if (!is_null($data_ref) && (!preg_match("/data/", $data_ref))) {
             throw new \InvalidArgumentException("invalid value for \$data_ref when calling LoyaltiesMembersTransactionsListResponseBody., must conform to the pattern /data/.");
         }
 
@@ -463,7 +465,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\LoyaltyCardTransaction[]
+     * @return \OpenAPI\Client\Model\LoyaltyCardTransaction[]|null
      */
     public function getData()
     {
@@ -473,14 +475,21 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\LoyaltyCardTransaction[] $data A dictionary that contains an array of transactions. Each entry in the array is a separate transaction object.
+     * @param \OpenAPI\Client\Model\LoyaltyCardTransaction[]|null $data A dictionary that contains an array of transactions. Each entry in the array is a separate transaction object.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -490,7 +499,7 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Gets has_more
      *
-     * @return bool
+     * @return bool|null
      */
     public function getHasMore()
     {
@@ -500,14 +509,21 @@ class LoyaltiesMembersTransactionsListResponseBody implements ModelInterface, Ar
     /**
      * Sets has_more
      *
-     * @param bool $has_more As query results are always limited (by the limit parameter), the has_more flag indicates whether there are more records for given filter parameters. This let's you know if you are able to run another request (with a different page or a different start date filter) to get more records returned in the results.
+     * @param bool|null $has_more As query results are always limited (by the limit parameter), the has_more flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different page or a different start date filter) to get more records returned in the results.
      *
      * @return self
      */
     public function setHasMore($has_more)
     {
         if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_more');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_more', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_more'] = $has_more;
 

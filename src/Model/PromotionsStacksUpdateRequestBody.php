@@ -83,9 +83,9 @@ class PromotionsStacksUpdateRequestBody implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'tiers' => false,
-		'category_id' => false
+        'name' => true,
+		'tiers' => true,
+		'category_id' => true
     ];
 
     /**
@@ -325,7 +325,14 @@ class PromotionsStacksUpdateRequestBody implements ModelInterface, ArrayAccess, 
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -352,7 +359,14 @@ class PromotionsStacksUpdateRequestBody implements ModelInterface, ArrayAccess, 
     public function setTiers($tiers)
     {
         if (is_null($tiers)) {
-            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tiers'] = $tiers;
 
@@ -379,7 +393,14 @@ class PromotionsStacksUpdateRequestBody implements ModelInterface, ArrayAccess, 
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 

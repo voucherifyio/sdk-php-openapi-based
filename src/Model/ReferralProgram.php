@@ -83,9 +83,9 @@ class ReferralProgram implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'conversion_event_type' => false,
-		'custom_event' => false,
-		'referee_reward' => false
+        'conversion_event_type' => true,
+		'custom_event' => true,
+		'referee_reward' => true
     ];
 
     /**
@@ -349,10 +349,17 @@ class ReferralProgram implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setConversionEventType($conversion_event_type)
     {
         if (is_null($conversion_event_type)) {
-            throw new \InvalidArgumentException('non-nullable conversion_event_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'conversion_event_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('conversion_event_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getConversionEventTypeAllowableValues();
-        if (!in_array($conversion_event_type, $allowedValues, true)) {
+        if (!is_null($conversion_event_type) && !in_array($conversion_event_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'conversion_event_type', must be one of '%s'",
@@ -386,7 +393,14 @@ class ReferralProgram implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomEvent($custom_event)
     {
         if (is_null($custom_event)) {
-            throw new \InvalidArgumentException('non-nullable custom_event cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_event');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_event', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['custom_event'] = $custom_event;
 
@@ -413,7 +427,14 @@ class ReferralProgram implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRefereeReward($referee_reward)
     {
         if (is_null($referee_reward)) {
-            throw new \InvalidArgumentException('non-nullable referee_reward cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referee_reward');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referee_reward', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referee_reward'] = $referee_reward;
 

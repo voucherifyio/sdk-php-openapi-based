@@ -79,7 +79,7 @@ class VoucherTransactionsExportFilterConditionsVoucherIdConditions implements Mo
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'in' => false
+        'in' => true
     ];
 
     /**
@@ -276,14 +276,11 @@ class VoucherTransactionsExportFilterConditionsVoucherIdConditions implements Mo
     {
         $invalidProperties = [];
 
-        if ($this->container['in'] === null) {
-            $invalidProperties[] = "'in' can't be null";
-        }
-        if ((count($this->container['in']) > 1)) {
+        if (!is_null($this->container['in']) && (count($this->container['in']) > 1)) {
             $invalidProperties[] = "invalid value for 'in', number of items must be less than or equal to 1.";
         }
 
-        if ((count($this->container['in']) < 1)) {
+        if (!is_null($this->container['in']) && (count($this->container['in']) < 1)) {
             $invalidProperties[] = "invalid value for 'in', number of items must be greater than or equal to 1.";
         }
 
@@ -305,7 +302,7 @@ class VoucherTransactionsExportFilterConditionsVoucherIdConditions implements Mo
     /**
      * Gets in
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getIn()
     {
@@ -315,20 +312,27 @@ class VoucherTransactionsExportFilterConditionsVoucherIdConditions implements Mo
     /**
      * Sets in
      *
-     * @param string[] $in in
+     * @param string[]|null $in in
      *
      * @return self
      */
     public function setIn($in)
     {
         if (is_null($in)) {
-            throw new \InvalidArgumentException('non-nullable in cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($in) > 1)) {
+        if (!is_null($in) && (count($in) > 1)) {
             throw new \InvalidArgumentException('invalid value for $in when calling VoucherTransactionsExportFilterConditionsVoucherIdConditions., number of items must be less than or equal to 1.');
         }
-        if ((count($in) < 1)) {
+        if (!is_null($in) && (count($in) < 1)) {
             throw new \InvalidArgumentException('invalid length for $in when calling VoucherTransactionsExportFilterConditionsVoucherIdConditions., number of items must be greater than or equal to 1.');
         }
         $this->container['in'] = $in;

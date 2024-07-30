@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**redeemables** | [**\OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]**](StackableValidateRedeemBaseRedeemablesItem.md) |  |
+**redeemables** | [**\OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]**](StackableValidateRedeemBaseRedeemablesItem.md) |  | [optional]
 **order** | [**\OpenAPI\Client\Model\Order**](Order.md) |  | [optional]
 **customer** | [**\OpenAPI\Client\Model\Customer**](Customer.md) |  | [optional]
 **session** | [**\OpenAPI\Client\Model\Session**](Session.md) |  | [optional]

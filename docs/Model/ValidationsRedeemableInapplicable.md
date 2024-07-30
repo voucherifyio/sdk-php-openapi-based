@@ -8,5 +8,7 @@ Name | Type | Description | Notes
 **id** | **string** | Redeemable ID, i.e. the voucher code. | [optional]
 **object** | **string** | Redeemable&#39;s object type. | [optional]
 **result** | [**\OpenAPI\Client\Model\ValidationsRedeemableInapplicableResult**](ValidationsRedeemableInapplicableResult.md) |  | [optional]
+**metadata** | **object** | The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable. | [optional]
+**categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

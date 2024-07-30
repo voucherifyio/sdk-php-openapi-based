@@ -81,8 +81,8 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-		'campaigns' => false
+        'total' => true,
+		'campaigns' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['campaigns'] === null) {
-            $invalidProperties[] = "'campaigns' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -317,14 +311,21 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets total
      *
-     * @param int $total Total number of times this customer received a referral, i.e. was referred by another customer.
+     * @param int|null $total Total number of times this customer received a referral, i.e. was referred by another customer.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -334,7 +335,7 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets campaigns
      *
-     * @return \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[]
+     * @return \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[]|null
      */
     public function getCampaigns()
     {
@@ -344,14 +345,21 @@ class CustomerReferrals implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets campaigns
      *
-     * @param \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[] $campaigns Contains an array of campaigns that served as the source of a referral for the customer.
+     * @param \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[]|null $campaigns Contains an array of campaigns that served as the source of a referral for the customer.
      *
      * @return self
      */
     public function setCampaigns($campaigns)
     {
         if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaigns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaigns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaigns'] = $campaigns;
 

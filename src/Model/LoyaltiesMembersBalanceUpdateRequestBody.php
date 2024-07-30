@@ -87,11 +87,11 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'expiration_type' => false,
-		'expiration_date' => false,
-		'reason' => false,
-		'source_id' => false
+        'points' => true,
+		'expiration_type' => true,
+		'expiration_date' => true,
+		'reason' => true,
+		'source_id' => true
     ];
 
     /**
@@ -321,9 +321,6 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         $allowedValues = $this->getExpirationTypeAllowableValues();
         if (!is_null($this->container['expiration_type']) && !in_array($this->container['expiration_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -351,7 +348,7 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -361,14 +358,21 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     /**
      * Sets points
      *
-     * @param int $points Incremental balance to be added to/subtracted from the loyalty card.  - To add points: 100 - To subtract points, add a minus: -100
+     * @param int|null $points Incremental balance to be added to/subtracted from the loyalty card.  - To add points: 100 - To subtract points, add a minus: -100
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -395,10 +399,17 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     public function setExpirationType($expiration_type)
     {
         if (is_null($expiration_type)) {
-            throw new \InvalidArgumentException('non-nullable expiration_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExpirationTypeAllowableValues();
-        if (!in_array($expiration_type, $allowedValues, true)) {
+        if (!is_null($expiration_type) && !in_array($expiration_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'expiration_type', must be one of '%s'",
@@ -432,7 +443,14 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -459,7 +477,14 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -479,14 +504,21 @@ class LoyaltiesMembersBalanceUpdateRequestBody implements ModelInterface, ArrayA
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
+     * @param string|null $source_id The merchant's transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 

@@ -96,16 +96,16 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'voucher_code' => false,
-		'related_object_id' => false,
-		'related_object_parent_id' => false,
-		'parent_redemption_id' => false,
-		'failure_code' => false,
-		'result' => false,
-		'object' => false,
-		'customer_id' => false,
-		'campaign_name' => false,
-		'user_login' => false
+        'voucher_code' => true,
+		'related_object_id' => true,
+		'related_object_parent_id' => true,
+		'parent_redemption_id' => true,
+		'failure_code' => true,
+		'result' => true,
+		'object' => true,
+		'customer_id' => true,
+		'campaign_name' => true,
+		'user_login' => true
     ];
 
     /**
@@ -373,7 +373,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setVoucherCode($voucher_code)
     {
         if (is_null($voucher_code)) {
-            throw new \InvalidArgumentException('non-nullable voucher_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher_code'] = $voucher_code;
 
@@ -400,7 +407,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -427,7 +441,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setRelatedObjectParentId($related_object_parent_id)
     {
         if (is_null($related_object_parent_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_parent_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_parent_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_parent_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_parent_id'] = $related_object_parent_id;
 
@@ -454,7 +475,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setParentRedemptionId($parent_redemption_id)
     {
         if (is_null($parent_redemption_id)) {
-            throw new \InvalidArgumentException('non-nullable parent_redemption_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parent_redemption_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parent_redemption_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parent_redemption_id'] = $parent_redemption_id;
 
@@ -481,7 +509,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -508,7 +543,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['result'] = $result;
 
@@ -535,7 +577,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -562,7 +611,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -589,7 +645,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setCampaignName($campaign_name)
     {
         if (is_null($campaign_name)) {
-            throw new \InvalidArgumentException('non-nullable campaign_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_name'] = $campaign_name;
 
@@ -616,7 +679,14 @@ class ParameterFiltersListRedemptions implements ModelInterface, ArrayAccess, \J
     public function setUserLogin($user_login)
     {
         if (is_null($user_login)) {
-            throw new \InvalidArgumentException('non-nullable user_login cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'user_login');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('user_login', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['user_login'] = $user_login;
 

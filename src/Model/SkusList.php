@@ -85,10 +85,10 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'skus' => false,
-		'total' => false
+        'object' => true,
+		'data_ref' => true,
+		'skus' => true,
+		'total' => true
     ];
 
     /**
@@ -297,18 +297,6 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['skus'] === null) {
-            $invalidProperties[] = "'skus' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +315,7 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -337,14 +325,21 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about SKUs.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about SKUs.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -354,7 +349,7 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -364,14 +359,21 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the JSON property that contains the array of SKUs.
+     * @param string|null $data_ref Identifies the name of the JSON property that contains the array of SKUs.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -381,7 +383,7 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets skus
      *
-     * @return \OpenAPI\Client\Model\Sku[]
+     * @return \OpenAPI\Client\Model\Sku[]|null
      */
     public function getSkus()
     {
@@ -391,14 +393,21 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets skus
      *
-     * @param \OpenAPI\Client\Model\Sku[] $skus A dictionary that contains an array of SKUs.
+     * @param \OpenAPI\Client\Model\Sku[]|null $skus A dictionary that contains an array of SKUs.
      *
      * @return self
      */
     public function setSkus($skus)
     {
         if (is_null($skus)) {
-            throw new \InvalidArgumentException('non-nullable skus cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'skus');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skus', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['skus'] = $skus;
 
@@ -408,7 +417,7 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -418,14 +427,21 @@ class SkusList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total
      *
-     * @param int $total Total number of SKUs in the product.
+     * @param int|null $total Total number of SKUs in the product.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

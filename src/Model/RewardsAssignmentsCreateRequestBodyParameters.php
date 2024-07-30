@@ -79,7 +79,7 @@ class RewardsAssignmentsCreateRequestBodyParameters implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'loyalty' => false
+        'loyalty' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class RewardsAssignmentsCreateRequestBodyParameters implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class RewardsAssignmentsCreateRequestBodyParameters implements ModelInterface, A
     /**
      * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\RewardsAssignmentsCreateRequestBodyParametersLoyalty
+     * @return \OpenAPI\Client\Model\RewardsAssignmentsCreateRequestBodyParametersLoyalty|null
      */
     public function getLoyalty()
     {
@@ -307,14 +304,21 @@ class RewardsAssignmentsCreateRequestBodyParameters implements ModelInterface, A
     /**
      * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\RewardsAssignmentsCreateRequestBodyParametersLoyalty $loyalty loyalty
+     * @param \OpenAPI\Client\Model\RewardsAssignmentsCreateRequestBodyParametersLoyalty|null $loyalty loyalty
      *
      * @return self
      */
     public function setLoyalty($loyalty)
     {
         if (is_null($loyalty)) {
-            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty'] = $loyalty;
 

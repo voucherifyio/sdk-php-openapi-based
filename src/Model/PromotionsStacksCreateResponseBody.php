@@ -93,14 +93,14 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'tiers' => false,
-		'id' => false,
-		'created_at' => false,
-		'campaign_id' => false,
-		'object' => false,
+        'name' => true,
+		'tiers' => true,
+		'id' => true,
+		'created_at' => true,
+		'campaign_id' => true,
+		'object' => true,
 		'category_id' => true,
-		'categories' => false
+		'categories' => true
     ];
 
     /**
@@ -338,24 +338,6 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['tiers'] === null) {
-            $invalidProperties[] = "'tiers' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -365,12 +347,6 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
             );
         }
 
-        if ($this->container['category_id'] === null) {
-            $invalidProperties[] = "'category_id' can't be null";
-        }
-        if ($this->container['categories'] === null) {
-            $invalidProperties[] = "'categories' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -389,7 +365,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -399,14 +375,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets name
      *
-     * @param string $name Promotion stack name.
+     * @param string|null $name Promotion stack name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -416,7 +399,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets tiers
      *
-     * @return \OpenAPI\Client\Model\PromotionStackBaseTiers
+     * @return \OpenAPI\Client\Model\PromotionStackBaseTiers|null
      */
     public function getTiers()
     {
@@ -426,14 +409,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets tiers
      *
-     * @param \OpenAPI\Client\Model\PromotionStackBaseTiers $tiers tiers
+     * @param \OpenAPI\Client\Model\PromotionStackBaseTiers|null $tiers tiers
      *
      * @return self
      */
     public function setTiers($tiers)
     {
         if (is_null($tiers)) {
-            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tiers'] = $tiers;
 
@@ -443,7 +433,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -453,14 +443,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets id
      *
-     * @param string $id Unique promotion stack ID.
+     * @param string|null $id Unique promotion stack ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -470,7 +467,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -480,14 +477,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the promotion stack was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -497,7 +501,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets campaign_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaignId()
     {
@@ -507,14 +511,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets campaign_id
      *
-     * @param string $campaign_id Promotion stack's parent campaign's unique ID.
+     * @param string|null $campaign_id Promotion stack's parent campaign's unique ID.
      *
      * @return self
      */
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -524,7 +535,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -534,17 +545,24 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -561,7 +579,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets category_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCategoryId()
     {
@@ -571,7 +589,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets category_id
      *
-     * @param string $category_id Promotion stack category ID.
+     * @param string|null $category_id Promotion stack category ID.
      *
      * @return self
      */
@@ -595,7 +613,7 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets categories
      *
-     * @return \OpenAPI\Client\Model\PromotionStackBase[]
+     * @return \OpenAPI\Client\Model\PromotionStackBase[]|null
      */
     public function getCategories()
     {
@@ -605,14 +623,21 @@ class PromotionsStacksCreateResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets categories
      *
-     * @param \OpenAPI\Client\Model\PromotionStackBase[] $categories Details about the category assigned to the promotion stack.
+     * @param \OpenAPI\Client\Model\PromotionStackBase[]|null $categories Details about the category assigned to the promotion stack.
      *
      * @return self
      */
     public function setCategories($categories)
     {
         if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['categories'] = $categories;
 

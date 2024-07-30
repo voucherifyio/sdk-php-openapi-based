@@ -46,7 +46,7 @@ class MainTest extends \Codeception\Test\Unit
             new GuzzleHttp\Client(),
             $config
         );
-        $this->stackedDiscountsApiInstance = new OpenAPI\Client\Api\StackableDiscountsApi(
+        $this->validationsApiInstance = new OpenAPI\Client\Api\ValidationsApi(
             new GuzzleHttp\Client(),
             $config
         );
@@ -238,7 +238,7 @@ class MainTest extends \Codeception\Test\Unit
             $voucher_redeemable->setObject("voucher");
             array_push($validations_validate_request_body_redeemables, $voucher_redeemable);
             $validations_validate_request_body->setRedeemables($validations_validate_request_body_redeemables);
-            $this->stackedDiscountsApiInstance->validateStackedDiscounts($validations_validate_request_body);
+            $this->validationsApiInstance->validateStackedDiscounts($validations_validate_request_body);
 
             // stacked redemption
             $redemptions_redeem_request_body = new \OpenAPI\Client\Model\RedemptionsRedeemRequestBody();
@@ -248,7 +248,7 @@ class MainTest extends \Codeception\Test\Unit
             $redemptions_redeem_request_body->setCustomer(new \OpenAPI\Client\Model\Customer());
             $redemptions_redeem_request_body->getCustomer()->setSourceId($created_customer->getSourceId());
             $redemptions_redeem_request_body->setRedeemables($validations_validate_request_body_redeemables);
-            $this->stackedDiscountsApiInstance->redeemStackedDiscounts($redemptions_redeem_request_body);
+            $this->redemptionsApiInstance->redeemStackedDiscounts($redemptions_redeem_request_body);
         }
 
         public function testListRedemptions()

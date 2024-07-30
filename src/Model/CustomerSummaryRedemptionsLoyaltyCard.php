@@ -81,8 +81,8 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'redeemed_points' => false,
-		'points_to_go' => false
+        'redeemed_points' => true,
+		'points_to_go' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['redeemed_points'] === null) {
-            $invalidProperties[] = "'redeemed_points' can't be null";
-        }
-        if ($this->container['points_to_go'] === null) {
-            $invalidProperties[] = "'points_to_go' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
     /**
      * Gets redeemed_points
      *
-     * @return int
+     * @return int|null
      */
     public function getRedeemedPoints()
     {
@@ -317,14 +311,21 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
     /**
      * Sets redeemed_points
      *
-     * @param int $redeemed_points Total number of loyalty points redeemed by the customer.
+     * @param int|null $redeemed_points Total number of loyalty points redeemed by the customer.
      *
      * @return self
      */
     public function setRedeemedPoints($redeemed_points)
     {
         if (is_null($redeemed_points)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_points'] = $redeemed_points;
 
@@ -334,7 +335,7 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
     /**
      * Gets points_to_go
      *
-     * @return int
+     * @return int|null
      */
     public function getPointsToGo()
     {
@@ -344,14 +345,21 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
     /**
      * Sets points_to_go
      *
-     * @param int $points_to_go Sum of remaining available point balance across all loyalty cards.
+     * @param int|null $points_to_go Sum of remaining available point balance across all loyalty cards.
      *
      * @return self
      */
     public function setPointsToGo($points_to_go)
     {
         if (is_null($points_to_go)) {
-            throw new \InvalidArgumentException('non-nullable points_to_go cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points_to_go');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points_to_go', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points_to_go'] = $points_to_go;
 

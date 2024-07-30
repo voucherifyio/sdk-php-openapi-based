@@ -81,8 +81,8 @@ class CampaignLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'expiration_rules' => false
+        'points' => true,
+		'expiration_rules' => true
     ];
 
     /**
@@ -283,9 +283,6 @@ class CampaignLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -304,7 +301,7 @@ class CampaignLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -314,14 +311,21 @@ class CampaignLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets points
      *
-     * @param int $points The initial number of points to assign to the loyalty card. This is the current loyalty card score i.e. the number of loyalty points on the card.
+     * @param int|null $points The initial number of points to assign to the loyalty card. This is the current loyalty card score i.e. the number of loyalty points on the card.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -348,7 +352,14 @@ class CampaignLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setExpirationRules($expiration_rules)
     {
         if (is_null($expiration_rules)) {
-            throw new \InvalidArgumentException('non-nullable expiration_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_rules'] = $expiration_rules;
 

@@ -87,11 +87,11 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'tiers' => false,
-		'total' => false,
-		'has_more' => false
+        'object' => true,
+		'data_ref' => true,
+		'tiers' => true,
+		'total' => true,
+		'has_more' => true
     ];
 
     /**
@@ -332,14 +332,21 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. This object stores information about promotion tiers in a dictionary.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about promotion tiers in a dictionary.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -366,7 +373,14 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -393,7 +407,14 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
     public function setTiers($tiers)
     {
         if (is_null($tiers)) {
-            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tiers'] = $tiers;
 
@@ -420,7 +441,14 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -440,14 +468,21 @@ class PromotionsTiersListResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets has_more
      *
-     * @param bool|null $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates whether there are more records for given filter parameters. This let's you know if you are able to run another request (with a different page or a different start date filter) to get more records returned in the results.
+     * @param bool|null $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different page or a different start date filter) to get more records returned in the results.
      *
      * @return self
      */
     public function setHasMore($has_more)
     {
         if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_more');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_more', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_more'] = $has_more;
 

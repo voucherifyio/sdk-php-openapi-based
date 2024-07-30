@@ -85,9 +85,9 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'name' => false,
-		'products' => false,
-		'filter' => false
+		'name' => true,
+		'products' => true,
+		'filter' => true
     ];
 
     /**
@@ -309,9 +309,6 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -321,9 +318,6 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -342,7 +336,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -352,7 +346,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Show that the product collection is static (manually selected products).
+     * @param string|null $type Show that the product collection is static (manually selected products).
      *
      * @return self
      */
@@ -379,7 +373,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -389,14 +383,21 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Unique user-defined product collection name.
+     * @param string|null $name Unique user-defined product collection name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -423,7 +424,14 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     public function setProducts($products)
     {
         if (is_null($products)) {
-            throw new \InvalidArgumentException('non-nullable products cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'products');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('products', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['products'] = $products;
 
@@ -450,7 +458,14 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['filter'] = $filter;
 

@@ -81,8 +81,8 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-		'referrer_id' => false
+        'code' => true,
+		'referrer_id' => true
     ];
 
     /**
@@ -283,9 +283,6 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -304,7 +301,7 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -314,14 +311,21 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
     /**
      * Sets code
      *
-     * @param string $code A code through which a new visitor has been referred to a service.
+     * @param string|null $code A code through which a new visitor has been referred to a service.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -348,7 +352,14 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
     public function setReferrerId($referrer_id)
     {
         if (is_null($referrer_id)) {
-            throw new \InvalidArgumentException('non-nullable referrer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referrer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referrer_id'] = $referrer_id;
 

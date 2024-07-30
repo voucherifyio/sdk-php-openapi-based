@@ -103,17 +103,17 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'balance' => false,
-		'order' => false,
-		'event' => false,
-		'earning_rule' => false,
-		'segment' => false,
-		'loyalty_tier' => false,
-		'redemption' => false,
-		'rollback' => false,
-		'custom_event' => false,
-		'event_schema' => false,
-		'reward' => false,
+        'balance' => true,
+		'order' => true,
+		'event' => true,
+		'earning_rule' => true,
+		'segment' => true,
+		'loyalty_tier' => true,
+		'redemption' => true,
+		'rollback' => true,
+		'custom_event' => true,
+		'event_schema' => true,
+		'reward' => true,
 		'source_voucher' => false,
 		'destination_voucher' => false
     ];
@@ -395,7 +395,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -422,7 +429,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order'] = $order;
 
@@ -449,7 +463,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setEvent($event)
     {
         if (is_null($event)) {
-            throw new \InvalidArgumentException('non-nullable event cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'event');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('event', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['event'] = $event;
 
@@ -476,7 +497,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setEarningRule($earning_rule)
     {
         if (is_null($earning_rule)) {
-            throw new \InvalidArgumentException('non-nullable earning_rule cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'earning_rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('earning_rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['earning_rule'] = $earning_rule;
 
@@ -503,7 +531,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setSegment($segment)
     {
         if (is_null($segment)) {
-            throw new \InvalidArgumentException('non-nullable segment cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'segment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('segment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['segment'] = $segment;
 
@@ -530,7 +565,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setLoyaltyTier($loyalty_tier)
     {
         if (is_null($loyalty_tier)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_tier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_tier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_tier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_tier'] = $loyalty_tier;
 
@@ -557,7 +599,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -584,7 +633,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setRollback($rollback)
     {
         if (is_null($rollback)) {
-            throw new \InvalidArgumentException('non-nullable rollback cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rollback');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rollback', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rollback'] = $rollback;
 
@@ -611,7 +667,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setCustomEvent($custom_event)
     {
         if (is_null($custom_event)) {
-            throw new \InvalidArgumentException('non-nullable custom_event cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_event');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_event', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['custom_event'] = $custom_event;
 
@@ -638,7 +701,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setEventSchema($event_schema)
     {
         if (is_null($event_schema)) {
-            throw new \InvalidArgumentException('non-nullable event_schema cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'event_schema');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('event_schema', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['event_schema'] = $event_schema;
 
@@ -665,7 +735,14 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
     public function setReward($reward)
     {
         if (is_null($reward)) {
-            throw new \InvalidArgumentException('non-nullable reward cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reward');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reward', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reward'] = $reward;
 

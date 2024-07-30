@@ -81,8 +81,8 @@ class RedeemableGift implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'balance' => false,
-		'credits' => false
+        'balance' => true,
+		'credits' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class RedeemableGift implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -345,7 +352,14 @@ class RedeemableGift implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCredits($credits)
     {
         if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'credits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('credits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['credits'] = $credits;
 

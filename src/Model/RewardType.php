@@ -82,9 +82,9 @@ class RewardType implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'campaign' => false,
-		'coin' => false,
-		'product' => false
+        'campaign' => true,
+		'coin' => true,
+		'product' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class RewardType implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -351,7 +358,14 @@ class RewardType implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCoin($coin)
     {
         if (is_null($coin)) {
-            throw new \InvalidArgumentException('non-nullable coin cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'coin');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('coin', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['coin'] = $coin;
 
@@ -378,7 +392,14 @@ class RewardType implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setProduct($product)
     {
         if (is_null($product)) {
-            throw new \InvalidArgumentException('non-nullable product cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product'] = $product;
 

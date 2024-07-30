@@ -81,8 +81,8 @@ class LoyaltiesMembersRedemptionRedeemRequestBodyReward implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'points' => false
+        'id' => true,
+		'points' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class LoyaltiesMembersRedemptionRedeemRequestBodyReward implements ModelInterfac
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -345,7 +352,14 @@ class LoyaltiesMembersRedemptionRedeemRequestBodyReward implements ModelInterfac
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

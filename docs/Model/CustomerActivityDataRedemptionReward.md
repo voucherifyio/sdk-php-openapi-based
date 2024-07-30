@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customer** | [**\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardCustomer**](CustomerActivityDataRedemptionRewardCustomer.md) |  | [optional]
-**assignment_id** | **string** |  | [optional]
+**assignment_id** | **string** | Unique reward assignment ID assigned by Voucherify. | [optional]
 **voucher** | [**\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucher**](CustomerActivityDataRedemptionRewardVoucher.md) |  | [optional]
 **product** | [**\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardProduct**](CustomerActivityDataRedemptionRewardProduct.md) |  | [optional]
 **sku** | [**\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardSku**](CustomerActivityDataRedemptionRewardSku.md) |  | [optional]
-**loyalty_tier_id** | **string** |  | [optional]
+**loyalty_tier_id** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional]
 **id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **object** | **string** |  | [optional] [default to 'reward']

@@ -426,7 +426,7 @@ class ExportsApi
      *
      * Delete Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExport'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -443,7 +443,7 @@ class ExportsApi
      *
      * Delete Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExport'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -503,7 +503,7 @@ class ExportsApi
      *
      * Delete Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -524,7 +524,7 @@ class ExportsApi
      *
      * Delete Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -561,7 +561,7 @@ class ExportsApi
     /**
      * Create request for operation 'deleteExport'
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -963,7 +963,7 @@ class ExportsApi
      *
      * Get Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExport'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -981,7 +981,7 @@ class ExportsApi
      *
      * Get Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExport'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1081,7 +1081,7 @@ class ExportsApi
      *
      * Get Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1102,7 +1102,7 @@ class ExportsApi
      *
      * Get Export
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1152,7 +1152,7 @@ class ExportsApi
     /**
      * Create request for operation 'getExport'
      *
-     * @param  string $export_id Unique export object ID of previously created export. This object can be a: &#x60;voucher&#x60;, &#x60;redemption&#x60;, &#x60;publication&#x60;, &#x60;customer&#x60;, &#x60;order&#x60;, &#x60;points_expiration&#x60;, or &#x60;voucher_transactions&#x60;. (required)
+     * @param  string $export_id Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getExport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1256,9 +1256,9 @@ class ExportsApi
      *
      * List Exports
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listExports'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1276,9 +1276,9 @@ class ExportsApi
      *
      * List Exports
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listExports'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1378,9 +1378,9 @@ class ExportsApi
      *
      * List Exports
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listExports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1401,9 +1401,9 @@ class ExportsApi
      *
      * List Exports
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listExports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1453,9 +1453,9 @@ class ExportsApi
     /**
      * Create request for operation 'listExports'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListExports $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listExports'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1473,6 +1473,9 @@ class ExportsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling ExportsApi.listExports, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling ExportsApi.listExports, must be bigger than or equal to 1.');
         }
         
 

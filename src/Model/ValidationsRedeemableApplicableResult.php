@@ -82,9 +82,9 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'discount' => false,
-		'gift' => false,
-		'loyalty_card' => false
+        'discount' => true,
+		'gift' => true,
+		'loyalty_card' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
     public function setDiscount($discount)
     {
         if (is_null($discount)) {
-            throw new \InvalidArgumentException('non-nullable discount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount'] = $discount;
 
@@ -351,7 +358,14 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -378,7 +392,14 @@ class ValidationsRedeemableApplicableResult implements ModelInterface, ArrayAcce
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 

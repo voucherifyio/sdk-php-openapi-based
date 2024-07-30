@@ -61,7 +61,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'valid' => 'bool',
         'redeemables' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]',
-        'skipped_redeemables' => 'ValidationsRedeemableInapplicable[]',
+        'skipped_redeemables' => 'ValidationsRedeemableSkipped[]',
         'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'tracking_id' => 'string',
@@ -93,12 +93,12 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'valid' => false,
-		'redeemables' => false,
-		'skipped_redeemables' => false,
-		'inapplicable_redeemables' => false,
+        'valid' => true,
+		'redeemables' => true,
+		'skipped_redeemables' => true,
+		'inapplicable_redeemables' => true,
 		'order' => false,
-		'tracking_id' => false,
+		'tracking_id' => true,
 		'session' => false,
 		'stacking_rules' => false
     ];
@@ -325,11 +325,8 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['valid'] === null) {
-            $invalidProperties[] = "'valid' can't be null";
-        }
-        if ($this->container['redeemables'] === null) {
-            $invalidProperties[] = "'redeemables' can't be null";
+        if ($this->container['stacking_rules'] === null) {
+            $invalidProperties[] = "'stacking_rules' can't be null";
         }
         return $invalidProperties;
     }
@@ -349,7 +346,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets valid
      *
-     * @return bool
+     * @return bool|null
      */
     public function getValid()
     {
@@ -359,14 +356,21 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets valid
      *
-     * @param bool $valid The result of the validation. It takes all of the redeemables into account and returns a `false` if at least one redeemable is inapplicable. Returns `true` if all redeemables are applicable.
+     * @param bool|null $valid The result of the validation. It takes all of the redeemables into account and returns a `false` if at least one redeemable is inapplicable. Returns `true` if all redeemables are applicable.
      *
      * @return self
      */
     public function setValid($valid)
     {
         if (is_null($valid)) {
-            throw new \InvalidArgumentException('non-nullable valid cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'valid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('valid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['valid'] = $valid;
 
@@ -376,7 +380,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets redeemables
      *
-     * @return \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]
+     * @return \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]|null
      */
     public function getRedeemables()
     {
@@ -386,14 +390,21 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets redeemables
      *
-     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[] $redeemables redeemables
+     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]|null $redeemables redeemables
      *
      * @return self
      */
     public function setRedeemables($redeemables)
     {
         if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemables'] = $redeemables;
 
@@ -403,7 +414,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets skipped_redeemables
      *
-     * @return ValidationsRedeemableInapplicable[]|null
+     * @return ValidationsRedeemableSkipped[]|null
      */
     public function getSkippedRedeemables()
     {
@@ -413,14 +424,21 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets skipped_redeemables
      *
-     * @param ValidationsRedeemableInapplicable[]|null $skipped_redeemables Lists validation results of each skipped redeemable.
+     * @param ValidationsRedeemableSkipped[]|null $skipped_redeemables Lists validation results of each skipped redeemable.
      *
      * @return self
      */
     public function setSkippedRedeemables($skipped_redeemables)
     {
         if (is_null($skipped_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable skipped_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'skipped_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skipped_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['skipped_redeemables'] = $skipped_redeemables;
 
@@ -447,7 +465,14 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     public function setInapplicableRedeemables($inapplicable_redeemables)
     {
         if (is_null($inapplicable_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inapplicable_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inapplicable_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['inapplicable_redeemables'] = $inapplicable_redeemables;
 
@@ -501,7 +526,14 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -538,7 +570,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets stacking_rules
      *
-     * @return \OpenAPI\Client\Model\StackingRules|null
+     * @return \OpenAPI\Client\Model\StackingRules
      */
     public function getStackingRules()
     {
@@ -548,7 +580,7 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets stacking_rules
      *
-     * @param \OpenAPI\Client\Model\StackingRules|null $stacking_rules stacking_rules
+     * @param \OpenAPI\Client\Model\StackingRules $stacking_rules stacking_rules
      *
      * @return self
      */

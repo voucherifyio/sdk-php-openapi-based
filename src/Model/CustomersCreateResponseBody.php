@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response bofy for **POST** &#x60;/customers&#x60;.
+ * @description Response body for **POST** &#x60;/customers&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -113,24 +113,24 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false,
+        'id' => true,
+		'source_id' => true,
 		'summary' => true,
 		'loyalty' => true,
 		'referrals' => true,
-		'system_metadata' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'assets' => false,
-		'object' => false,
-		'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
+		'system_metadata' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'assets' => true,
+		'object' => true,
+		'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
 		'address' => true,
-		'metadata' => false
+		'metadata' => true
     ];
 
     /**
@@ -408,18 +408,6 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['summary'] === null) {
-            $invalidProperties[] = "'summary' can't be null";
-        }
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
-        }
-        if ($this->container['referrals'] === null) {
-            $invalidProperties[] = "'referrals' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -464,7 +452,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -491,7 +486,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -501,7 +503,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets summary
      *
-     * @return \OpenAPI\Client\Model\CustomerSummary
+     * @return \OpenAPI\Client\Model\CustomerSummary|null
      */
     public function getSummary()
     {
@@ -511,7 +513,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets summary
      *
-     * @param \OpenAPI\Client\Model\CustomerSummary $summary summary
+     * @param \OpenAPI\Client\Model\CustomerSummary|null $summary summary
      *
      * @return self
      */
@@ -535,7 +537,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\CustomerLoyalty
+     * @return \OpenAPI\Client\Model\CustomerLoyalty|null
      */
     public function getLoyalty()
     {
@@ -545,7 +547,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\CustomerLoyalty $loyalty loyalty
+     * @param \OpenAPI\Client\Model\CustomerLoyalty|null $loyalty loyalty
      *
      * @return self
      */
@@ -569,7 +571,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets referrals
      *
-     * @return \OpenAPI\Client\Model\CustomerReferrals
+     * @return \OpenAPI\Client\Model\CustomerReferrals|null
      */
     public function getReferrals()
     {
@@ -579,7 +581,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets referrals
      *
-     * @param \OpenAPI\Client\Model\CustomerReferrals $referrals referrals
+     * @param \OpenAPI\Client\Model\CustomerReferrals|null $referrals referrals
      *
      * @return self
      */
@@ -620,7 +622,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setSystemMetadata($system_metadata)
     {
         if (is_null($system_metadata)) {
-            throw new \InvalidArgumentException('non-nullable system_metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'system_metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('system_metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['system_metadata'] = $system_metadata;
 
@@ -640,14 +649,21 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -667,14 +683,21 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -701,7 +724,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setAssets($assets)
     {
         if (is_null($assets)) {
-            throw new \InvalidArgumentException('non-nullable assets cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assets'] = $assets;
 
@@ -711,7 +741,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -721,17 +751,24 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -765,7 +802,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -792,7 +836,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -819,7 +870,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setEmail($email)
     {
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['email'] = $email;
 
@@ -846,7 +904,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setPhone($phone)
     {
         if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['phone'] = $phone;
 
@@ -866,14 +931,21 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets birthday
      *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
+     * @param \DateTime|null $birthday `Deprecated`. ~~Customer's birthdate; format YYYY-MM-DD~~.
      *
      * @return self
      */
     public function setBirthday($birthday)
     {
         if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthday');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthday', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthday'] = $birthday;
 
@@ -900,7 +972,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setBirthdate($birthdate)
     {
         if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthdate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthdate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthdate'] = $birthdate;
 
@@ -961,7 +1040,14 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

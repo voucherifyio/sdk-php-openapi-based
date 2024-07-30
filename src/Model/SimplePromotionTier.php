@@ -62,7 +62,8 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'string',
         'name' => 'string',
         'banner' => 'string',
-        'campaign' => '\OpenAPI\Client\Model\SimplePromotionTierCampaign'
+        'campaign' => '\OpenAPI\Client\Model\SimplePromotionTierCampaign',
+        'metadata' => 'object'
     ];
 
     /**
@@ -76,7 +77,8 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => null,
         'name' => null,
         'banner' => null,
-        'campaign' => null
+        'campaign' => null,
+        'metadata' => null
     ];
 
     /**
@@ -85,10 +87,11 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
-		'banner' => false,
-		'campaign' => false
+        'id' => true,
+		'name' => true,
+		'banner' => true,
+		'campaign' => true,
+		'metadata' => true
     ];
 
     /**
@@ -180,7 +183,8 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'id',
         'name' => 'name',
         'banner' => 'banner',
-        'campaign' => 'campaign'
+        'campaign' => 'campaign',
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -192,7 +196,8 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'setId',
         'name' => 'setName',
         'banner' => 'setBanner',
-        'campaign' => 'setCampaign'
+        'campaign' => 'setCampaign',
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -204,7 +209,8 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'getId',
         'name' => 'getName',
         'banner' => 'getBanner',
-        'campaign' => 'getCampaign'
+        'campaign' => 'getCampaign',
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -268,6 +274,7 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('banner', $data ?? [], null);
         $this->setIfExists('campaign', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -332,7 +339,14 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -359,7 +373,14 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -386,7 +407,14 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 
@@ -413,9 +441,50 @@ class SimplePromotionTier implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to a promotion tier. The metadata object stores all custom attributes assigned to the promotion tier.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

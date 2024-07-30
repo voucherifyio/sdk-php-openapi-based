@@ -61,7 +61,8 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         'discount' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultDiscount',
         'gift' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultGift',
         'loyalty_card' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard',
-        'error' => '\OpenAPI\Client\Model\Error'
+        'error' => '\OpenAPI\Client\Model\Error',
+        'details' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultDetails'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         'discount' => null,
         'gift' => null,
         'loyalty_card' => null,
-        'error' => null
+        'error' => null,
+        'details' => null
     ];
 
     /**
@@ -85,9 +87,10 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
       */
     protected static array $openAPINullables = [
         'discount' => false,
-		'gift' => false,
+		'gift' => true,
 		'loyalty_card' => false,
-		'error' => false
+		'error' => false,
+		'details' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         'discount' => 'discount',
         'gift' => 'gift',
         'loyalty_card' => 'loyalty_card',
-        'error' => 'error'
+        'error' => 'error',
+        'details' => 'details'
     ];
 
     /**
@@ -191,7 +195,8 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         'discount' => 'setDiscount',
         'gift' => 'setGift',
         'loyalty_card' => 'setLoyaltyCard',
-        'error' => 'setError'
+        'error' => 'setError',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -203,7 +208,8 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         'discount' => 'getDiscount',
         'gift' => 'getGift',
         'loyalty_card' => 'getLoyaltyCard',
-        'error' => 'getError'
+        'error' => 'getError',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -267,6 +273,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
         $this->setIfExists('gift', $data ?? [], null);
         $this->setIfExists('loyalty_card', $data ?? [], null);
         $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('details', $data ?? [], null);
     }
 
     /**
@@ -358,7 +365,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -415,6 +429,33 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
             throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultDetails|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItemResultDetails|null $details details
+     *
+     * @return self
+     */
+    public function setDetails($details)
+    {
+        if (is_null($details)) {
+            throw new \InvalidArgumentException('non-nullable details cannot be null');
+        }
+        $this->container['details'] = $details;
 
         return $this;
     }

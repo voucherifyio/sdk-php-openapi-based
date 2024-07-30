@@ -72,8 +72,9 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         'active' => 'bool',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemPromotionTierValidityTimeframe',
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
         'summary' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary',
         'object' => 'string',
         'validation_rule_assignments' => '\OpenAPI\Client\Model\ValidationRuleAssignmentsList',
@@ -105,6 +106,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
+        'validity_hours' => null,
         'summary' => null,
         'object' => null,
         'validation_rule_assignments' => null,
@@ -118,27 +120,28 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'name' => false,
-		'banner' => false,
+        'id' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'name' => true,
+		'banner' => true,
 		'action' => false,
 		'metadata' => false,
-		'hierarchy' => false,
-		'promotion_id' => false,
+		'hierarchy' => true,
+		'promotion_id' => true,
 		'campaign' => false,
-		'campaign_id' => false,
-		'active' => false,
-		'start_date' => false,
-		'expiration_date' => false,
+		'campaign_id' => true,
+		'active' => true,
+		'start_date' => true,
+		'expiration_date' => true,
 		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
+		'validity_day_of_week' => true,
+		'validity_hours' => false,
 		'summary' => false,
-		'object' => false,
+		'object' => true,
 		'validation_rule_assignments' => false,
-		'category_id' => false,
-		'categories' => false
+		'category_id' => true,
+		'categories' => true
     ];
 
     /**
@@ -243,6 +246,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours',
         'summary' => 'summary',
         'object' => 'object',
         'validation_rule_assignments' => 'validation_rule_assignments',
@@ -272,6 +276,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours',
         'summary' => 'setSummary',
         'object' => 'setObject',
         'validation_rule_assignments' => 'setValidationRuleAssignments',
@@ -301,6 +306,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours',
         'summary' => 'getSummary',
         'object' => 'getObject',
         'validation_rule_assignments' => 'getValidationRuleAssignments',
@@ -349,6 +355,31 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         return self::$openAPIModelName;
     }
 
+    public const VALIDITY_DAY_OF_WEEK_0 = 0;
+    public const VALIDITY_DAY_OF_WEEK_1 = 1;
+    public const VALIDITY_DAY_OF_WEEK_2 = 2;
+    public const VALIDITY_DAY_OF_WEEK_3 = 3;
+    public const VALIDITY_DAY_OF_WEEK_4 = 4;
+    public const VALIDITY_DAY_OF_WEEK_5 = 5;
+    public const VALIDITY_DAY_OF_WEEK_6 = 6;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValidityDayOfWeekAllowableValues()
+    {
+        return [
+            self::VALIDITY_DAY_OF_WEEK_0,
+            self::VALIDITY_DAY_OF_WEEK_1,
+            self::VALIDITY_DAY_OF_WEEK_2,
+            self::VALIDITY_DAY_OF_WEEK_3,
+            self::VALIDITY_DAY_OF_WEEK_4,
+            self::VALIDITY_DAY_OF_WEEK_5,
+            self::VALIDITY_DAY_OF_WEEK_6,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -381,6 +412,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('summary', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'promotion_tier');
         $this->setIfExists('validation_rule_assignments', $data ?? [], null);
@@ -450,7 +482,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -470,14 +509,21 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the promotion tier was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the promotion tier was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -497,14 +543,21 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the promotion tier was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the promotion tier was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -531,7 +584,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -558,7 +618,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 
@@ -639,7 +706,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setHierarchy($hierarchy)
     {
         if (is_null($hierarchy)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hierarchy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hierarchy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['hierarchy'] = $hierarchy;
 
@@ -666,7 +740,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setPromotionId($promotion_id)
     {
         if (is_null($promotion_id)) {
-            throw new \InvalidArgumentException('non-nullable promotion_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'promotion_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('promotion_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['promotion_id'] = $promotion_id;
 
@@ -720,7 +801,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -747,7 +835,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setActive($active)
     {
         if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['active'] = $active;
 
@@ -774,7 +869,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -801,7 +903,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -811,7 +920,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemPromotionTierValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -821,7 +930,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemPromotionTierValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -848,16 +957,59 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Sets validity_day_of_week
      *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the promotion tier is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getValidityDayOfWeekAllowableValues();
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'validity_day_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }
@@ -902,14 +1054,21 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. This object stores information about the promotion tier.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the promotion tier.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -963,7 +1122,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 
@@ -990,7 +1156,14 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
     public function setCategories($categories)
     {
         if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['categories'] = $categories;
 

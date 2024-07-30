@@ -85,10 +85,10 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'strategy' => false,
-		'unit' => false,
-		'value' => false
+        'type' => true,
+		'strategy' => true,
+		'unit' => true,
+		'value' => true
     ];
 
     /**
@@ -408,10 +408,17 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -445,10 +452,17 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
     public function setStrategy($strategy)
     {
         if (is_null($strategy)) {
-            throw new \InvalidArgumentException('non-nullable strategy cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'strategy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('strategy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStrategyAllowableValues();
-        if (!in_array($strategy, $allowedValues, true)) {
+        if (!is_null($strategy) && !in_array($strategy, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'strategy', must be one of '%s'",
@@ -482,10 +496,17 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
     public function setUnit($unit)
     {
         if (is_null($unit)) {
-            throw new \InvalidArgumentException('non-nullable unit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getUnitAllowableValues();
-        if (!in_array($unit, $allowedValues, true)) {
+        if (!is_null($unit) && !in_array($unit, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'unit', must be one of '%s'",
@@ -519,7 +540,14 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
     public function setValue($value)
     {
         if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['value'] = $value;
 

@@ -78,7 +78,7 @@ class EarningRuleBaseLoyaltyCustomEvent implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'metadata' => false
+        'metadata' => true
     ];
 
     /**
@@ -275,9 +275,6 @@ class EarningRuleBaseLoyaltyCustomEvent implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -296,7 +293,7 @@ class EarningRuleBaseLoyaltyCustomEvent implements ModelInterface, ArrayAccess, 
     /**
      * Gets metadata
      *
-     * @return \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata
+     * @return \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata|null
      */
     public function getMetadata()
     {
@@ -306,14 +303,21 @@ class EarningRuleBaseLoyaltyCustomEvent implements ModelInterface, ArrayAccess, 
     /**
      * Sets metadata
      *
-     * @param \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata $metadata metadata
+     * @param \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata|null $metadata metadata
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

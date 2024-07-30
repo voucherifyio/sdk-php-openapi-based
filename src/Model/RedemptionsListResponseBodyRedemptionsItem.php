@@ -126,28 +126,28 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     protected static array $openAPINullables = [
         'id' => false,
 		'object' => false,
-		'date' => false,
+		'date' => true,
 		'customer_id' => true,
 		'tracking_id' => true,
 		'metadata' => false,
 		'amount' => false,
 		'redemption' => true,
-		'result' => false,
+		'result' => true,
 		'status' => false,
 		'related_redemptions' => false,
-		'failure_code' => false,
-		'failure_message' => false,
+		'failure_code' => true,
+		'failure_message' => true,
 		'order' => false,
 		'channel' => false,
 		'customer' => false,
-		'related_object_type' => false,
+		'related_object_type' => true,
 		'related_object_id' => false,
 		'voucher' => false,
 		'promotion_tier' => false,
 		'reward' => false,
 		'gift' => false,
 		'loyalty_card' => false,
-		'reason' => false
+		'reason' => true
     ];
 
     /**
@@ -500,12 +500,6 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -515,24 +509,6 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
             );
         }
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['tracking_id'] === null) {
-            $invalidProperties[] = "'tracking_id' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['redemption'] === null) {
-            $invalidProperties[] = "'redemption' can't be null";
-        }
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
         $allowedValues = $this->getResultAllowableValues();
         if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -542,9 +518,6 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
             );
         }
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -554,18 +527,6 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
             );
         }
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['customer'] === null) {
-            $invalidProperties[] = "'customer' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
         if (!is_null($this->container['related_object_type']) && !in_array($this->container['related_object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -575,9 +536,6 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
             );
         }
 
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -596,7 +554,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -606,7 +564,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets id
      *
-     * @param string $id Unique redemption ID.
+     * @param string|null $id id
      *
      * @return self
      */
@@ -623,7 +581,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -633,7 +591,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */
@@ -660,7 +618,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDate()
     {
@@ -670,14 +628,21 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets date
      *
-     * @param \DateTime $date Timestamp representing the date and time when the object was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 
@@ -687,7 +652,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -697,7 +662,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique customer ID of the redeeming customer.
+     * @param string|null $customer_id Unique customer ID of the redeeming customer.
      *
      * @return self
      */
@@ -721,7 +686,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets tracking_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTrackingId()
     {
@@ -731,7 +696,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets tracking_id
      *
-     * @param string $tracking_id Hashed customer source ID.
+     * @param string|null $tracking_id Hashed customer source ID.
      *
      * @return self
      */
@@ -755,7 +720,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -765,7 +730,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets metadata
      *
-     * @param object $metadata metadata
+     * @param object|null $metadata metadata
      *
      * @return self
      */
@@ -792,7 +757,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets amount
      *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
+     * @param int|null $amount For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this represents the number of the credits restored to the card in the rolledback redemption. The number is a negative integer in the smallest currency unit, e.g. -100 cents for $1.00 added back to the card. For loyalty cards, this represents the number of loyalty points restored to the card in the rolledback redemption. The number is a negative integer.
      *
      * @return self
      */
@@ -809,7 +774,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets redemption
      *
-     * @return string
+     * @return string|null
      */
     public function getRedemption()
     {
@@ -819,7 +784,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets redemption
      *
-     * @param string $redemption Unique redemption ID of the parent redemption.
+     * @param string|null $redemption Unique redemption ID of the parent redemption.
      *
      * @return self
      */
@@ -843,7 +808,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets result
      *
-     * @return string
+     * @return string|null
      */
     public function getResult()
     {
@@ -853,17 +818,24 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets result
      *
-     * @param string $result Redemption result.
+     * @param string|null $result Redemption result.
      *
      * @return self
      */
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -880,7 +852,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -890,7 +862,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string|null $status status
      *
      * @return self
      */
@@ -961,7 +933,14 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -988,7 +967,14 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 
@@ -998,7 +984,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets order
      *
-     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder
+     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder|null
      */
     public function getOrder()
     {
@@ -1008,7 +994,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets order
      *
-     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder $order order
+     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder|null $order order
      *
      * @return self
      */
@@ -1025,7 +1011,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets channel
      *
-     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel
+     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel|null
      */
     public function getChannel()
     {
@@ -1035,7 +1021,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets channel
      *
-     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel $channel channel
+     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel|null $channel channel
      *
      * @return self
      */
@@ -1052,7 +1038,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer
+     * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer|null
      */
     public function getCustomer()
     {
@@ -1062,7 +1048,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer $customer customer
+     * @param \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer|null $customer customer
      *
      * @return self
      */
@@ -1079,7 +1065,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -1089,17 +1075,24 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type Defines the related object.
+     * @param string|null $related_object_type Defines the related object.
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",
@@ -1116,7 +1109,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -1126,7 +1119,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher.
+     * @param string|null $related_object_id related_object_id
      *
      * @return self
      */
@@ -1295,7 +1288,14 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 

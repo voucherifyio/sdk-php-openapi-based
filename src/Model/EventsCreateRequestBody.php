@@ -87,11 +87,11 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'event' => false,
+        'event' => true,
 		'customer' => false,
-		'referral' => false,
-		'loyalty' => false,
-		'metadata' => false
+		'referral' => true,
+		'loyalty' => true,
+		'metadata' => true
     ];
 
     /**
@@ -304,14 +304,11 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['event'] === null) {
-            $invalidProperties[] = "'event' can't be null";
-        }
-        if ((mb_strlen($this->container['event']) > 300)) {
+        if (!is_null($this->container['event']) && (mb_strlen($this->container['event']) > 300)) {
             $invalidProperties[] = "invalid value for 'event', the character length must be smaller than or equal to 300.";
         }
 
-        if ((mb_strlen($this->container['event']) < 1)) {
+        if (!is_null($this->container['event']) && (mb_strlen($this->container['event']) < 1)) {
             $invalidProperties[] = "invalid value for 'event', the character length must be bigger than or equal to 1.";
         }
 
@@ -336,7 +333,7 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets event
      *
-     * @return string
+     * @return string|null
      */
     public function getEvent()
     {
@@ -346,19 +343,26 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets event
      *
-     * @param string $event Event name. This is the same name that you used to define a custom event in the **Dashboard** > **Project Settings** > **Event Schema**.
+     * @param string|null $event Event name. This is the same name that you used to define a custom event in the **Dashboard** > **Project Settings** > **Event Schema**.
      *
      * @return self
      */
     public function setEvent($event)
     {
         if (is_null($event)) {
-            throw new \InvalidArgumentException('non-nullable event cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'event');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('event', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($event) > 300)) {
+        if (!is_null($event) && (mb_strlen($event) > 300)) {
             throw new \InvalidArgumentException('invalid length for $event when calling EventsCreateRequestBody., must be smaller than or equal to 300.');
         }
-        if ((mb_strlen($event) < 1)) {
+        if (!is_null($event) && (mb_strlen($event) < 1)) {
             throw new \InvalidArgumentException('invalid length for $event when calling EventsCreateRequestBody., must be bigger than or equal to 1.');
         }
 
@@ -414,7 +418,14 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setReferral($referral)
     {
         if (is_null($referral)) {
-            throw new \InvalidArgumentException('non-nullable referral cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referral');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referral', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referral'] = $referral;
 
@@ -441,7 +452,14 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setLoyalty($loyalty)
     {
         if (is_null($loyalty)) {
-            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty'] = $loyalty;
 
@@ -468,7 +486,14 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

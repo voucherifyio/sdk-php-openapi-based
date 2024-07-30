@@ -82,9 +82,9 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false,
-		'name' => false
+        'id' => true,
+		'source_id' => true,
+		'name' => true
     ];
 
     /**
@@ -289,12 +289,6 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -313,7 +307,7 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -323,14 +317,21 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     /**
      * Sets id
      *
-     * @param string $id Unique product ID, assigned by Voucherify.
+     * @param string|null $id Unique product ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -357,7 +358,14 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -367,7 +375,7 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -377,14 +385,21 @@ class ValidationsRedeemableApplicableResultDiscountProduct implements ModelInter
     /**
      * Sets name
      *
-     * @param string $name Product name.
+     * @param string|null $name Product name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 

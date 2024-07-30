@@ -132,34 +132,34 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'tracking_id' => false,
-		'metadata' => false,
-		'channel_type' => false,
-		'channel_id' => false,
-		'failure_code' => false,
-		'failure_message' => false,
-		'order' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
+		'tracking_id' => true,
+		'metadata' => true,
+		'channel_type' => true,
+		'channel_id' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => true,
 		'previous_order' => false,
-		'reward' => false,
-		'amount' => false,
-		'reason' => false,
-		'result' => false,
-		'status' => false,
-		'related_redemptions' => false,
-		'parent_redemption_id' => false,
-		'redemption' => false,
+		'reward' => true,
+		'amount' => true,
+		'reason' => true,
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'parent_redemption_id' => true,
+		'redemption' => true,
 		'customer' => false,
 		'customer_id' => true,
-		'related_object_type' => false,
-		'related_object_id' => false,
-		'related_object_parent_id' => false,
-		'campaign_name' => false,
-		'voucher' => false,
-		'promotion_tier' => false,
-		'date' => false
+		'related_object_type' => true,
+		'related_object_id' => true,
+		'related_object_parent_id' => true,
+		'campaign_name' => true,
+		'voucher' => true,
+		'promotion_tier' => true,
+		'date' => true
     ];
 
     /**
@@ -397,6 +397,7 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public const RESULT_FAILURE = 'FAILURE';
     public const STATUS_SUCCEEDED = 'SUCCEEDED';
     public const STATUS_FAILED = 'FAILED';
+    public const STATUS_ROLLED_BACK = 'ROLLED BACK';
     public const RELATED_OBJECT_TYPE_VOUCHER = 'voucher';
     public const RELATED_OBJECT_TYPE_PROMOTION_TIER = 'promotion_tier';
 
@@ -436,6 +437,7 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
         return [
             self::STATUS_SUCCEEDED,
             self::STATUS_FAILED,
+            self::STATUS_ROLLED_BACK,
         ];
     }
 
@@ -595,7 +597,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -615,14 +624,21 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the `redemption`.
+     * @param string|null $object The type of the object represented by the JSON. This object stores information about the `redemption`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -642,14 +658,21 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the redemption was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -676,7 +699,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -703,7 +733,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -730,10 +767,17 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setChannelType($channel_type)
     {
         if (is_null($channel_type)) {
-            throw new \InvalidArgumentException('non-nullable channel_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getChannelTypeAllowableValues();
-        if (!in_array($channel_type, $allowedValues, true)) {
+        if (!is_null($channel_type) && !in_array($channel_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'channel_type', must be one of '%s'",
@@ -767,7 +811,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setChannelId($channel_id)
     {
         if (is_null($channel_id)) {
-            throw new \InvalidArgumentException('non-nullable channel_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel_id'] = $channel_id;
 
@@ -794,7 +845,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -821,7 +879,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 
@@ -848,7 +913,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order'] = $order;
 
@@ -902,7 +974,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setReward($reward)
     {
         if (is_null($reward)) {
-            throw new \InvalidArgumentException('non-nullable reward cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reward');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reward', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reward'] = $reward;
 
@@ -922,14 +1001,21 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets amount
      *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
+     * @param int|null $amount For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. In the case of redemption rollback, the numbers are expressed as negative integers.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -956,7 +1042,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -983,10 +1076,17 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -1013,17 +1113,24 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets status
      *
-     * @param string|null $status Redemption status.
+     * @param string|null $status status
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -1057,7 +1164,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setRelatedRedemptions($related_redemptions)
     {
         if (is_null($related_redemptions)) {
-            throw new \InvalidArgumentException('non-nullable related_redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_redemptions'] = $related_redemptions;
 
@@ -1084,7 +1198,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setParentRedemptionId($parent_redemption_id)
     {
         if (is_null($parent_redemption_id)) {
-            throw new \InvalidArgumentException('non-nullable parent_redemption_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parent_redemption_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parent_redemption_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parent_redemption_id'] = $parent_redemption_id;
 
@@ -1111,7 +1232,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -1199,10 +1327,17 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",
@@ -1236,7 +1371,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -1263,7 +1405,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setRelatedObjectParentId($related_object_parent_id)
     {
         if (is_null($related_object_parent_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_parent_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_parent_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_parent_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_parent_id'] = $related_object_parent_id;
 
@@ -1290,7 +1439,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setCampaignName($campaign_name)
     {
         if (is_null($campaign_name)) {
-            throw new \InvalidArgumentException('non-nullable campaign_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_name'] = $campaign_name;
 
@@ -1317,7 +1473,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher'] = $voucher;
 
@@ -1344,7 +1507,14 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     public function setPromotionTier($promotion_tier)
     {
         if (is_null($promotion_tier)) {
-            throw new \InvalidArgumentException('non-nullable promotion_tier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'promotion_tier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('promotion_tier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['promotion_tier'] = $promotion_tier;
 
@@ -1364,14 +1534,21 @@ class CustomerActivityDataRedemption implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets date
      *
-     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 

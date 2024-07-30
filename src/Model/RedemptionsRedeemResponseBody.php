@@ -87,11 +87,11 @@ class RedemptionsRedeemResponseBody implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'redemptions' => false,
+        'redemptions' => true,
 		'parent_redemption' => false,
 		'order' => false,
-		'inapplicable_redeemables' => false,
-		'skipped_redeemables' => false
+		'inapplicable_redeemables' => true,
+		'skipped_redeemables' => true
     ];
 
     /**
@@ -339,7 +339,14 @@ class RedemptionsRedeemResponseBody implements ModelInterface, ArrayAccess, \Jso
     public function setRedemptions($redemptions)
     {
         if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemptions'] = $redemptions;
 
@@ -420,7 +427,14 @@ class RedemptionsRedeemResponseBody implements ModelInterface, ArrayAccess, \Jso
     public function setInapplicableRedeemables($inapplicable_redeemables)
     {
         if (is_null($inapplicable_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inapplicable_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inapplicable_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['inapplicable_redeemables'] = $inapplicable_redeemables;
 
@@ -447,7 +461,14 @@ class RedemptionsRedeemResponseBody implements ModelInterface, ArrayAccess, \Jso
     public function setSkippedRedeemables($skipped_redeemables)
     {
         if (is_null($skipped_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable skipped_redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'skipped_redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skipped_redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['skipped_redeemables'] = $skipped_redeemables;
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**in** | **string[]** | Array of resource values that should be included in the results. (multiple values) | [optional]
-**not_in** | **string[]** | Array of resource values that should be included in the results. (multiple values) | [optional]
-**is** | **string** | Value is exactly this value. (single value) | [optional]
-**is_not** | **string** | Results omit this value. (single value) | [optional]
+**in** | **string[]** | Array of resource values that should be included in the results (multiple values). | [optional]
+**not_in** | **string[]** | Array of resource values that should be included in the results (multiple values). | [optional]
+**is** | **string** | Value is exactly this value (single value). | [optional]
+**is_not** | **string** | Results omit this value (single value). | [optional]
 **has_value** | **string** | Value is NOT null. The value for this parameter is an empty string. | [optional]
 **is_unknown** | **string** | Value is null. The value for this parameter is an empty string. | [optional]
 **starts_with** | **string** | Value starts with the specified string. | [optional]

@@ -89,12 +89,12 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'length' => false,
-		'charset' => false,
-		'prefix' => false,
-		'postfix' => false,
-		'pattern' => false,
-		'initial_count' => false
+        'length' => true,
+		'charset' => true,
+		'prefix' => true,
+		'postfix' => true,
+		'pattern' => true,
+		'initial_count' => true
     ];
 
     /**
@@ -346,7 +346,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLength($length)
     {
         if (is_null($length)) {
-            throw new \InvalidArgumentException('non-nullable length cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'length');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('length', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['length'] = $length;
 
@@ -373,7 +380,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCharset($charset)
     {
         if (is_null($charset)) {
-            throw new \InvalidArgumentException('non-nullable charset cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'charset');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('charset', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['charset'] = $charset;
 
@@ -400,7 +414,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPrefix($prefix)
     {
         if (is_null($prefix)) {
-            throw new \InvalidArgumentException('non-nullable prefix cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'prefix');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('prefix', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['prefix'] = $prefix;
 
@@ -427,7 +448,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPostfix($postfix)
     {
         if (is_null($postfix)) {
-            throw new \InvalidArgumentException('non-nullable postfix cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'postfix');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('postfix', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['postfix'] = $postfix;
 
@@ -454,7 +482,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPattern($pattern)
     {
         if (is_null($pattern)) {
-            throw new \InvalidArgumentException('non-nullable pattern cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'pattern');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pattern', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['pattern'] = $pattern;
 
@@ -481,7 +516,14 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInitialCount($initial_count)
     {
         if (is_null($initial_count)) {
-            throw new \InvalidArgumentException('non-nullable initial_count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_count'] = $initial_count;
 
