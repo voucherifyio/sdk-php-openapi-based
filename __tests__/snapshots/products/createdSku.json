@@ -1,7 +1,7 @@
 {
-  "id": "sku_0f1c2ef9cf435ffcea",
-  "source_id": null,
-  "product_id": "prod_0f1c2ef83f835ffcbb",
+  "id": "sku_0f26727288803aafdb",
+  "source_id": "kYSxiYSSyC",
+  "product_id": "prod_0f26727114803aafc7",
   "sku": null,
   "price": 5000,
   "currency": null,
@@ -11,8 +11,8 @@
     "processor": "Intel Core i7"
   },
   "image_url": null,
-  "metadata": [],
-  "created_at": "2024-07-25T12:10:00+00:00",
+  "metadata": {},
+  "created_at": "2024-08-02T11:29:36+00:00",
   "updated_at": null,
   "object": "sku"
 }

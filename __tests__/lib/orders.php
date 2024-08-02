@@ -2,8 +2,9 @@
 require_once __DIR__ . '/utils.php';
 
 use OpenAPI\Client\Api\OrdersApi;
-use OpenAPI\Client\Model\CustomersCreateRequestBody;
+use OpenAPI\Client\Model\Customer;
 use OpenAPI\Client\Model\OrderItem;
+use OpenAPI\Client\Model\OrderItemCalculatedProduct;
 use OpenAPI\Client\Model\OrdersCreateRequestBody;
 use OpenAPI\Client\Model\OrdersCreateResponseBody;
 use OpenAPI\Client\Model\OrdersGetResponseBody;
@@ -12,15 +13,19 @@ use OpenAPI\Client\Model\OrdersUpdateResponseBody;
 
     function createOrder(OrdersApi $ordersApiInstance, string $customerId): ?OrdersCreateResponseBody {
         $order = new OrdersCreateRequestBody();
-        $customer = new CustomersCreateRequestBody();
-
-        $customer->setId($customerId);
+        $customer = new Customer();
+        $calculatedItem = new OrderItemCalculatedProduct();
+        $calculatedItem2 = new OrderItemCalculatedProduct();
         $product1 = new OrderItem();
         $product2 = new OrderItem();
+        
+        $customer->setId($customerId);
 
-        $product1->setProduct('test-order-item1');
+        $calculatedItem->setName('test-order-item1');
+        $calculatedItem2->setName('test-order-item2');
+        $product1->setProduct($calculatedItem);
         $product1->setQuantity(1);
-        $product2->setProduct('test-order-item2');
+        $product2->setProduct($calculatedItem2);
         $product2->setQuantity(1);
 
         $order->setItems([$product1, $product2]);

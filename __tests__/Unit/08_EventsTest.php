@@ -8,11 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 class EventsTest extends TestCase {
     private $eventsApiInstance;
-    private $voucherify;
 
     protected function setUp(): void {
         $this->eventsApiInstance = Config::eventsApiInstance();
-        $this->voucherify = VoucherifyData::getInstance();
     }
 
     public function testCreateAndTrackCustomEvent() {

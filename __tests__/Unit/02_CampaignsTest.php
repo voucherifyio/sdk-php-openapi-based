@@ -27,9 +27,7 @@ class CampaignsTest extends TestCase {
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating validation rule applicable to');
 
         $createdValidationRuleJSON = json_decode($createdValidationRule);
-        $this->voucherify->setValidationRule($createdValidationRuleJSON);
-
-        
+        $this->voucherify->setValidationRule($createdValidationRuleJSON);        
     }
 
     public function testCreateDiscountCampaignWithApplicableToValidationRule() {

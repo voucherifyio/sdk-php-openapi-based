@@ -2,19 +2,19 @@
 require_once __DIR__ . '/utils.php';
 
 use OpenAPI\Client\Api\ValidationsApi;
-use OpenAPI\Client\Model\CustomersCreateRequestBody;
-use OpenAPI\Client\Model\OrdersCreateRequestBody;
+use OpenAPI\Client\Model\Customer;
+use OpenAPI\Client\Model\Order;
 use OpenAPI\Client\Model\ValidationsValidateRequestBody;
 use OpenAPI\Client\Model\ValidationsValidateResponseBody;
 use OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem;
-use OpenAPI\Client\Model\Product;
 use OpenAPI\Client\Model\OrderItem;
+use OpenAPI\Client\Model\OrderItemCalculatedProduct;
 
 function validateStackedDiscounts(ValidationsApi $validationsApiInstance, string | array $voucherIds, string $productId, $customer, int $amount): ?ValidationsValidateResponseBody {
     $validations = new ValidationsValidateRequestBody();
-    $customerObject = new CustomersCreateRequestBody();
-    $order = new OrdersCreateRequestBody();
-    $product = new Product();
+    $customerObject = new Customer();
+    $order = new Order();
+    $product = new OrderItemCalculatedProduct();
     $orderItem = new OrderItem();
 
     if (!is_array($voucherIds)) {
@@ -38,11 +38,12 @@ function validateStackedDiscounts(ValidationsApi $validationsApiInstance, string
     $product->setId($productId);
     $orderItem->setProduct($product);
 
+    $customerObject->setSourceId($customer->source_id);
+
     $order->setItems([$orderItem]);
     $order->setAmount($amount);
-    $order->setCustomer($customer);
+    $order->setCustomer($customerObject);
 
-    $customerObject->setSourceId($customer->source_id);
 
     $validations->setRedeemables($redeemables);
     $validations->setOrder($order);

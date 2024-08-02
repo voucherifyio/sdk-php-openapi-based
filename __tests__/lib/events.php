@@ -2,13 +2,13 @@
 require_once __DIR__ . '/utils.php';
 
 use OpenAPI\Client\Api\EventsApi;
+use OpenAPI\Client\Model\Customer;
 use OpenAPI\Client\Model\EventsCreateRequestBody;
 use OpenAPI\Client\Model\EventsCreateResponseBody;
-use OpenAPI\Client\Model\CustomersCreateRequestBody;
 
 function createEvent(EventsApi $eventsApiInstance): ?EventsCreateResponseBody {
     $event = new EventsCreateRequestBody();
-    $customer = new CustomersCreateRequestBody();
+    $customer = new Customer();
 
     $customer->setSourceId('test-customer');
     $event->setEvent('test-event');

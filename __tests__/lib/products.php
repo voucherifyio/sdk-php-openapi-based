@@ -80,10 +80,7 @@ use \OpenAPI\Client\Model\Error;
     function updateProductsMetadataInBulk(ProductsApi $productsApiInstance, array $productIds): ?ProductsMetadataUpdateInBulkResponseBody {
         $products = new ProductsMetadataUpdateInBulkRequestBody();
         $products->setSourceIds($productIds);
-        $products->setMetadata([
-            "key1" => "value1",
-            "key2" => "value2"
-        ]);
+        $products->setMetadata((object) ["key1" => "value1", "key2" => "value2"]);
 
         try {
             $updatedProductsMetadata = $productsApiInstance->updateProductsMetadataInBulk($products);
@@ -98,7 +95,7 @@ use \OpenAPI\Client\Model\Error;
         $sku = new ProductsSkusCreateRequestBody();
         $sku->setSourceId(generateRandomString());
         $sku->setPrice($price);
-        $sku->setAttributes([
+        $sku->setAttributes((object) [
             "color" => "red",
             "memory" => "16GB",
             "processor" => "Intel Core i7"

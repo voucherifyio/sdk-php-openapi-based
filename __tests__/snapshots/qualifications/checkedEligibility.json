@@ -4,17 +4,20 @@
     "data_ref": "data",
     "data": [
       {
-        "id": "camp_nDEwvhXm7cW2ORXTrDXyBAXq",
+        "id": "camp_mtBGTdeSG5K0XyRbmfmTmrzp",
         "object": "campaign",
-        "created_at": "2024-07-31T13:11:15+00:00",
+        "created_at": "2024-08-02T11:47:58+00:00",
         "result": {
+          "discount": null,
+          "gift": null,
           "loyalty_card": {
             "points": 0,
             "balance": 1000,
             "exchange_ratio": null,
             "points_ratio": null,
             "transfers": null
-          }
+          },
+          "error": null
         },
         "order": {
           "id": null,
@@ -32,7 +35,7 @@
           "items_applied_discount_amount": null,
           "total_applied_discount_amount": null,
           "items": null,
-          "metadata": [],
+          "metadata": {},
           "customer_id": null,
           "referrer_id": null,
           "object": "order",
@@ -59,12 +62,13 @@
         "name": null,
         "campaign_name": null,
         "campaign_id": null,
+        "validation_rules_assignments": null,
         "redeemables": null
       },
       {
-        "id": "camp_7d9Ch55r0HuxDRYCZ1NFg1SW",
+        "id": "camp_YMP34UQXDrulRvZPNKY82LRu",
         "object": "campaign",
-        "created_at": "2024-07-31T13:11:15+00:00",
+        "created_at": "2024-08-02T11:47:58+00:00",
         "result": {
           "discount": {
             "type": "AMOUNT",
@@ -76,13 +80,18 @@
             "unit_off": null,
             "unit_off_formula": null,
             "unit_type": null,
+            "product": null,
+            "sku": null,
             "units": null,
             "percent_off": null,
             "percent_off_formula": null,
             "amount_limit": null,
             "fixed_amount": null,
             "fixed_amount_formula": null
-          }
+          },
+          "gift": null,
+          "loyalty_card": null,
+          "error": null
         },
         "order": {
           "id": null,
@@ -100,7 +109,7 @@
           "items_applied_discount_amount": null,
           "total_applied_discount_amount": null,
           "items": null,
-          "metadata": [],
+          "metadata": {},
           "customer_id": null,
           "referrer_id": null,
           "object": "order",
@@ -113,7 +122,7 @@
           "data": [
             {
               "object": "product",
-              "id": "prod_0f23f685bc403ad377",
+              "id": "prod_0f2676a380803a9dd8",
               "source_id": null,
               "product_id": null,
               "product_source_id": null,
@@ -144,20 +153,24 @@
         "name": null,
         "campaign_name": null,
         "campaign_id": null,
+        "validation_rules_assignments": null,
         "redeemables": null
       },
       {
-        "id": "camp_TFMUAda0wdxtnkEU44DnbGJd",
+        "id": "camp_0eNiEjrpeLP4VcbRe841VFmx",
         "object": "campaign",
-        "created_at": "2024-07-31T13:10:26+00:00",
+        "created_at": "2024-08-02T11:47:24+00:00",
         "result": {
+          "discount": null,
+          "gift": null,
           "loyalty_card": {
             "points": 0,
             "balance": 1000,
             "exchange_ratio": null,
             "points_ratio": null,
             "transfers": null
-          }
+          },
+          "error": null
         },
         "order": {
           "id": null,
@@ -175,7 +188,7 @@
           "items_applied_discount_amount": null,
           "total_applied_discount_amount": null,
           "items": null,
-          "metadata": [],
+          "metadata": {},
           "customer_id": null,
           "referrer_id": null,
           "object": "order",
@@ -202,12 +215,13 @@
         "name": null,
         "campaign_name": null,
         "campaign_id": null,
+        "validation_rules_assignments": null,
         "redeemables": null
       },
       {
-        "id": "camp_RU6NGpkKF3g4QOeSdAbEUFKP",
+        "id": "camp_YdewtSnGdGzKqzFwWTmvaTLw",
         "object": "campaign",
-        "created_at": "2024-07-31T13:10:26+00:00",
+        "created_at": "2024-08-02T11:47:24+00:00",
         "result": {
           "discount": {
             "type": "AMOUNT",
@@ -219,13 +233,18 @@
             "unit_off": null,
             "unit_off_formula": null,
             "unit_type": null,
+            "product": null,
+            "sku": null,
             "units": null,
             "percent_off": null,
             "percent_off_formula": null,
             "amount_limit": null,
             "fixed_amount": null,
             "fixed_amount_formula": null
-          }
+          },
+          "gift": null,
+          "loyalty_card": null,
+          "error": null
         },
         "order": {
           "id": null,
@@ -243,7 +262,7 @@
           "items_applied_discount_amount": null,
           "total_applied_discount_amount": null,
           "items": null,
-          "metadata": [],
+          "metadata": {},
           "customer_id": null,
           "referrer_id": null,
           "object": "order",
@@ -256,7 +275,7 @@
           "data": [
             {
               "object": "product",
-              "id": "prod_0f23f65600156b8c0e",
+              "id": "prod_0f2676823c003a9a1f",
               "source_id": null,
               "product_id": null,
               "product_source_id": null,
@@ -287,20 +306,24 @@
         "name": null,
         "campaign_name": null,
         "campaign_id": null,
+        "validation_rules_assignments": null,
         "redeemables": null
       },
       {
-        "id": "camp_FPwoEnX4VgmW0JI5KwQdtgma",
+        "id": "camp_6du7ujwN4cAOFjh3cXMI8WF9",
         "object": "campaign",
-        "created_at": "2024-07-31T13:09:51+00:00",
+        "created_at": "2024-08-02T11:47:08+00:00",
         "result": {
+          "discount": null,
+          "gift": null,
           "loyalty_card": {
             "points": 0,
             "balance": 1000,
             "exchange_ratio": null,
             "points_ratio": null,
             "transfers": null
-          }
+          },
+          "error": null
         },
         "order": {
           "id": null,
@@ -318,7 +341,7 @@
           "items_applied_discount_amount": null,
           "total_applied_discount_amount": null,
           "items": null,
-          "metadata": [],
+          "metadata": {},
           "customer_id": null,
           "referrer_id": null,
           "object": "order",
@@ -345,14 +368,15 @@
         "name": null,
         "campaign_name": null,
         "campaign_id": null,
+        "validation_rules_assignments": null,
         "redeemables": null
       }
     ],
     "total": 5,
     "has_more": true,
-    "more_starting_after": "2024-07-31T13:09:51+00:00"
+    "more_starting_after": "2024-08-02T11:47:08+00:00"
   },
-  "tracking_id": "track_fv1rBM87wjqEq4+3NURKjw==",
+  "tracking_id": "track_xgXBSEcSi0gqTC8fBsTIIQ==",
   "order": {
     "id": null,
     "source_id": null,
@@ -369,7 +393,7 @@
     "items_applied_discount_amount": null,
     "total_applied_discount_amount": null,
     "items": null,
-    "metadata": [],
+    "metadata": {},
     "customer_id": null,
     "referrer_id": null,
     "object": "order",

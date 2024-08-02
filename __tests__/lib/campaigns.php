@@ -56,9 +56,7 @@ function createValidationRuleMoreThan(ValidationRulesApi $validationRulesApiInst
     ];
     
     $validationRuleRequestBody->setName(generateRandomString());
-    $validationRuleRequestBody->setRules([
-        "1" => $rule
-    ]);
+    $validationRuleRequestBody->setRules((object) ["1" => $rule]);
     $validationRuleRequestBody->setType('basic');
     
     try {
@@ -166,17 +164,12 @@ function addVouchersToCampaign(CampaignsApi $campaignsApiInstance, string $campa
     }
 }
 
-function generateAndReturnVouchersAddedToCampaign($campaignsApiInstance, $campaignId, $voucherCount) {
+function generateAndReturnVouchersAddedToCampaign(CampaignsApi $campaignsApiInstance, string $campaignId, int $voucherCount) {
     $vouchers = [];
 
     try {
         for ($i = 0; $i < $voucherCount; $i++) {
-            $voucher = $campaignsApiInstance->addVouchersToCampaign(
-                $campaignId,
-                [
-                    'vouchers_count' => 1
-                ]
-            );
+            $voucher = $campaignsApiInstance->addVouchersToCampaign($campaignId, 1);
             $vouchers[] = $voucher->getCode();
         }
         

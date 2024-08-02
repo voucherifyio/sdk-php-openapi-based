@@ -15,7 +15,7 @@
         "processor": "Intel Core i7"
       },
       "image_url": null,
-      "metadata": [],
+      "metadata": {},
       "created_at": "2024-07-30T09:23:45+00:00",
       "updated_at": "2024-07-30T09:23:45+00:00",
       "object": "sku"

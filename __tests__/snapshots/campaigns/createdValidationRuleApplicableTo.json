@@ -1,13 +1,13 @@
 {
-  "name": "Gti0zfsiin",
-  "rules": [],
+  "name": "YFMukqDqnb",
+  "rules": {},
   "error": null,
   "applicable_to": {
     "excluded": null,
     "included": [
       {
         "object": "product",
-        "id": "prod_0f22bf8f200805b710",
+        "id": "prod_0f267312dac8058d06",
         "source_id": null,
         "product_id": null,
         "product_source_id": null,
@@ -26,8 +26,8 @@
   },
   "type": "basic",
   "context_type": "global",
-  "id": "val_QWzcsPUhp4Nq",
-  "created_at": "2024-07-30T14:32:38+00:00",
+  "id": "val_LxzewGp59iIK",
+  "created_at": "2024-08-02T11:32:23+00:00",
   "updated_at": null,
   "assignments_count": null,
   "object": "validation_rules"

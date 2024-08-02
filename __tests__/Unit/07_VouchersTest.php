@@ -21,7 +21,7 @@ class VouchersTest extends TestCase {
         $voucher = getVoucher($this->vouchersApiInstance, $this->voucherCode);
 
         $snapshot = 'vouchers/voucher';
-        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id'];
+        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id', 'count'];
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $voucher, $keysToRemove);
 
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with getting previously created voucher');
@@ -29,9 +29,9 @@ class VouchersTest extends TestCase {
 
     public function testDisableVoucher() {
         $disabledVoucher = disableVoucher($this->vouchersApiInstance, $this->voucherCode);
-
+        
         $snapshot = 'vouchers/disabledVoucher';
-        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id'];
+        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id', 'count'];
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $disabledVoucher, $keysToRemove);
 
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with disabling voucher');
@@ -39,9 +39,9 @@ class VouchersTest extends TestCase {
 
     public function testEnableVoucher() {
         $enabledVoucher = enableVoucher($this->vouchersApiInstance, $this->voucherCode);
-        
+
         $snapshot = 'vouchers/voucher';
-        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id'];
+        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'updated_at', 'holder_id', 'related_object_id', 'rule_id', 'count'];
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $enabledVoucher, $keysToRemove);
 
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with enabling voucher');

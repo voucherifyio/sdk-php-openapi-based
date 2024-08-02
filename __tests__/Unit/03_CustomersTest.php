@@ -32,7 +32,7 @@ class CustomersTest extends TestCase {
     public function testCreateAndDeleteCustomer() {
         $createdCustomer = createCustomer($this->customersApiInstance);
         $deletedCustomer = deleteCustomer($this->customersApiInstance, $createdCustomer->getId());
-        
+
         $createdCustomerSnapshot = 'customers/createdCustomer';
         $deletedCustomerSnapshot = 'customers/deletedCustomerPermanently';
         $keysToRemove = ['id', 'source_id', 'created_at', 'related_object_id'];

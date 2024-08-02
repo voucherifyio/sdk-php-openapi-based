@@ -62,8 +62,8 @@ class ValidationsValidateResponseBody implements ModelInterface, ArrayAccess, Js
     protected static array $openAPITypes = [
         'valid' => 'bool',
         'redeemables' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]',
-        'skipped_redeemables' => 'ValidationsRedeemableSkipped[]',
-        'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]',
+        'skipped_redeemables' => '\OpenAPI\Client\Model\ValidationsRedeemableSkipped[]',
+        'inapplicable_redeemables' => '\OpenAPI\Client\Model\ValidationsRedeemableInapplicable[]',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'tracking_id' => 'string',
         'session' => '\OpenAPI\Client\Model\Session',

@@ -1,10 +1,10 @@
 {
-  "id": "pub_TX9SYcIRWm62BYQrxpIAc3tvVph0rIKT",
+  "id": "pub_LU2Qme2PVMEXwZxCu82Mz6L5OD2pNbCK",
   "object": "publication",
-  "created_at": "2024-07-31T11:37:52+00:00",
-  "customer_id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
-  "tracking_id": "78iWduAnFn",
-  "metadata": [],
+  "created_at": "2024-08-02T11:46:30+00:00",
+  "customer_id": "cust_WS2elcbkE0aC17CXHs9OZGqE",
+  "tracking_id": "kMniz6SGDD",
+  "metadata": {},
   "channel": "API",
   "source_id": null,
   "result": "SUCCESS",
@@ -17,8 +17,8 @@
     "birthdate": null,
     "address": null,
     "metadata": null,
-    "id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
-    "source_id": "78iWduAnFn",
+    "id": "cust_WS2elcbkE0aC17CXHs9OZGqE",
+    "source_id": "kMniz6SGDD",
     "summary": null,
     "loyalty": null,
     "referrals": null,
@@ -28,15 +28,14 @@
     "assets": null,
     "object": "customer"
   },
-  "vouchers_id": ["v_vXWIUzdnSEJwT01ou72GqbSMxX18MYqi"],
+  "vouchers_id": ["v_60vQv1rz6anvxVXPqvFqROYuajn30s09"],
   "voucher": {
-    "id": "v_vXWIUzdnSEJwT01ou72GqbSMxX18MYqi",
-    "code": "qBEiPnnE",
-    "campaign": "21J8T1XRWf",
-    "campaign_id": "camp_5jf2QRian0wDCe9zh57zD8wI",
+    "id": "v_60vQv1rz6anvxVXPqvFqROYuajn30s09",
+    "code": "zbPHugj1",
+    "campaign": "Dk0FQmqoCK",
+    "campaign_id": "camp_kl9y6k0slg6sDdOzQwZ0E4lY",
     "category": null,
     "category_id": null,
-    "categories": [],
     "type": "DISCOUNT_VOUCHER",
     "discount": {
       "type": "AMOUNT",
@@ -48,6 +47,8 @@
       "unit_off": null,
       "unit_off_formula": null,
       "unit_type": null,
+      "product": null,
+      "sku": null,
       "units": null,
       "percent_off": null,
       "percent_off_formula": null,
@@ -59,38 +60,42 @@
     "loyalty_card": null,
     "start_date": null,
     "expiration_date": null,
+    "validity_timeframe": null,
     "validity_day_of_week": null,
+    "validity_hours": null,
     "active": true,
     "additional_info": null,
-    "metadata": [],
+    "metadata": {},
     "assets": {
       "qr": {
-        "id": "91e77e1b-58c3-4174-960c-adb9bd1f9de9",
-        "url": "https://dl.voucherify.io/api/v1/assets/qr/91e77e1b-58c3-4174-960c-adb9bd1f9de9"
+        "id": "ba477e03-eb12-4752-92e5-cb9692a9b159",
+        "url": "https://dl.voucherify.io/api/v1/assets/qr/ba477e03-eb12-4752-92e5-cb9692a9b159"
       },
       "barcode": {
-        "id": "542cbae6-705b-4f58-aae5-6beecae9de70",
-        "url": "https://dl.voucherify.io/api/v1/assets/barcode/542cbae6-705b-4f58-aae5-6beecae9de70"
+        "id": "78b3821a-5ca7-4871-a018-424e45cf5100",
+        "url": "https://dl.voucherify.io/api/v1/assets/barcode/78b3821a-5ca7-4871-a018-424e45cf5100"
       }
     },
     "is_referral_code": false,
-    "created_at": "2024-07-31T11:37:52+00:00",
-    "updated_at": "2024-07-31T11:37:52+00:00",
-    "holder_id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
+    "created_at": "2024-08-02T11:46:28+00:00",
+    "updated_at": "2024-08-02T11:46:30+00:00",
+    "holder_id": "cust_WS2elcbkE0aC17CXHs9OZGqE",
     "referrer_id": null,
     "object": "voucher",
     "publish": {
       "object": "list",
       "count": 1,
-      "url": "/v1/vouchers/qBEiPnnE/publications?page=1&limit=10"
+      "url": "/v1/vouchers/zbPHugj1/publications?page=1&limit=10"
     },
     "redemption": {
       "quantity": null,
       "redeemed_quantity": 0,
       "redeemed_points": null,
       "object": "list",
-      "url": "/v1/vouchers/qBEiPnnE/redemptions?page=1&limit=10"
-    }
+      "url": "/v1/vouchers/zbPHugj1/redemptions?page=1&limit=10"
+    },
+    "categories": [],
+    "validation_rules_assignments": null
   },
   "vouchers": null
 }
