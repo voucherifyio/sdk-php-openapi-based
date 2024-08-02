@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** | Type of voucher. | [optional] [default to 'DISCOUNT_VOUCHER']
-**discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
-**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) |  | [optional]
-**loyalty_card** | [**\OpenAPI\Client\Model\CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  | [optional]
+**discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) | Defines the voucher discount type and details. | [optional]
+**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) | Defines the voucher gift details. | [optional]
+**loyalty_card** | [**\OpenAPI\Client\Model\CampaignLoyaltyCard**](CampaignLoyaltyCard.md) | Defines the voucher loyalty card details. | [optional]
 **redemption** | [**\OpenAPI\Client\Model\CampaignVoucherRedemption**](CampaignVoucherRedemption.md) |  | [optional]
 **code_config** | [**\OpenAPI\Client\Model\CodeConfig**](CodeConfig.md) |  |
 **is_referral_code** | **bool** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. | [optional]

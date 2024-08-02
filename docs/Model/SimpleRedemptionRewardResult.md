@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customer** | [**\OpenAPI\Client\Model\SimpleCustomer**](SimpleCustomer.md) |  | [optional]
 **assignment_id** | **string** | Unique reward assignment ID assigned by Voucherify. | [optional]
-**voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) |  | [optional]
-**product** | [**\OpenAPI\Client\Model\SimpleProduct**](SimpleProduct.md) |  | [optional]
-**sku** | [**\OpenAPI\Client\Model\SimpleSku**](SimpleSku.md) |  | [optional]
+**voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) | Defines of the voucher. | [optional]
+**product** | [**\OpenAPI\Client\Model\SimpleProduct**](SimpleProduct.md) | Defines of the product. | [optional]
+**sku** | [**\OpenAPI\Client\Model\SimpleSku**](SimpleSku.md) | Defines of the sku. | [optional]
 **loyalty_tier_id** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional]
 **id** | **string** | Unique reward ID, assigned by Voucherify. | [optional]
 **object** | **string** | The type of the object represented by the JSON. This object stores information about the reward. | [optional] [default to 'reward']

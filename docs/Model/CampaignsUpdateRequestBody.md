@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **type** | **string** | Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method).     -  &#x60;STATIC&#x60;: vouchers need to be manually published. | [optional]
 **discount** | **object** |  | [optional]
 **referral_program** | [**\OpenAPI\Client\Model\ReferralProgram**](ReferralProgram.md) |  | [optional]
-**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) |  | [optional]
+**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) | Defines the voucher gift details. | [optional]
 **loyalty_tiers_expiration** | [**\OpenAPI\Client\Model\LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  | [optional]
 **options** | [**\OpenAPI\Client\Model\CampaignsUpdateRequestBodyOptions**](CampaignsUpdateRequestBodyOptions.md) |  | [optional]
 **winners_count** | **string** | It represents the total number of winners in a lucky draw. | [optional]

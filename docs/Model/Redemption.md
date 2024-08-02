@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **related_object_type** | **string** | Defines the related object. | [optional]
 **related_object_id** | **string** | Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher. | [optional]
 **voucher** | [**\OpenAPI\Client\Model\RedemptionVoucher**](RedemptionVoucher.md) |  | [optional]
-**promotion_tier** | [**\OpenAPI\Client\Model\PromotionTier**](PromotionTier.md) |  | [optional]
+**promotion_tier** | [**\OpenAPI\Client\Model\PromotionTier**](PromotionTier.md) | Contains details of the promotion tier and the parent campaign. | [optional]
 **reward** | [**\OpenAPI\Client\Model\RedemptionRewardResult**](RedemptionRewardResult.md) |  | [optional]
 **gift** | [**\OpenAPI\Client\Model\RedemptionGift**](RedemptionGift.md) |  | [optional]
 **loyalty_card** | [**\OpenAPI\Client\Model\RedemptionLoyaltyCard**](RedemptionLoyaltyCard.md) |  | [optional]
