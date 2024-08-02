@@ -160,7 +160,7 @@ class RewardsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Reward
+     * @return \OpenAPI\Client\Model\RewardsCreateResponseBody
      */
     public function createReward($rewards_create_request_body = null, string $contentType = self::contentTypes['createReward'][0])
     {
@@ -178,7 +178,7 @@ class RewardsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Reward, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RewardsCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRewardWithHttpInfo($rewards_create_request_body = null, string $contentType = self::contentTypes['createReward'][0])
     {
@@ -221,23 +221,23 @@ class RewardsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Reward' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RewardsCreateResponseBody' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Reward' !== 'string') {
+                        if ('\OpenAPI\Client\Model\RewardsCreateResponseBody' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Reward', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RewardsCreateResponseBody', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Reward';
+            $returnType = '\OpenAPI\Client\Model\RewardsCreateResponseBody';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -258,7 +258,7 @@ class RewardsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Reward',
+                        '\OpenAPI\Client\Model\RewardsCreateResponseBody',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -302,7 +302,7 @@ class RewardsApi
      */
     public function createRewardAsyncWithHttpInfo($rewards_create_request_body = null, string $contentType = self::contentTypes['createReward'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\Reward';
+        $returnType = '\OpenAPI\Client\Model\RewardsCreateResponseBody';
         $request = $this->createRewardRequest($rewards_create_request_body, $contentType);
 
         return $this->client
@@ -2522,7 +2522,7 @@ class RewardsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Reward
+     * @return \OpenAPI\Client\Model\RewardsUpdateResponseBody
      */
     public function updateReward($reward_id, $rewards_update_request_body = null, string $contentType = self::contentTypes['updateReward'][0])
     {
@@ -2541,7 +2541,7 @@ class RewardsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Reward, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RewardsUpdateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRewardWithHttpInfo($reward_id, $rewards_update_request_body = null, string $contentType = self::contentTypes['updateReward'][0])
     {
@@ -2584,23 +2584,23 @@ class RewardsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Reward' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RewardsUpdateResponseBody' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Reward' !== 'string') {
+                        if ('\OpenAPI\Client\Model\RewardsUpdateResponseBody' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Reward', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RewardsUpdateResponseBody', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Reward';
+            $returnType = '\OpenAPI\Client\Model\RewardsUpdateResponseBody';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2621,7 +2621,7 @@ class RewardsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Reward',
+                        '\OpenAPI\Client\Model\RewardsUpdateResponseBody',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2667,7 +2667,7 @@ class RewardsApi
      */
     public function updateRewardAsyncWithHttpInfo($reward_id, $rewards_update_request_body = null, string $contentType = self::contentTypes['updateReward'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\Reward';
+        $returnType = '\OpenAPI\Client\Model\RewardsUpdateResponseBody';
         $request = $this->updateRewardRequest($reward_id, $rewards_update_request_body, $contentType);
 
         return $this->client

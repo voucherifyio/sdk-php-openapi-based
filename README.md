@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**listCategories**](docs/Api/CategoriesApi.md#listcategories) | **GET** /v1/categories | List Categories
 *CategoriesApi* | [**updateCategory**](docs/Api/CategoriesApi.md#updatecategory) | **PUT** /v1/categories/{categoryId} | Update Category
 *ClientSideApi* | [**checkEligibilityClientSide**](docs/Api/ClientSideApi.md#checkeligibilityclientside) | **POST** /client/v1/qualifications | Check Eligibility (client-side)
+*ClientSideApi* | [**listPromotionTiersClientSide**](docs/Api/ClientSideApi.md#listpromotiontiersclientside) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side)
 *ClientSideApi* | [**redeemStackedDiscountsClientSide**](docs/Api/ClientSideApi.md#redeemstackeddiscountsclientside) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side)
 *ClientSideApi* | [**trackCustomEventClientSide**](docs/Api/ClientSideApi.md#trackcustomeventclientside) | **POST** /client/v1/events | Track Custom Event (client-side)
 *ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/Api/ClientSideApi.md#updatecustomersconsentsclientside) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side)
@@ -185,6 +186,7 @@ Class | Method | HTTP request | Description
 *PromotionsApi* | [**getPromotionTier**](docs/Api/PromotionsApi.md#getpromotiontier) | **GET** /v1/promotions/tiers/{promotionTierId} | Get Promotion Tier
 *PromotionsApi* | [**listAllPromotionStacks**](docs/Api/PromotionsApi.md#listallpromotionstacks) | **GET** /v1/promotions/stacks | List Promotion Stacks
 *PromotionsApi* | [**listPromotionStacksInCampaign**](docs/Api/PromotionsApi.md#listpromotionstacksincampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign
+*PromotionsApi* | [**listPromotionTiers**](docs/Api/PromotionsApi.md#listpromotiontiers) | **GET** /v1/promotions/tiers | List Promotion Tiers
 *PromotionsApi* | [**listPromotionTiersFromCampaign**](docs/Api/PromotionsApi.md#listpromotiontiersfromcampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign
 *PromotionsApi* | [**updatePromotionStack**](docs/Api/PromotionsApi.md#updatepromotionstack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack
 *PromotionsApi* | [**updatePromotionTier**](docs/Api/PromotionsApi.md#updatepromotiontier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier
@@ -221,14 +223,18 @@ Class | Method | HTTP request | Description
 *ValidationRulesApi* | [**listValidationRulesAssignments**](docs/Api/ValidationRulesApi.md#listvalidationrulesassignments) | **GET** /v1/validation-rules-assignments | List Validation Rules&#39; Assignment(s)
 *ValidationRulesApi* | [**updateValidationRule**](docs/Api/ValidationRulesApi.md#updatevalidationrule) | **PUT** /v1/validation-rules/{validationRuleId} | Update Validation Rule
 *ValidationsApi* | [**validateStackedDiscounts**](docs/Api/ValidationsApi.md#validatestackeddiscounts) | **POST** /v1/validations | Validate Stackable Discounts
+*VouchersApi* | [**createVoucher**](docs/Api/VouchersApi.md#createvoucher) | **POST** /v1/vouchers/{code} | Create Voucher
 *VouchersApi* | [**deleteVoucher**](docs/Api/VouchersApi.md#deletevoucher) | **DELETE** /v1/vouchers/{code} | Delete Voucher
 *VouchersApi* | [**disableVoucher**](docs/Api/VouchersApi.md#disablevoucher) | **POST** /v1/vouchers/{code}/disable | Disable Voucher
 *VouchersApi* | [**enableVoucher**](docs/Api/VouchersApi.md#enablevoucher) | **POST** /v1/vouchers/{code}/enable | Enable Voucher
 *VouchersApi* | [**exportVoucherTransactions**](docs/Api/VouchersApi.md#exportvouchertransactions) | **POST** /v1/vouchers/{code}/transactions/export | Export Voucher Transactions
+*VouchersApi* | [**generateRandomCode**](docs/Api/VouchersApi.md#generaterandomcode) | **POST** /v1/vouchers | Generate Random Code
 *VouchersApi* | [**getVoucher**](docs/Api/VouchersApi.md#getvoucher) | **GET** /v1/vouchers/{code} | Get Voucher
 *VouchersApi* | [**importVouchersUsingCsv**](docs/Api/VouchersApi.md#importvouchersusingcsv) | **POST** /v1/vouchers/importCSV | Import Vouchers using CSV
 *VouchersApi* | [**listVoucherTransactions**](docs/Api/VouchersApi.md#listvouchertransactions) | **GET** /v1/vouchers/{code}/transactions | List Voucher Transactions
+*VouchersApi* | [**listVouchers**](docs/Api/VouchersApi.md#listvouchers) | **GET** /v1/vouchers | List Vouchers
 *VouchersApi* | [**releaseValidationSession**](docs/Api/VouchersApi.md#releasevalidationsession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session
+*VouchersApi* | [**updateVoucher**](docs/Api/VouchersApi.md#updatevoucher) | **PUT** /v1/vouchers/{code} | Update Voucher
 *VouchersApi* | [**updateVoucherBalance**](docs/Api/VouchersApi.md#updatevoucherbalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance
 
 ## Models
@@ -287,6 +293,7 @@ Class | Method | HTTP request | Description
 - [ClientEventsCreateRequestBodyLoyalty](docs/Model/ClientEventsCreateRequestBodyLoyalty.md)
 - [ClientEventsCreateRequestBodyReferral](docs/Model/ClientEventsCreateRequestBodyReferral.md)
 - [ClientEventsCreateResponseBody](docs/Model/ClientEventsCreateResponseBody.md)
+- [ClientPromotionsTiersListResponseBody](docs/Model/ClientPromotionsTiersListResponseBody.md)
 - [ClientQualificationsCheckEligibilityRequestBody](docs/Model/ClientQualificationsCheckEligibilityRequestBody.md)
 - [ClientQualificationsCheckEligibilityResponseBody](docs/Model/ClientQualificationsCheckEligibilityResponseBody.md)
 - [ClientRedemptionsRedeemRequestBody](docs/Model/ClientRedemptionsRedeemRequestBody.md)
@@ -526,10 +533,13 @@ Class | Method | HTTP request | Description
 - [ParameterOrderListExports](docs/Model/ParameterOrderListExports.md)
 - [ParameterOrderListLoyaltyTiers](docs/Model/ParameterOrderListLoyaltyTiers.md)
 - [ParameterOrderListOrders](docs/Model/ParameterOrderListOrders.md)
+- [ParameterOrderListPromotionTiers](docs/Model/ParameterOrderListPromotionTiers.md)
+- [ParameterOrderListPromotionTiersClientSide](docs/Model/ParameterOrderListPromotionTiersClientSide.md)
 - [ParameterOrderListPublications](docs/Model/ParameterOrderListPublications.md)
 - [ParameterOrderListRedemptions](docs/Model/ParameterOrderListRedemptions.md)
 - [ParameterOrderListValidationRuleAssignments](docs/Model/ParameterOrderListValidationRuleAssignments.md)
 - [ParameterOrderListValidationRules](docs/Model/ParameterOrderListValidationRules.md)
+- [ParameterOrderVouchers](docs/Model/ParameterOrderVouchers.md)
 - [ParameterResultListPublications](docs/Model/ParameterResultListPublications.md)
 - [ParameterUpdatedBeforeAfter](docs/Model/ParameterUpdatedBeforeAfter.md)
 - [ParameterVoucherTypeListPublications](docs/Model/ParameterVoucherTypeListPublications.md)
@@ -740,14 +750,17 @@ Class | Method | HTTP request | Description
 - [RewardsAssignmentsUpdateRequestBodyParametersLoyalty](docs/Model/RewardsAssignmentsUpdateRequestBodyParametersLoyalty.md)
 - [RewardsAssignmentsUpdateResponseBody](docs/Model/RewardsAssignmentsUpdateResponseBody.md)
 - [RewardsCreateRequestBody](docs/Model/RewardsCreateRequestBody.md)
+- [RewardsCreateRequestBodyAttributes](docs/Model/RewardsCreateRequestBodyAttributes.md)
 - [RewardsCreateRequestBodyParameters](docs/Model/RewardsCreateRequestBodyParameters.md)
 - [RewardsCreateRequestBodyParametersCampaign](docs/Model/RewardsCreateRequestBodyParametersCampaign.md)
 - [RewardsCreateRequestBodyParametersCoin](docs/Model/RewardsCreateRequestBodyParametersCoin.md)
 - [RewardsCreateRequestBodyParametersProduct](docs/Model/RewardsCreateRequestBodyParametersProduct.md)
+- [RewardsCreateResponseBody](docs/Model/RewardsCreateResponseBody.md)
 - [RewardsListResponseBody](docs/Model/RewardsListResponseBody.md)
 - [RewardsUpdateRequestBody](docs/Model/RewardsUpdateRequestBody.md)
 - [RewardsUpdateRequestBodyParameters](docs/Model/RewardsUpdateRequestBodyParameters.md)
 - [RewardsUpdateRequestBodyParametersCampaign](docs/Model/RewardsUpdateRequestBodyParametersCampaign.md)
+- [RewardsUpdateResponseBody](docs/Model/RewardsUpdateResponseBody.md)
 - [Segment](docs/Model/Segment.md)
 - [SegmentsCreateRequestBody](docs/Model/SegmentsCreateRequestBody.md)
 - [SegmentsCreateResponseBody](docs/Model/SegmentsCreateResponseBody.md)
@@ -830,6 +843,7 @@ Class | Method | HTTP request | Description
 - [ValidityTimeframe](docs/Model/ValidityTimeframe.md)
 - [Voucher](docs/Model/Voucher.md)
 - [VoucherAssets](docs/Model/VoucherAssets.md)
+- [VoucherBase](docs/Model/VoucherBase.md)
 - [VoucherHolder](docs/Model/VoucherHolder.md)
 - [VoucherTransaction](docs/Model/VoucherTransaction.md)
 - [VoucherTransactionDetails](docs/Model/VoucherTransactionDetails.md)
@@ -853,17 +867,23 @@ Class | Method | HTTP request | Description
 - [VoucherTransactionsExportParameters](docs/Model/VoucherTransactionsExportParameters.md)
 - [VoucherTransactionsExportResult](docs/Model/VoucherTransactionsExportResult.md)
 - [VoucherTransactionsFilters](docs/Model/VoucherTransactionsFilters.md)
+- [VoucherWithCategories](docs/Model/VoucherWithCategories.md)
 - [VouchersBalanceUpdateRequestBody](docs/Model/VouchersBalanceUpdateRequestBody.md)
 - [VouchersBalanceUpdateResponseBody](docs/Model/VouchersBalanceUpdateResponseBody.md)
 - [VouchersBalanceUpdateResponseBodyRelatedObject](docs/Model/VouchersBalanceUpdateResponseBodyRelatedObject.md)
+- [VouchersCreateResponseBody](docs/Model/VouchersCreateResponseBody.md)
+- [VouchersCreateWithWithSpecificCodeRequestBody](docs/Model/VouchersCreateWithWithSpecificCodeRequestBody.md)
 - [VouchersDisableResponseBody](docs/Model/VouchersDisableResponseBody.md)
 - [VouchersEnableResponseBody](docs/Model/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/Model/VouchersGetResponseBody.md)
 - [VouchersImportCsvCreateResponseBody](docs/Model/VouchersImportCsvCreateResponseBody.md)
+- [VouchersListResponseBody](docs/Model/VouchersListResponseBody.md)
 - [VouchersRedemptionGetResponseBody](docs/Model/VouchersRedemptionGetResponseBody.md)
 - [VouchersTransactionsExportCreateRequestBody](docs/Model/VouchersTransactionsExportCreateRequestBody.md)
 - [VouchersTransactionsExportCreateResponseBody](docs/Model/VouchersTransactionsExportCreateResponseBody.md)
 - [VouchersTransactionsListResponseBody](docs/Model/VouchersTransactionsListResponseBody.md)
+- [VouchersUpdateRequestBody](docs/Model/VouchersUpdateRequestBody.md)
+- [VouchersUpdateResponseBody](docs/Model/VouchersUpdateResponseBody.md)
 
 ## Authorization
 

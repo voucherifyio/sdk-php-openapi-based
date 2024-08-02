@@ -14,6 +14,7 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | [**getPromotionTier()**](PromotionsApi.md#getPromotionTier) | **GET** /v1/promotions/tiers/{promotionTierId} | Get Promotion Tier |
 | [**listAllPromotionStacks()**](PromotionsApi.md#listAllPromotionStacks) | **GET** /v1/promotions/stacks | List Promotion Stacks |
 | [**listPromotionStacksInCampaign()**](PromotionsApi.md#listPromotionStacksInCampaign) | **GET** /v1/promotions/{campaignId}/stacks | List Promotion Stacks in Campaign |
+| [**listPromotionTiers()**](PromotionsApi.md#listPromotionTiers) | **GET** /v1/promotions/tiers | List Promotion Tiers |
 | [**listPromotionTiersFromCampaign()**](PromotionsApi.md#listPromotionTiersFromCampaign) | **GET** /v1/promotions/{campaignId}/tiers | List Promotion Tiers from Campaign |
 | [**updatePromotionStack()**](PromotionsApi.md#updatePromotionStack) | **PUT** /v1/promotions/{campaignId}/stacks/{stackId} | Update Promotion Stack |
 | [**updatePromotionTier()**](PromotionsApi.md#updatePromotionTier) | **PUT** /v1/promotions/tiers/{promotionTierId} | Update Promotion Tier |
@@ -689,6 +690,79 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\PromotionsStacksListResponseBody**](../Model/PromotionsStacksListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listPromotionTiers()`
+
+```php
+listPromotionTiers($is_available, $limit, $page, $order): \OpenAPI\Client\Model\PromotionsTiersListResponseBody
+```
+
+List Promotion Tiers
+
+This method enables you to list promotion tiers.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\PromotionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$is_available = True; // bool | This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
+$order = new \OpenAPI\Client\Model\ParameterOrderListPromotionTiers(); // ParameterOrderListPromotionTiers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+
+try {
+    $result = $apiInstance->listPromotionTiers($is_available, $limit, $page, $order);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PromotionsApi->listPromotionTiers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **is_available** | **bool**| This parameter allows filtering promotions that are only available at the moment. When set to true, it selects only non-expired and active promotions. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
+| **order** | [**ParameterOrderListPromotionTiers**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PromotionsTiersListResponseBody**](../Model/PromotionsTiersListResponseBody.md)
 
 ### Authorization
 

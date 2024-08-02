@@ -1,0 +1,34 @@
+{
+  "name": "Gti0zfsiin",
+  "rules": [],
+  "error": null,
+  "applicable_to": {
+    "excluded": null,
+    "included": [
+      {
+        "object": "product",
+        "id": "prod_0f22bf8f200805b710",
+        "source_id": null,
+        "product_id": null,
+        "product_source_id": null,
+        "strict": false,
+        "price": null,
+        "price_formula": null,
+        "effect": "APPLY_TO_EVERY",
+        "quantity_limit": null,
+        "aggregated_quantity_limit": null,
+        "amount_limit": null,
+        "aggregated_amount_limit": null,
+        "order_item_indices": null
+      }
+    ],
+    "included_all": false
+  },
+  "type": "basic",
+  "context_type": "global",
+  "id": "val_QWzcsPUhp4Nq",
+  "created_at": "2024-07-30T14:32:38+00:00",
+  "updated_at": null,
+  "assignments_count": null,
+  "object": "validation_rules"
+}
