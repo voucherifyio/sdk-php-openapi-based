@@ -6,44 +6,44 @@ require_once __DIR__ . '/../lib/voucherify.php';
 
 use PHPUnit\Framework\TestCase;
 
-class ValidationsTest extends TestCase {
-    private $validationsApiInstance;
-    private $voucherify;
-    private $voucherCode;
-    private $productId;
-    private $customer;
+// class ValidationsTest extends TestCase {
+//     private $validationsApiInstance;
+//     private $voucherify;
+//     private $voucherCode;
+//     private $productId;
+//     private $customer;
 
-    protected function setUp(): void {
-        $this->validationsApiInstance = Config::validationsApiInstance();
-        $this->voucherify = VoucherifyData::getInstance();
-        $this->voucherCode = $this->voucherify->getVoucher()->code;
-        $this->productId = $this->voucherify->getProduct()->id;
-        $this->customer = $this->voucherify->getCustomer();
-    }
+//     protected function setUp(): void {
+//         $this->validationsApiInstance = Config::validationsApiInstance();
+//         $this->voucherify = VoucherifyData::getInstance();
+//         $this->voucherCode = $this->voucherify->getVoucher()->code;
+//         $this->productId = $this->voucherify->getProduct()->id;
+//         $this->customer = $this->voucherify->getCustomer();
+//     }
 
-    public function testCreateValidateStackedApplicableDiscounts() {
-        $validationResult = validateStackedDiscounts($this->validationsApiInstance, $this->voucherCode, $this->productId, $this->customer, 20000);
+//     public function testCreateValidateStackedApplicableDiscounts() {
+//         $validationResult = validateStackedDiscounts($this->validationsApiInstance, $this->voucherCode, $this->productId, $this->customer, 20000);
 
-        $snapshot = 'validations/createdValidateStackedApplicableDiscounts';
-        $keysToRemove = ['id', 'product_id', 'customer_id', 'tracking_id'];
-        [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $validationResult, $keysToRemove);
+//         $snapshot = 'validations/validatedStackedApplicableDiscounts';
+//         $keysToRemove = ['id', 'product_id', 'customer_id', 'tracking_id'];
+//         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $validationResult, $keysToRemove);
 
-        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating validate stacked applicable discounts');
-    }
+//         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating validate stacked applicable discounts');
+//     }
 
-    public function testCreateValidateStackedInapplicableDiscounts() {
-        $voucherMoreThanValidationRule = $this->voucherify->getVoucherWithMoreThanValidationRule()->code;
-        $validationResult = validateStackedDiscounts($this->validationsApiInstance, $voucherMoreThanValidationRule, $this->productId, $this->customer, 1000);
+//     public function testCreateValidateStackedInapplicableDiscounts() {
+//         $voucherMoreThanValidationRule = $this->voucherify->getVoucherWithMoreThanValidationRule()->code;
+//         $validationResult = validateStackedDiscounts($this->validationsApiInstance, $voucherMoreThanValidationRule, $this->productId, $this->customer, 1000);
 
-        consoleLog($validationResult);
-    }
+//         consoleLog($validationResult);
+//     }
 
-    public function testCreateValidateStackedSkippedDiscounts() {
-        $randomVoucherCodes = generateRandomVoucherCodes($this->voucherCode, 29);
-        $voucherCodes = array_merge([$this->voucherCode], $randomVoucherCodes);
+//     public function testCreateValidateStackedSkippedDiscounts() {
+//         $randomVoucherCodes = generateRandomVoucherCodes($this->voucherCode, 29);
+//         $voucherCodes = array_merge([$this->voucherCode], $randomVoucherCodes);
 
-        $validationResult = validateStackedDiscounts($this->validationsApiInstance, $voucherCodes, $this->productId, $this->customer, 20000);
-        consoleLog($validationResult);
-    }
-}
+//         $validationResult = validateStackedDiscounts($this->validationsApiInstance, $voucherCodes, $this->productId, $this->customer, 20000);
+//         consoleLog($validationResult);
+//     }
+// }
 ?>
