@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **campaign_id** | **string** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. | [optional]
 **category** | **string** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint. | [optional]
 **category_id** | **string** | Unique category ID assigned by Voucherify. | [optional]
-**categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) | Contains details about the category. | [optional]
 **type** | **string** | Defines the type of the voucher. | [optional]
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
 **gift** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherGift**](RedemptionsListResponseBodyRedemptionsItemVoucherGift.md) |  | [optional]
@@ -30,9 +29,10 @@ Name | Type | Description | Notes
 **holder_id** | **string** | Unique identifier of the customer who owns the voucher. | [optional]
 **referrer_id** | **string** | Unique identifier of the referring person. | [optional]
 **object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] [default to 'voucher']
-**validation_rules_assignments** | [**\OpenAPI\Client\Model\ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  | [optional]
 **publish** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherPublish**](RedemptionsListResponseBodyRedemptionsItemVoucherPublish.md) |  | [optional]
 **redemption** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherRedemption**](RedemptionsListResponseBodyRedemptionsItemVoucherRedemption.md) |  | [optional]
+**categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) | Contains details about the category. | [optional]
+**validation_rules_assignments** | [**\OpenAPI\Client\Model\ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  | [optional]
 **holder** | [**\OpenAPI\Client\Model\SimpleCustomer**](SimpleCustomer.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

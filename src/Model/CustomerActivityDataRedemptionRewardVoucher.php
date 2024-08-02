@@ -64,7 +64,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'campaign_id' => 'string',
         'category' => 'string',
         'category_id' => 'string',
-        'categories' => '\OpenAPI\Client\Model\Category[]',
         'type' => 'string',
         'discount' => '\OpenAPI\Client\Model\Discount',
         'gift' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucherGift',
@@ -84,9 +83,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'holder_id' => 'string',
         'referrer_id' => 'string',
         'object' => 'string',
-        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
         'publish' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucherPublish',
-        'redemption' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucherRedemption'
+        'redemption' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucherRedemption',
+        'categories' => '\OpenAPI\Client\Model\Category[]',
+        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList'
     ];
 
     /**
@@ -103,7 +103,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'campaign_id' => null,
         'category' => null,
         'category_id' => null,
-        'categories' => null,
         'type' => null,
         'discount' => null,
         'gift' => null,
@@ -123,9 +122,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'holder_id' => null,
         'referrer_id' => null,
         'object' => null,
-        'validation_rules_assignments' => null,
         'publish' => null,
-        'redemption' => null
+        'redemption' => null,
+        'categories' => null,
+        'validation_rules_assignments' => null
     ];
 
     /**
@@ -140,7 +140,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
 		'campaign_id' => true,
 		'category' => true,
 		'category_id' => true,
-		'categories' => true,
 		'type' => true,
 		'discount' => false,
 		'gift' => true,
@@ -160,9 +159,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
 		'holder_id' => true,
 		'referrer_id' => true,
 		'object' => true,
-		'validation_rules_assignments' => false,
 		'publish' => true,
-		'redemption' => true
+		'redemption' => true,
+		'categories' => true,
+		'validation_rules_assignments' => false
     ];
 
     /**
@@ -257,7 +257,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'campaign_id' => 'campaign_id',
         'category' => 'category',
         'category_id' => 'category_id',
-        'categories' => 'categories',
         'type' => 'type',
         'discount' => 'discount',
         'gift' => 'gift',
@@ -277,9 +276,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'holder_id' => 'holder_id',
         'referrer_id' => 'referrer_id',
         'object' => 'object',
-        'validation_rules_assignments' => 'validation_rules_assignments',
         'publish' => 'publish',
-        'redemption' => 'redemption'
+        'redemption' => 'redemption',
+        'categories' => 'categories',
+        'validation_rules_assignments' => 'validation_rules_assignments'
     ];
 
     /**
@@ -294,7 +294,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'campaign_id' => 'setCampaignId',
         'category' => 'setCategory',
         'category_id' => 'setCategoryId',
-        'categories' => 'setCategories',
         'type' => 'setType',
         'discount' => 'setDiscount',
         'gift' => 'setGift',
@@ -314,9 +313,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'holder_id' => 'setHolderId',
         'referrer_id' => 'setReferrerId',
         'object' => 'setObject',
-        'validation_rules_assignments' => 'setValidationRulesAssignments',
         'publish' => 'setPublish',
-        'redemption' => 'setRedemption'
+        'redemption' => 'setRedemption',
+        'categories' => 'setCategories',
+        'validation_rules_assignments' => 'setValidationRulesAssignments'
     ];
 
     /**
@@ -331,7 +331,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'campaign_id' => 'getCampaignId',
         'category' => 'getCategory',
         'category_id' => 'getCategoryId',
-        'categories' => 'getCategories',
         'type' => 'getType',
         'discount' => 'getDiscount',
         'gift' => 'getGift',
@@ -351,9 +350,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         'holder_id' => 'getHolderId',
         'referrer_id' => 'getReferrerId',
         'object' => 'getObject',
-        'validation_rules_assignments' => 'getValidationRulesAssignments',
         'publish' => 'getPublish',
-        'redemption' => 'getRedemption'
+        'redemption' => 'getRedemption',
+        'categories' => 'getCategories',
+        'validation_rules_assignments' => 'getValidationRulesAssignments'
     ];
 
     /**
@@ -461,7 +461,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         $this->setIfExists('campaign_id', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('categories', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('gift', $data ?? [], null);
@@ -481,9 +480,10 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
         $this->setIfExists('holder_id', $data ?? [], null);
         $this->setIfExists('referrer_id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
     }
 
     /**
@@ -737,40 +737,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
             }
         }
         $this->container['category_id'] = $category_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets categories
-     *
-     * @return \OpenAPI\Client\Model\Category[]|null
-     */
-    public function getCategories()
-    {
-        return $this->container['categories'];
-    }
-
-    /**
-     * Sets categories
-     *
-     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
-     *
-     * @return self
-     */
-    public function setCategories($categories)
-    {
-        if (is_null($categories)) {
-            array_push($this->openAPINullablesSetToNull, 'categories');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('categories', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['categories'] = $categories;
 
         return $this;
     }
@@ -1413,33 +1379,6 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
     }
 
     /**
-     * Gets validation_rules_assignments
-     *
-     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null
-     */
-    public function getValidationRulesAssignments()
-    {
-        return $this->container['validation_rules_assignments'];
-    }
-
-    /**
-     * Sets validation_rules_assignments
-     *
-     * @param \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null $validation_rules_assignments validation_rules_assignments
-     *
-     * @return self
-     */
-    public function setValidationRulesAssignments($validation_rules_assignments)
-    {
-        if (is_null($validation_rules_assignments)) {
-            throw new \InvalidArgumentException('non-nullable validation_rules_assignments cannot be null');
-        }
-        $this->container['validation_rules_assignments'] = $validation_rules_assignments;
-
-        return $this;
-    }
-
-    /**
      * Gets publish
      *
      * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionRewardVoucherPublish|null
@@ -1503,6 +1442,67 @@ class CustomerActivityDataRedemptionRewardVoucher implements ModelInterface, Arr
             }
         }
         $this->container['redemption'] = $redemption;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_rules_assignments
+     *
+     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null
+     */
+    public function getValidationRulesAssignments()
+    {
+        return $this->container['validation_rules_assignments'];
+    }
+
+    /**
+     * Sets validation_rules_assignments
+     *
+     * @param \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null $validation_rules_assignments validation_rules_assignments
+     *
+     * @return self
+     */
+    public function setValidationRulesAssignments($validation_rules_assignments)
+    {
+        if (is_null($validation_rules_assignments)) {
+            throw new \InvalidArgumentException('non-nullable validation_rules_assignments cannot be null');
+        }
+        $this->container['validation_rules_assignments'] = $validation_rules_assignments;
 
         return $this;
     }

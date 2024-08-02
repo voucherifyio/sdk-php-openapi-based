@@ -19,7 +19,7 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 ## `createReward()`
 
 ```php
-createReward($rewards_create_request_body): \OpenAPI\Client\Model\Reward
+createReward($rewards_create_request_body): \OpenAPI\Client\Model\RewardsCreateResponseBody
 ```
 
 Create Reward
@@ -68,7 +68,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Reward**](../Model/Reward.md)
+[**\OpenAPI\Client\Model\RewardsCreateResponseBody**](../Model/RewardsCreateResponseBody.md)
 
 ### Authorization
 
@@ -567,7 +567,7 @@ try {
 ## `updateReward()`
 
 ```php
-updateReward($reward_id, $rewards_update_request_body): \OpenAPI\Client\Model\Reward
+updateReward($reward_id, $rewards_update_request_body): \OpenAPI\Client\Model\RewardsUpdateResponseBody
 ```
 
 Update Reward
@@ -618,7 +618,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Reward**](../Model/Reward.md)
+[**\OpenAPI\Client\Model\RewardsUpdateResponseBody**](../Model/RewardsUpdateResponseBody.md)
 
 ### Authorization
 

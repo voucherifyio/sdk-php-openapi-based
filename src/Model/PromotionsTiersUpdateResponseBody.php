@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PromotionsTiersUpdateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **put** &#x60;/promotions/tiers/{promotionTierId}&#x60;.
+ * @description Response body schema for **PUT** &#x60;/promotions/tiers/{promotionTierId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

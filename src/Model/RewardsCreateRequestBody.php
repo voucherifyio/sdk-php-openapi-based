@@ -60,9 +60,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'name' => 'string',
         'parameters' => '\OpenAPI\Client\Model\RewardsCreateRequestBodyParameters',
-        'attributes' => 'object',
         'metadata' => 'object',
-        'stock' => 'int'
+        'stock' => 'int',
+        'attributes' => '\OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes'
     ];
 
     /**
@@ -75,9 +75,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'name' => null,
         'parameters' => null,
-        'attributes' => null,
         'metadata' => null,
-        'stock' => null
+        'stock' => null,
+        'attributes' => null
     ];
 
     /**
@@ -88,9 +88,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'name' => true,
 		'parameters' => true,
-		'attributes' => true,
 		'metadata' => true,
-		'stock' => true
+		'stock' => true,
+		'attributes' => true
     ];
 
     /**
@@ -181,9 +181,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'name' => 'name',
         'parameters' => 'parameters',
-        'attributes' => 'attributes',
         'metadata' => 'metadata',
-        'stock' => 'stock'
+        'stock' => 'stock',
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -194,9 +194,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'name' => 'setName',
         'parameters' => 'setParameters',
-        'attributes' => 'setAttributes',
         'metadata' => 'setMetadata',
-        'stock' => 'setStock'
+        'stock' => 'setStock',
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -207,9 +207,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'name' => 'getName',
         'parameters' => 'getParameters',
-        'attributes' => 'getAttributes',
         'metadata' => 'getMetadata',
-        'stock' => 'getStock'
+        'stock' => 'getStock',
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -271,9 +271,9 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('parameters', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('stock', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
     }
 
     /**
@@ -387,40 +387,6 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets attributes
-     *
-     * @return object|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param object|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            array_push($this->openAPINullablesSetToNull, 'attributes');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('attributes', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
      * Gets metadata
      *
      * @return object|null
@@ -484,6 +450,40 @@ class RewardsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['stock'] = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
