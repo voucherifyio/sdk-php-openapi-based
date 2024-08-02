@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **applicable_redeemables_per_category_limit** | **int** | Defines how many redeemables per category can be applied in one request. | [optional] [default to 1]
 **applicable_exclusive_redeemables_limit** | **int** | Defines how many redeemables with an exclusive category can be applied in one request. | [optional] [default to 1]
 **applicable_exclusive_redeemables_per_category_limit** | **int** | Defines how many redeemables with an exclusive category per category in stacking rules can be applied in one request. | [optional] [default to 1]
-**exclusive_categories** | **string[]** | Lists all exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint. | [optional]
-**joint_categories** | **string[]** | Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns. | [optional]
+**exclusive_categories** | **string[]** | Lists all exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint. | [optional] [default to [[]]]
+**joint_categories** | **string[]** | Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns. | [optional] [default to [[]]]
 **redeemables_application_mode** | **string** | Defines redeemables application mode. | [optional]
 **redeemables_sorting_rule** | **string** | Defines redeemables sorting rule. | [optional] [default to 'REQUESTED_ORDER']
 

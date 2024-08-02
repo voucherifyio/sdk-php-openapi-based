@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customer** | [**\OpenAPI\Client\Model\SimpleCustomer**](SimpleCustomer.md) |  | [optional]
 **assignment_id** | **string** | Unique reward assignment ID assigned by Voucherify. | [optional]
-**voucher** | [**\OpenAPI\Client\Model\RedemptionRewardResultVoucher**](RedemptionRewardResultVoucher.md) |  | [optional]
-**product** | [**\OpenAPI\Client\Model\RedemptionRewardResultProduct**](RedemptionRewardResultProduct.md) |  | [optional]
-**sku** | [**\OpenAPI\Client\Model\RedemptionRewardResultSku**](RedemptionRewardResultSku.md) |  | [optional]
+**voucher** | [**\OpenAPI\Client\Model\Voucher**](Voucher.md) | Defines of the voucher. | [optional]
+**product** | [**\OpenAPI\Client\Model\Product**](Product.md) | Defines of the product. | [optional]
+**sku** | [**\OpenAPI\Client\Model\Sku**](Sku.md) | Defines of the sku. | [optional]
 **loyalty_tier_id** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional]
 **id** | **string** | Unique reward ID. | [optional]
 **name** | **string** | Name of the reward. | [optional]

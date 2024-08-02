@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | A unique identifier that represents the voucher assigned by Voucherify. | [optional]
 **code** | **string** | Voucher code. | [optional]
-**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) |  | [optional]
+**gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) | Gift object response. | [optional]
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
-**loyalty_card** | [**\OpenAPI\Client\Model\SimpleVoucherLoyaltyCard**](SimpleVoucherLoyaltyCard.md) |  | [optional]
+**loyalty_card** | [**\OpenAPI\Client\Model\SimpleLoyaltyCard**](SimpleLoyaltyCard.md) | Defines the loyalty card details. | [optional]
 **type** | **string** | Type of the voucher. | [optional]
 **campaign** | **string** | Campaign name. | [optional]
 **campaign_id** | **string** | Campaign unique ID. | [optional]

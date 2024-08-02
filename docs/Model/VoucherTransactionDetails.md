@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **custom_event** | [**\OpenAPI\Client\Model\VoucherTransactionDetailsCustomEvent**](VoucherTransactionDetailsCustomEvent.md) |  | [optional]
 **event_schema** | [**\OpenAPI\Client\Model\VoucherTransactionDetailsEventSchema**](VoucherTransactionDetailsEventSchema.md) |  | [optional]
 **reward** | [**\OpenAPI\Client\Model\VoucherTransactionDetailsReward**](VoucherTransactionDetailsReward.md) |  | [optional]
-**source_voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) |  | [optional]
-**destination_voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) |  | [optional]
+**source_voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) | Contains information on how the balance on the donor loyalty card was affected by the transaction. | [optional]
+**destination_voucher** | [**\OpenAPI\Client\Model\SimpleVoucher**](SimpleVoucher.md) | Contains information on how the balance on the receiving loyalty card was affected by the transaction. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
