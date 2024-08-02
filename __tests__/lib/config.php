@@ -16,7 +16,7 @@ use OpenAPI\Client\Api\VouchersApi;
 use OpenAPI\Client\Api\EventsApi;
 use OpenAPI\Client\Api\OrdersApi;
 use OpenAPI\Client\Api\LoyaltiesApi;
-use OpenAPI\Client\Api\StackableDiscountsApi;
+use OpenAPI\Client\Api\ValidationsApi;
 
 class Config
 {
@@ -101,9 +101,9 @@ class Config
         return new LoyaltiesApi(self::getClient(), self::getConfig());
     }
 
-    public static function stackedDiscountsApiInstance(): StackableDiscountsApi
+    public static function validationsApiInstance(): ValidationsApi
     {
-        return new StackableDiscountsApi(self::getClient(), self::getConfig());
+        return new ValidationsApi(self::getClient(), self::getConfig());
     }
 }
 

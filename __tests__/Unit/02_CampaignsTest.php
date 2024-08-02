@@ -66,11 +66,14 @@ class CampaignsTest extends TestCase {
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdCampaign, $keysToRemove);
     
         $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty campaign');
+
+        $createdCampaignJSON = json_decode($createdCampaign);
+        $this->voucherify->setLoyaltyCampaign($createdCampaignJSON);
     }
 
     public function testDeletePromotionCampaign() {
         $deletedPromotionCampaign = deleteCampaign($this->campaignsApiInstance, $this->voucherify->getPromotionCampaign()->id);
-        consoleLog($deletedPromotionCampaign);
+
         $this->assertNotNull($deletedPromotionCampaign, 'Error during test with deleting promotion campaign');
     }
     
@@ -81,10 +84,52 @@ class CampaignsTest extends TestCase {
         $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at', 'rule_id', 'related_object_id']; 
         [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdVoucher, $keysToRemove);
     
-        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty campaign');
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with adding voucher to campaign');
 
         $createdVoucherJSON = json_decode($createdVoucher);
         $this->voucherify->setVoucher($createdVoucherJSON);
+    }
+
+    public function testCreateBundleOfVouchers() {
+        $asyncAction = addVouchersToCampaign($this->campaignsApiInstance, $this->voucherify->getDiscountCampaign()->id, 5);
+
+        $snapshot = 'campaigns/createdBundleOfVouchers';
+        $keysToRemove = ['async_action_id'];
+        [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $asyncAction, $keysToRemove);
+    
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating bundle of vouchers');
+    }
+
+    public function testAddLoyaltyCardToCampaign() {
+        $createdLoyaltyCard = addVouchersToCampaign($this->campaignsApiInstance, $this->voucherify->getLoyaltyCampaign()->id, 1);
+
+        $snapshot = 'campaigns/createdLoyaltyCard';
+        $keysToRemove = ['id', 'code', 'campaign', 'campaign_id', 'url', 'created_at'];
+        [$filteredSnapshot, $filteredResponse] = validatePayloads($snapshot, $createdLoyaltyCard, $keysToRemove);
+    
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating loyalty card');
+
+        $createdLoyaltyCardJSON = json_decode($createdLoyaltyCard);
+        $this->voucherify->setLoyaltyCard($createdLoyaltyCardJSON);
+    }
+
+    public function testCreateCampaignWithValidationRuleMoreThan() {
+        $validationRule = createValidationRuleMoreThan($this->validationRulesApiInstance);
+        $campaign = createDiscountCampaign($this->campaignsApiInstance, $validationRule->getId());
+
+        $validationRuleSnapshot = 'campaigns/createdValidationRuleMoreThan';
+        $campaignSnapshot = 'campaigns/createdDiscountCampaignWithValidationRule';
+        $keysToRemove = ['name', 'id', 'created_at', 'rule_id', 'related_object_id'];
+        [$filteredSnapshot, $filteredResponse] = validatePayloads($validationRuleSnapshot, $validationRule, $keysToRemove);
+        [$filteredSnapshot2, $filteredResponse2] = validatePayloads($campaignSnapshot, $campaign, $keysToRemove);
+
+        $this->assertEquals($filteredSnapshot, $filteredResponse, 'Error during test with creating validation rule more than');
+        $this->assertEquals($filteredSnapshot2, $filteredResponse2, 'Error during test with creating campaign with val rule');
+
+        $voucher = addVouchersToCampaign($this->campaignsApiInstance, $campaign->getId(), 1);
+        $voucherJSON = json_decode($voucher);
+
+        $this->voucherify->setVoucherWithMoreThanValidationRule($voucherJSON);
     }
 
 }

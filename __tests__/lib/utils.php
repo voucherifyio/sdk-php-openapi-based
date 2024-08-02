@@ -12,6 +12,14 @@
         return $randomString;
     }
 
+    function generateRandomVoucherCodes($baseCode, $count, $length = 6) {
+        $voucherCodes = [];
+        for ($i = 0; $i < $count; $i++) {
+            $voucherCodes[] = $baseCode . '-' . generateRandomString($length);
+        }
+        return $voucherCodes;
+    }
+
     function removeDynamicFields($data, array $fieldsToRemove) {
         if (is_array($data)) {
             foreach ($data as $key => &$value) {

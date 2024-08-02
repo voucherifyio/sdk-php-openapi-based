@@ -1,0 +1,96 @@
+{
+  "id": "pub_TX9SYcIRWm62BYQrxpIAc3tvVph0rIKT",
+  "object": "publication",
+  "created_at": "2024-07-31T11:37:52+00:00",
+  "customer_id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
+  "tracking_id": "78iWduAnFn",
+  "metadata": [],
+  "channel": "API",
+  "source_id": null,
+  "result": "SUCCESS",
+  "customer": {
+    "name": "John Doe",
+    "description": null,
+    "email": null,
+    "phone": null,
+    "birthday": null,
+    "birthdate": null,
+    "address": null,
+    "metadata": null,
+    "id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
+    "source_id": "78iWduAnFn",
+    "summary": null,
+    "loyalty": null,
+    "referrals": null,
+    "system_metadata": null,
+    "created_at": null,
+    "updated_at": null,
+    "assets": null,
+    "object": "customer"
+  },
+  "vouchers_id": ["v_vXWIUzdnSEJwT01ou72GqbSMxX18MYqi"],
+  "voucher": {
+    "id": "v_vXWIUzdnSEJwT01ou72GqbSMxX18MYqi",
+    "code": "qBEiPnnE",
+    "campaign": "21J8T1XRWf",
+    "campaign_id": "camp_5jf2QRian0wDCe9zh57zD8wI",
+    "category": null,
+    "category_id": null,
+    "categories": [],
+    "type": "DISCOUNT_VOUCHER",
+    "discount": {
+      "type": "AMOUNT",
+      "amount_off": 1000,
+      "amount_off_formula": null,
+      "aggregated_amount_limit": null,
+      "effect": null,
+      "is_dynamic": null,
+      "unit_off": null,
+      "unit_off_formula": null,
+      "unit_type": null,
+      "units": null,
+      "percent_off": null,
+      "percent_off_formula": null,
+      "amount_limit": null,
+      "fixed_amount": null,
+      "fixed_amount_formula": null
+    },
+    "gift": null,
+    "loyalty_card": null,
+    "start_date": null,
+    "expiration_date": null,
+    "validity_day_of_week": null,
+    "active": true,
+    "additional_info": null,
+    "metadata": [],
+    "assets": {
+      "qr": {
+        "id": "91e77e1b-58c3-4174-960c-adb9bd1f9de9",
+        "url": "https://dl.voucherify.io/api/v1/assets/qr/91e77e1b-58c3-4174-960c-adb9bd1f9de9"
+      },
+      "barcode": {
+        "id": "542cbae6-705b-4f58-aae5-6beecae9de70",
+        "url": "https://dl.voucherify.io/api/v1/assets/barcode/542cbae6-705b-4f58-aae5-6beecae9de70"
+      }
+    },
+    "is_referral_code": false,
+    "created_at": "2024-07-31T11:37:52+00:00",
+    "updated_at": "2024-07-31T11:37:52+00:00",
+    "holder_id": "cust_BBRigvSJHUX5PlPGMG0vKNNf",
+    "referrer_id": null,
+    "object": "voucher",
+    "publish": {
+      "object": "list",
+      "count": 1,
+      "url": "/v1/vouchers/qBEiPnnE/publications?page=1&limit=10"
+    },
+    "redemption": {
+      "quantity": null,
+      "redeemed_quantity": 0,
+      "redeemed_points": null,
+      "object": "list",
+      "url": "/v1/vouchers/qBEiPnnE/redemptions?page=1&limit=10"
+    }
+  },
+  "vouchers": null
+}

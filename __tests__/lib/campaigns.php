@@ -4,6 +4,7 @@ require_once __DIR__ . '/utils.php';
 use OpenAPI\Client\Api\CampaignsApi;
 use OpenAPI\Client\Api\ValidationRulesApi;
 use OpenAPI\Client\Model\ValidationRulesCreateRequestBody;
+use OpenAPI\Client\Model\ValidationRule;
 use OpenAPI\Client\Model\ValidationRulesCreateResponseBody;
 use OpenAPI\Client\Model\ValidationRuleBaseApplicableTo;
 use OpenAPI\Client\Model\ApplicableTo;
@@ -14,6 +15,7 @@ use OpenAPI\Client\Model\Discount;
 use OpenAPI\Client\Model\CampaignsCreateRequestBodyPromotion;
 use OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody;
 use OpenAPI\Client\Model\CampaignLoyaltyCard;
+use OpenAPI\Client\Model\VouchersGetResponseBody;
 use \OpenAPI\Client\Model\Error;
 
 function createValidationRuleApplicableTo(ValidationRulesApi $validationRulesApiInstance, $productId): ?ValidationRulesCreateResponseBody {
@@ -33,6 +35,35 @@ function createValidationRuleApplicableTo(ValidationRulesApi $validationRulesApi
     try {
         $createdValidaitonRule = $validationRulesApiInstance->createValidationRules($validationRule);
         return $createdValidaitonRule;
+    } catch (Error $err) {
+        error_log('Error during creating validation rule: ' . $err);
+        return null;
+    }
+}
+
+function createValidationRuleMoreThan(ValidationRulesApi $validationRulesApiInstance, ): ?ValidationRulesCreateResponseBody {
+    $validationRuleRequestBody = new ValidationRulesCreateRequestBody();
+    $rule = new ValidationRule();
+
+    $conditions = [
+        '$more_than' => [500000]
+    ];
+    
+    $rule = [
+        'name' => 'order.amount',
+        'conditions' => $conditions,
+        'rules' => new stdClass()
+    ];
+    
+    $validationRuleRequestBody->setName(generateRandomString());
+    $validationRuleRequestBody->setRules([
+        "1" => $rule
+    ]);
+    $validationRuleRequestBody->setType('basic');
+    
+    try {
+        $createdValidationRule = $validationRulesApiInstance->createValidationRules($validationRuleRequestBody);
+        return $createdValidationRule;
     } catch (Error $err) {
         error_log('Error during creating validation rule: ' . $err);
         return null;
@@ -134,5 +165,27 @@ function addVouchersToCampaign(CampaignsApi $campaignsApiInstance, string $campa
         return null;
     }
 }
+
+function generateAndReturnVouchersAddedToCampaign($campaignsApiInstance, $campaignId, $voucherCount) {
+    $vouchers = [];
+
+    try {
+        for ($i = 0; $i < $voucherCount; $i++) {
+            $voucher = $campaignsApiInstance->addVouchersToCampaign(
+                $campaignId,
+                [
+                    'vouchers_count' => 1
+                ]
+            );
+            $vouchers[] = $voucher->getCode();
+        }
+        
+        return $vouchers;
+    } catch (Error $err) {
+        error_log('Error during adding vouchers to campaign: ' . $err);
+        return null;
+    }
+}
+
 
 ?>
