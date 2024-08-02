@@ -4,16 +4,89 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createVoucher()**](VouchersApi.md#createVoucher) | **POST** /v1/vouchers/{code} | Create Voucher |
 | [**deleteVoucher()**](VouchersApi.md#deleteVoucher) | **DELETE** /v1/vouchers/{code} | Delete Voucher |
 | [**disableVoucher()**](VouchersApi.md#disableVoucher) | **POST** /v1/vouchers/{code}/disable | Disable Voucher |
 | [**enableVoucher()**](VouchersApi.md#enableVoucher) | **POST** /v1/vouchers/{code}/enable | Enable Voucher |
 | [**exportVoucherTransactions()**](VouchersApi.md#exportVoucherTransactions) | **POST** /v1/vouchers/{code}/transactions/export | Export Voucher Transactions |
+| [**generateRandomCode()**](VouchersApi.md#generateRandomCode) | **POST** /v1/vouchers | Generate Random Code |
 | [**getVoucher()**](VouchersApi.md#getVoucher) | **GET** /v1/vouchers/{code} | Get Voucher |
 | [**importVouchersUsingCsv()**](VouchersApi.md#importVouchersUsingCsv) | **POST** /v1/vouchers/importCSV | Import Vouchers using CSV |
 | [**listVoucherTransactions()**](VouchersApi.md#listVoucherTransactions) | **GET** /v1/vouchers/{code}/transactions | List Voucher Transactions |
+| [**listVouchers()**](VouchersApi.md#listVouchers) | **GET** /v1/vouchers | List Vouchers |
 | [**releaseValidationSession()**](VouchersApi.md#releaseValidationSession) | **DELETE** /v1/vouchers/{code}/sessions/{sessionKey} | Release Validation Session |
+| [**updateVoucher()**](VouchersApi.md#updateVoucher) | **PUT** /v1/vouchers/{code} | Update Voucher |
 | [**updateVoucherBalance()**](VouchersApi.md#updateVoucherBalance) | **POST** /v1/vouchers/{code}/balance | Add or Remove Voucher Balance |
 
+
+## `createVoucher()`
+
+```php
+createVoucher($code, $vouchers_create_with_with_specific_code_request_body): \OpenAPI\Client\Model\VouchersCreateResponseBody
+```
+
+Create Voucher
+
+Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD. The code path parameter can use all letters of the English alphabet, Arabic numerals and special characters.   When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\VouchersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = 'code_example'; // string | A unique **code** that identifies the voucher.
+$vouchers_create_with_with_specific_code_request_body = {"category":"New Customers","type":"DISCOUNT_VOUCHER","discount":{"percent_off":10,"type":"PERCENT","effect":"APPLY_TO_ORDER"},"start_date":"2022-01-01T00:00:00Z","expiration_date":"2022-12-31T23:59:59Z","validity_timeframe":{"duration":"PT1H","interval":"P2D"},"validity_day_of_week":[1,2,3,4,5],"active":false,"additional_info":"This voucher will remain inactive until enabled.","redemption":{"quantity":10},"metadata":{"test":true,"locale":"de-en"},"validation_rules":["val_4j7DCRm2IS59"]}; // \OpenAPI\Client\Model\VouchersCreateWithWithSpecificCodeRequestBody | Specify the details of the voucher that you would like to create.
+
+try {
+    $result = $apiInstance->createVoucher($code, $vouchers_create_with_with_specific_code_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VouchersApi->createVoucher: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **code** | **string**| A unique **code** that identifies the voucher. | |
+| **vouchers_create_with_with_specific_code_request_body** | [**\OpenAPI\Client\Model\VouchersCreateWithWithSpecificCodeRequestBody**](../Model/VouchersCreateWithWithSpecificCodeRequestBody.md)| Specify the details of the voucher that you would like to create. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\VouchersCreateResponseBody**](../Model/VouchersCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `deleteVoucher()`
 
@@ -286,6 +359,73 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `generateRandomCode()`
+
+```php
+generateRandomCode($body): \OpenAPI\Client\Model\VouchersCreateResponseBody
+```
+
+Generate Random Code
+
+Create a standalone voucher. You can choose to create a GIFT_VOUCHER, a DISCOUNT_VOUCHER, or a LOYALTY_CARD.  When you create a new voucher, you can specify a type to create it. Creating a new voucher will create a new stand alone voucher if no campaign name or campaign_id is provided. In case of the loyalty card, a campaign name is required. You can optionally use the code parameter to define a specific code or the code_config parameter to design rules for Voucherify API to create a random code. If neither of the two parameters are passed, then a random code is generated by the Voucherify API. This method will return an error when trying to create a voucher that already exists.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\VouchersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = {"category":"New Customers","code":"NEW-WELCOME-COUPON","type":"DISCOUNT_VOUCHER","campaign_id":"camp_Y6dLsYIZloGqP8izufXY6SSJ","discount":{"percent_off":10,"type":"PERCENT","effect":"APPLY_TO_ORDER"},"start_date":"2016-01-01T00:00:00Z","expiration_date":"2022-12-31T23:59:59Z","validity_timeframe":{"duration":"PT1H","interval":"P2D"},"validity_day_of_week":[1,2,3,4,5],"active":false,"additional_info":"This voucher will remain inactive until enabled.","redemption":{"quantity":10},"metadata":{"test":true,"locale":"de-en"},"validation_rules":["val_4j7DCRm2IS59"]}; // object | Specify the details of the voucher that you would like to create.
+
+try {
+    $result = $apiInstance->generateRandomCode($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VouchersApi->generateRandomCode: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **body** | **object**| Specify the details of the voucher that you would like to create. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\VouchersCreateResponseBody**](../Model/VouchersCreateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getVoucher()`
 
 ```php
@@ -491,6 +631,89 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listVouchers()`
+
+```php
+listVouchers($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order): \OpenAPI\Client\Model\VouchersListResponseBody
+```
+
+List Vouchers
+
+Returns a list of vouchers. By default, the vouchers are returned sorted by creation date, with the most recent vouchers appearing first. A maximum of 100 vouchers are returned in the response. When you get a list of vouchers, you can optionally specify query parameters to customize the number of vouchers returned per call using limit, which page of vouchers to return using page, sort the vouchers using the order query parameter and more. This method will return an error when trying to return a limit of more than 100 vouchers.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\VouchersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
+$category = 'category_example'; // string | Limit search results to vouchers within the specified category.
+$campaign_id = 'campaign_id_example'; // string | Limit search results to vouchers within the specified campaign
+$customer = 'customer_example'; // string | A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters.
+$campaign = 'campaign_example'; // string | A unique campaign name, identifies the parent campaign.
+$created_at = new \OpenAPI\Client\Model\ParameterCreatedBeforeAfter(); // ParameterCreatedBeforeAfter | A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z
+$updated_at = new \OpenAPI\Client\Model\ParameterUpdatedBeforeAfter(); // ParameterUpdatedBeforeAfter | A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z
+$order = new \OpenAPI\Client\Model\ParameterOrderVouchers(); // ParameterOrderVouchers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+
+try {
+    $result = $apiInstance->listVouchers($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VouchersApi->listVouchers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
+| **category** | **string**| Limit search results to vouchers within the specified category. | [optional] |
+| **campaign_id** | **string**| Limit search results to vouchers within the specified campaign | [optional] |
+| **customer** | **string**| A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. | [optional] |
+| **campaign** | **string**| A unique campaign name, identifies the parent campaign. | [optional] |
+| **created_at** | [**ParameterCreatedBeforeAfter**](../Model/.md)| A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z | [optional] |
+| **updated_at** | [**ParameterUpdatedBeforeAfter**](../Model/.md)| A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z | [optional] |
+| **order** | [**ParameterOrderVouchers**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\VouchersListResponseBody**](../Model/VouchersListResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `releaseValidationSession()`
 
 ```php
@@ -554,6 +777,75 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateVoucher()`
+
+```php
+updateVoucher($code, $vouchers_update_request_body): \OpenAPI\Client\Model\VouchersUpdateResponseBody
+```
+
+Update Voucher
+
+Updates the specified voucher by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged. Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: X-App-Id
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Id', 'Bearer');
+
+// Configure API key authorization: X-App-Token
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-App-Token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-App-Token', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\VouchersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = 'code_example'; // string | A unique **code** that identifies the voucher.
+$vouchers_update_request_body = {"category":"Second","type":"DISCOUNT_VOUCHER","discount":{"type":"PERCENT","percent_off":45,"percent_off_formula":"IF(ORDER_AMOUNT > 100;CUSTOMER_METADATA(\"age\");CUSTOMER_METADATA(\"age\") / 2)","amount_limit":1800,"effect":"APPLY_TO_ORDER"},"start_date":"2020-02-01T00:00:00Z","expiration_date":"2023-12-31T23:59:59Z","validity_timeframe":{"duration":"PT2H","interval":"P3D"},"validity_day_of_week":[0,1,2],"active":false,"additional_info":"This voucher can be used with other coupons. Please feel free to do so.","metadata":{"Season":"Winter"}}; // \OpenAPI\Client\Model\VouchersUpdateRequestBody | Specify the parameters to be updated.
+
+try {
+    $result = $apiInstance->updateVoucher($code, $vouchers_update_request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VouchersApi->updateVoucher: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **code** | **string**| A unique **code** that identifies the voucher. | |
+| **vouchers_update_request_body** | [**\OpenAPI\Client\Model\VouchersUpdateRequestBody**](../Model/VouchersUpdateRequestBody.md)| Specify the parameters to be updated. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\VouchersUpdateResponseBody**](../Model/VouchersUpdateResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
