@@ -105,14 +105,12 @@ Class | Method | HTTP request | Description
 *ClientSideApi* | [**listPromotionTiersClientSide**](docs/Api/ClientSideApi.md#listpromotiontiersclientside) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side)
 *ClientSideApi* | [**redeemStackedDiscountsClientSide**](docs/Api/ClientSideApi.md#redeemstackeddiscountsclientside) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side)
 *ClientSideApi* | [**trackCustomEventClientSide**](docs/Api/ClientSideApi.md#trackcustomeventclientside) | **POST** /client/v1/events | Track Custom Event (client-side)
-*ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/Api/ClientSideApi.md#updatecustomersconsentsclientside) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) [Deprecated]
 *ClientSideApi* | [**validateStackedDiscountsClientSide**](docs/Api/ClientSideApi.md#validatestackeddiscountsclientside) | **POST** /client/v1/validations | Validate Stackable Discounts (client-side)
 *CustomersApi* | [**createCustomer**](docs/Api/CustomersApi.md#createcustomer) | **POST** /v1/customers | Create Customer
 *CustomersApi* | [**customerPermanentlyDeletion**](docs/Api/CustomersApi.md#customerpermanentlydeletion) | **POST** /v1/customers/{customerId}/permanent-deletion | Delete Customer Permanently
 *CustomersApi* | [**deleteCustomer**](docs/Api/CustomersApi.md#deletecustomer) | **DELETE** /v1/customers/{customerId} | Delete Customer
 *CustomersApi* | [**getCustomer**](docs/Api/CustomersApi.md#getcustomer) | **GET** /v1/customers/{customerId} | Get Customer
 *CustomersApi* | [**importCustomersUsingCsv**](docs/Api/CustomersApi.md#importcustomersusingcsv) | **POST** /v1/customers/importCSV | Import and Update Customers using CSV
-*CustomersApi* | [**listCustomerActivities**](docs/Api/CustomersApi.md#listcustomeractivities) | **GET** /v1/customers/{customerId}/activities | List Customer Activities [Deprecated]
 *CustomersApi* | [**listCustomerActivity**](docs/Api/CustomersApi.md#listcustomeractivity) | **GET** /v1/customers/{customerId}/activity | List Customer Activity
 *CustomersApi* | [**listCustomerRedeemables**](docs/Api/CustomersApi.md#listcustomerredeemables) | **GET** /v1/customers/{customerId}/redeemables | List Customer&#39;s Redeemables
 *CustomersApi* | [**listCustomerSegments**](docs/Api/CustomersApi.md#listcustomersegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments
@@ -359,7 +357,6 @@ Class | Method | HTTP request | Description
 - [CustomerWithSummaryLoyaltyReferrals](docs/Model/CustomerWithSummaryLoyaltyReferrals.md)
 - [CustomerWithSummaryLoyaltyReferralsAddress](docs/Model/CustomerWithSummaryLoyaltyReferralsAddress.md)
 - [CustomerWithSummaryLoyaltyReferralsAssets](docs/Model/CustomerWithSummaryLoyaltyReferralsAssets.md)
-- [CustomersActivitiesListResponseBody](docs/Model/CustomersActivitiesListResponseBody.md)
 - [CustomersActivityListResponseBody](docs/Model/CustomersActivityListResponseBody.md)
 - [CustomersCreateRequestBody](docs/Model/CustomersCreateRequestBody.md)
 - [CustomersCreateRequestBodyAddress](docs/Model/CustomersCreateRequestBodyAddress.md)
