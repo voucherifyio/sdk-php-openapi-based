@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * OrdersExportCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/orders/export&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/orders/export&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

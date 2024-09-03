@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * RewardAssignmentParameters Class Doc Comment
  *
  * @category Class
+ * @description Defines the cost of the reward.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +59,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'parameters' => '\OpenAPI\Client\Model\RewardAssignmentParametersParameters'
+        'loyalty' => '\OpenAPI\Client\Model\RewardAssignmentParametersLoyalty'
     ];
 
     /**
@@ -69,7 +70,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'parameters' => null
+        'loyalty' => null
     ];
 
     /**
@@ -78,7 +79,11 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'parameters' => false
+=======
+        'loyalty' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -167,7 +172,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'parameters' => 'parameters'
+        'loyalty' => 'loyalty'
     ];
 
     /**
@@ -176,7 +181,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'parameters' => 'setParameters'
+        'loyalty' => 'setLoyalty'
     ];
 
     /**
@@ -185,7 +190,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'parameters' => 'getParameters'
+        'loyalty' => 'getLoyalty'
     ];
 
     /**
@@ -245,7 +250,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('parameters', $data ?? [], null);
+        $this->setIfExists('loyalty', $data ?? [], null);
     }
 
     /**
@@ -291,28 +296,40 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets parameters
+     * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null
+     * @return \OpenAPI\Client\Model\RewardAssignmentParametersLoyalty|null
      */
-    public function getParameters()
+    public function getLoyalty()
     {
-        return $this->container['parameters'];
+        return $this->container['loyalty'];
     }
 
     /**
-     * Sets parameters
+     * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\RewardAssignmentParametersLoyalty|null $loyalty loyalty
      *
      * @return self
      */
-    public function setParameters($parameters)
+    public function setLoyalty($loyalty)
     {
+<<<<<<< Updated upstream
         if (is_null($parameters)) {
             throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+=======
+        if (is_null($loyalty)) {
+            array_push($this->openAPINullablesSetToNull, 'loyalty');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+>>>>>>> Stashed changes
         }
-        $this->container['parameters'] = $parameters;
+        $this->container['loyalty'] = $loyalty;
 
         return $this;
     }

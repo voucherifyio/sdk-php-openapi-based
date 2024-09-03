@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsVoucherCode implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_voucher_code';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsVoucherCode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

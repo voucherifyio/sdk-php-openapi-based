@@ -61,13 +61,13 @@ class LoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'earning_rules' => 'array<string,\OpenAPI\Client\Model\MappingPoints>',
         'rewards' => 'array<string,\OpenAPI\Client\Model\MappingPoints>',
-        'points' => '\OpenAPI\Client\Model\LoyaltyTierBasePoints',
+        'points' => '\OpenAPI\Client\Model\LoyaltyTierPoints',
         'id' => 'string',
         'campaign_id' => 'string',
         'metadata' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'config' => '\OpenAPI\Client\Model\LoyaltyTierAllOfConfig',
+        'config' => '\OpenAPI\Client\Model\LoyaltyTierConfig',
         'expiration' => '\OpenAPI\Client\Model\LoyaltyTierExpiration',
         'object' => 'string'
     ];
@@ -497,7 +497,11 @@ class LoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets points
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\LoyaltyTierBasePoints
+=======
+     * @return \OpenAPI\Client\Model\LoyaltyTierPoints|null
+>>>>>>> Stashed changes
      */
     public function getPoints()
     {
@@ -507,7 +511,11 @@ class LoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets points
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\LoyaltyTierBasePoints $points points
+=======
+     * @param \OpenAPI\Client\Model\LoyaltyTierPoints|null $points points
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -673,7 +681,11 @@ class LoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets config
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfig
+=======
+     * @return \OpenAPI\Client\Model\LoyaltyTierConfig|null
+>>>>>>> Stashed changes
      */
     public function getConfig()
     {
@@ -683,7 +695,11 @@ class LoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfig $config config
+=======
+     * @param \OpenAPI\Client\Model\LoyaltyTierConfig|null $config config
+>>>>>>> Stashed changes
      *
      * @return self
      */

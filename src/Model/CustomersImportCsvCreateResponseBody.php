@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersImportCsvCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/customers/importCSV&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/customers/importCSV&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

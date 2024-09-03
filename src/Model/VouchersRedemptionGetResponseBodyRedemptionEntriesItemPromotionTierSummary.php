@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierSummary
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierSummary.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemPromotionTierSummary';
+=======
+    protected static $openAPIModelName = 'RewardsCreateRequestBodyParametersCampaign';
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBodyParametersCampaign.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

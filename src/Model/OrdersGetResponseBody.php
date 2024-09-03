@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * OrdersGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/orders/{orderId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/orders/{orderId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'id' => 'string',
         'source_id' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
         'status' => 'string',
         'amount' => 'int',
         'initial_amount' => 'int',
@@ -73,14 +71,16 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         'applied_discount_amount' => 'int',
         'items_applied_discount_amount' => 'int',
         'total_applied_discount_amount' => 'int',
-        'items' => '\OpenAPI\Client\Model\OrderItemCalculated[]',
+        'items' => '\OpenAPI\Client\Model\OrderCalculatedItem[]',
         'metadata' => 'object',
+        'object' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'customer_id' => 'string',
         'referrer_id' => 'string',
-        'object' => 'string',
-        'redemptions' => 'array<string,\OpenAPI\Client\Model\OrderRedemptions>',
         'customer' => '\OpenAPI\Client\Model\CustomerId',
-        'referrer' => '\OpenAPI\Client\Model\ReferrerId'
+        'referrer' => '\OpenAPI\Client\Model\ReferrerId',
+        'redemptions' => 'array<string,\OpenAPI\Client\Model\OrderRedemptionsEntry>'
     ];
 
     /**
@@ -93,8 +93,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'id' => null,
         'source_id' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
         'status' => null,
         'amount' => null,
         'initial_amount' => null,
@@ -107,12 +105,14 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         'total_applied_discount_amount' => null,
         'items' => null,
         'metadata' => null,
+        'object' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'customer_id' => null,
         'referrer_id' => null,
-        'object' => null,
-        'redemptions' => null,
         'customer' => null,
-        'referrer' => null
+        'referrer' => null,
+        'redemptions' => null
     ];
 
     /**
@@ -123,6 +123,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'id' => false,
 		'source_id' => true,
+<<<<<<< Updated upstream
 		'created_at' => false,
 		'updated_at' => true,
 		'status' => false,
@@ -141,8 +142,28 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
 		'referrer_id' => true,
 		'object' => false,
 		'redemptions' => false,
+=======
+		'status' => true,
+		'amount' => true,
+		'initial_amount' => true,
+		'discount_amount' => true,
+		'items_discount_amount' => true,
+		'total_discount_amount' => true,
+		'total_amount' => true,
+		'applied_discount_amount' => true,
+		'items_applied_discount_amount' => true,
+		'total_applied_discount_amount' => true,
+		'items' => true,
+		'metadata' => true,
+		'object' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'customer_id' => true,
+		'referrer_id' => true,
+>>>>>>> Stashed changes
 		'customer' => false,
-		'referrer' => false
+		'referrer' => false,
+		'redemptions' => true
     ];
 
     /**
@@ -233,8 +254,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'id' => 'id',
         'source_id' => 'source_id',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
         'status' => 'status',
         'amount' => 'amount',
         'initial_amount' => 'initial_amount',
@@ -247,12 +266,14 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         'total_applied_discount_amount' => 'total_applied_discount_amount',
         'items' => 'items',
         'metadata' => 'metadata',
+        'object' => 'object',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
         'customer_id' => 'customer_id',
         'referrer_id' => 'referrer_id',
-        'object' => 'object',
-        'redemptions' => 'redemptions',
         'customer' => 'customer',
-        'referrer' => 'referrer'
+        'referrer' => 'referrer',
+        'redemptions' => 'redemptions'
     ];
 
     /**
@@ -263,8 +284,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'id' => 'setId',
         'source_id' => 'setSourceId',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
         'status' => 'setStatus',
         'amount' => 'setAmount',
         'initial_amount' => 'setInitialAmount',
@@ -277,12 +296,14 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         'total_applied_discount_amount' => 'setTotalAppliedDiscountAmount',
         'items' => 'setItems',
         'metadata' => 'setMetadata',
+        'object' => 'setObject',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'customer_id' => 'setCustomerId',
         'referrer_id' => 'setReferrerId',
-        'object' => 'setObject',
-        'redemptions' => 'setRedemptions',
         'customer' => 'setCustomer',
-        'referrer' => 'setReferrer'
+        'referrer' => 'setReferrer',
+        'redemptions' => 'setRedemptions'
     ];
 
     /**
@@ -293,8 +314,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'id' => 'getId',
         'source_id' => 'getSourceId',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
         'status' => 'getStatus',
         'amount' => 'getAmount',
         'initial_amount' => 'getInitialAmount',
@@ -307,12 +326,14 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         'total_applied_discount_amount' => 'getTotalAppliedDiscountAmount',
         'items' => 'getItems',
         'metadata' => 'getMetadata',
+        'object' => 'getObject',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'customer_id' => 'getCustomerId',
         'referrer_id' => 'getReferrerId',
-        'object' => 'getObject',
-        'redemptions' => 'getRedemptions',
         'customer' => 'getCustomer',
-        'referrer' => 'getReferrer'
+        'referrer' => 'getReferrer',
+        'redemptions' => 'getRedemptions'
     ];
 
     /**
@@ -406,8 +427,6 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('source_id', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
@@ -420,12 +439,14 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('total_applied_discount_amount', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], 'order');
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('referrer_id', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'order');
-        $this->setIfExists('redemptions', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('referrer', $data ?? [], null);
+        $this->setIfExists('redemptions', $data ?? [], null);
     }
 
     /**
@@ -562,6 +583,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets created_at
      *
      * @return \DateTime|null
@@ -623,6 +645,8 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets status
      *
      * @return string|null
@@ -905,7 +929,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets items
      *
-     * @return \OpenAPI\Client\Model\OrderItemCalculated[]|null
+     * @return \OpenAPI\Client\Model\OrderCalculatedItem[]|null
      */
     public function getItems()
     {
@@ -915,7 +939,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets items
      *
-     * @param \OpenAPI\Client\Model\OrderItemCalculated[]|null $items Array of items applied to the order.
+     * @param \OpenAPI\Client\Model\OrderCalculatedItem[]|null $items Array of items applied to the order.
      *
      * @return self
      */
@@ -952,6 +976,118 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object The type of the object represented by JSON.
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the order was last updated in ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
@@ -1025,6 +1161,7 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets object
      *
      * @return string
@@ -1089,6 +1226,8 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets customer
      *
      * @return \OpenAPI\Client\Model\CustomerId|null
@@ -1138,6 +1277,40 @@ class OrdersGetResponseBody implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable referrer cannot be null');
         }
         $this->container['referrer'] = $referrer;
+
+        return $this;
+    }
+
+    /**
+     * Gets redemptions
+     *
+     * @return array<string,\OpenAPI\Client\Model\OrderRedemptionsEntry>|null
+     */
+    public function getRedemptions()
+    {
+        return $this->container['redemptions'];
+    }
+
+    /**
+     * Sets redemptions
+     *
+     * @param array<string,\OpenAPI\Client\Model\OrderRedemptionsEntry>|null $redemptions redemptions
+     *
+     * @return self
+     */
+    public function setRedemptions($redemptions)
+    {
+        if (is_null($redemptions)) {
+            array_push($this->openAPINullablesSetToNull, 'redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['redemptions'] = $redemptions;
 
         return $this;
     }

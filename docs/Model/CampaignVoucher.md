@@ -4,7 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+<<<<<<< Updated upstream
 **type** | **string** | Type of voucher. | [default to 'DISCOUNT_VOUCHER']
+=======
+**type** | **string** | Type of voucher. | [optional]
+>>>>>>> Stashed changes
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
 **gift** | [**\OpenAPI\Client\Model\Gift**](Gift.md) |  | [optional]
 **loyalty_card** | [**\OpenAPI\Client\Model\CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  | [optional]

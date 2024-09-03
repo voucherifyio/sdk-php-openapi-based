@@ -51,7 +51,7 @@ class LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject implements ModelInt
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersBalanceUpdateResponseBody_related_object';
+    protected static $openAPIModelName = 'LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

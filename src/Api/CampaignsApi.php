@@ -1427,7 +1427,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CampaignsDisableResponseBody
+     * @return object
      */
     public function disableCampaign($campaign_id, string $contentType = self::contentTypes['disableCampaign'][0])
     {
@@ -1445,7 +1445,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CampaignsDisableResponseBody, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function disableCampaignWithHttpInfo($campaign_id, string $contentType = self::contentTypes['disableCampaign'][0])
     {
@@ -1488,23 +1488,23 @@ class CampaignsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CampaignsDisableResponseBody' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CampaignsDisableResponseBody' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CampaignsDisableResponseBody', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CampaignsDisableResponseBody';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1525,7 +1525,7 @@ class CampaignsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CampaignsDisableResponseBody',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1569,7 +1569,7 @@ class CampaignsApi
      */
     public function disableCampaignAsyncWithHttpInfo($campaign_id, string $contentType = self::contentTypes['disableCampaign'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CampaignsDisableResponseBody';
+        $returnType = 'object';
         $request = $this->disableCampaignRequest($campaign_id, $contentType);
 
         return $this->client
@@ -1720,7 +1720,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CampaignsEnableResponseBody
+     * @return object
      */
     public function enableCampaign($campaign_id, string $contentType = self::contentTypes['enableCampaign'][0])
     {
@@ -1738,7 +1738,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CampaignsEnableResponseBody, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function enableCampaignWithHttpInfo($campaign_id, string $contentType = self::contentTypes['enableCampaign'][0])
     {
@@ -1781,23 +1781,23 @@ class CampaignsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CampaignsEnableResponseBody' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CampaignsEnableResponseBody' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CampaignsEnableResponseBody', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CampaignsEnableResponseBody';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1818,7 +1818,7 @@ class CampaignsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CampaignsEnableResponseBody',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1862,7 +1862,7 @@ class CampaignsApi
      */
     public function enableCampaignAsyncWithHttpInfo($campaign_id, string $contentType = self::contentTypes['enableCampaign'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CampaignsEnableResponseBody';
+        $returnType = 'object';
         $request = $this->enableCampaignRequest($campaign_id, $contentType);
 
         return $this->client

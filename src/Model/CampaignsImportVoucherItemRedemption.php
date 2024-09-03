@@ -36,7 +36,6 @@ use \OpenAPI\Client\ObjectSerializer;
  * CampaignsImportVoucherItemRedemption Class Doc Comment
  *
  * @category Class
- * @description Stores the quantity of redemptions that can be applied to the voucher.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -51,7 +50,7 @@ class CampaignsImportVoucherItemRedemption implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignsImportVoucherItem_redemption';
+    protected static $openAPIModelName = 'CampaignsImportVoucherItemRedemption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

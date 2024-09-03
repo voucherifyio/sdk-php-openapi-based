@@ -51,7 +51,7 @@ class CustomerReferralsCampaignsItem implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Customer_Referrals_Campaigns_Item';
+    protected static $openAPIModelName = 'CustomerReferralsCampaignsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

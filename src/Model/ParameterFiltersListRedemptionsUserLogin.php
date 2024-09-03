@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsUserLogin implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_user_login';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsUserLogin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

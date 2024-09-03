@@ -298,7 +298,7 @@ try {
 ## `disableCampaign()`
 
 ```php
-disableCampaign($campaign_id): \OpenAPI\Client\Model\CampaignsDisableResponseBody
+disableCampaign($campaign_id): object
 ```
 
 Disable Campaign
@@ -347,7 +347,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CampaignsDisableResponseBody**](../Model/CampaignsDisableResponseBody.md)
+**object**
 
 ### Authorization
 
@@ -365,7 +365,7 @@ try {
 ## `enableCampaign()`
 
 ```php
-enableCampaign($campaign_id): \OpenAPI\Client\Model\CampaignsEnableResponseBody
+enableCampaign($campaign_id): object
 ```
 
 Enable Campaign
@@ -414,7 +414,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CampaignsEnableResponseBody**](../Model/CampaignsEnableResponseBody.md)
+**object**
 
 ### Authorization
 

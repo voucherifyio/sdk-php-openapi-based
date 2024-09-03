@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesEarningRulesGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,11 +61,12 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'id' => 'string',
         'created_at' => '\DateTime',
-        'loyalty' => '\OpenAPI\Client\Model\EarningRuleBaseLoyalty',
+        'loyalty' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyalty',
         'event' => 'string',
-        'custom_event' => '\OpenAPI\Client\Model\EarningRuleBaseCustomEvent',
-        'segment' => '\OpenAPI\Client\Model\EarningRuleBaseSegment',
-        'source' => '\OpenAPI\Client\Model\EarningRuleBaseSource',
+        'custom_event' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyCustomEvent',
+        'segment' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySegment',
+        'loyalty_tier' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyaltyTier',
+        'source' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySource',
         'object' => 'string',
         'automation_id' => 'string',
         'start_date' => 'string',
@@ -92,6 +93,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         'event' => null,
         'custom_event' => null,
         'segment' => null,
+        'loyalty_tier' => null,
         'source' => null,
         'object' => null,
         'automation_id' => null,
@@ -111,6 +113,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'created_at' => false,
 		'loyalty' => false,
@@ -122,6 +125,20 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
 		'automation_id' => false,
 		'start_date' => false,
 		'expiration_date' => false,
+=======
+        'id' => true,
+		'created_at' => true,
+		'loyalty' => true,
+		'event' => true,
+		'custom_event' => true,
+		'segment' => true,
+		'loyalty_tier' => true,
+		'source' => true,
+		'object' => true,
+		'automation_id' => true,
+		'start_date' => true,
+		'expiration_date' => true,
+>>>>>>> Stashed changes
 		'validity_timeframe' => false,
 		'validity_day_of_week' => false,
 		'metadata' => false,
@@ -222,6 +239,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         'event' => 'event',
         'custom_event' => 'custom_event',
         'segment' => 'segment',
+        'loyalty_tier' => 'loyalty_tier',
         'source' => 'source',
         'object' => 'object',
         'automation_id' => 'automation_id',
@@ -247,6 +265,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         'event' => 'setEvent',
         'custom_event' => 'setCustomEvent',
         'segment' => 'setSegment',
+        'loyalty_tier' => 'setLoyaltyTier',
         'source' => 'setSource',
         'object' => 'setObject',
         'automation_id' => 'setAutomationId',
@@ -272,6 +291,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         'event' => 'getEvent',
         'custom_event' => 'getCustomEvent',
         'segment' => 'getSegment',
+        'loyalty_tier' => 'getLoyaltyTier',
         'source' => 'getSource',
         'object' => 'getObject',
         'automation_id' => 'getAutomationId',
@@ -326,34 +346,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         return self::$openAPIModelName;
     }
 
-    public const EVENT_ORDER_PAID = 'order.paid';
-    public const EVENT_CUSTOMER_SEGMENT_ENTERED = 'customer.segment.entered';
-    public const EVENT_CUSTOM_EVENT = 'custom_event';
-    public const EVENT_CUSTOMER_LOYALTY_TIER_UPGRADED = 'customer.loyalty.tier.upgraded';
-    public const EVENT_CUSTOMER_LOYALTY_TIER_DOWNGRADED = 'customer.loyalty.tier.downgraded';
-    public const EVENT_CUSTOMER_LOYALTY_TIER_PROLONGED = 'customer.loyalty.tier.prolonged';
-    public const EVENT_CUSTOMER_LOYALTY_TIER_JOINED = 'customer.loyalty.tier.joined';
-    public const EVENT_CUSTOMER_LOYALTY_TIER_LEFT = 'customer.loyalty.tier.left';
     public const OBJECT_EARNING_RULE = 'earning_rule';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEventAllowableValues()
-    {
-        return [
-            self::EVENT_ORDER_PAID,
-            self::EVENT_CUSTOMER_SEGMENT_ENTERED,
-            self::EVENT_CUSTOM_EVENT,
-            self::EVENT_CUSTOMER_LOYALTY_TIER_UPGRADED,
-            self::EVENT_CUSTOMER_LOYALTY_TIER_DOWNGRADED,
-            self::EVENT_CUSTOMER_LOYALTY_TIER_PROLONGED,
-            self::EVENT_CUSTOMER_LOYALTY_TIER_JOINED,
-            self::EVENT_CUSTOMER_LOYALTY_TIER_LEFT,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -388,6 +381,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         $this->setIfExists('event', $data ?? [], null);
         $this->setIfExists('custom_event', $data ?? [], null);
         $this->setIfExists('segment', $data ?? [], null);
+        $this->setIfExists('loyalty_tier', $data ?? [], null);
         $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'earning_rule');
         $this->setIfExists('automation_id', $data ?? [], null);
@@ -428,6 +422,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
+<<<<<<< Updated upstream
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -452,6 +447,8 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         if ($this->container['object'] === null) {
             $invalidProperties[] = "'object' can't be null";
         }
+=======
+>>>>>>> Stashed changes
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -548,7 +545,11 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets loyalty
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\EarningRuleBaseLoyalty
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyalty|null
+>>>>>>> Stashed changes
      */
     public function getLoyalty()
     {
@@ -558,7 +559,11 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets loyalty
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\EarningRuleBaseLoyalty $loyalty loyalty
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyalty|null $loyalty loyalty
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -594,6 +599,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
         if (is_null($event)) {
             throw new \InvalidArgumentException('non-nullable event cannot be null');
         }
+<<<<<<< Updated upstream
         $allowedValues = $this->getEventAllowableValues();
         if (!in_array($event, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -604,6 +610,8 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
                 )
             );
         }
+=======
+>>>>>>> Stashed changes
         $this->container['event'] = $event;
 
         return $this;
@@ -612,7 +620,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets custom_event
      *
-     * @return \OpenAPI\Client\Model\EarningRuleBaseCustomEvent|null
+     * @return \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyCustomEvent|null
      */
     public function getCustomEvent()
     {
@@ -622,7 +630,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets custom_event
      *
-     * @param \OpenAPI\Client\Model\EarningRuleBaseCustomEvent|null $custom_event custom_event
+     * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyCustomEvent|null $custom_event custom_event
      *
      * @return self
      */
@@ -639,7 +647,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets segment
      *
-     * @return \OpenAPI\Client\Model\EarningRuleBaseSegment|null
+     * @return \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySegment|null
      */
     public function getSegment()
     {
@@ -649,7 +657,7 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets segment
      *
-     * @param \OpenAPI\Client\Model\EarningRuleBaseSegment|null $segment segment
+     * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySegment|null $segment segment
      *
      * @return self
      */
@@ -664,9 +672,47 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets loyalty_tier
+     *
+     * @return \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyaltyTier|null
+     */
+    public function getLoyaltyTier()
+    {
+        return $this->container['loyalty_tier'];
+    }
+
+    /**
+     * Sets loyalty_tier
+     *
+     * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodyLoyaltyTier|null $loyalty_tier loyalty_tier
+     *
+     * @return self
+     */
+    public function setLoyaltyTier($loyalty_tier)
+    {
+        if (is_null($loyalty_tier)) {
+            array_push($this->openAPINullablesSetToNull, 'loyalty_tier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_tier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['loyalty_tier'] = $loyalty_tier;
+
+        return $this;
+    }
+
+    /**
      * Gets source
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\EarningRuleBaseSource
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySource|null
+>>>>>>> Stashed changes
      */
     public function getSource()
     {
@@ -676,7 +722,11 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets source
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\EarningRuleBaseSource $source source
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesGetResponseBodySource|null $source source
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -767,7 +817,11 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets start_date
      *
+<<<<<<< Updated upstream
      * @param string|null $start_date Start date defines when the earning rule starts to be active. Activation timestamp in ISO 8601 format. Earning rule is inactive before this date. If you don't define the start date for an earning rule, it'll inherit the campaign start date by default.
+=======
+     * @param string|null $start_date Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default.
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -794,7 +848,11 @@ class LoyaltiesEarningRulesGetResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets expiration_date
      *
+<<<<<<< Updated upstream
      * @param string|null $expiration_date Expiration date defines when the earning rule expires. Expiration timestamp in ISO 8601 format. Earning rule is inactive after this date.If you don't define the expiration date for an earning rule, it'll inherit the campaign expiration date by default.
+=======
+     * @param string|null $expiration_date Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default.
+>>>>>>> Stashed changes
      *
      * @return self
      */

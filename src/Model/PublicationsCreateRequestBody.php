@@ -62,6 +62,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         'source_id' => 'string',
         'customer' => '\OpenAPI\Client\Model\PublicationsCreateRequestBodyCustomer',
         'metadata' => 'object',
+        'channel' => 'string',
         'campaign' => '\OpenAPI\Client\Model\CreatePublicationCampaign'
     ];
 
@@ -77,6 +78,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         'source_id' => null,
         'customer' => null,
         'metadata' => null,
+        'channel' => null,
         'campaign' => null
     ];
 
@@ -86,10 +88,18 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'voucher' => false,
 		'source_id' => false,
 		'customer' => false,
 		'metadata' => false,
+=======
+        'voucher' => true,
+		'source_id' => true,
+		'customer' => true,
+		'metadata' => true,
+		'channel' => true,
+>>>>>>> Stashed changes
 		'campaign' => false
     ];
 
@@ -183,6 +193,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         'source_id' => 'source_id',
         'customer' => 'customer',
         'metadata' => 'metadata',
+        'channel' => 'channel',
         'campaign' => 'campaign'
     ];
 
@@ -196,6 +207,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         'source_id' => 'setSourceId',
         'customer' => 'setCustomer',
         'metadata' => 'setMetadata',
+        'channel' => 'setChannel',
         'campaign' => 'setCampaign'
     ];
 
@@ -209,6 +221,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         'source_id' => 'getSourceId',
         'customer' => 'getCustomer',
         'metadata' => 'getMetadata',
+        'channel' => 'getChannel',
         'campaign' => 'getCampaign'
     ];
 
@@ -273,6 +286,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('campaign', $data ?? [], null);
     }
 
@@ -331,7 +345,7 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets voucher
      *
-     * @param string|null $voucher Code of voucher being published.
+     * @param string|null $voucher Code of the voucher being published.
      *
      * @return self
      */
@@ -422,6 +436,40 @@ class PublicationsCreateRequestBody implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string|null $channel Specify the distribution channel.
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['channel'] = $channel;
 
         return $this;
     }

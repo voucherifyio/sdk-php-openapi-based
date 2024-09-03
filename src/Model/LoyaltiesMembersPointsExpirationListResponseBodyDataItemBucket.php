@@ -51,7 +51,7 @@ class LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket implements 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Loyalties_Members_Points_Expiration_List_Response_Body_Data_Item_bucket';
+    protected static $openAPIModelName = 'LoyaltiesMembersPointsExpirationListResponseBodyDataItemBucket';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

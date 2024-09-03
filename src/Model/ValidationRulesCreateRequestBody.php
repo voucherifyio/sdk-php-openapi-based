@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationRulesCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/validation-rules&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/validation-rules&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,8 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'name' => 'string',
         'rules' => 'object',
-        'error' => '\OpenAPI\Client\Model\ValidationRuleBaseError',
-        'applicable_to' => '\OpenAPI\Client\Model\ValidationRuleBaseApplicableTo',
+        'error' => '\OpenAPI\Client\Model\ValidationRulesCreateRequestBodyError',
+        'applicable_to' => '\OpenAPI\Client\Model\ValidationRulesCreateRequestBodyApplicableTo',
         'type' => 'string',
         'context_type' => 'string'
     ];
@@ -455,9 +455,6 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -494,7 +491,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -504,7 +501,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets name
      *
-     * @param string $name Custom, unique name for set of validation rules.
+     * @param string|null $name Custom, unique name for set of validation rules.
      *
      * @return self
      */
@@ -548,7 +545,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets error
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseError|null
+     * @return \OpenAPI\Client\Model\ValidationRulesCreateRequestBodyError|null
      */
     public function getError()
     {
@@ -558,7 +555,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets error
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseError|null $error error
+     * @param \OpenAPI\Client\Model\ValidationRulesCreateRequestBodyError|null $error error
      *
      * @return self
      */
@@ -575,7 +572,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets applicable_to
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo|null
+     * @return \OpenAPI\Client\Model\ValidationRulesCreateRequestBodyApplicableTo|null
      */
     public function getApplicableTo()
     {
@@ -585,7 +582,7 @@ class ValidationRulesCreateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets applicable_to
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo|null $applicable_to applicable_to
+     * @param \OpenAPI\Client\Model\ValidationRulesCreateRequestBodyApplicableTo|null $applicable_to applicable_to
      *
      * @return self
      */

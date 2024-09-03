@@ -66,7 +66,7 @@ class Referrer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
+        'address' => '\OpenAPI\Client\Model\ReferrerAddress',
         'metadata' => 'object'
     ];
 
@@ -572,7 +572,7 @@ class Referrer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\ReferrerAddress|null
      */
     public function getAddress()
     {
@@ -582,7 +582,7 @@ class Referrer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\ReferrerAddress|null $address address
      *
      * @return self
      */

@@ -51,7 +51,11 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
+<<<<<<< Updated upstream
     protected static $openAPIModelName = 'Voucher_loyalty_card';
+=======
+    protected static $openAPIModelName = 'VoucherLoyaltyCard';
+>>>>>>> Stashed changes
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -325,7 +329,7 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets points
      *
-     * @param int|null $points Total points incurred over lifespan of loyalty card.
+     * @param int|null $points Total points incurred over the lifespan of the loyalty card.
      *
      * @return self
      */

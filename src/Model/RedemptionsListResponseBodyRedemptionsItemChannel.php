@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemChannel implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemChannel';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

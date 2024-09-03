@@ -59,8 +59,8 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'qr' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsQr',
-        'barcode' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode'
+        'qr' => '\OpenAPI\Client\Model\VoucherAssetsQr',
+        'barcode' => '\OpenAPI\Client\Model\VoucherAssetsBarcode'
     ];
 
     /**
@@ -301,7 +301,7 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets qr
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsQr|null
+     * @return \OpenAPI\Client\Model\VoucherAssetsQr|null
      */
     public function getQr()
     {
@@ -311,7 +311,7 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets qr
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsQr|null $qr qr
+     * @param \OpenAPI\Client\Model\VoucherAssetsQr|null $qr qr
      *
      * @return self
      */
@@ -328,7 +328,7 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets barcode
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode|null
+     * @return \OpenAPI\Client\Model\VoucherAssetsBarcode|null
      */
     public function getBarcode()
     {
@@ -338,7 +338,7 @@ class VoucherAssets implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets barcode
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode|null $barcode barcode
+     * @param \OpenAPI\Client\Model\VoucherAssetsBarcode|null $barcode barcode
      *
      * @return self
      */

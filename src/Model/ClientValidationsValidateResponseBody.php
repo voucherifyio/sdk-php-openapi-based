@@ -60,8 +60,13 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'valid' => 'bool',
+<<<<<<< Updated upstream
         'redeemables' => '\OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]',
         'skipped_redeemables' => 'ValidationsRedeemableInapplicable[]',
+=======
+        'redeemables' => '\OpenAPI\Client\Model\ClientValidationsValidateResponseBodyRedeemablesItem[]',
+        'skipped_redeemables' => 'ValidationsRedeemableSkipped[]',
+>>>>>>> Stashed changes
         'inapplicable_redeemables' => 'ValidationsRedeemableInapplicable[]',
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'tracking_id' => 'string',
@@ -376,7 +381,11 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets redeemables
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[]
+=======
+     * @return \OpenAPI\Client\Model\ClientValidationsValidateResponseBodyRedeemablesItem[]|null
+>>>>>>> Stashed changes
      */
     public function getRedeemables()
     {
@@ -386,7 +395,11 @@ class ClientValidationsValidateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets redeemables
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\ValidationsValidateResponseBodyRedeemablesItem[] $redeemables redeemables
+=======
+     * @param \OpenAPI\Client\Model\ClientValidationsValidateResponseBodyRedeemablesItem[]|null $redeemables redeemables
+>>>>>>> Stashed changes
      *
      * @return self
      */

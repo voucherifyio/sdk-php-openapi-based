@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersTransactionsExportCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

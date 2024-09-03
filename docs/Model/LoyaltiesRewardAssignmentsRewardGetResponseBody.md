@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+<<<<<<< Updated upstream
 **id** | **string** | Unique reward ID, assigned by Voucherify. |
 **name** | **string** | Reward name. |
 **stock** | **int** | Configurable for **material rewards**. The number of units of the product that you want to share as reward. |
@@ -11,6 +12,15 @@ Name | Type | Description | Notes
 **attributes** | [**\OpenAPI\Client\Model\RewardAttributes**](RewardAttributes.md) |  | [optional]
 **metadata** | **object** | The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format. |
 **type** | **string** | Reward type. |
+=======
+**id** | **string** | Unique reward ID, assigned by Voucherify. | [optional]
+**name** | **string** | Reward name. | [optional]
+**stock** | **int** | Configurable for **material rewards**. The number of units of the product that you want to share as reward. | [optional]
+**redeemed** | **int** | Defines the number of already invoked (successful) reward redemptions. | [optional]
+**attributes** | [**\OpenAPI\Client\Model\LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes**](LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes.md) |  | [optional]
+**metadata** | **object** | The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format. | [optional]
+**type** | **string** | Reward type. | [optional]
+>>>>>>> Stashed changes
 **parameters** | [**\OpenAPI\Client\Model\RewardType**](RewardType.md) |  | [optional]
 **created_at** | **\DateTime** | Timestamp representing the date and time when the reward was created in ISO 8601 format. |
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the reward was updated in ISO 8601 format. |

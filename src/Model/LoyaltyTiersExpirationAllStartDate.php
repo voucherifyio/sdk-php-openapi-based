@@ -51,7 +51,7 @@ class LoyaltyTiersExpirationAllStartDate implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltyTiersExpirationAll_start_date';
+    protected static $openAPIModelName = 'LoyaltyTiersExpirationAllStartDate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

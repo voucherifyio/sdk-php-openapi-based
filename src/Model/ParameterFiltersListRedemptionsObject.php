@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsObject implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_object';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

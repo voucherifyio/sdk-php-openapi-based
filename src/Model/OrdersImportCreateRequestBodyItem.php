@@ -50,7 +50,7 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Orders_Import_Create_Request_Body_Item';
+    protected static $openAPIModelName = 'OrdersImportCreateRequestBodyItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,17 +58,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'source_id' => 'string',
         'status' => 'string',
         'amount' => 'int',
-        'discount_amount' => 'int',
         'initial_amount' => 'int',
+        'discount_amount' => 'int',
         'items' => '\OpenAPI\Client\Model\OrderItem[]',
-        'customer' => '\OpenAPI\Client\Model\Customer',
-        'customer_id' => 'string',
-        'referrer' => '\OpenAPI\Client\Model\Referrer',
-        'referrer_id' => 'string',
         'metadata' => 'object',
-        'source_id' => 'string'
+        'created_at' => '\DateTime',
+        'referrer_id' => 'string',
+        'customer' => '\OpenAPI\Client\Model\Customer',
+        'referrer' => '\OpenAPI\Client\Model\Referrer'
     ];
 
     /**
@@ -79,17 +80,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'source_id' => null,
         'status' => null,
         'amount' => null,
-        'discount_amount' => null,
         'initial_amount' => null,
+        'discount_amount' => null,
         'items' => null,
-        'customer' => null,
-        'customer_id' => null,
-        'referrer' => null,
-        'referrer_id' => null,
         'metadata' => null,
-        'source_id' => null
+        'created_at' => 'date-time',
+        'referrer_id' => null,
+        'customer' => null,
+        'referrer' => null
     ];
 
     /**
@@ -98,6 +100,7 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'status' => false,
 		'amount' => false,
 		'discount_amount' => false,
@@ -109,6 +112,20 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
 		'referrer_id' => false,
 		'metadata' => false,
 		'source_id' => false
+=======
+        'id' => true,
+		'source_id' => true,
+		'status' => true,
+		'amount' => true,
+		'initial_amount' => true,
+		'discount_amount' => true,
+		'items' => true,
+		'metadata' => true,
+		'created_at' => false,
+		'referrer_id' => true,
+		'customer' => false,
+		'referrer' => false
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -197,17 +214,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'source_id' => 'source_id',
         'status' => 'status',
         'amount' => 'amount',
-        'discount_amount' => 'discount_amount',
         'initial_amount' => 'initial_amount',
+        'discount_amount' => 'discount_amount',
         'items' => 'items',
-        'customer' => 'customer',
-        'customer_id' => 'customer_id',
-        'referrer' => 'referrer',
-        'referrer_id' => 'referrer_id',
         'metadata' => 'metadata',
-        'source_id' => 'source_id'
+        'created_at' => 'created_at',
+        'referrer_id' => 'referrer_id',
+        'customer' => 'customer',
+        'referrer' => 'referrer'
     ];
 
     /**
@@ -216,17 +234,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'source_id' => 'setSourceId',
         'status' => 'setStatus',
         'amount' => 'setAmount',
-        'discount_amount' => 'setDiscountAmount',
         'initial_amount' => 'setInitialAmount',
+        'discount_amount' => 'setDiscountAmount',
         'items' => 'setItems',
-        'customer' => 'setCustomer',
-        'customer_id' => 'setCustomerId',
-        'referrer' => 'setReferrer',
-        'referrer_id' => 'setReferrerId',
         'metadata' => 'setMetadata',
-        'source_id' => 'setSourceId'
+        'created_at' => 'setCreatedAt',
+        'referrer_id' => 'setReferrerId',
+        'customer' => 'setCustomer',
+        'referrer' => 'setReferrer'
     ];
 
     /**
@@ -235,17 +254,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'source_id' => 'getSourceId',
         'status' => 'getStatus',
         'amount' => 'getAmount',
-        'discount_amount' => 'getDiscountAmount',
         'initial_amount' => 'getInitialAmount',
+        'discount_amount' => 'getDiscountAmount',
         'items' => 'getItems',
-        'customer' => 'getCustomer',
-        'customer_id' => 'getCustomerId',
-        'referrer' => 'getReferrer',
-        'referrer_id' => 'getReferrerId',
         'metadata' => 'getMetadata',
-        'source_id' => 'getSourceId'
+        'created_at' => 'getCreatedAt',
+        'referrer_id' => 'getReferrerId',
+        'customer' => 'getCustomer',
+        'referrer' => 'getReferrer'
     ];
 
     /**
@@ -324,17 +344,18 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
+        $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
-        $this->setIfExists('referrer_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('referrer_id', $data ?? [], null);
+        $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('referrer', $data ?? [], null);
     }
 
     /**
@@ -387,6 +408,74 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -453,6 +542,7 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets discount_amount
      *
      * @return int|null
@@ -480,6 +570,8 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets initial_amount
      *
      * @return int|null
@@ -502,6 +594,40 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
         }
         $this->container['initial_amount'] = $initial_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return int|null
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param int|null $discount_amount Sum of all order-level discounts applied to the order.
+     *
+     * @return self
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        if (is_null($discount_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
@@ -534,24 +660,25 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets customer
+     * Gets metadata
      *
-     * @return \OpenAPI\Client\Model\Customer|null
+     * @return object|null
      */
-    public function getCustomer()
+    public function getMetadata()
     {
-        return $this->container['customer'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets customer
+     * Sets metadata
      *
-     * @param \OpenAPI\Client\Model\Customer|null $customer customer
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setMetadata($metadata)
     {
+<<<<<<< Updated upstream
         if (is_null($customer)) {
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
@@ -581,35 +708,46 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
     {
         if (is_null($customer_id)) {
             throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+=======
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+>>>>>>> Stashed changes
         }
-        $this->container['customer_id'] = $customer_id;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets referrer
+     * Gets created_at
      *
-     * @return \OpenAPI\Client\Model\Referrer|null
+     * @return \DateTime|null
      */
-    public function getReferrer()
+    public function getCreatedAt()
     {
-        return $this->container['referrer'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets referrer
+     * Sets created_at
      *
-     * @param \OpenAPI\Client\Model\Referrer|null $referrer referrer
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
-    public function setReferrer($referrer)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($referrer)) {
-            throw new \InvalidArgumentException('non-nullable referrer cannot be null');
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $this->container['referrer'] = $referrer;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -642,55 +780,60 @@ class OrdersImportCreateRequestBodyItem implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets metadata
+     * Gets customer
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\Customer|null
      */
-    public function getMetadata()
+    public function getCustomer()
     {
-        return $this->container['metadata'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets metadata
+     * Sets customer
      *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
+     * @param \OpenAPI\Client\Model\Customer|null $customer customer
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setCustomer($customer)
     {
+<<<<<<< Updated upstream
         if (is_null($metadata)) {
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+=======
+        if (is_null($customer)) {
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+>>>>>>> Stashed changes
         }
-        $this->container['metadata'] = $metadata;
+        $this->container['customer'] = $customer;
 
         return $this;
     }
 
     /**
-     * Gets source_id
+     * Gets referrer
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\Referrer|null
      */
-    public function getSourceId()
+    public function getReferrer()
     {
-        return $this->container['source_id'];
+        return $this->container['referrer'];
     }
 
     /**
-     * Sets source_id
+     * Sets referrer
      *
-     * @param string|null $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
+     * @param \OpenAPI\Client\Model\Referrer|null $referrer referrer
      *
      * @return self
      */
-    public function setSourceId($source_id)
+    public function setReferrer($referrer)
     {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+        if (is_null($referrer)) {
+            throw new \InvalidArgumentException('non-nullable referrer cannot be null');
         }
-        $this->container['source_id'] = $source_id;
+        $this->container['referrer'] = $referrer;
 
         return $this;
     }

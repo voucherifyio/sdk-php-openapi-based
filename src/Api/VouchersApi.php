@@ -72,6 +72,9 @@ class VouchersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createVoucher' => [
+            'application/json',
+        ],
         'deleteVoucher' => [
             'application/json',
         ],
@@ -84,7 +87,13 @@ class VouchersApi
         'exportVoucherTransactions' => [
             'application/json',
         ],
+        'generateRandomCode' => [
+            'application/json',
+        ],
         'getVoucher' => [
+            'application/json',
+        ],
+        'importVouchers' => [
             'application/json',
         ],
         'importVouchersUsingCsv' => [
@@ -93,10 +102,22 @@ class VouchersApi
         'listVoucherTransactions' => [
             'application/json',
         ],
+        'listVouchers' => [
+            'application/json',
+        ],
         'releaseValidationSession' => [
             'application/json',
         ],
+        'updateVoucher' => [
+            'application/json',
+        ],
         'updateVoucherBalance' => [
+            'application/json',
+        ],
+        'updateVouchersInBulk' => [
+            'application/json',
+        ],
+        'updateVouchersMetadataInBulk' => [
             'application/json',
         ],
     ];
@@ -145,6 +166,312 @@ class VouchersApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createVoucher
+     *
+     * Create Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersCreateWithSpecificCodeRequestBody $vouchers_create_with_specific_code_request_body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoucher'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersCreateResponseBody
+     */
+    public function createVoucher($code, $vouchers_create_with_specific_code_request_body = null, string $contentType = self::contentTypes['createVoucher'][0])
+    {
+        list($response) = $this->createVoucherWithHttpInfo($code, $vouchers_create_with_specific_code_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createVoucherWithHttpInfo
+     *
+     * Create Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersCreateWithSpecificCodeRequestBody $vouchers_create_with_specific_code_request_body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoucher'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createVoucherWithHttpInfo($code, $vouchers_create_with_specific_code_request_body = null, string $contentType = self::contentTypes['createVoucher'][0])
+    {
+        $request = $this->createVoucherRequest($code, $vouchers_create_with_specific_code_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\VouchersCreateResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersCreateResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersCreateResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersCreateResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersCreateResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createVoucherAsync
+     *
+     * Create Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersCreateWithSpecificCodeRequestBody $vouchers_create_with_specific_code_request_body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createVoucherAsync($code, $vouchers_create_with_specific_code_request_body = null, string $contentType = self::contentTypes['createVoucher'][0])
+    {
+        return $this->createVoucherAsyncWithHttpInfo($code, $vouchers_create_with_specific_code_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createVoucherAsyncWithHttpInfo
+     *
+     * Create Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersCreateWithSpecificCodeRequestBody $vouchers_create_with_specific_code_request_body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createVoucherAsyncWithHttpInfo($code, $vouchers_create_with_specific_code_request_body = null, string $contentType = self::contentTypes['createVoucher'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersCreateResponseBody';
+        $request = $this->createVoucherRequest($code, $vouchers_create_with_specific_code_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createVoucher'
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersCreateWithSpecificCodeRequestBody $vouchers_create_with_specific_code_request_body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createVoucherRequest($code, $vouchers_create_with_specific_code_request_body = null, string $contentType = self::contentTypes['createVoucher'][0])
+    {
+
+        // verify the required parameter 'code' is set
+        if ($code === null || (is_array($code) && count($code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $code when calling createVoucher'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/vouchers/{code}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'code' . '}',
+                ObjectSerializer::toPathValue($code),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($vouchers_create_with_specific_code_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_create_with_specific_code_request_body));
+            } else {
+                $httpBody = $vouchers_create_with_specific_code_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -1294,6 +1621,292 @@ class VouchersApi
     }
 
     /**
+     * Operation generateRandomCode
+     *
+     * Generate Random Code
+     *
+     * @param  object $body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateRandomCode'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersCreateResponseBody
+     */
+    public function generateRandomCode($body = null, string $contentType = self::contentTypes['generateRandomCode'][0])
+    {
+        list($response) = $this->generateRandomCodeWithHttpInfo($body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation generateRandomCodeWithHttpInfo
+     *
+     * Generate Random Code
+     *
+     * @param  object $body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateRandomCode'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateRandomCodeWithHttpInfo($body = null, string $contentType = self::contentTypes['generateRandomCode'][0])
+    {
+        $request = $this->generateRandomCodeRequest($body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\VouchersCreateResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersCreateResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersCreateResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersCreateResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersCreateResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generateRandomCodeAsync
+     *
+     * Generate Random Code
+     *
+     * @param  object $body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateRandomCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateRandomCodeAsync($body = null, string $contentType = self::contentTypes['generateRandomCode'][0])
+    {
+        return $this->generateRandomCodeAsyncWithHttpInfo($body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation generateRandomCodeAsyncWithHttpInfo
+     *
+     * Generate Random Code
+     *
+     * @param  object $body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateRandomCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateRandomCodeAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['generateRandomCode'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersCreateResponseBody';
+        $request = $this->generateRandomCodeRequest($body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'generateRandomCode'
+     *
+     * @param  object $body Specify the details of the voucher that you would like to create. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['generateRandomCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function generateRandomCodeRequest($body = null, string $contentType = self::contentTypes['generateRandomCode'][0])
+    {
+
+
+
+        $resourcePath = '/v1/vouchers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getVoucher
      *
      * Get Voucher
@@ -1580,6 +2193,298 @@ class VouchersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importVouchers
+     *
+     * Import Vouchers
+     *
+     * @param  \OpenAPI\Client\Model\VouchersImportCreateItemRequestBody[] $vouchers_import_create_item_request_body The request body is an array of objects. Each object contains details about a specific voucher. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchers'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersImportCreateResponseBody
+     */
+    public function importVouchers($vouchers_import_create_item_request_body, string $contentType = self::contentTypes['importVouchers'][0])
+    {
+        list($response) = $this->importVouchersWithHttpInfo($vouchers_import_create_item_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation importVouchersWithHttpInfo
+     *
+     * Import Vouchers
+     *
+     * @param  \OpenAPI\Client\Model\VouchersImportCreateItemRequestBody[] $vouchers_import_create_item_request_body The request body is an array of objects. Each object contains details about a specific voucher. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchers'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersImportCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importVouchersWithHttpInfo($vouchers_import_create_item_request_body, string $contentType = self::contentTypes['importVouchers'][0])
+    {
+        $request = $this->importVouchersRequest($vouchers_import_create_item_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\OpenAPI\Client\Model\VouchersImportCreateResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersImportCreateResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersImportCreateResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersImportCreateResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersImportCreateResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importVouchersAsync
+     *
+     * Import Vouchers
+     *
+     * @param  \OpenAPI\Client\Model\VouchersImportCreateItemRequestBody[] $vouchers_import_create_item_request_body The request body is an array of objects. Each object contains details about a specific voucher. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importVouchersAsync($vouchers_import_create_item_request_body, string $contentType = self::contentTypes['importVouchers'][0])
+    {
+        return $this->importVouchersAsyncWithHttpInfo($vouchers_import_create_item_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importVouchersAsyncWithHttpInfo
+     *
+     * Import Vouchers
+     *
+     * @param  \OpenAPI\Client\Model\VouchersImportCreateItemRequestBody[] $vouchers_import_create_item_request_body The request body is an array of objects. Each object contains details about a specific voucher. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importVouchersAsyncWithHttpInfo($vouchers_import_create_item_request_body, string $contentType = self::contentTypes['importVouchers'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersImportCreateResponseBody';
+        $request = $this->importVouchersRequest($vouchers_import_create_item_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importVouchers'
+     *
+     * @param  \OpenAPI\Client\Model\VouchersImportCreateItemRequestBody[] $vouchers_import_create_item_request_body The request body is an array of objects. Each object contains details about a specific voucher. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function importVouchersRequest($vouchers_import_create_item_request_body, string $contentType = self::contentTypes['importVouchers'][0])
+    {
+
+        // verify the required parameter 'vouchers_import_create_item_request_body' is set
+        if ($vouchers_import_create_item_request_body === null || (is_array($vouchers_import_create_item_request_body) && count($vouchers_import_create_item_request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vouchers_import_create_item_request_body when calling importVouchers'
+            );
+        }
+
+
+        $resourcePath = '/v1/vouchers/import';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($vouchers_import_create_item_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_import_create_item_request_body));
+            } else {
+                $httpBody = $vouchers_import_create_item_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2216,6 +3121,456 @@ class VouchersApi
     }
 
     /**
+     * Operation listVouchers
+     *
+     * List Vouchers
+     *
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $category Limit search results to vouchers within the specified category. (optional)
+     * @param  string $campaign_id Limit search results to vouchers within the specified campaign (optional)
+     * @param  string $customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param  string $campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterUpdatedBeforeAfter $updated_at A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterOrderVouchers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $code code (optional)
+     * @param  string[] $ids ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVouchers'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersListResponseBody
+     */
+    public function listVouchers($limit = null, $page = null, $category = null, $campaign_id = null, $customer = null, $campaign = null, $created_at = null, $updated_at = null, $order = null, $code = null, $ids = null, string $contentType = self::contentTypes['listVouchers'][0])
+    {
+        list($response) = $this->listVouchersWithHttpInfo($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order, $code, $ids, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation listVouchersWithHttpInfo
+     *
+     * List Vouchers
+     *
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $category Limit search results to vouchers within the specified category. (optional)
+     * @param  string $campaign_id Limit search results to vouchers within the specified campaign (optional)
+     * @param  string $customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param  string $campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterUpdatedBeforeAfter $updated_at A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterOrderVouchers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $code (optional)
+     * @param  string[] $ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVouchers'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersListResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listVouchersWithHttpInfo($limit = null, $page = null, $category = null, $campaign_id = null, $customer = null, $campaign = null, $created_at = null, $updated_at = null, $order = null, $code = null, $ids = null, string $contentType = self::contentTypes['listVouchers'][0])
+    {
+        $request = $this->listVouchersRequest($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order, $code, $ids, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\VouchersListResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersListResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersListResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersListResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersListResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listVouchersAsync
+     *
+     * List Vouchers
+     *
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $category Limit search results to vouchers within the specified category. (optional)
+     * @param  string $campaign_id Limit search results to vouchers within the specified campaign (optional)
+     * @param  string $customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param  string $campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterUpdatedBeforeAfter $updated_at A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterOrderVouchers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $code (optional)
+     * @param  string[] $ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listVouchersAsync($limit = null, $page = null, $category = null, $campaign_id = null, $customer = null, $campaign = null, $created_at = null, $updated_at = null, $order = null, $code = null, $ids = null, string $contentType = self::contentTypes['listVouchers'][0])
+    {
+        return $this->listVouchersAsyncWithHttpInfo($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order, $code, $ids, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listVouchersAsyncWithHttpInfo
+     *
+     * List Vouchers
+     *
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $category Limit search results to vouchers within the specified category. (optional)
+     * @param  string $campaign_id Limit search results to vouchers within the specified campaign (optional)
+     * @param  string $customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param  string $campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterUpdatedBeforeAfter $updated_at A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterOrderVouchers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $code (optional)
+     * @param  string[] $ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listVouchersAsyncWithHttpInfo($limit = null, $page = null, $category = null, $campaign_id = null, $customer = null, $campaign = null, $created_at = null, $updated_at = null, $order = null, $code = null, $ids = null, string $contentType = self::contentTypes['listVouchers'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersListResponseBody';
+        $request = $this->listVouchersRequest($limit, $page, $category, $campaign_id, $customer, $campaign, $created_at, $updated_at, $order, $code, $ids, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listVouchers'
+     *
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  string $category Limit search results to vouchers within the specified category. (optional)
+     * @param  string $campaign_id Limit search results to vouchers within the specified campaign (optional)
+     * @param  string $customer A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. (optional)
+     * @param  string $campaign A unique campaign name, identifies the parent campaign. (optional)
+     * @param  ParameterCreatedBeforeAfter $created_at A filter on the list based on the object created_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [created_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterUpdatedBeforeAfter $updated_at A filter on the list based on the object updated_at field. The value is a dictionary with the following options: before, after. A date value must be presented in ISO 8601 format (2016-11-16T14:14:31Z or 2016-11-16). An example: [updated_at][before] 2017-09-08T13:52:18.227Z (optional)
+     * @param  ParameterOrderVouchers $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $code (optional)
+     * @param  string[] $ids (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVouchers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listVouchersRequest($limit = null, $page = null, $category = null, $campaign_id = null, $customer = null, $campaign = null, $created_at = null, $updated_at = null, $order = null, $code = null, $ids = null, string $contentType = self::contentTypes['listVouchers'][0])
+    {
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling VouchersApi.listVouchers, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling VouchersApi.listVouchers, must be bigger than or equal to 1.');
+        }
+        
+        if ($page !== null && $page > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling VouchersApi.listVouchers, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling VouchersApi.listVouchers, must be bigger than or equal to 1.');
+        }
+        
+
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/v1/vouchers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $category,
+            'category', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_id,
+            'campaign_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $customer,
+            'customer', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign,
+            'campaign', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_at,
+            'created_at', // param base name
+            'object', // openApiType
+            'deepObject', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $updated_at,
+            'updated_at', // param base name
+            'object', // openApiType
+            'deepObject', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order,
+            'order', // param base name
+            'ParameterOrderVouchers', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $code,
+            'code', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ids,
+            'ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation releaseValidationSession
      *
      * Release Validation Session
@@ -2468,6 +3823,318 @@ class VouchersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateVoucher
+     *
+     * Update Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersUpdateRequestBody $vouchers_update_request_body Specify the parameters to be updated. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucher'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersUpdateResponseBody
+     */
+    public function updateVoucher($code, $vouchers_update_request_body, string $contentType = self::contentTypes['updateVoucher'][0])
+    {
+        list($response) = $this->updateVoucherWithHttpInfo($code, $vouchers_update_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateVoucherWithHttpInfo
+     *
+     * Update Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersUpdateRequestBody $vouchers_update_request_body Specify the parameters to be updated. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucher'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersUpdateResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateVoucherWithHttpInfo($code, $vouchers_update_request_body, string $contentType = self::contentTypes['updateVoucher'][0])
+    {
+        $request = $this->updateVoucherRequest($code, $vouchers_update_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\VouchersUpdateResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersUpdateResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersUpdateResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersUpdateResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersUpdateResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateVoucherAsync
+     *
+     * Update Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersUpdateRequestBody $vouchers_update_request_body Specify the parameters to be updated. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVoucherAsync($code, $vouchers_update_request_body, string $contentType = self::contentTypes['updateVoucher'][0])
+    {
+        return $this->updateVoucherAsyncWithHttpInfo($code, $vouchers_update_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateVoucherAsyncWithHttpInfo
+     *
+     * Update Voucher
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersUpdateRequestBody $vouchers_update_request_body Specify the parameters to be updated. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVoucherAsyncWithHttpInfo($code, $vouchers_update_request_body, string $contentType = self::contentTypes['updateVoucher'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersUpdateResponseBody';
+        $request = $this->updateVoucherRequest($code, $vouchers_update_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateVoucher'
+     *
+     * @param  string $code A unique **code** that identifies the voucher. (required)
+     * @param  \OpenAPI\Client\Model\VouchersUpdateRequestBody $vouchers_update_request_body Specify the parameters to be updated. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucher'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateVoucherRequest($code, $vouchers_update_request_body, string $contentType = self::contentTypes['updateVoucher'][0])
+    {
+
+        // verify the required parameter 'code' is set
+        if ($code === null || (is_array($code) && count($code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $code when calling updateVoucher'
+            );
+        }
+
+        // verify the required parameter 'vouchers_update_request_body' is set
+        if ($vouchers_update_request_body === null || (is_array($vouchers_update_request_body) && count($vouchers_update_request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vouchers_update_request_body when calling updateVoucher'
+            );
+        }
+
+
+        $resourcePath = '/v1/vouchers/{code}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'code' . '}',
+                ObjectSerializer::toPathValue($code),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($vouchers_update_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_update_request_body));
+            } else {
+                $httpBody = $vouchers_update_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2729,6 +4396,590 @@ class VouchersApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_balance_update_request_body));
             } else {
                 $httpBody = $vouchers_balance_update_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateVouchersInBulk
+     *
+     * Update Vouchers in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersUpdateInBulkItemRequestBody[] $vouchers_update_in_bulk_item_request_body List the codes to be updated with the metadata key/value pairs for that code. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersInBulk'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody
+     */
+    public function updateVouchersInBulk($vouchers_update_in_bulk_item_request_body, string $contentType = self::contentTypes['updateVouchersInBulk'][0])
+    {
+        list($response) = $this->updateVouchersInBulkWithHttpInfo($vouchers_update_in_bulk_item_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateVouchersInBulkWithHttpInfo
+     *
+     * Update Vouchers in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersUpdateInBulkItemRequestBody[] $vouchers_update_in_bulk_item_request_body List the codes to be updated with the metadata key/value pairs for that code. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersInBulk'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateVouchersInBulkWithHttpInfo($vouchers_update_in_bulk_item_request_body, string $contentType = self::contentTypes['updateVouchersInBulk'][0])
+    {
+        $request = $this->updateVouchersInBulkRequest($vouchers_update_in_bulk_item_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateVouchersInBulkAsync
+     *
+     * Update Vouchers in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersUpdateInBulkItemRequestBody[] $vouchers_update_in_bulk_item_request_body List the codes to be updated with the metadata key/value pairs for that code. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVouchersInBulkAsync($vouchers_update_in_bulk_item_request_body, string $contentType = self::contentTypes['updateVouchersInBulk'][0])
+    {
+        return $this->updateVouchersInBulkAsyncWithHttpInfo($vouchers_update_in_bulk_item_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateVouchersInBulkAsyncWithHttpInfo
+     *
+     * Update Vouchers in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersUpdateInBulkItemRequestBody[] $vouchers_update_in_bulk_item_request_body List the codes to be updated with the metadata key/value pairs for that code. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVouchersInBulkAsyncWithHttpInfo($vouchers_update_in_bulk_item_request_body, string $contentType = self::contentTypes['updateVouchersInBulk'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersUpdateInBulkResponseBody';
+        $request = $this->updateVouchersInBulkRequest($vouchers_update_in_bulk_item_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateVouchersInBulk'
+     *
+     * @param  \OpenAPI\Client\Model\VouchersUpdateInBulkItemRequestBody[] $vouchers_update_in_bulk_item_request_body List the codes to be updated with the metadata key/value pairs for that code. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateVouchersInBulkRequest($vouchers_update_in_bulk_item_request_body, string $contentType = self::contentTypes['updateVouchersInBulk'][0])
+    {
+
+        // verify the required parameter 'vouchers_update_in_bulk_item_request_body' is set
+        if ($vouchers_update_in_bulk_item_request_body === null || (is_array($vouchers_update_in_bulk_item_request_body) && count($vouchers_update_in_bulk_item_request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vouchers_update_in_bulk_item_request_body when calling updateVouchersInBulk'
+            );
+        }
+
+
+        $resourcePath = '/v1/vouchers/bulk/async';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($vouchers_update_in_bulk_item_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_update_in_bulk_item_request_body));
+            } else {
+                $httpBody = $vouchers_update_in_bulk_item_request_body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateVouchersMetadataInBulk
+     *
+     * Update Vouchers&#39; Metadata in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkRequestBody $vouchers_metadata_update_in_bulk_request_body List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersMetadataInBulk'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody
+     */
+    public function updateVouchersMetadataInBulk($vouchers_metadata_update_in_bulk_request_body, string $contentType = self::contentTypes['updateVouchersMetadataInBulk'][0])
+    {
+        list($response) = $this->updateVouchersMetadataInBulkWithHttpInfo($vouchers_metadata_update_in_bulk_request_body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateVouchersMetadataInBulkWithHttpInfo
+     *
+     * Update Vouchers&#39; Metadata in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkRequestBody $vouchers_metadata_update_in_bulk_request_body List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersMetadataInBulk'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateVouchersMetadataInBulkWithHttpInfo($vouchers_metadata_update_in_bulk_request_body, string $contentType = self::contentTypes['updateVouchersMetadataInBulk'][0])
+    {
+        $request = $this->updateVouchersMetadataInBulkRequest($vouchers_metadata_update_in_bulk_request_body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateVouchersMetadataInBulkAsync
+     *
+     * Update Vouchers&#39; Metadata in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkRequestBody $vouchers_metadata_update_in_bulk_request_body List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersMetadataInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVouchersMetadataInBulkAsync($vouchers_metadata_update_in_bulk_request_body, string $contentType = self::contentTypes['updateVouchersMetadataInBulk'][0])
+    {
+        return $this->updateVouchersMetadataInBulkAsyncWithHttpInfo($vouchers_metadata_update_in_bulk_request_body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateVouchersMetadataInBulkAsyncWithHttpInfo
+     *
+     * Update Vouchers&#39; Metadata in Bulk
+     *
+     * @param  \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkRequestBody $vouchers_metadata_update_in_bulk_request_body List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersMetadataInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateVouchersMetadataInBulkAsyncWithHttpInfo($vouchers_metadata_update_in_bulk_request_body, string $contentType = self::contentTypes['updateVouchersMetadataInBulk'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\VouchersMetadataUpdateInBulkResponseBody';
+        $request = $this->updateVouchersMetadataInBulkRequest($vouchers_metadata_update_in_bulk_request_body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateVouchersMetadataInBulk'
+     *
+     * @param  \OpenAPI\Client\Model\VouchersMetadataUpdateInBulkRequestBody $vouchers_metadata_update_in_bulk_request_body List the codes of the vouchers you would like to update with the metadata key/value pairs. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVouchersMetadataInBulk'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateVouchersMetadataInBulkRequest($vouchers_metadata_update_in_bulk_request_body, string $contentType = self::contentTypes['updateVouchersMetadataInBulk'][0])
+    {
+
+        // verify the required parameter 'vouchers_metadata_update_in_bulk_request_body' is set
+        if ($vouchers_metadata_update_in_bulk_request_body === null || (is_array($vouchers_metadata_update_in_bulk_request_body) && count($vouchers_metadata_update_in_bulk_request_body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $vouchers_metadata_update_in_bulk_request_body when calling updateVouchersMetadataInBulk'
+            );
+        }
+
+
+        $resourcePath = '/v1/vouchers/metadata/async';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($vouchers_metadata_update_in_bulk_request_body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($vouchers_metadata_update_in_bulk_request_body));
+            } else {
+                $httpBody = $vouchers_metadata_update_in_bulk_request_body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

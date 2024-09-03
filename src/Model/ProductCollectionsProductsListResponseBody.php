@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ProductCollectionsProductsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/product-collections/{productCollectionId}/products&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/product-collections/{productCollectionId}/products&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,7 @@ class ProductCollectionsProductsListResponseBody implements ModelInterface, Arra
     protected static $openAPITypes = [
         'object' => 'string',
         'data_ref' => 'string',
-        'data' => '\OpenAPI\Client\Model\ProductCollectionsProductsListDataItem[]',
+        'data' => '\OpenAPI\Client\Model\ProductCollectionsProductsListResponseBodyDataItem[]',
         'total' => 'int'
     ];
 
@@ -381,7 +381,11 @@ class ProductCollectionsProductsListResponseBody implements ModelInterface, Arra
     /**
      * Gets data
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\ProductCollectionsProductsListDataItem[]
+=======
+     * @return \OpenAPI\Client\Model\ProductCollectionsProductsListResponseBodyDataItem[]|null
+>>>>>>> Stashed changes
      */
     public function getData()
     {
@@ -391,7 +395,11 @@ class ProductCollectionsProductsListResponseBody implements ModelInterface, Arra
     /**
      * Sets data
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\ProductCollectionsProductsListDataItem[] $data data
+=======
+     * @param \OpenAPI\Client\Model\ProductCollectionsProductsListResponseBodyDataItem[]|null $data data
+>>>>>>> Stashed changes
      *
      * @return self
      */

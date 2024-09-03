@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * VouchersTransactionsExportCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/vouchers/{code}/transactions/export&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/vouchers/{code}/transactions/export&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,7 +66,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
         'channel' => 'string',
         'exported_object' => 'string',
         'parameters' => '\OpenAPI\Client\Model\VoucherTransactionsFilters',
-        'result' => '\OpenAPI\Client\Model\VoucherTransactionsExportResult',
+        'result' => '\OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult',
         'user_id' => 'string'
     ];
 
@@ -662,7 +662,11 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets result
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\VoucherTransactionsExportResult
+=======
+     * @return \OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult|null
+>>>>>>> Stashed changes
      */
     public function getResult()
     {
@@ -672,7 +676,11 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets result
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\VoucherTransactionsExportResult $result result
+=======
+     * @param \OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult|null $result result
+>>>>>>> Stashed changes
      *
      * @return self
      */

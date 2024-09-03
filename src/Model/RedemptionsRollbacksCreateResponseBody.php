@@ -61,7 +61,7 @@ class RedemptionsRollbacksCreateResponseBody implements ModelInterface, ArrayAcc
     protected static $openAPITypes = [
         'rollbacks' => '\OpenAPI\Client\Model\RedemptionRollback[]',
         'parent_rollback' => '\OpenAPI\Client\Model\RedemptionRollback',
-        'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData'
+        'order' => '\OpenAPI\Client\Model\OrderCalculated'
     ];
 
     /**
@@ -362,7 +362,7 @@ class RedemptionsRollbacksCreateResponseBody implements ModelInterface, ArrayAcc
     /**
      * Gets order
      *
-     * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData|null
+     * @return \OpenAPI\Client\Model\OrderCalculated|null
      */
     public function getOrder()
     {
@@ -372,7 +372,7 @@ class RedemptionsRollbacksCreateResponseBody implements ModelInterface, ArrayAcc
     /**
      * Sets order
      *
-     * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData|null $order order
+     * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
      *
      * @return self
      */

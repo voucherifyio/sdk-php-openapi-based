@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CampaignsVouchersCreateInBulkRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/campaigns/{campaignId}/vouchers&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,14 +59,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
+        'code' => 'string',
+        'code_config' => '\OpenAPI\Client\Model\CodeConfig',
         'category' => 'string',
         'metadata' => 'object',
-        'redemption' => '\OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption',
+        'redemption' => '\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkRequestBodyRedemption',
         'additional_info' => 'string',
         'start_date' => '\DateTime',
-        'expiration_date' => '\DateTime',
-        'code' => 'string',
-        'code_config' => '\OpenAPI\Client\Model\CodeConfig'
+        'expiration_date' => '\DateTime'
     ];
 
     /**
@@ -77,14 +77,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'code' => null,
+        'code_config' => null,
         'category' => null,
         'metadata' => null,
         'redemption' => null,
         'additional_info' => null,
         'start_date' => 'date-time',
-        'expiration_date' => 'date-time',
-        'code' => null,
-        'code_config' => null
+        'expiration_date' => 'date-time'
     ];
 
     /**
@@ -93,6 +93,7 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'category' => false,
 		'metadata' => false,
 		'redemption' => false,
@@ -101,6 +102,16 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
 		'expiration_date' => false,
 		'code' => false,
 		'code_config' => false
+=======
+        'code' => true,
+		'code_config' => false,
+		'category' => true,
+		'metadata' => true,
+		'redemption' => true,
+		'additional_info' => true,
+		'start_date' => true,
+		'expiration_date' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -189,14 +200,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
+        'code_config' => 'code_config',
         'category' => 'category',
         'metadata' => 'metadata',
         'redemption' => 'redemption',
         'additional_info' => 'additional_info',
         'start_date' => 'start_date',
-        'expiration_date' => 'expiration_date',
-        'code' => 'code',
-        'code_config' => 'code_config'
+        'expiration_date' => 'expiration_date'
     ];
 
     /**
@@ -205,14 +216,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
+        'code_config' => 'setCodeConfig',
         'category' => 'setCategory',
         'metadata' => 'setMetadata',
         'redemption' => 'setRedemption',
         'additional_info' => 'setAdditionalInfo',
         'start_date' => 'setStartDate',
-        'expiration_date' => 'setExpirationDate',
-        'code' => 'setCode',
-        'code_config' => 'setCodeConfig'
+        'expiration_date' => 'setExpirationDate'
     ];
 
     /**
@@ -221,14 +232,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
+        'code_config' => 'getCodeConfig',
         'category' => 'getCategory',
         'metadata' => 'getMetadata',
         'redemption' => 'getRedemption',
         'additional_info' => 'getAdditionalInfo',
         'start_date' => 'getStartDate',
-        'expiration_date' => 'getExpirationDate',
-        'code' => 'getCode',
-        'code_config' => 'getCodeConfig'
+        'expiration_date' => 'getExpirationDate'
     ];
 
     /**
@@ -288,14 +299,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('code_config', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
         $this->setIfExists('additional_info', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('expiration_date', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
-        $this->setIfExists('code_config', $data ?? [], null);
     }
 
     /**
@@ -339,6 +350,67 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return string|null
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string|null $code Unique voucher code.
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets code_config
+     *
+     * @return \OpenAPI\Client\Model\CodeConfig|null
+     */
+    public function getCodeConfig()
+    {
+        return $this->container['code_config'];
+    }
+
+    /**
+     * Sets code_config
+     *
+     * @param \OpenAPI\Client\Model\CodeConfig|null $code_config code_config
+     *
+     * @return self
+     */
+    public function setCodeConfig($code_config)
+    {
+        if (is_null($code_config)) {
+            throw new \InvalidArgumentException('non-nullable code_config cannot be null');
+        }
+        $this->container['code_config'] = $code_config;
+
+        return $this;
+    }
 
     /**
      * Gets category
@@ -397,7 +469,7 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Gets redemption
      *
-     * @return \OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption|null
+     * @return \OpenAPI\Client\Model\CampaignsVouchersCreateInBulkRequestBodyRedemption|null
      */
     public function getRedemption()
     {
@@ -407,7 +479,7 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Sets redemption
      *
-     * @param \OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption|null $redemption redemption
+     * @param \OpenAPI\Client\Model\CampaignsVouchersCreateInBulkRequestBodyRedemption|null $redemption redemption
      *
      * @return self
      */
@@ -501,6 +573,7 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets code
@@ -555,6 +628,8 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

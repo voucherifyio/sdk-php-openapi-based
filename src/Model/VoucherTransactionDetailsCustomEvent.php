@@ -51,7 +51,7 @@ class VoucherTransactionDetailsCustomEvent implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_custom_event';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsCustomEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

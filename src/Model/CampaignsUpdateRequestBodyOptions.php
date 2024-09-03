@@ -50,7 +50,7 @@ class CampaignsUpdateRequestBodyOptions implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignsUpdateRequestBody_options';
+    protected static $openAPIModelName = 'CampaignsUpdateRequestBodyOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

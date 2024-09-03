@@ -51,7 +51,7 @@ class VoucherTransactionDetailsLoyaltyTier implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_loyalty_tier';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsLoyaltyTier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

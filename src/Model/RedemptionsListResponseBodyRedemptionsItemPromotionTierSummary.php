@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary implements 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummary';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemPromotionTierSummary';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

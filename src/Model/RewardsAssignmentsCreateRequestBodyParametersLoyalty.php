@@ -51,7 +51,7 @@ class RewardsAssignmentsCreateRequestBodyParametersLoyalty implements ModelInter
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RewardsAssignmentsCreateRequestBody_parameters_loyalty';
+    protected static $openAPIModelName = 'RewardsAssignmentsCreateRequestBodyParametersLoyalty';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -276,6 +276,10 @@ class RewardsAssignmentsCreateRequestBodyParametersLoyalty implements ModelInter
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['points']) && ($this->container['points'] < 1)) {
+            $invalidProperties[] = "invalid value for 'points', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -304,7 +308,7 @@ class RewardsAssignmentsCreateRequestBodyParametersLoyalty implements ModelInter
     /**
      * Sets points
      *
-     * @param int|null $points Number of points that will be subtracted from the loyalty card points balance if the reward is redeemed.
+     * @param int|null $points Number of points that will be subtracted from the loyalty card points balance if the reward is redeemed. Must be positive integer.
      *
      * @return self
      */
@@ -313,6 +317,11 @@ class RewardsAssignmentsCreateRequestBodyParametersLoyalty implements ModelInter
         if (is_null($points)) {
             throw new \InvalidArgumentException('non-nullable points cannot be null');
         }
+
+        if (!is_null($points) && ($points < 1)) {
+            throw new \InvalidArgumentException('invalid value for $points when calling RewardsAssignmentsCreateRequestBodyParametersLoyalty., must be bigger than or equal to 1.');
+        }
+
         $this->container['points'] = $points;
 
         return $this;

@@ -59,9 +59,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'source_id' => 'string',
         'name' => 'string',
         'email' => 'string',
+        'source_id' => 'string',
         'metadata' => 'object',
         'object' => 'string'
     ];
@@ -75,9 +75,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'source_id' => null,
         'name' => null,
         'email' => null,
+        'source_id' => null,
         'metadata' => null,
         'object' => null
     ];
@@ -88,12 +88,21 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer.php
         'id' => false,
 		'source_id' => false,
 		'name' => false,
 		'email' => false,
 		'metadata' => false,
 		'object' => false
+=======
+        'id' => true,
+		'name' => true,
+		'email' => true,
+		'source_id' => true,
+		'metadata' => true,
+		'object' => true
+>>>>>>> Stashed changes:src/Model/RedemptionEntryCustomer.php
     ];
 
     /**
@@ -183,9 +192,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'source_id' => 'source_id',
         'name' => 'name',
         'email' => 'email',
+        'source_id' => 'source_id',
         'metadata' => 'metadata',
         'object' => 'object'
     ];
@@ -197,9 +206,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
      */
     protected static $setters = [
         'id' => 'setId',
-        'source_id' => 'setSourceId',
         'name' => 'setName',
         'email' => 'setEmail',
+        'source_id' => 'setSourceId',
         'metadata' => 'setMetadata',
         'object' => 'setObject'
     ];
@@ -211,9 +220,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
      */
     protected static $getters = [
         'id' => 'getId',
-        'source_id' => 'getSourceId',
         'name' => 'getName',
         'email' => 'getEmail',
+        'source_id' => 'getSourceId',
         'metadata' => 'getMetadata',
         'object' => 'getObject'
     ];
@@ -289,9 +298,9 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'customer');
     }
@@ -360,7 +369,7 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
     /**
      * Sets id
      *
-     * @param string|null $id The ID of an existing customer that will be linked to redemption in this request.
+     * @param string|null $id Unique identifier of an existing customer. It is assigned by Voucherify.
      *
      * @return self
      */
@@ -375,6 +384,7 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
     }
 
     /**
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer.php
      * Gets source_id
      *
      * @return string|null
@@ -402,6 +412,8 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
     }
 
     /**
+=======
+>>>>>>> Stashed changes:src/Model/RedemptionEntryCustomer.php
      * Gets name
      *
      * @return string|null
@@ -451,6 +463,40 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemCustomer implements 
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
 
         return $this;
     }

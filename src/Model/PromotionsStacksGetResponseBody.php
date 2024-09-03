@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PromotionsStacksGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/promotions/{campaignId}/stacks/{stackId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/promotions/{campaignId}/stacks/{stackId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,7 @@ class PromotionsStacksGetResponseBody implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'tiers' => '\OpenAPI\Client\Model\PromotionStackBaseTiers',
+        'tiers' => '\OpenAPI\Client\Model\PromotionsStacksGetResponseBodyTiers',
         'id' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -423,7 +423,11 @@ class PromotionsStacksGetResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Gets tiers
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\PromotionStackBaseTiers
+=======
+     * @return \OpenAPI\Client\Model\PromotionsStacksGetResponseBodyTiers|null
+>>>>>>> Stashed changes
      */
     public function getTiers()
     {
@@ -433,7 +437,11 @@ class PromotionsStacksGetResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets tiers
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\PromotionStackBaseTiers $tiers tiers
+=======
+     * @param \OpenAPI\Client\Model\PromotionsStacksGetResponseBodyTiers|null $tiers tiers
+>>>>>>> Stashed changes
      *
      * @return self
      */

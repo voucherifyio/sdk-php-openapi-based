@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsParentRedemptionId implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_parent_redemption_id';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsParentRedemptionId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * SimpleCustomer Class Doc Comment
  *
  * @category Class
+ * @description Simplified customer data.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,9 +60,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'source_id' => 'string',
         'name' => 'string',
         'email' => 'string',
+        'source_id' => 'string',
         'metadata' => 'object',
         'object' => 'string'
     ];
@@ -75,9 +76,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'source_id' => null,
         'name' => null,
         'email' => null,
+        'source_id' => null,
         'metadata' => null,
         'object' => null
     ];
@@ -88,12 +89,21 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'source_id' => false,
 		'name' => false,
 		'email' => false,
 		'metadata' => false,
 		'object' => false
+=======
+        'id' => true,
+		'name' => true,
+		'email' => true,
+		'source_id' => true,
+		'metadata' => true,
+		'object' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -183,9 +193,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'source_id' => 'source_id',
         'name' => 'name',
         'email' => 'email',
+        'source_id' => 'source_id',
         'metadata' => 'metadata',
         'object' => 'object'
     ];
@@ -197,9 +207,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'source_id' => 'setSourceId',
         'name' => 'setName',
         'email' => 'setEmail',
+        'source_id' => 'setSourceId',
         'metadata' => 'setMetadata',
         'object' => 'setObject'
     ];
@@ -211,9 +221,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'source_id' => 'getSourceId',
         'name' => 'getName',
         'email' => 'getEmail',
+        'source_id' => 'getSourceId',
         'metadata' => 'getMetadata',
         'object' => 'getObject'
     ];
@@ -289,9 +299,9 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'customer');
     }
@@ -360,7 +370,7 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id The ID of an existing customer that will be linked to redemption in this request.
+     * @param string|null $id Unique identifier of an existing customer. It is assigned by Voucherify.
      *
      * @return self
      */
@@ -375,6 +385,7 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets source_id
      *
      * @return string|null
@@ -402,6 +413,8 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets name
      *
      * @return string|null
@@ -456,6 +469,40 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return object|null
@@ -468,7 +515,7 @@ class SimpleCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+     * @param object|null $metadata A set of custom key/value pairs that are attached to the customer. It stores all custom attributes assigned to the customer.
      *
      * @return self
      */

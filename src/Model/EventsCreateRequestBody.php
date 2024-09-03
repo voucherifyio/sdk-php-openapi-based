@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * EventsCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/events&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/events&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,8 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'event' => 'string',
         'customer' => '\OpenAPI\Client\Model\Customer',
-        'referral' => '\OpenAPI\Client\Model\ClientEventsCreateRequestBodyReferral',
-        'loyalty' => '\OpenAPI\Client\Model\ClientEventsCreateRequestBodyLoyalty',
+        'referral' => '\OpenAPI\Client\Model\EventsCreateRequestBodyReferral',
+        'loyalty' => '\OpenAPI\Client\Model\EventsCreateRequestBodyLoyalty',
         'metadata' => 'object'
     ];
 
@@ -397,7 +397,7 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets referral
      *
-     * @return \OpenAPI\Client\Model\ClientEventsCreateRequestBodyReferral|null
+     * @return \OpenAPI\Client\Model\EventsCreateRequestBodyReferral|null
      */
     public function getReferral()
     {
@@ -407,7 +407,7 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets referral
      *
-     * @param \OpenAPI\Client\Model\ClientEventsCreateRequestBodyReferral|null $referral referral
+     * @param \OpenAPI\Client\Model\EventsCreateRequestBodyReferral|null $referral referral
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets loyalty
      *
-     * @return \OpenAPI\Client\Model\ClientEventsCreateRequestBodyLoyalty|null
+     * @return \OpenAPI\Client\Model\EventsCreateRequestBodyLoyalty|null
      */
     public function getLoyalty()
     {
@@ -434,7 +434,7 @@ class EventsCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets loyalty
      *
-     * @param \OpenAPI\Client\Model\ClientEventsCreateRequestBodyLoyalty|null $loyalty loyalty
+     * @param \OpenAPI\Client\Model\EventsCreateRequestBodyLoyalty|null $loyalty loyalty
      *
      * @return self
      */

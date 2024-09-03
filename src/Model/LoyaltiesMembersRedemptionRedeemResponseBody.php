@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersRedemptionRedeemResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** &#x60;/loyalties/members/{memberId}/redemption&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** &#x60;v1/loyalties/members/{memberId}/redemption&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -69,19 +69,23 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
         'redemption' => 'string',
         'result' => 'string',
         'status' => 'string',
-        'related_redemptions' => '\OpenAPI\Client\Model\RedemptionRelatedRedemptions',
+        'related_redemptions' => '\OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions',
         'failure_code' => 'string',
         'failure_message' => 'string',
-        'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData',
-        'channel' => '\OpenAPI\Client\Model\RedemptionChannel',
+        'order' => '\OpenAPI\Client\Model\OrderCalculated',
+        'channel' => '\OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyChannel',
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'related_object_type' => 'string',
         'related_object_id' => 'string',
+<<<<<<< Updated upstream
         'voucher' => '\OpenAPI\Client\Model\Voucher',
+=======
+        'voucher' => '\OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyVoucher',
+>>>>>>> Stashed changes
         'promotion_tier' => '\OpenAPI\Client\Model\PromotionTier',
         'reward' => '\OpenAPI\Client\Model\RedemptionRewardResult',
-        'gift' => '\OpenAPI\Client\Model\RedemptionGift',
-        'loyalty_card' => '\OpenAPI\Client\Model\RedemptionLoyaltyCard'
+        'gift' => '\OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyGift',
+        'loyalty_card' => '\OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard'
     ];
 
     /**
@@ -131,6 +135,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
 		'metadata' => true,
 		'amount' => false,
 		'redemption' => true,
+<<<<<<< Updated upstream
 		'result' => false,
 		'status' => false,
 		'related_redemptions' => false,
@@ -142,6 +147,19 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
 		'related_object_type' => false,
 		'related_object_id' => false,
 		'voucher' => false,
+=======
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => false,
+		'channel' => true,
+		'customer' => false,
+		'related_object_type' => true,
+		'related_object_id' => true,
+		'voucher' => true,
+>>>>>>> Stashed changes
 		'promotion_tier' => false,
 		'reward' => false,
 		'gift' => false,
@@ -567,12 +585,15 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
             );
         }
 
+<<<<<<< Updated upstream
         if ($this->container['related_object_id'] === null) {
             $invalidProperties[] = "'related_object_id' can't be null";
         }
         if ($this->container['reward'] === null) {
             $invalidProperties[] = "'reward' can't be null";
         }
+=======
+>>>>>>> Stashed changes
         return $invalidProperties;
     }
 
@@ -919,7 +940,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets related_redemptions
      *
-     * @return \OpenAPI\Client\Model\RedemptionRelatedRedemptions|null
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions|null
      */
     public function getRelatedRedemptions()
     {
@@ -929,7 +950,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets related_redemptions
      *
-     * @param \OpenAPI\Client\Model\RedemptionRelatedRedemptions|null $related_redemptions related_redemptions
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions|null $related_redemptions related_redemptions
      *
      * @return self
      */
@@ -1000,7 +1021,11 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets order
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData
+=======
+     * @return \OpenAPI\Client\Model\OrderCalculated|null
+>>>>>>> Stashed changes
      */
     public function getOrder()
     {
@@ -1010,21 +1035,18 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets order
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData $order order
+=======
+     * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setOrder($order)
     {
         if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order cannot be null');
         }
         $this->container['order'] = $order;
 
@@ -1034,7 +1056,11 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets channel
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionChannel
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyChannel|null
+>>>>>>> Stashed changes
      */
     public function getChannel()
     {
@@ -1044,7 +1070,11 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets channel
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionChannel $channel channel
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyChannel|null $channel channel
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1078,14 +1108,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            array_push($this->openAPINullablesSetToNull, 'customer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
 
@@ -1159,7 +1182,11 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets voucher
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\Voucher|null
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyVoucher|null
+>>>>>>> Stashed changes
      */
     public function getVoucher()
     {
@@ -1169,14 +1196,25 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets voucher
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\Voucher|null $voucher voucher
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyVoucher|null $voucher voucher
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher'] = $voucher;
 
@@ -1213,7 +1251,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets reward
      *
-     * @return \OpenAPI\Client\Model\RedemptionRewardResult
+     * @return \OpenAPI\Client\Model\RedemptionRewardResult|null
      */
     public function getReward()
     {
@@ -1223,7 +1261,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets reward
      *
-     * @param \OpenAPI\Client\Model\RedemptionRewardResult $reward reward
+     * @param \OpenAPI\Client\Model\RedemptionRewardResult|null $reward reward
      *
      * @return self
      */
@@ -1240,7 +1278,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets gift
      *
-     * @return \OpenAPI\Client\Model\RedemptionGift|null
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyGift|null
      */
     public function getGift()
     {
@@ -1250,7 +1288,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets gift
      *
-     * @param \OpenAPI\Client\Model\RedemptionGift|null $gift gift
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyGift|null $gift gift
      *
      * @return self
      */
@@ -1267,7 +1305,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Gets loyalty_card
      *
-     * @return \OpenAPI\Client\Model\RedemptionLoyaltyCard|null
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard|null
      */
     public function getLoyaltyCard()
     {
@@ -1277,7 +1315,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBody implements ModelInterface, Ar
     /**
      * Sets loyalty_card
      *
-     * @param \OpenAPI\Client\Model\RedemptionLoyaltyCard|null $loyalty_card loyalty_card
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard|null $loyalty_card loyalty_card
      *
      * @return self
      */

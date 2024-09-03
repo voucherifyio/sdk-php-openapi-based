@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CampaignsVouchersCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers/{code}&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/campaigns/{campaignId}/vouchers/{code}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,7 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'category' => 'string',
         'metadata' => 'object',
-        'redemption' => '\OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption',
+        'redemption' => '\OpenAPI\Client\Model\CampaignsVouchersCreateRequestBodyRedemption',
         'additional_info' => 'string',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime'
@@ -383,7 +383,7 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     /**
      * Gets redemption
      *
-     * @return \OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption|null
+     * @return \OpenAPI\Client\Model\CampaignsVouchersCreateRequestBodyRedemption|null
      */
     public function getRedemption()
     {
@@ -393,7 +393,7 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     /**
      * Sets redemption
      *
-     * @param \OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption|null $redemption redemption
+     * @param \OpenAPI\Client\Model\CampaignsVouchersCreateRequestBodyRedemption|null $redemption redemption
      *
      * @return self
      */

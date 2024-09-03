@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * FilterConditionsString Class Doc Comment
  *
  * @category Class
- * @description Data filters used to narrow the data records to be returned in the result.
+ * @description Data filters used to narrow down the data records to be returned in the result.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

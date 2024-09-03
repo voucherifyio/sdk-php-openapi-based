@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemLoyaltyCard implements ModelInte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemLoyaltyCard';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

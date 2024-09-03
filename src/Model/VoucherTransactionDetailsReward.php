@@ -51,7 +51,7 @@ class VoucherTransactionDetailsReward implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_reward';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsReward';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

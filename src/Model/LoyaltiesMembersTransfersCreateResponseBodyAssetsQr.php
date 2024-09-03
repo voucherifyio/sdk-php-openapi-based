@@ -51,7 +51,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyAssetsQr implements ModelInterf
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_assets_qr';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBodyAssetsQr';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

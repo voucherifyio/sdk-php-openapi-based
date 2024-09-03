@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherRedemption implements Mod
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemVoucherRedemption';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemVoucherRedemption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

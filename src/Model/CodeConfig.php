@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CodeConfig Class Doc Comment
  *
  * @category Class
- * @description Schema containing information about config used for voucher. Defines code&#39;s pattern (prefix, suffix, length, charset, etc).
+ * @description Contains information about the config used for the voucher code. Defines the code&#39;s pattern (prefix, postfix, length, charset, etc).
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -474,7 +474,7 @@ class CodeConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets initial_count
      *
-     * @param int|null $initial_count The initial count
+     * @param int|null $initial_count Internal value, does not change anything if provided.
      *
      * @return self
      */

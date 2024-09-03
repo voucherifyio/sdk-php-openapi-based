@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Voucher Class Doc Comment
  *
  * @category Class
- * @description This is an object representing a voucher.
+ * @description This is an object representing a voucher with categories and validation rules assignments.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_id' => 'string',
         'category' => 'string',
         'category_id' => 'string',
-        'categories' => '\OpenAPI\Client\Model\Category[]',
         'type' => 'string',
         'discount' => '\OpenAPI\Client\Model\Discount',
         'gift' => '\OpenAPI\Client\Model\VoucherGift',
@@ -84,11 +83,18 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'holder_id' => 'string',
         'holder' => '\OpenAPI\Client\Model\SimpleCustomer',
         'object' => 'string',
+<<<<<<< Updated upstream
         'distributions' => 'object[]',
         'deleted' => 'bool',
         'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
         'publish' => '\OpenAPI\Client\Model\VoucherPublish',
         'redemption' => '\OpenAPI\Client\Model\VoucherRedemption'
+=======
+        'publish' => '\OpenAPI\Client\Model\VoucherPublish',
+        'redemption' => '\OpenAPI\Client\Model\VoucherRedemption',
+        'categories' => '\OpenAPI\Client\Model\Category[]',
+        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -105,7 +111,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_id' => null,
         'category' => null,
         'category_id' => null,
-        'categories' => null,
         'type' => null,
         'discount' => null,
         'gift' => null,
@@ -124,11 +129,16 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'holder_id' => null,
         'holder' => null,
         'object' => null,
+<<<<<<< Updated upstream
         'distributions' => null,
         'deleted' => null,
         'validation_rules_assignments' => null,
+=======
+>>>>>>> Stashed changes
         'publish' => null,
-        'redemption' => null
+        'redemption' => null,
+        'categories' => null,
+        'validation_rules_assignments' => null
     ];
 
     /**
@@ -137,6 +147,7 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'code' => false,
 		'campaign' => false,
@@ -145,6 +156,15 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'category_id' => false,
 		'categories' => false,
 		'type' => false,
+=======
+        'id' => true,
+		'code' => true,
+		'campaign' => true,
+		'campaign_id' => true,
+		'category' => true,
+		'category_id' => true,
+		'type' => true,
+>>>>>>> Stashed changes
 		'discount' => false,
 		'gift' => false,
 		'loyalty_card' => false,
@@ -157,6 +177,7 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'metadata' => false,
 		'assets' => false,
 		'is_referral_code' => true,
+<<<<<<< Updated upstream
 		'created_at' => false,
 		'updated_at' => false,
 		'holder_id' => false,
@@ -167,6 +188,17 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'validation_rules_assignments' => false,
 		'publish' => false,
 		'redemption' => false
+=======
+		'created_at' => true,
+		'updated_at' => true,
+		'holder_id' => true,
+		'referrer_id' => true,
+		'object' => true,
+		'publish' => true,
+		'redemption' => true,
+		'categories' => true,
+		'validation_rules_assignments' => false
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -261,7 +293,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_id' => 'campaign_id',
         'category' => 'category',
         'category_id' => 'category_id',
-        'categories' => 'categories',
         'type' => 'type',
         'discount' => 'discount',
         'gift' => 'gift',
@@ -280,11 +311,16 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'holder_id' => 'holder_id',
         'holder' => 'holder',
         'object' => 'object',
+<<<<<<< Updated upstream
         'distributions' => 'distributions',
         'deleted' => 'deleted',
         'validation_rules_assignments' => 'validation_rules_assignments',
+=======
+>>>>>>> Stashed changes
         'publish' => 'publish',
-        'redemption' => 'redemption'
+        'redemption' => 'redemption',
+        'categories' => 'categories',
+        'validation_rules_assignments' => 'validation_rules_assignments'
     ];
 
     /**
@@ -299,7 +335,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_id' => 'setCampaignId',
         'category' => 'setCategory',
         'category_id' => 'setCategoryId',
-        'categories' => 'setCategories',
         'type' => 'setType',
         'discount' => 'setDiscount',
         'gift' => 'setGift',
@@ -318,11 +353,16 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'holder_id' => 'setHolderId',
         'holder' => 'setHolder',
         'object' => 'setObject',
+<<<<<<< Updated upstream
         'distributions' => 'setDistributions',
         'deleted' => 'setDeleted',
         'validation_rules_assignments' => 'setValidationRulesAssignments',
+=======
+>>>>>>> Stashed changes
         'publish' => 'setPublish',
-        'redemption' => 'setRedemption'
+        'redemption' => 'setRedemption',
+        'categories' => 'setCategories',
+        'validation_rules_assignments' => 'setValidationRulesAssignments'
     ];
 
     /**
@@ -337,7 +377,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'campaign_id' => 'getCampaignId',
         'category' => 'getCategory',
         'category_id' => 'getCategoryId',
-        'categories' => 'getCategories',
         'type' => 'getType',
         'discount' => 'getDiscount',
         'gift' => 'getGift',
@@ -356,11 +395,16 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'holder_id' => 'getHolderId',
         'holder' => 'getHolder',
         'object' => 'getObject',
+<<<<<<< Updated upstream
         'distributions' => 'getDistributions',
         'deleted' => 'getDeleted',
         'validation_rules_assignments' => 'getValidationRulesAssignments',
+=======
+>>>>>>> Stashed changes
         'publish' => 'getPublish',
-        'redemption' => 'getRedemption'
+        'redemption' => 'getRedemption',
+        'categories' => 'getCategories',
+        'validation_rules_assignments' => 'getValidationRulesAssignments'
     ];
 
     /**
@@ -468,7 +512,6 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('campaign_id', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('categories', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('gift', $data ?? [], null);
@@ -487,11 +530,16 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('holder_id', $data ?? [], null);
         $this->setIfExists('holder', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'voucher');
+<<<<<<< Updated upstream
         $this->setIfExists('distributions', $data ?? [], null);
         $this->setIfExists('deleted', $data ?? [], null);
         $this->setIfExists('validation_rules_assignments', $data ?? [], null);
+=======
+>>>>>>> Stashed changes
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
     }
 
     /**
@@ -708,6 +756,7 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets categories
      *
      * @return \OpenAPI\Client\Model\Category[]|null
@@ -735,6 +784,8 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets type
      *
      * @return string|null
@@ -1185,7 +1236,11 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets holder_id
      *
+<<<<<<< Updated upstream
      * @param string|null $holder_id Unique customer ID of voucher owner.
+=======
+     * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1254,6 +1309,7 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets distributions
      *
      * @return object[]|null
@@ -1335,6 +1391,8 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets publish
      *
      * @return \OpenAPI\Client\Model\VoucherPublish|null
@@ -1384,6 +1442,67 @@ class Voucher implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable redemption cannot be null');
         }
         $this->container['redemption'] = $redemption;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_rules_assignments
+     *
+     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null
+     */
+    public function getValidationRulesAssignments()
+    {
+        return $this->container['validation_rules_assignments'];
+    }
+
+    /**
+     * Sets validation_rules_assignments
+     *
+     * @param \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null $validation_rules_assignments validation_rules_assignments
+     *
+     * @return self
+     */
+    public function setValidationRulesAssignments($validation_rules_assignments)
+    {
+        if (is_null($validation_rules_assignments)) {
+            throw new \InvalidArgumentException('non-nullable validation_rules_assignments cannot be null');
+        }
+        $this->container['validation_rules_assignments'] = $validation_rules_assignments;
 
         return $this;
     }

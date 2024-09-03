@@ -51,7 +51,7 @@ class VoucherTransactionDetails implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details';
+    protected static $openAPIModelName = 'VoucherTransactionDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

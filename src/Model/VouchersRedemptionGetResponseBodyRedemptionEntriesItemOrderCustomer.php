@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemOrderCustomer implem
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemOrderCustomer.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemOrderCustomer';
+=======
+    protected static $openAPIModelName = 'RewardsUpdateRequestBodyParametersCampaign';
+>>>>>>> Stashed changes:src/Model/RewardsUpdateRequestBodyParametersCampaign.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -365,7 +369,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemOrderCustomer implem
     /**
      * Sets object
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemOrderCustomer.php
      * @param string $object The type of object represented by JSON.
+=======
+     * @param int|null $balance The incremental points to be added to the current balance on the loyalty card. and The incremental amount to be added to the current balance on the gift card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+>>>>>>> Stashed changes:src/Model/RewardsUpdateRequestBodyParametersCampaign.php
      *
      * @return self
      */

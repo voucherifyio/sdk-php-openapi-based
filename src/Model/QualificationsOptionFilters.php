@@ -51,7 +51,7 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'QualificationsOption_filters';
+    protected static $openAPIModelName = 'QualificationsOptionFilters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,10 +62,19 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
         'junction' => 'string',
         'category_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
         'campaign_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
+<<<<<<< Updated upstream
+=======
+        'campaign_type' => '\OpenAPI\Client\Model\QualificationsOptionFiltersCampaignType',
+>>>>>>> Stashed changes
         'resource_id' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
         'resource_type' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
         'voucher_type' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
+<<<<<<< Updated upstream
         'code' => '\OpenAPI\Client\Model\QualificationsFieldConditions'
+=======
+        'code' => '\OpenAPI\Client\Model\QualificationsFieldConditions',
+        'holder_role' => '\OpenAPI\Client\Model\QualificationsOptionFiltersHolderRole'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -449,6 +458,43 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+<<<<<<< Updated upstream
+=======
+     * Gets campaign_type
+     *
+     * @return \OpenAPI\Client\Model\QualificationsOptionFiltersCampaignType|null
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaign_type'];
+    }
+
+    /**
+     * Sets campaign_type
+     *
+     * @param \OpenAPI\Client\Model\QualificationsOptionFiltersCampaignType|null $campaign_type campaign_type
+     *
+     * @return self
+     */
+    public function setCampaignType($campaign_type)
+    {
+        if (is_null($campaign_type)) {
+            array_push($this->openAPINullablesSetToNull, 'campaign_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campaign_type'] = $campaign_type;
+
+        return $this;
+    }
+
+    /**
+>>>>>>> Stashed changes
      * Gets resource_id
      *
      * @return \OpenAPI\Client\Model\QualificationsFieldConditions|null
@@ -555,6 +601,43 @@ class QualificationsOptionFilters implements ModelInterface, ArrayAccess, \JsonS
 
         return $this;
     }
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * Gets holder_role
+     *
+     * @return \OpenAPI\Client\Model\QualificationsOptionFiltersHolderRole|null
+     */
+    public function getHolderRole()
+    {
+        return $this->container['holder_role'];
+    }
+
+    /**
+     * Sets holder_role
+     *
+     * @param \OpenAPI\Client\Model\QualificationsOptionFiltersHolderRole|null $holder_role holder_role
+     *
+     * @return self
+     */
+    public function setHolderRole($holder_role)
+    {
+        if (is_null($holder_role)) {
+            array_push($this->openAPINullablesSetToNull, 'holder_role');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_role', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['holder_role'] = $holder_role;
+
+        return $this;
+    }
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTier implements ModelIn
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemPromotionTier';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemPromotionTier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

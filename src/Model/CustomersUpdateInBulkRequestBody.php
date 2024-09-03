@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersUpdateInBulkRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/customers/bulk/async&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/customers/bulk/async&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,15 +59,15 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
+        'source_id' => 'string',
         'name' => 'string',
         'description' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
-        'metadata' => 'object',
-        'source_id' => 'string'
+        'address' => '\OpenAPI\Client\Model\CustomersUpdateInBulkRequestBodyAddress',
+        'metadata' => 'object'
     ];
 
     /**
@@ -78,6 +78,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'source_id' => null,
         'name' => null,
         'description' => null,
         'email' => null,
@@ -85,8 +86,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         'birthday' => 'date',
         'birthdate' => 'date',
         'address' => null,
-        'metadata' => null,
-        'source_id' => null
+        'metadata' => null
     ];
 
     /**
@@ -95,6 +95,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'name' => false,
 		'description' => false,
 		'email' => false,
@@ -104,6 +105,17 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
 		'address' => true,
 		'metadata' => false,
 		'source_id' => false
+=======
+        'source_id' => true,
+		'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
+		'address' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -192,6 +204,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
+        'source_id' => 'source_id',
         'name' => 'name',
         'description' => 'description',
         'email' => 'email',
@@ -199,8 +212,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         'birthday' => 'birthday',
         'birthdate' => 'birthdate',
         'address' => 'address',
-        'metadata' => 'metadata',
-        'source_id' => 'source_id'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -209,6 +221,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
+        'source_id' => 'setSourceId',
         'name' => 'setName',
         'description' => 'setDescription',
         'email' => 'setEmail',
@@ -216,8 +229,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         'birthday' => 'setBirthday',
         'birthdate' => 'setBirthdate',
         'address' => 'setAddress',
-        'metadata' => 'setMetadata',
-        'source_id' => 'setSourceId'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -226,6 +238,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
+        'source_id' => 'getSourceId',
         'name' => 'getName',
         'description' => 'getDescription',
         'email' => 'getEmail',
@@ -233,8 +246,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         'birthday' => 'getBirthday',
         'birthdate' => 'getBirthdate',
         'address' => 'getAddress',
-        'metadata' => 'getMetadata',
-        'source_id' => 'getSourceId'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -294,6 +306,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
@@ -302,7 +315,6 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         $this->setIfExists('birthdate', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
     }
 
     /**
@@ -349,6 +361,40 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id Unique customer source ID.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -515,7 +561,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBodyAddress|null
      */
     public function getAddress()
     {
@@ -525,7 +571,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBodyAddress|null $address address
      *
      * @return self
      */
@@ -572,6 +618,7 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets source_id
@@ -599,6 +646,8 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

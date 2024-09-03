@@ -51,7 +51,7 @@ class RedemptionChannel implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemption_channel';
+    protected static $openAPIModelName = 'RedemptionChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

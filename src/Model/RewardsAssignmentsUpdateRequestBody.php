@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * RewardsAssignmentsUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **PUT** &#x60;/loyalties/{campaignId}/rewards/{assignmentId}&#x60; and **PUT** &#x60;/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
+ * @description Request body schema for **PUT** &#x60;v1/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

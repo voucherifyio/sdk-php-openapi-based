@@ -51,7 +51,7 @@ class RedemptionRewardResultParametersCampaign implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RedemptionRewardResult_parameters_campaign';
+    protected static $openAPIModelName = 'RedemptionRewardResultParametersCampaign';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

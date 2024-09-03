@@ -72,7 +72,7 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
         'related_redemptions' => '\OpenAPI\Client\Model\RedemptionRelatedRedemptions',
         'failure_code' => 'string',
         'failure_message' => 'string',
-        'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData',
+        'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'channel' => '\OpenAPI\Client\Model\RedemptionChannel',
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'related_object_type' => 'string',
@@ -131,6 +131,7 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
 		'metadata' => true,
 		'amount' => false,
 		'redemption' => true,
+<<<<<<< Updated upstream
 		'result' => false,
 		'status' => false,
 		'related_redemptions' => false,
@@ -142,6 +143,19 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
 		'related_object_type' => false,
 		'related_object_id' => false,
 		'voucher' => false,
+=======
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => false,
+		'channel' => true,
+		'customer' => false,
+		'related_object_type' => true,
+		'related_object_id' => true,
+		'voucher' => true,
+>>>>>>> Stashed changes
 		'promotion_tier' => false,
 		'reward' => false,
 		'gift' => false,
@@ -997,7 +1011,11 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData
+=======
+     * @return \OpenAPI\Client\Model\OrderCalculated|null
+>>>>>>> Stashed changes
      */
     public function getOrder()
     {
@@ -1007,21 +1025,18 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData $order order
+=======
+     * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setOrder($order)
     {
         if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order cannot be null');
         }
         $this->container['order'] = $order;
 
@@ -1075,14 +1090,7 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            array_push($this->openAPINullablesSetToNull, 'customer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
 
@@ -1173,7 +1181,14 @@ class Redemption implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher'] = $voucher;
 

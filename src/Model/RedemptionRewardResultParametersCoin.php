@@ -51,7 +51,7 @@ class RedemptionRewardResultParametersCoin implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RedemptionRewardResult_parameters_coin';
+    protected static $openAPIModelName = 'RedemptionRewardResultParametersCoin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

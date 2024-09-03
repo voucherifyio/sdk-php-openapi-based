@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ProductsUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request schema for **PUT** &#x60;/products&#x60;.
+ * @description Request schema for **PUT** &#x60;v1/products&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

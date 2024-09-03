@@ -50,7 +50,7 @@ class PublicationsListResponseBodyPublicationsItem implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Publications_List_Response_Body_Publications_Item';
+    protected static $openAPIModelName = 'PublicationsListResponseBodyPublicationsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * OrdersUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **PUT** &#x60;/orders/{orderId}&#x60;.
+ * @description Request body schema for **PUT** &#x60;v1/orders/{orderId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,16 +59,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'source_id' => 'string',
         'status' => 'string',
         'amount' => 'int',
-        'discount_amount' => 'int',
         'initial_amount' => 'int',
+        'discount_amount' => 'int',
         'items' => '\OpenAPI\Client\Model\OrderItem[]',
-        'customer' => '\OpenAPI\Client\Model\Customer',
-        'customer_id' => 'string',
-        'referrer' => '\OpenAPI\Client\Model\Referrer',
+        'metadata' => 'object',
+        'created_at' => '\DateTime',
         'referrer_id' => 'string',
-        'metadata' => 'object'
+        'customer' => '\OpenAPI\Client\Model\Customer',
+        'referrer' => '\OpenAPI\Client\Model\Referrer'
     ];
 
     /**
@@ -79,16 +80,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'source_id' => null,
         'status' => null,
         'amount' => null,
-        'discount_amount' => null,
         'initial_amount' => null,
+        'discount_amount' => null,
         'items' => null,
-        'customer' => null,
-        'customer_id' => null,
-        'referrer' => null,
+        'metadata' => null,
+        'created_at' => 'date-time',
         'referrer_id' => null,
-        'metadata' => null
+        'customer' => null,
+        'referrer' => null
     ];
 
     /**
@@ -97,6 +99,7 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'status' => false,
 		'amount' => false,
 		'discount_amount' => false,
@@ -107,6 +110,19 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
 		'referrer' => false,
 		'referrer_id' => false,
 		'metadata' => false
+=======
+        'source_id' => true,
+		'status' => true,
+		'amount' => true,
+		'initial_amount' => true,
+		'discount_amount' => true,
+		'items' => true,
+		'metadata' => true,
+		'created_at' => true,
+		'referrer_id' => true,
+		'customer' => false,
+		'referrer' => false
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -195,16 +211,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'source_id' => 'source_id',
         'status' => 'status',
         'amount' => 'amount',
-        'discount_amount' => 'discount_amount',
         'initial_amount' => 'initial_amount',
+        'discount_amount' => 'discount_amount',
         'items' => 'items',
-        'customer' => 'customer',
-        'customer_id' => 'customer_id',
-        'referrer' => 'referrer',
+        'metadata' => 'metadata',
+        'created_at' => 'created_at',
         'referrer_id' => 'referrer_id',
-        'metadata' => 'metadata'
+        'customer' => 'customer',
+        'referrer' => 'referrer'
     ];
 
     /**
@@ -213,16 +230,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'source_id' => 'setSourceId',
         'status' => 'setStatus',
         'amount' => 'setAmount',
-        'discount_amount' => 'setDiscountAmount',
         'initial_amount' => 'setInitialAmount',
+        'discount_amount' => 'setDiscountAmount',
         'items' => 'setItems',
-        'customer' => 'setCustomer',
-        'customer_id' => 'setCustomerId',
-        'referrer' => 'setReferrer',
+        'metadata' => 'setMetadata',
+        'created_at' => 'setCreatedAt',
         'referrer_id' => 'setReferrerId',
-        'metadata' => 'setMetadata'
+        'customer' => 'setCustomer',
+        'referrer' => 'setReferrer'
     ];
 
     /**
@@ -231,16 +249,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'source_id' => 'getSourceId',
         'status' => 'getStatus',
         'amount' => 'getAmount',
-        'discount_amount' => 'getDiscountAmount',
         'initial_amount' => 'getInitialAmount',
+        'discount_amount' => 'getDiscountAmount',
         'items' => 'getItems',
-        'customer' => 'getCustomer',
-        'customer_id' => 'getCustomerId',
-        'referrer' => 'getReferrer',
+        'metadata' => 'getMetadata',
+        'created_at' => 'getCreatedAt',
         'referrer_id' => 'getReferrerId',
-        'metadata' => 'getMetadata'
+        'customer' => 'getCustomer',
+        'referrer' => 'getReferrer'
     ];
 
     /**
@@ -319,16 +338,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('initial_amount', $data ?? [], null);
+        $this->setIfExists('discount_amount', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
-        $this->setIfExists('referrer_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('referrer_id', $data ?? [], null);
+        $this->setIfExists('customer', $data ?? [], null);
+        $this->setIfExists('referrer', $data ?? [], null);
     }
 
     /**
@@ -381,6 +401,40 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -447,6 +501,7 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets discount_amount
      *
      * @return int|null
@@ -474,6 +529,8 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets initial_amount
      *
      * @return int|null
@@ -496,6 +553,40 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
         }
         $this->container['initial_amount'] = $initial_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return int|null
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param int|null $discount_amount Sum of all order-level discounts applied to the order.
+     *
+     * @return self
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        if (is_null($discount_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
@@ -528,24 +619,25 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets customer
+     * Gets metadata
      *
-     * @return \OpenAPI\Client\Model\Customer|null
+     * @return object|null
      */
-    public function getCustomer()
+    public function getMetadata()
     {
-        return $this->container['customer'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets customer
+     * Sets metadata
      *
-     * @param \OpenAPI\Client\Model\Customer|null $customer customer
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
      *
      * @return self
      */
-    public function setCustomer($customer)
+    public function setMetadata($metadata)
     {
+<<<<<<< Updated upstream
         if (is_null($customer)) {
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
@@ -575,35 +667,53 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($customer_id)) {
             throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+=======
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+>>>>>>> Stashed changes
         }
-        $this->container['customer_id'] = $customer_id;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets referrer
+     * Gets created_at
      *
-     * @return \OpenAPI\Client\Model\Referrer|null
+     * @return \DateTime|null
      */
-    public function getReferrer()
+    public function getCreatedAt()
     {
-        return $this->container['referrer'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets referrer
+     * Sets created_at
      *
-     * @param \OpenAPI\Client\Model\Referrer|null $referrer referrer
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
-    public function setReferrer($referrer)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($referrer)) {
-            throw new \InvalidArgumentException('non-nullable referrer cannot be null');
+        if (is_null($created_at)) {
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['referrer'] = $referrer;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -636,28 +746,60 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets metadata
+     * Gets customer
      *
-     * @return object|null
+     * @return \OpenAPI\Client\Model\Customer|null
      */
-    public function getMetadata()
+    public function getCustomer()
     {
-        return $this->container['metadata'];
+        return $this->container['customer'];
     }
 
     /**
-     * Sets metadata
+     * Sets customer
      *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format.
+     * @param \OpenAPI\Client\Model\Customer|null $customer customer
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setCustomer($customer)
     {
+<<<<<<< Updated upstream
         if (is_null($metadata)) {
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+=======
+        if (is_null($customer)) {
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+>>>>>>> Stashed changes
         }
-        $this->container['metadata'] = $metadata;
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrer
+     *
+     * @return \OpenAPI\Client\Model\Referrer|null
+     */
+    public function getReferrer()
+    {
+        return $this->container['referrer'];
+    }
+
+    /**
+     * Sets referrer
+     *
+     * @param \OpenAPI\Client\Model\Referrer|null $referrer referrer
+     *
+     * @return self
+     */
+    public function setReferrer($referrer)
+    {
+        if (is_null($referrer)) {
+            throw new \InvalidArgumentException('non-nullable referrer cannot be null');
+        }
+        $this->container['referrer'] = $referrer;
 
         return $this;
     }

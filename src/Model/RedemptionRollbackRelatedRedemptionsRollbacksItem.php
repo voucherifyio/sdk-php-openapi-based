@@ -50,7 +50,7 @@ class RedemptionRollbackRelatedRedemptionsRollbacksItem implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemption_Rollback_Related_Redemptions_Rollbacks_Item';
+    protected static $openAPIModelName = 'RedemptionRollbackRelatedRedemptionsRollbacksItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

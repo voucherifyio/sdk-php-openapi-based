@@ -51,7 +51,7 @@ class LoyaltyTiersExpirationAllExpirationDateRounding implements ModelInterface,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltyTiersExpirationAll_expiration_date_rounding';
+    protected static $openAPIModelName = 'LoyaltyTiersExpirationAllExpirationDate_rounding';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

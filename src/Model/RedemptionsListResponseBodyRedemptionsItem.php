@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItem implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_Item';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

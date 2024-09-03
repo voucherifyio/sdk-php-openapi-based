@@ -15,8 +15,8 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | [**listProducts()**](ProductsApi.md#listProducts) | **GET** /v1/products | List Products |
 | [**listSkusInProduct()**](ProductsApi.md#listSkusInProduct) | **GET** /v1/products/{productId}/skus | List SKUs in Product |
 | [**updateProduct()**](ProductsApi.md#updateProduct) | **PUT** /v1/products/{productId} | Update Product |
-| [**updateProductsInBulk()**](ProductsApi.md#updateProductsInBulk) | **POST** /v1/products/bulk/async | Update Products in bulk |
-| [**updateProductsMetadataInBulk()**](ProductsApi.md#updateProductsMetadataInBulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in bulk |
+| [**updateProductsInBulk()**](ProductsApi.md#updateProductsInBulk) | **POST** /v1/products/bulk/async | Update Products in Bulk |
+| [**updateProductsMetadataInBulk()**](ProductsApi.md#updateProductsMetadataInBulk) | **POST** /v1/products/metadata/async | Update Products&#39; Metadata in Bulk |
 | [**updateSku()**](ProductsApi.md#updateSku) | **PUT** /v1/products/{productId}/skus/{skuId} | Update SKU |
 
 
@@ -789,9 +789,13 @@ try {
 updateProductsInBulk($products_update_in_bulk_request_body): \OpenAPI\Client\Model\ProductsUpdateInBulkResponseBody
 ```
 
-Update Products in bulk
+Update Products in Bulk
 
+<<<<<<< Updated upstream
 Update several products in one asynchronous operation.   In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier. If a requested product object is not found, then an **upsert** occurs. This is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) -->[Get Async Action](ref:get-async-action) endpoint as follows:    <!-- title: \"Response\" lineNumbers: true --> ```json {     \"found\": false,     \"updated\": true } ```  This API request starts a process that affects Voucherify data in bulk.   In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS` status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.   The result will return the async ID. You can verify the status of your request via this [API request](ref:get-async-action).
+=======
+Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+>>>>>>> Stashed changes
 
 ### Example
 
@@ -817,7 +821,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$products_update_in_bulk_request_body = [{"source_id":"first_product","name":"Samsung Phone 1","price":220000,"attributes":["color","memory","processor"],"metadata":{"test":true,"vendor":"Online Store - 3"},"image_url":"https://voucherify-uploads.s3.amazonaws.com/org_2qt8DYlM/img_Z2qvs2KFnQyo2Ohz4uhsjGtf.png"},{"source_id":"second_product","name":"Samsung Phone 2","price":230000,"attributes":["color","memory","processor"],"metadata":{"test":true,"vendor":"Online Store - 4"},"image_url":"https://voucherify-uploads.s3.amazonaws.com/org_2qt8DYlM/img_Z2qvs2KFnQyo2Ohz4uhsjGtf.png"}]; // \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] | Create an array of product objects, each with the parameters which you want to update.
+$products_update_in_bulk_request_body = [{"source_id":"first_product","name":"Samsung Phone 1","price":220000,"attributes":["color","memory","processor"],"metadata":{"test":true,"vendor":"Online Store - 3"},"image_url":"https://voucherify-uploads.s3.amazonaws.com/org_2qt8DYlM/img_Z2qvs2KFnQyo2Ohz4uhsjGtf.png"},{"source_id":"second_product","name":"Samsung Phone 2","price":230000,"attributes":["color","memory","processor"],"metadata":{"test":true,"vendor":"Online Store - 4"},"image_url":"https://voucherify-uploads.s3.amazonaws.com/org_2qt8DYlM/img_Z2qvs2KFnQyo2Ohz4uhsjGtf.png"}]; // \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] | List the product fields to be updated in each customer object.
 
 try {
     $result = $apiInstance->updateProductsInBulk($products_update_in_bulk_request_body);
@@ -831,7 +835,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **products_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[]**](../Model/ProductsUpdateInBulkRequestBody.md)| Create an array of product objects, each with the parameters which you want to update. | [optional] |
+| **products_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[]**](../Model/ProductsUpdateInBulkRequestBody.md)| List the product fields to be updated in each customer object. | [optional] |
 
 ### Return type
 
@@ -856,9 +860,13 @@ try {
 updateProductsMetadataInBulk($products_metadata_update_in_bulk_request_body): \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkResponseBody
 ```
 
-Update Products' Metadata in bulk
+Update Products' Metadata in Bulk
 
+<<<<<<< Updated upstream
 Update several product metadata properties in one asynchronous operation.   In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier. If a requested product object is not found, then an **upsert** occurs. This is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) -->[Get Async Action](ref:get-async-action) endpoint as follows:    <!-- title: \"Response\" lineNumbers: true --> ```json {     \"found\": false,     \"updated\": true } ```  This API request starts a process that affects Voucherify data in bulk.   In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS` status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.   The result will return the async ID. You can verify the status of your request via this [API request](ref:get-async-action).
+=======
+Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
+>>>>>>> Stashed changes
 
 ### Example
 
@@ -884,7 +892,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$products_metadata_update_in_bulk_request_body = {"source_ids":["123-567-3433","test_volleyball"],"metadata":{"label":true,"origin":"PL"}}; // \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody | Specify the list of product source IDs and the metadata key value pairs to be udpated for these products.
+$products_metadata_update_in_bulk_request_body = {"source_ids":["123-567-3433","test_volleyball"],"metadata":{"label":true,"origin":"PL"}}; // \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody | List the source_ids of the products you would like to update with the metadata key/value pairs.
 
 try {
     $result = $apiInstance->updateProductsMetadataInBulk($products_metadata_update_in_bulk_request_body);
@@ -898,7 +906,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **products_metadata_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody**](../Model/ProductsMetadataUpdateInBulkRequestBody.md)| Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. | [optional] |
+| **products_metadata_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody**](../Model/ProductsMetadataUpdateInBulkRequestBody.md)| List the source_ids of the products you would like to update with the metadata key/value pairs. | [optional] |
 
 ### Return type
 

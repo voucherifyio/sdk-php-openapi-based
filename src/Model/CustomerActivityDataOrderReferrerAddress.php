@@ -36,6 +36,10 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomerActivityDataOrderReferrerAddress Class Doc Comment
  *
  * @category Class
+<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAddress.php
+=======
+ * @description Response body schema for **GET** &#x60;v1/rewards&#x60;.
+>>>>>>> Stashed changes:src/Model/RewardsListResponseBody.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

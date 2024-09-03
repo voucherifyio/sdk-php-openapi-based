@@ -51,7 +51,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_redemption';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBodyRedemption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

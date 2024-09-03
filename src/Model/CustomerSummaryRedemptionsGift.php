@@ -51,7 +51,7 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerSummaryRedemptions_gift';
+    protected static $openAPIModelName = 'CustomerSummaryRedemptionsGift';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -58,16 +58,16 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'source_id' => 'string',
         'name' => 'string',
         'description' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
-        'metadata' => 'object',
-        'id' => 'string',
-        'source_id' => 'string'
+        'address' => '\OpenAPI\Client\Model\CustomerAddress',
+        'metadata' => 'object'
     ];
 
     /**
@@ -78,6 +78,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'source_id' => null,
         'name' => null,
         'description' => null,
         'email' => null,
@@ -85,9 +87,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'birthday' => 'date',
         'birthdate' => 'date',
         'address' => null,
-        'metadata' => null,
-        'id' => null,
-        'source_id' => null
+        'metadata' => null
     ];
 
     /**
@@ -96,6 +96,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'name' => false,
 		'description' => false,
 		'email' => false,
@@ -106,6 +107,18 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
 		'metadata' => false,
 		'id' => false,
 		'source_id' => false
+=======
+        'id' => true,
+		'source_id' => true,
+		'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
+		'address' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -194,6 +207,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'source_id' => 'source_id',
         'name' => 'name',
         'description' => 'description',
         'email' => 'email',
@@ -201,9 +216,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'birthday' => 'birthday',
         'birthdate' => 'birthdate',
         'address' => 'address',
-        'metadata' => 'metadata',
-        'id' => 'id',
-        'source_id' => 'source_id'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -212,6 +225,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'source_id' => 'setSourceId',
         'name' => 'setName',
         'description' => 'setDescription',
         'email' => 'setEmail',
@@ -219,9 +234,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'birthday' => 'setBirthday',
         'birthdate' => 'setBirthdate',
         'address' => 'setAddress',
-        'metadata' => 'setMetadata',
-        'id' => 'setId',
-        'source_id' => 'setSourceId'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -230,6 +243,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'source_id' => 'getSourceId',
         'name' => 'getName',
         'description' => 'getDescription',
         'email' => 'getEmail',
@@ -237,9 +252,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'birthday' => 'getBirthday',
         'birthdate' => 'getBirthdate',
         'address' => 'getAddress',
-        'metadata' => 'getMetadata',
-        'id' => 'getId',
-        'source_id' => 'getSourceId'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -299,6 +312,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
@@ -307,8 +322,6 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('birthdate', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
     }
 
     /**
@@ -352,6 +365,74 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The ID of an existing customer.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -518,7 +599,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomerAddress|null
      */
     public function getAddress()
     {
@@ -528,7 +609,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomerAddress|null $address address
      *
      * @return self
      */
@@ -575,6 +656,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets id
@@ -629,6 +711,8 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

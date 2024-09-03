@@ -51,7 +51,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode implements ModelI
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_assets_barcode';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBodyAssetsBarcode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

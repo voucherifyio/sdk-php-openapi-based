@@ -69,8 +69,13 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount_amount' => 'int',
         'initial_amount' => 'int',
         'price' => 'int',
+<<<<<<< Updated upstream
         'product' => '\OpenAPI\Client\Model\OrderItemCalculatedProduct',
         'sku' => '\OpenAPI\Client\Model\OrderItemCalculatedSku',
+=======
+        'product' => '\OpenAPI\Client\Model\OrderItemProduct',
+        'sku' => '\OpenAPI\Client\Model\OrderItemSku',
+>>>>>>> Stashed changes
         'metadata' => 'object'
     ];
 
@@ -104,6 +109,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'sku_id' => false,
 		'product_id' => false,
 		'related_object' => false,
@@ -118,6 +124,22 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 		'product' => false,
 		'sku' => false,
 		'metadata' => false
+=======
+        'sku_id' => true,
+		'product_id' => true,
+		'related_object' => true,
+		'source_id' => true,
+		'quantity' => true,
+		'discount_quantity' => true,
+		'initial_quantity' => true,
+		'amount' => true,
+		'discount_amount' => true,
+		'initial_amount' => true,
+		'price' => true,
+		'product' => true,
+		'sku' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -715,7 +737,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets product
      *
-     * @return \OpenAPI\Client\Model\OrderItemCalculatedProduct|null
+     * @return \OpenAPI\Client\Model\OrderItemProduct|null
      */
     public function getProduct()
     {
@@ -725,7 +747,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product
      *
-     * @param \OpenAPI\Client\Model\OrderItemCalculatedProduct|null $product product
+     * @param \OpenAPI\Client\Model\OrderItemProduct|null $product product
      *
      * @return self
      */
@@ -742,7 +764,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sku
      *
-     * @return \OpenAPI\Client\Model\OrderItemCalculatedSku|null
+     * @return \OpenAPI\Client\Model\OrderItemSku|null
      */
     public function getSku()
     {
@@ -752,7 +774,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sku
      *
-     * @param \OpenAPI\Client\Model\OrderItemCalculatedSku|null $sku sku
+     * @param \OpenAPI\Client\Model\OrderItemSku|null $sku sku
      *
      * @return self
      */

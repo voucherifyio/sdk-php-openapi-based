@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ClientValidationsValidateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/validations&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/validations&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,13 +59,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'redeemables' => '\OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]',
+        'options' => '\OpenAPI\Client\Model\ClientValidationsValidateRequestBodyOptions',
+        'redeemables' => '\OpenAPI\Client\Model\ClientValidationsValidateRequestBodyRedeemablesItem[]',
         'order' => '\OpenAPI\Client\Model\Order',
         'customer' => '\OpenAPI\Client\Model\Customer',
         'session' => '\OpenAPI\Client\Model\Session',
         'tracking_id' => 'string',
-        'metadata' => 'object',
-        'options' => '\OpenAPI\Client\Model\ClientValidationsValidateRequestBodyAllOfOptions'
+        'metadata' => 'object'
     ];
 
     /**
@@ -76,13 +76,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'options' => null,
         'redeemables' => null,
         'order' => null,
         'customer' => null,
         'session' => null,
         'tracking_id' => null,
-        'metadata' => null,
-        'options' => null
+        'metadata' => null
     ];
 
     /**
@@ -91,6 +91,7 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'redeemables' => false,
 		'order' => false,
 		'customer' => false,
@@ -98,6 +99,15 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
 		'tracking_id' => false,
 		'metadata' => false,
 		'options' => false
+=======
+        'options' => true,
+		'redeemables' => true,
+		'order' => false,
+		'customer' => false,
+		'session' => false,
+		'tracking_id' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -186,13 +196,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'options' => 'options',
         'redeemables' => 'redeemables',
         'order' => 'order',
         'customer' => 'customer',
         'session' => 'session',
         'tracking_id' => 'tracking_id',
-        'metadata' => 'metadata',
-        'options' => 'options'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -201,13 +211,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'options' => 'setOptions',
         'redeemables' => 'setRedeemables',
         'order' => 'setOrder',
         'customer' => 'setCustomer',
         'session' => 'setSession',
         'tracking_id' => 'setTrackingId',
-        'metadata' => 'setMetadata',
-        'options' => 'setOptions'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -216,13 +226,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'options' => 'getOptions',
         'redeemables' => 'getRedeemables',
         'order' => 'getOrder',
         'customer' => 'getCustomer',
         'session' => 'getSession',
         'tracking_id' => 'getTrackingId',
-        'metadata' => 'getMetadata',
-        'options' => 'getOptions'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -282,13 +292,13 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('options', $data ?? [], null);
         $this->setIfExists('redeemables', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('customer', $data ?? [], null);
         $this->setIfExists('session', $data ?? [], null);
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('options', $data ?? [], null);
     }
 
     /**
@@ -337,9 +347,47 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
 
 
     /**
+     * Gets options
+     *
+     * @return \OpenAPI\Client\Model\ClientValidationsValidateRequestBodyOptions|null
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param \OpenAPI\Client\Model\ClientValidationsValidateRequestBodyOptions|null $options options
+     *
+     * @return self
+     */
+    public function setOptions($options)
+    {
+        if (is_null($options)) {
+            array_push($this->openAPINullablesSetToNull, 'options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['options'] = $options;
+
+        return $this;
+    }
+
+    /**
      * Gets redeemables
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]
+=======
+     * @return \OpenAPI\Client\Model\ClientValidationsValidateRequestBodyRedeemablesItem[]|null
+>>>>>>> Stashed changes
      */
     public function getRedeemables()
     {
@@ -349,7 +397,11 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
     /**
      * Sets redeemables
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[] $redeemables redeemables
+=======
+     * @param \OpenAPI\Client\Model\ClientValidationsValidateRequestBodyRedeemablesItem[]|null $redeemables redeemables
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -497,6 +549,7 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets options
@@ -524,6 +577,8 @@ class ClientValidationsValidateRequestBody implements ModelInterface, ArrayAcces
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

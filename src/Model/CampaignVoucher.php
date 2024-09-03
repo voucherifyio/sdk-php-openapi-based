@@ -300,7 +300,7 @@ class CampaignVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], 'DISCOUNT_VOUCHER');
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('gift', $data ?? [], null);
         $this->setIfExists('loyalty_card', $data ?? [], null);

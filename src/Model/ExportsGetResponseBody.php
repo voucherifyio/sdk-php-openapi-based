@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ExportsGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/exports/{exportId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/exports/{exportId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,10 +64,10 @@ class ExportsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => '\DateTime',
         'status' => 'string',
         'channel' => 'string',
-        'result' => '\OpenAPI\Client\Model\ExportResult',
+        'result' => '\OpenAPI\Client\Model\ExportsGetResponseBodyResult',
         'user_id' => 'string',
         'exported_object' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\ExportParameters'
+        'parameters' => '\OpenAPI\Client\Model\ExportsGetResponseBodyParameters'
     ];
 
     /**
@@ -589,7 +589,7 @@ class ExportsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets result
      *
-     * @return \OpenAPI\Client\Model\ExportResult|null
+     * @return \OpenAPI\Client\Model\ExportsGetResponseBodyResult|null
      */
     public function getResult()
     {
@@ -599,7 +599,7 @@ class ExportsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets result
      *
-     * @param \OpenAPI\Client\Model\ExportResult|null $result result
+     * @param \OpenAPI\Client\Model\ExportsGetResponseBodyResult|null $result result
      *
      * @return self
      */
@@ -687,7 +687,7 @@ class ExportsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\ExportParameters|null
+     * @return \OpenAPI\Client\Model\ExportsGetResponseBodyParameters|null
      */
     public function getParameters()
     {
@@ -697,7 +697,7 @@ class ExportsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\ExportParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\ExportsGetResponseBodyParameters|null $parameters parameters
      *
      * @return self
      */

@@ -51,7 +51,7 @@ class ClientEventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientEventsCreateRequestBody_loyalty';
+    protected static $openAPIModelName = 'ClientEventsCreateRequestBodyLoyalty';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

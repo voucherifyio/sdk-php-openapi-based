@@ -284,7 +284,6 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     public const TYPE_ACCRUAL = 'POINTS_ACCRUAL';
-    public const TYPE_CANCELLATION = 'POINTS_CANCELLATION';
     public const TYPE_REDEMPTION = 'POINTS_REDEMPTION';
     public const TYPE_REFUND = 'POINTS_REFUND';
     public const TYPE_ADDITION = 'POINTS_ADDITION';
@@ -302,7 +301,6 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         return [
             self::TYPE_ACCRUAL,
-            self::TYPE_CANCELLATION,
             self::TYPE_REDEMPTION,
             self::TYPE_REFUND,
             self::TYPE_ADDITION,

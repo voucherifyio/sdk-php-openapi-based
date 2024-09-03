@@ -90,6 +90,12 @@ class CustomersApi
         'listCustomerActivities' => [
             'application/json',
         ],
+        'listCustomerActivity' => [
+            'application/json',
+        ],
+        'listCustomerRedeemables' => [
+            'application/json',
+        ],
         'listCustomerSegments' => [
             'application/json',
         ],
@@ -1570,7 +1576,7 @@ class CustomersApi
     /**
      * Operation listCustomerActivities
      *
-     * List Customer Activities
+     * List Customer Activities [Deprecated]
      *
      * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
      * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
@@ -1597,7 +1603,7 @@ class CustomersApi
     /**
      * Operation listCustomerActivitiesWithHttpInfo
      *
-     * List Customer Activities
+     * List Customer Activities [Deprecated]
      *
      * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
      * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
@@ -1706,7 +1712,7 @@ class CustomersApi
     /**
      * Operation listCustomerActivitiesAsync
      *
-     * List Customer Activities
+     * List Customer Activities [Deprecated]
      *
      * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
      * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
@@ -1736,7 +1742,7 @@ class CustomersApi
     /**
      * Operation listCustomerActivitiesAsyncWithHttpInfo
      *
-     * List Customer Activities
+     * List Customer Activities [Deprecated]
      *
      * @param  string $customer_id A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. (required)
      * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
@@ -1923,6 +1929,799 @@ class CustomersApi
             'end_date', // param base name
             'string', // openApiType
             'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customerId' . '}',
+                ObjectSerializer::toPathValue($customer_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listCustomerActivity
+     *
+     * List Customer Activity
+     *
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderCreatedAt $order Apply this filter to order the events according the date and time when it was created. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  \DateTime $start_date Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param  string $campaign_id Requests only events related to specific campaign identified by its ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param  ParameterActivityCategory $category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param  string $type Event name of the customer event. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerActivity'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CustomersActivityListResponseBody
+     */
+    public function listCustomerActivity($customer_id, $limit = null, $order = null, $starting_after_id = null, $start_date = null, $end_date = null, $campaign_id = null, $campaign_type = null, $category = null, $type = null, string $contentType = self::contentTypes['listCustomerActivity'][0])
+    {
+        list($response) = $this->listCustomerActivityWithHttpInfo($customer_id, $limit, $order, $starting_after_id, $start_date, $end_date, $campaign_id, $campaign_type, $category, $type, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation listCustomerActivityWithHttpInfo
+     *
+     * List Customer Activity
+     *
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderCreatedAt $order Apply this filter to order the events according the date and time when it was created. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  \DateTime $start_date Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param  string $campaign_id Requests only events related to specific campaign identified by its ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param  ParameterActivityCategory $category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param  string $type Event name of the customer event. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerActivity'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CustomersActivityListResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listCustomerActivityWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after_id = null, $start_date = null, $end_date = null, $campaign_id = null, $campaign_type = null, $category = null, $type = null, string $contentType = self::contentTypes['listCustomerActivity'][0])
+    {
+        $request = $this->listCustomerActivityRequest($customer_id, $limit, $order, $starting_after_id, $start_date, $end_date, $campaign_id, $campaign_type, $category, $type, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CustomersActivityListResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CustomersActivityListResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CustomersActivityListResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CustomersActivityListResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CustomersActivityListResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listCustomerActivityAsync
+     *
+     * List Customer Activity
+     *
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderCreatedAt $order Apply this filter to order the events according the date and time when it was created. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  \DateTime $start_date Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param  string $campaign_id Requests only events related to specific campaign identified by its ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param  ParameterActivityCategory $category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param  string $type Event name of the customer event. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerActivity'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCustomerActivityAsync($customer_id, $limit = null, $order = null, $starting_after_id = null, $start_date = null, $end_date = null, $campaign_id = null, $campaign_type = null, $category = null, $type = null, string $contentType = self::contentTypes['listCustomerActivity'][0])
+    {
+        return $this->listCustomerActivityAsyncWithHttpInfo($customer_id, $limit, $order, $starting_after_id, $start_date, $end_date, $campaign_id, $campaign_type, $category, $type, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listCustomerActivityAsyncWithHttpInfo
+     *
+     * List Customer Activity
+     *
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderCreatedAt $order Apply this filter to order the events according the date and time when it was created. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  \DateTime $start_date Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param  string $campaign_id Requests only events related to specific campaign identified by its ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param  ParameterActivityCategory $category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param  string $type Event name of the customer event. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerActivity'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCustomerActivityAsyncWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after_id = null, $start_date = null, $end_date = null, $campaign_id = null, $campaign_type = null, $category = null, $type = null, string $contentType = self::contentTypes['listCustomerActivity'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CustomersActivityListResponseBody';
+        $request = $this->listCustomerActivityRequest($customer_id, $limit, $order, $starting_after_id, $start_date, $end_date, $campaign_id, $campaign_type, $category, $type, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listCustomerActivity'
+     *
+     * @param  string $customer_id A Voucherify customers id or source ID of the customer who performed the activities. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderCreatedAt $order Apply this filter to order the events according the date and time when it was created. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  \DateTime $start_date Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
+     * @param  \DateTime $end_date Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
+     * @param  string $campaign_id Requests only events related to specific campaign identified by its ID. (optional)
+     * @param  ParameterCampaignType $campaign_type Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param  ParameterActivityCategory $category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
+     * @param  string $type Event name of the customer event. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerActivity'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listCustomerActivityRequest($customer_id, $limit = null, $order = null, $starting_after_id = null, $start_date = null, $end_date = null, $campaign_id = null, $campaign_type = null, $category = null, $type = null, string $contentType = self::contentTypes['listCustomerActivity'][0])
+    {
+
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer_id when calling listCustomerActivity'
+            );
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomerActivity, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomerActivity, must be bigger than or equal to 1.');
+        }
+        
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/v1/customers/{customerId}/activity';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order,
+            'order', // param base name
+            'ParameterOrderCreatedAt', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $starting_after_id,
+            'starting_after_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start_date,
+            'start_date', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'end_date', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_id,
+            'campaign_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campaign_type,
+            'campaign_type', // param base name
+            'ParameterCampaignType', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $category,
+            'category', // param base name
+            'ParameterActivityCategory', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customerId' . '}',
+                ObjectSerializer::toPathValue($customer_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listCustomerRedeemables
+     *
+     * List Customer&#39;s Redeemables
+     *
+     * @param  string $customer_id Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderListRedeemables $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterFiltersListCustomerRedeemables $filters Filters for listing customer redeemables. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerRedeemables'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CustomersRedeemablesListResponseBody
+     */
+    public function listCustomerRedeemables($customer_id, $limit = null, $order = null, $starting_after_id = null, $filters = null, string $contentType = self::contentTypes['listCustomerRedeemables'][0])
+    {
+        list($response) = $this->listCustomerRedeemablesWithHttpInfo($customer_id, $limit, $order, $starting_after_id, $filters, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation listCustomerRedeemablesWithHttpInfo
+     *
+     * List Customer&#39;s Redeemables
+     *
+     * @param  string $customer_id Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderListRedeemables $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterFiltersListCustomerRedeemables $filters Filters for listing customer redeemables. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerRedeemables'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CustomersRedeemablesListResponseBody, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listCustomerRedeemablesWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after_id = null, $filters = null, string $contentType = self::contentTypes['listCustomerRedeemables'][0])
+    {
+        $request = $this->listCustomerRedeemablesRequest($customer_id, $limit, $order, $starting_after_id, $filters, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listCustomerRedeemablesAsync
+     *
+     * List Customer&#39;s Redeemables
+     *
+     * @param  string $customer_id Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderListRedeemables $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterFiltersListCustomerRedeemables $filters Filters for listing customer redeemables. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerRedeemables'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCustomerRedeemablesAsync($customer_id, $limit = null, $order = null, $starting_after_id = null, $filters = null, string $contentType = self::contentTypes['listCustomerRedeemables'][0])
+    {
+        return $this->listCustomerRedeemablesAsyncWithHttpInfo($customer_id, $limit, $order, $starting_after_id, $filters, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listCustomerRedeemablesAsyncWithHttpInfo
+     *
+     * List Customer&#39;s Redeemables
+     *
+     * @param  string $customer_id Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderListRedeemables $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterFiltersListCustomerRedeemables $filters Filters for listing customer redeemables. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerRedeemables'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listCustomerRedeemablesAsyncWithHttpInfo($customer_id, $limit = null, $order = null, $starting_after_id = null, $filters = null, string $contentType = self::contentTypes['listCustomerRedeemables'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\CustomersRedeemablesListResponseBody';
+        $request = $this->listCustomerRedeemablesRequest($customer_id, $limit, $order, $starting_after_id, $filters, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listCustomerRedeemables'
+     *
+     * @param  string $customer_id Unique identifier of a customer represented by an internal customer ID or customer source ID. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  ParameterOrderListRedeemables $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param  string $starting_after_id A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param  ParameterFiltersListCustomerRedeemables $filters Filters for listing customer redeemables. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomerRedeemables'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listCustomerRedeemablesRequest($customer_id, $limit = null, $order = null, $starting_after_id = null, $filters = null, string $contentType = self::contentTypes['listCustomerRedeemables'][0])
+    {
+
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer_id when calling listCustomerRedeemables'
+            );
+        }
+
+        if ($limit !== null && $limit > 100) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomerRedeemables, must be smaller than or equal to 100.');
+        }
+        if ($limit !== null && $limit < 1) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomerRedeemables, must be bigger than or equal to 1.');
+        }
+        
+
+
+
+
+        $resourcePath = '/v1/customers/{customerId}/redeemables';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $order,
+            'order', // param base name
+            'ParameterOrderListRedeemables', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $starting_after_id,
+            'starting_after_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filters,
+            'filters', // param base name
+            'object', // openApiType
+            'deepObject', // style
             true, // explode
             false // required
         ) ?? []);
@@ -3065,7 +3864,7 @@ class CustomersApi
     /**
      * Operation updateCustomersConsents
      *
-     * Update Customer&#39;s consents
+     * Update Customer&#39;s consents [Deprecated]
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
      * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
@@ -3074,6 +3873,7 @@ class CustomersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
+     * @deprecated
      */
     public function updateCustomersConsents($customer_id, $body = null, string $contentType = self::contentTypes['updateCustomersConsents'][0])
     {
@@ -3083,7 +3883,7 @@ class CustomersApi
     /**
      * Operation updateCustomersConsentsWithHttpInfo
      *
-     * Update Customer&#39;s consents
+     * Update Customer&#39;s consents [Deprecated]
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
      * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
@@ -3092,6 +3892,7 @@ class CustomersApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateCustomersConsentsWithHttpInfo($customer_id, $body = null, string $contentType = self::contentTypes['updateCustomersConsents'][0])
     {
@@ -3144,7 +3945,7 @@ class CustomersApi
     /**
      * Operation updateCustomersConsentsAsync
      *
-     * Update Customer&#39;s consents
+     * Update Customer&#39;s consents [Deprecated]
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
      * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
@@ -3152,6 +3953,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateCustomersConsentsAsync($customer_id, $body = null, string $contentType = self::contentTypes['updateCustomersConsents'][0])
     {
@@ -3166,7 +3968,7 @@ class CustomersApi
     /**
      * Operation updateCustomersConsentsAsyncWithHttpInfo
      *
-     * Update Customer&#39;s consents
+     * Update Customer&#39;s consents [Deprecated]
      *
      * @param  string $customer_id A Voucherify unique customer identifier or source ID. (required)
      * @param  object $body Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; (optional)
@@ -3174,6 +3976,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateCustomersConsentsAsyncWithHttpInfo($customer_id, $body = null, string $contentType = self::contentTypes['updateCustomersConsents'][0])
     {
@@ -3212,6 +4015,7 @@ class CustomersApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function updateCustomersConsentsRequest($customer_id, $body = null, string $contentType = self::contentTypes['updateCustomersConsents'][0])
     {
@@ -3569,9 +4373,9 @@ class CustomersApi
     /**
      * Operation updateCustomersInBulk
      *
-     * Update Customers in bulk
+     * Update Customers in Bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body List the customer fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3587,9 +4391,9 @@ class CustomersApi
     /**
      * Operation updateCustomersInBulkWithHttpInfo
      *
-     * Update Customers in bulk
+     * Update Customers in Bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body List the customer fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3687,9 +4491,9 @@ class CustomersApi
     /**
      * Operation updateCustomersInBulkAsync
      *
-     * Update Customers in bulk
+     * Update Customers in Bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body List the customer fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3708,9 +4512,9 @@ class CustomersApi
     /**
      * Operation updateCustomersInBulkAsyncWithHttpInfo
      *
-     * Update Customers in bulk
+     * Update Customers in Bulk
      *
-     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body List the customer fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3760,7 +4564,7 @@ class CustomersApi
     /**
      * Create request for operation 'updateCustomersInBulk'
      *
-     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body Specify the customer fields that you would like to update in each customer object. (optional)
+     * @param  \OpenAPI\Client\Model\CustomersUpdateInBulkRequestBody[] $customers_update_in_bulk_request_body List the customer fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3855,9 +4659,13 @@ class CustomersApi
     /**
      * Operation updateCustomersMetadataInBulk
      *
-     * Update Customers&#39; Metadata in bulk
+     * Update Customers&#39; Metadata in Bulk
      *
+<<<<<<< Updated upstream
      * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+=======
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
+>>>>>>> Stashed changes
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3873,9 +4681,13 @@ class CustomersApi
     /**
      * Operation updateCustomersMetadataInBulkWithHttpInfo
      *
-     * Update Customers&#39; Metadata in bulk
+     * Update Customers&#39; Metadata in Bulk
      *
+<<<<<<< Updated upstream
      * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+=======
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
+>>>>>>> Stashed changes
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3973,9 +4785,13 @@ class CustomersApi
     /**
      * Operation updateCustomersMetadataInBulkAsync
      *
-     * Update Customers&#39; Metadata in bulk
+     * Update Customers&#39; Metadata in Bulk
      *
+<<<<<<< Updated upstream
      * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+=======
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
+>>>>>>> Stashed changes
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3994,9 +4810,13 @@ class CustomersApi
     /**
      * Operation updateCustomersMetadataInBulkAsyncWithHttpInfo
      *
-     * Update Customers&#39; Metadata in bulk
+     * Update Customers&#39; Metadata in Bulk
      *
+<<<<<<< Updated upstream
      * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+=======
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
+>>>>>>> Stashed changes
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4046,7 +4866,11 @@ class CustomersApi
     /**
      * Create request for operation 'updateCustomersMetadataInBulk'
      *
+<<<<<<< Updated upstream
      * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. (optional)
+=======
+     * @param  \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody $customers_metadata_update_in_bulk_request_body List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)
+>>>>>>> Stashed changes
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomersMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -65,7 +65,7 @@ class LoyaltyCardTransaction implements ModelInterface, ArrayAccess, \JsonSerial
         'source' => 'string',
         'reason' => 'string',
         'type' => 'string',
-        'details' => '\OpenAPI\Client\Model\VoucherTransactionDetails',
+        'details' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetails',
         'related_transaction_id' => 'string',
         'created_at' => '\DateTime'
     ];
@@ -284,7 +284,6 @@ class LoyaltyCardTransaction implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     public const TYPE_ACCRUAL = 'POINTS_ACCRUAL';
-    public const TYPE_CANCELLATION = 'POINTS_CANCELLATION';
     public const TYPE_REDEMPTION = 'POINTS_REDEMPTION';
     public const TYPE_REFUND = 'POINTS_REFUND';
     public const TYPE_ADDITION = 'POINTS_ADDITION';
@@ -302,7 +301,6 @@ class LoyaltyCardTransaction implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return [
             self::TYPE_ACCRUAL,
-            self::TYPE_CANCELLATION,
             self::TYPE_REDEMPTION,
             self::TYPE_REFUND,
             self::TYPE_ADDITION,
@@ -644,7 +642,11 @@ class LoyaltyCardTransaction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets details
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\VoucherTransactionDetails
+=======
+     * @return \OpenAPI\Client\Model\LoyaltyCardTransactionDetails|null
+>>>>>>> Stashed changes
      */
     public function getDetails()
     {
@@ -654,7 +656,11 @@ class LoyaltyCardTransaction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets details
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\VoucherTransactionDetails $details details
+=======
+     * @param \OpenAPI\Client\Model\LoyaltyCardTransactionDetails|null $details details
+>>>>>>> Stashed changes
      *
      * @return self
      */

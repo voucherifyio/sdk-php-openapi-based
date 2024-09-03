@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemLoyaltyCard implemen
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemLoyaltyCard.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemLoyaltyCard';
+=======
+    protected static $openAPIModelName = 'RedemptionRollbackLoyaltyCard';
+>>>>>>> Stashed changes:src/Model/RedemptionRollbackLoyaltyCard.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

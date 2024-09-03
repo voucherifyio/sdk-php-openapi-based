@@ -51,7 +51,15 @@ class VoucherGift implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:src/Model/VoucherGift.php
     protected static $openAPIModelName = 'Voucher_gift';
+========
+    protected static $openAPIModelName = 'CampaignsVouchersCreateCombinedResponseBodyGift';
+>>>>>>>> Stashed changes:src/Model/CampaignsVouchersCreateCombinedResponseBodyGift.php
+=======
+    protected static $openAPIModelName = 'VoucherGift';
+>>>>>>> Stashed changes
 
     /**
       * Array of property to type mappings. Used for (de)serialization

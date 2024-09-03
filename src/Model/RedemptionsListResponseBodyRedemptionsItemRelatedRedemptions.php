@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions implements Mo
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemRelatedRedemptions';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -81,7 +81,7 @@ class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions implements Mo
       */
     protected static array $openAPINullables = [
         'rollbacks' => false,
-		'redemptions' => false
+		'redemptions' => true
     ];
 
     /**
@@ -344,7 +344,14 @@ class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions implements Mo
     public function setRedemptions($redemptions)
     {
         if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemptions'] = $redemptions;
 

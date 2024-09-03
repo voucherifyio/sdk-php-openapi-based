@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * RedemptionsRollbackCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/redemptions/{redemptionId}/rollback&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/redemptions/{redemptionId}/rollback&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -70,19 +70,29 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
         'reason' => 'string',
         'result' => 'string',
         'status' => 'string',
-        'related_redemptions' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptions',
+        'related_redemptions' => '\OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyRelatedRedemptions',
         'failure_code' => 'string',
         'failure_message' => 'string',
+<<<<<<< Updated upstream
         'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData',
         'channel' => '\OpenAPI\Client\Model\RedemptionChannel',
+=======
+        'order' => '\OpenAPI\Client\Model\OrderCalculated',
+        'channel' => '\OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyChannel',
+>>>>>>> Stashed changes
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'related_object_type' => 'string',
         'related_object_id' => 'string',
         'voucher' => '\OpenAPI\Client\Model\Voucher',
         'promotion_tier' => '\OpenAPI\Client\Model\PromotionTier',
         'reward' => '\OpenAPI\Client\Model\RedemptionRewardResult',
+<<<<<<< Updated upstream
         'gift' => '\OpenAPI\Client\Model\RedemptionGift',
         'loyalty_card' => '\OpenAPI\Client\Model\RedemptionLoyaltyCard'
+=======
+        'gift' => '\OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyGift',
+        'loyalty_card' => '\OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyLoyaltyCard'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -133,6 +143,7 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
 		'metadata' => true,
 		'amount' => false,
 		'redemption' => true,
+<<<<<<< Updated upstream
 		'reason' => false,
 		'result' => false,
 		'status' => false,
@@ -144,6 +155,19 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
 		'customer' => true,
 		'related_object_type' => false,
 		'related_object_id' => false,
+=======
+		'reason' => true,
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => false,
+		'channel' => true,
+		'customer' => false,
+		'related_object_type' => true,
+		'related_object_id' => true,
+>>>>>>> Stashed changes
 		'voucher' => false,
 		'promotion_tier' => false,
 		'reward' => false,
@@ -948,7 +972,7 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets related_redemptions
      *
-     * @return \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptions|null
+     * @return \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyRelatedRedemptions|null
      */
     public function getRelatedRedemptions()
     {
@@ -958,7 +982,7 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets related_redemptions
      *
-     * @param \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptions|null $related_redemptions related_redemptions
+     * @param \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyRelatedRedemptions|null $related_redemptions related_redemptions
      *
      * @return self
      */
@@ -1029,7 +1053,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets order
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData
+=======
+     * @return \OpenAPI\Client\Model\OrderCalculated|null
+>>>>>>> Stashed changes
      */
     public function getOrder()
     {
@@ -1039,21 +1067,18 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets order
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData $order order
+=======
+     * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setOrder($order)
     {
         if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order cannot be null');
         }
         $this->container['order'] = $order;
 
@@ -1063,7 +1088,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets channel
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionChannel
+=======
+     * @return \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyChannel|null
+>>>>>>> Stashed changes
      */
     public function getChannel()
     {
@@ -1073,7 +1102,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets channel
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionChannel $channel channel
+=======
+     * @param \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyChannel|null $channel channel
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1107,14 +1140,7 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            array_push($this->openAPINullablesSetToNull, 'customer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
 
@@ -1269,7 +1295,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets gift
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionGift|null
+=======
+     * @return \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyGift|null
+>>>>>>> Stashed changes
      */
     public function getGift()
     {
@@ -1279,7 +1309,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets gift
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionGift|null $gift gift
+=======
+     * @param \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyGift|null $gift gift
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1296,7 +1330,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Gets loyalty_card
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionLoyaltyCard|null
+=======
+     * @return \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyLoyaltyCard|null
+>>>>>>> Stashed changes
      */
     public function getLoyaltyCard()
     {
@@ -1306,7 +1344,11 @@ class RedemptionsRollbackCreateResponseBody implements ModelInterface, ArrayAcce
     /**
      * Sets loyalty_card
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionLoyaltyCard|null $loyalty_card loyalty_card
+=======
+     * @param \OpenAPI\Client\Model\RedemptionsRollbackCreateResponseBodyLoyaltyCard|null $loyalty_card loyalty_card
+>>>>>>> Stashed changes
      *
      * @return self
      */

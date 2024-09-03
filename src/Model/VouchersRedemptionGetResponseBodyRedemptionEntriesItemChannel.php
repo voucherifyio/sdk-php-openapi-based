@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemChannel implements M
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemChannel.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemChannel';
+=======
+    protected static $openAPIModelName = 'RedemptionRollbackChannel';
+>>>>>>> Stashed changes:src/Model/RedemptionRollbackChannel.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationRulesAssignmentsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body for **GET** &#x60;/validation-rules-assignments&#x60; and **GET** &#x60;/validation-rules/{validationRuleId}/assignments&#x60;.
+ * @description Response body for **GET** &#x60;v1/validation-rules-assignments&#x60; and **GET** &#x60;v1/validation-rules/{validationRuleId}/assignments&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

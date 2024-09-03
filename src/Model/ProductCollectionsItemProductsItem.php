@@ -50,7 +50,7 @@ class ProductCollectionsItemProductsItem implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Product_Collections_Item_Products_Item';
+    protected static $openAPIModelName = 'ProductCollectionsItemProductsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -401,7 +401,7 @@ class ProductCollectionsItemProductsItem implements ModelInterface, ArrayAccess,
     /**
      * Sets object
      *
-     * @param string $object Denotes the type of object represented by the ID.
+     * @param string $object Denotes the type of the object represented by the ID.
      *
      * @return self
      */

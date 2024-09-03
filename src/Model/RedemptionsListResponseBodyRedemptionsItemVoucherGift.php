@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherGift implements ModelInte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemVoucherGift';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemVoucherGift';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

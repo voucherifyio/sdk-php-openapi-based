@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsRelatedObjectParentId implements ModelInter
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_related_object_parent_id';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsRelatedObjectParentId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

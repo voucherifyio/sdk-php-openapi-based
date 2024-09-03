@@ -36,7 +36,11 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersCreateResponseBody Class Doc Comment
  *
  * @category Class
+<<<<<<< Updated upstream
  * @description Response bofy for **POST** &#x60;/customers&#x60;.
+=======
+ * @description Response body for **POST** &#x60;v1/customers&#x60;.
+>>>>>>> Stashed changes
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +71,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
         'system_metadata' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'assets' => '\OpenAPI\Client\Model\CustomerResponseDataAssets',
+        'assets' => '\OpenAPI\Client\Model\CustomersCreateResponseBodyAssets',
         'object' => 'string',
         'name' => 'string',
         'description' => 'string',
@@ -75,7 +79,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
+        'address' => '\OpenAPI\Client\Model\CustomersCreateResponseBodyAddress',
         'metadata' => 'object'
     ];
 
@@ -113,6 +117,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'source_id' => false,
 		'summary' => true,
@@ -129,6 +134,24 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
 		'phone' => false,
 		'birthday' => false,
 		'birthdate' => false,
+=======
+        'id' => true,
+		'source_id' => true,
+		'summary' => false,
+		'loyalty' => false,
+		'referrals' => false,
+		'system_metadata' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'assets' => true,
+		'object' => true,
+		'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
+>>>>>>> Stashed changes
 		'address' => true,
 		'metadata' => false
     ];
@@ -518,14 +541,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setSummary($summary)
     {
         if (is_null($summary)) {
-            array_push($this->openAPINullablesSetToNull, 'summary');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('summary', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable summary cannot be null');
         }
         $this->container['summary'] = $summary;
 
@@ -552,14 +568,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setLoyalty($loyalty)
     {
         if (is_null($loyalty)) {
-            array_push($this->openAPINullablesSetToNull, 'loyalty');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('loyalty', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
         }
         $this->container['loyalty'] = $loyalty;
 
@@ -586,14 +595,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     public function setReferrals($referrals)
     {
         if (is_null($referrals)) {
-            array_push($this->openAPINullablesSetToNull, 'referrals');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrals', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable referrals cannot be null');
         }
         $this->container['referrals'] = $referrals;
 
@@ -684,7 +686,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets assets
      *
-     * @return \OpenAPI\Client\Model\CustomerResponseDataAssets|null
+     * @return \OpenAPI\Client\Model\CustomersCreateResponseBodyAssets|null
      */
     public function getAssets()
     {
@@ -694,7 +696,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets assets
      *
-     * @param \OpenAPI\Client\Model\CustomerResponseDataAssets|null $assets assets
+     * @param \OpenAPI\Client\Model\CustomersCreateResponseBodyAssets|null $assets assets
      *
      * @return self
      */
@@ -910,7 +912,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomersCreateResponseBodyAddress|null
      */
     public function getAddress()
     {
@@ -920,7 +922,7 @@ class CustomersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomersCreateResponseBodyAddress|null $address address
      *
      * @return self
      */

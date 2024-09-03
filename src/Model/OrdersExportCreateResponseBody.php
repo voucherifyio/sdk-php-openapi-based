@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * OrdersExportCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/orders/export&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/orders/export&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +67,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
         'result' => 'object',
         'user_id' => 'string',
         'exported_object' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\OrdersExportCreateRequestBodyParameters'
+        'parameters' => '\OpenAPI\Client\Model\OrdersExportCreateResponseBodyParameters'
     ];
 
     /**
@@ -690,7 +690,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\OrdersExportCreateRequestBodyParameters|null
+     * @return \OpenAPI\Client\Model\OrdersExportCreateResponseBodyParameters|null
      */
     public function getParameters()
     {
@@ -700,7 +700,7 @@ class OrdersExportCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\OrdersExportCreateRequestBodyParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\OrdersExportCreateResponseBodyParameters|null $parameters parameters
      *
      * @return self
      */

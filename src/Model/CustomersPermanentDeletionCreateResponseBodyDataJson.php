@@ -51,7 +51,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomersPermanentDeletionCreateResponseBody_data_json';
+    protected static $openAPIModelName = 'CustomersPermanentDeletionCreateResponseBodyDataJson';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

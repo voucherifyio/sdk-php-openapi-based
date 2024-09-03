@@ -51,7 +51,7 @@ class ReferralProgramRefereeRewardRelatedObjectParent implements ModelInterface,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReferralProgram_referee_reward_related_object_parent';
+    protected static $openAPIModelName = 'ReferralProgramRefereeRewardRelatedObjectParent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

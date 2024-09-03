@@ -11,7 +11,12 @@ Name | Type | Description | Notes
 **channel** | **string** | The channel through which the export was triggered. | [default to 'API']
 **exported_object** | **string** | The type of exported object. | [default to 'voucher_transactions']
 **parameters** | [**\OpenAPI\Client\Model\VoucherTransactionsFilters**](VoucherTransactionsFilters.md) |  |
+<<<<<<< Updated upstream
 **result** | [**\OpenAPI\Client\Model\VoucherTransactionsExportResult**](VoucherTransactionsExportResult.md) |  |
 **user_id** | **string** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the &#x60;channel&#x60; value is &#x60;WEBSITE&#x60;. |
+=======
+**result** | [**\OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult**](VouchersTransactionsExportCreateResponseBodyResult.md) |  | [optional]
+**user_id** | **string** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the &#x60;channel&#x60; value is &#x60;WEBSITE&#x60;. | [optional]
+>>>>>>> Stashed changes
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

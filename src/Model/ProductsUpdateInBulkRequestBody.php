@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ProductsUpdateInBulkRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request schema for **POST** &#x60;/products/bulk/async&#x60;.
+ * @description Request schema for **POST** &#x60;v1/products/bulk/async&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

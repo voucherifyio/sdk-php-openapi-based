@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * SkusGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/skus/{skuId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/skus/{skuId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

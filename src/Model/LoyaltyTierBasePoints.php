@@ -51,7 +51,7 @@ class LoyaltyTierBasePoints implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltyTierBase_points';
+    protected static $openAPIModelName = 'LoyaltyTierBasePoints';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

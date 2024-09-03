@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationRulesCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/validation-rules&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/validation-rules&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,8 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     protected static $openAPITypes = [
         'name' => 'string',
         'rules' => 'object',
-        'error' => '\OpenAPI\Client\Model\ValidationRuleBaseError',
-        'applicable_to' => '\OpenAPI\Client\Model\ValidationRuleBaseApplicableTo',
+        'error' => '\OpenAPI\Client\Model\ValidationRulesCreateResponseBodyError',
+        'applicable_to' => '\OpenAPI\Client\Model\ValidationRulesCreateResponseBodyApplicableTo',
         'type' => 'string',
         'context_type' => 'string',
         'id' => 'string',
@@ -490,18 +490,6 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['rules'] === null) {
-            $invalidProperties[] = "'rules' can't be null";
-        }
-        if ($this->container['applicable_to'] === null) {
-            $invalidProperties[] = "'applicable_to' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -511,9 +499,6 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['context_type'] === null) {
-            $invalidProperties[] = "'context_type' can't be null";
-        }
         $allowedValues = $this->getContextTypeAllowableValues();
         if (!is_null($this->container['context_type']) && !in_array($this->container['context_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -550,7 +535,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -560,7 +545,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets name
      *
-     * @param string $name Custom, unique name for set of validation rules.
+     * @param string|null $name Custom, unique name for set of validation rules.
      *
      * @return self
      */
@@ -577,7 +562,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets rules
      *
-     * @return object
+     * @return object|null
      */
     public function getRules()
     {
@@ -587,7 +572,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets rules
      *
-     * @param object $rules Contains all the rule definitions for the validation rule. It is a set of key value pairs representing the rules and logic between the rules. The keys are numbered consecutively beginning from `1`. The values are objects containing the rule conditions.
+     * @param object|null $rules Contains all the rule definitions for the validation rule. It is a set of key value pairs representing the rules and logic between the rules. The keys are numbered consecutively beginning from `1`. The values are objects containing the rule conditions.
      *
      * @return self
      */
@@ -604,7 +589,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets error
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseError|null
+     * @return \OpenAPI\Client\Model\ValidationRulesCreateResponseBodyError|null
      */
     public function getError()
     {
@@ -614,7 +599,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets error
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseError|null $error error
+     * @param \OpenAPI\Client\Model\ValidationRulesCreateResponseBodyError|null $error error
      *
      * @return self
      */
@@ -631,7 +616,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets applicable_to
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo
+     * @return \OpenAPI\Client\Model\ValidationRulesCreateResponseBodyApplicableTo|null
      */
     public function getApplicableTo()
     {
@@ -641,7 +626,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets applicable_to
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo $applicable_to applicable_to
+     * @param \OpenAPI\Client\Model\ValidationRulesCreateResponseBodyApplicableTo|null $applicable_to applicable_to
      *
      * @return self
      */
@@ -658,7 +643,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -668,7 +653,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets type
      *
-     * @param string $type Type of validation rule.
+     * @param string|null $type Type of validation rule.
      *
      * @return self
      */
@@ -695,7 +680,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets context_type
      *
-     * @return string
+     * @return string|null
      */
     public function getContextType()
     {
@@ -705,7 +690,7 @@ class ValidationRulesCreateResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets context_type
      *
-     * @param string $context_type Validation rule context type.    | **Context Type** | **Definition** | |:---|:---| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | campaign.lucky_draw |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | voucher.lucky_draw_code |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  |
+     * @param string|null $context_type Validation rule context type.    | **Context Type** | **Definition** | |:---|:---| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | campaign.lucky_draw |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | voucher.lucky_draw_code |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  |
      *
      * @return self
      */

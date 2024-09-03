@@ -50,7 +50,7 @@ class CampaignsCreateRequestBodyPromotion implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignsCreateRequestBody_promotion';
+    protected static $openAPIModelName = 'CampaignsCreateRequestBodyPromotion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

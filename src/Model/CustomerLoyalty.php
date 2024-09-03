@@ -60,7 +60,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'points' => 'int',
         'referred_customers' => 'int',
-        'campaigns' => 'array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsValue>'
+        'campaigns' => 'array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsEntry>'
     ];
 
     /**
@@ -370,7 +370,11 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets campaigns
      *
+<<<<<<< Updated upstream
      * @return array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsValue>
+=======
+     * @return array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsEntry>|null
+>>>>>>> Stashed changes
      */
     public function getCampaigns()
     {
@@ -380,7 +384,11 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaigns
      *
+<<<<<<< Updated upstream
      * @param array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsValue> $campaigns Contains campaigns with details about point balances and how many customers were referred by the customer.
+=======
+     * @param array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsEntry>|null $campaigns Contains campaigns with details about point balances and how many customers were referred by the customer.
+>>>>>>> Stashed changes
      *
      * @return self
      */

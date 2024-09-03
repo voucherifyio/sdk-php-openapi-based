@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTierSummaryOrders imple
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryOrders';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemPromotionTierSummaryOrders';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ProductCollectionsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/product-collections&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/product-collections&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

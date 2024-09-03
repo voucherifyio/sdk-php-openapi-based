@@ -51,7 +51,7 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RewardType_product';
+    protected static $openAPIModelName = 'RewardTypeProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

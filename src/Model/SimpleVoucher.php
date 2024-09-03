@@ -62,7 +62,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'string',
         'gift' => '\OpenAPI\Client\Model\Gift',
         'discount' => '\OpenAPI\Client\Model\Discount',
+<<<<<<< Updated upstream
         'loyalty_card' => 'object',
+=======
+        'loyalty_card' => '\OpenAPI\Client\Model\SimpleLoyaltyCard',
+>>>>>>> Stashed changes
         'type' => 'string',
         'campaign' => 'object',
         'campaign_id' => 'string',
@@ -107,6 +111,7 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'gift' => false,
 		'discount' => false,
 		'loyalty_card' => false,
+<<<<<<< Updated upstream
 		'type' => false,
 		'campaign' => false,
 		'campaign_id' => false,
@@ -115,6 +120,24 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'referrer_id' => false,
 		'created_at' => false,
 		'object' => false
+=======
+		'type' => true,
+		'campaign' => true,
+		'campaign_id' => true,
+		'is_referral_code' => true,
+		'holder_id' => true,
+		'referrer_id' => true,
+		'category_id' => true,
+		'categories' => true,
+		'active' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'redemption' => true,
+		'start_date' => true,
+		'expiration_date' => true,
+		'metadata' => true,
+		'object' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -532,7 +555,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets loyalty_card
      *
+<<<<<<< Updated upstream
      * @return object|null
+=======
+     * @return \OpenAPI\Client\Model\SimpleLoyaltyCard|null
+>>>>>>> Stashed changes
      */
     public function getLoyaltyCard()
     {
@@ -542,7 +569,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets loyalty_card
      *
+<<<<<<< Updated upstream
      * @param object|null $loyalty_card Defines the loyalty card details.
+=======
+     * @param \OpenAPI\Client\Model\SimpleLoyaltyCard|null $loyalty_card loyalty_card
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -687,7 +718,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets holder_id
      *
+<<<<<<< Updated upstream
      * @param string|null $holder_id Unique customer ID of campaign owner.
+=======
+     * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -741,7 +776,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
+<<<<<<< Updated upstream
      * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in ISO 8601 format.
+=======
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in the ISO 8601 format.
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -756,6 +795,179 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
+=======
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets redemption
+     *
+     * @return \OpenAPI\Client\Model\SimpleVoucherRedemption|null
+     */
+    public function getRedemption()
+    {
+        return $this->container['redemption'];
+    }
+
+    /**
+     * Sets redemption
+     *
+     * @param \OpenAPI\Client\Model\SimpleVoucherRedemption|null $redemption redemption
+     *
+     * @return self
+     */
+    public function setRedemption($redemption)
+    {
+        if (is_null($redemption)) {
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['redemption'] = $redemption;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime|null
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime|null $start_date Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date.
+     *
+     * @return self
+     */
+    public function setStartDate($start_date)
+    {
+        if (is_null($start_date)) {
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_date
+     *
+     * @return \DateTime|null
+     */
+    public function getExpirationDate()
+    {
+        return $this->container['expiration_date'];
+    }
+
+    /**
+     * Sets expiration_date
+     *
+     * @param \DateTime|null $expiration_date Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date.
+     *
+     * @return self
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        if (is_null($expiration_date)) {
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expiration_date'] = $expiration_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to a voucher. The metadata object stores all custom attributes assigned to the voucher.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+>>>>>>> Stashed changes
      * Gets object
      *
      * @return string|null

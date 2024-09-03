@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/customers&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/customers&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +67,7 @@ class CustomersCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
+        'address' => '\OpenAPI\Client\Model\CustomersCreateRequestBodyAddress',
         'metadata' => 'object'
     ];
 
@@ -573,7 +573,7 @@ class CustomersCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomersCreateRequestBodyAddress|null
      */
     public function getAddress()
     {
@@ -583,7 +583,7 @@ class CustomersCreateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomersCreateRequestBodyAddress|null $address address
      *
      * @return self
      */

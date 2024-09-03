@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * VoucherTransactionsExportFilterConditionsVoucherIdConditions Class Doc Comment
  *
  * @category Class
- * @description Data filters used to narrow the data records to be returned in the result.
+ * @description Data filters used to narrow down the data records to be returned in the result.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -51,7 +51,7 @@ class VoucherTransactionsExportFilterConditionsVoucherIdConditions implements Mo
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransactionsExportFilterConditions_voucher_id_conditions';
+    protected static $openAPIModelName = 'VoucherTransactionsExportFilterConditionsVoucherIdConditions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **joint_categories** | **string[]** | Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns. |
 **redeemables_application_mode** | **string** | Defines redeemables application mode. | [optional]
 **redeemables_sorting_rule** | **string** | Defines redeemables sorting rule. | [optional] [default to 'REQUESTED_ORDER']
+**redeemables_products_application_mode** | **string** | Defines redeemables products application mode. | [optional]
+**redeemables_no_effect_rule** | **string** | Defines redeemables no effect rule. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

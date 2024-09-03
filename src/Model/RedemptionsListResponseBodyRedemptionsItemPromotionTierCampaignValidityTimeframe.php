@@ -50,7 +50,11 @@ class RedemptionsListResponseBodyRedemptionsItemPromotionTierCampaignValidityTim
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/RedemptionsListResponseBodyRedemptionsItemPromotionTierCampaignValidityTimeframe.php
     protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemPromotionTierCampaignValidityTimeframe';
+=======
+    protected static $openAPIModelName = 'RewardsCreateRequestBodyParametersProduct';
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBodyParametersProduct.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

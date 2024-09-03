@@ -51,7 +51,7 @@ class RewardTypeCampaign implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RewardType_campaign';
+    protected static $openAPIModelName = 'RewardTypeCampaign';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -243,9 +243,7 @@ class RewardTypeCampaign implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     public const TYPE_DISCOUNT_COUPONS = 'DISCOUNT_COUPONS';
-    public const TYPE_PROMOTION = 'PROMOTION';
     public const TYPE_GIFT_VOUCHERS = 'GIFT_VOUCHERS';
-    public const TYPE_REFERRAL_PROGRAM = 'REFERRAL_PROGRAM';
     public const TYPE_LOYALTY_PROGRAM = 'LOYALTY_PROGRAM';
 
     /**
@@ -257,9 +255,7 @@ class RewardTypeCampaign implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         return [
             self::TYPE_DISCOUNT_COUPONS,
-            self::TYPE_PROMOTION,
             self::TYPE_GIFT_VOUCHERS,
-            self::TYPE_REFERRAL_PROGRAM,
             self::TYPE_LOYALTY_PROGRAM,
         ];
     }
@@ -381,7 +377,7 @@ class RewardTypeCampaign implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets balance
      *
-     * @param int|null $balance The incremental amout to be added to the current balance on the gift card. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
+     * @param int|null $balance The number of points to be added to a loyalty card or the amount to be added to the current balance on the gift card.  For gift cards, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
      *
      * @return self
      */

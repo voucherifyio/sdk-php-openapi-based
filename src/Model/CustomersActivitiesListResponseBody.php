@@ -36,7 +36,11 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersActivitiesListResponseBody Class Doc Comment
  *
  * @category Class
+<<<<<<< Updated upstream
  * @description Request body schema for **GET** &#x60;/customers/{customerId}/activities&#x60;.
+=======
+ * @description Response body schema for **GET** &#x60;v1/customers/{customerId}/activities&#x60;.
+>>>>>>> Stashed changes
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

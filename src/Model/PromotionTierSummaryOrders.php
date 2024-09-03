@@ -51,7 +51,7 @@ class PromotionTierSummaryOrders implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PromotionTier_summary_orders';
+    protected static $openAPIModelName = 'PromotionTierSummaryOrders';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -50,7 +50,7 @@ class RedemptionRollbackRelatedRedemptions implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RedemptionRollback_related_redemptions';
+    protected static $openAPIModelName = 'RedemptionRollbackRelatedRedemptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class RedemptionRollbackRelatedRedemptions implements ModelInterface, ArrayAcces
       */
     protected static $openAPITypes = [
         'rollbacks' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsRollbacksItem[]',
-        'redemptions' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsItem[]'
+        'redemptions' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsRedemptionsItem[]'
     ];
 
     /**
@@ -327,7 +327,7 @@ class RedemptionRollbackRelatedRedemptions implements ModelInterface, ArrayAcces
     /**
      * Gets redemptions
      *
-     * @return \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsItem[]|null
+     * @return \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsRedemptionsItem[]|null
      */
     public function getRedemptions()
     {
@@ -337,7 +337,7 @@ class RedemptionRollbackRelatedRedemptions implements ModelInterface, ArrayAcces
     /**
      * Sets redemptions
      *
-     * @param \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsItem[]|null $redemptions redemptions
+     * @param \OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptionsRedemptionsItem[]|null $redemptions redemptions
      *
      * @return self
      */

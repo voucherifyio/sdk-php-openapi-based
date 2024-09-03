@@ -50,7 +50,7 @@ class LoyaltiesMembersRewardsListResponseBodyDataItem implements ModelInterface,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Loyalties_Members_Rewards_List_Response_Body_Data_Item';
+    protected static $openAPIModelName = 'LoyaltiesMembersRewardsListResponseBodyDataItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

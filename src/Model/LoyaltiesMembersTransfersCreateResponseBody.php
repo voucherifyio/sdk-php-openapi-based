@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersTransfersCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/transfers&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/transfers&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -1124,7 +1124,11 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets holder_id
      *
+<<<<<<< Updated upstream
      * @param string|null $holder_id Unique customer ID of voucher owner.
+=======
+     * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
+>>>>>>> Stashed changes
      *
      * @return self
      */

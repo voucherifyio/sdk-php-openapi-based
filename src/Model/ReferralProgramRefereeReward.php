@@ -51,7 +51,7 @@ class ReferralProgramRefereeReward implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReferralProgram_referee_reward';
+    protected static $openAPIModelName = 'ReferralProgramRefereeReward';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

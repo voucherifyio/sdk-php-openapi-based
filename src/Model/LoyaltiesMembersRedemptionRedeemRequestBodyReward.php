@@ -51,7 +51,7 @@ class LoyaltiesMembersRedemptionRedeemRequestBodyReward implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersRedemptionRedeemRequestBody_reward';
+    protected static $openAPIModelName = 'LoyaltiesMembersRedemptionRedeemRequestBodyReward';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -51,7 +51,7 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_event_schema';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsEventSchema';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

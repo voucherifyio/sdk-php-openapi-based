@@ -51,7 +51,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_loyalty_card';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -331,7 +331,11 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     /**
      * Sets points
      *
+<<<<<<< Updated upstream
      * @param int $points Total points incurred over lifespan of loyalty card.
+=======
+     * @param int|null $points Total points incurred over the lifespan of the loyalty card.
+>>>>>>> Stashed changes
      *
      * @return self
      */

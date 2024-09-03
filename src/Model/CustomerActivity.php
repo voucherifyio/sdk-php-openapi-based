@@ -61,8 +61,14 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'type' => 'string',
+<<<<<<< Updated upstream
         'data' => '\OpenAPI\Client\Model\CustomerActivityData[]',
         'created_at' => '\DateTime'
+=======
+        'data' => 'object',
+        'created_at' => '\DateTime',
+        'group_id' => 'string'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -248,155 +254,6 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CONFIRMED = 'customer.confirmed';
-    public const TYPE_CREATED = 'customer.created';
-    public const TYPE_UPDATED = 'customer.updated';
-    public const TYPE_DELETED = 'customer.deleted';
-    public const TYPE_REFERRED = 'customer.referred';
-    public const TYPE_CUSTOM_EVENT = 'customer.custom_event';
-    public const TYPE_SEGMENT_ENTERED = 'customer.segment.entered';
-    public const TYPE_SEGMENT_LEFT = 'customer.segment.left';
-    public const TYPE_SMS_SENT = 'customer.sms.sent';
-    public const TYPE_SMS_RECOVERED = 'customer.sms.recovered';
-    public const TYPE_SMS_FAILED = 'customer.sms.failed';
-    public const TYPE_EMAIL_SENT = 'customer.email.sent';
-    public const TYPE_EMAIL_RECOVERED = 'customer.email.recovered';
-    public const TYPE_EMAIL_FAILED = 'customer.email.failed';
-    public const TYPE_ACTIVECAMPAIGN_SENT = 'customer.activecampaign.sent';
-    public const TYPE_ACTIVECAMPAIGN_RECOVERED = 'customer.activecampaign.recovered';
-    public const TYPE_ACTIVECAMPAIGN_FAILED = 'customer.activecampaign.failed';
-    public const TYPE_BRAZE_SENT = 'customer.braze.sent';
-    public const TYPE_BRAZE_RECOVERED = 'customer.braze.recovered';
-    public const TYPE_BRAZE_FAILED = 'customer.braze.failed';
-    public const TYPE_MAILCHIMP_SENT = 'customer.mailchimp.sent';
-    public const TYPE_MAILCHIMP_RECOVERED = 'customer.mailchimp.recovered';
-    public const TYPE_MAILCHIMP_FAILED = 'customer.mailchimp.failed';
-    public const TYPE_INTERCOM_SENT = 'customer.intercom.sent';
-    public const TYPE_INTERCOM_RECOVERED = 'customer.intercom.recovered';
-    public const TYPE_INTERCOM_FAILED = 'customer.intercom.failed';
-    public const TYPE_SHOPIFY_SENT = 'customer.shopify.sent';
-    public const TYPE_SHOPIFY_RECOVERED = 'customer.shopify.recovered';
-    public const TYPE_SHOPIFY_FAILED = 'customer.shopify.failed';
-    public const TYPE_KLAVIYO_SENT = 'customer.klaviyo.sent';
-    public const TYPE_KLAVIYO_RECOVERED = 'customer.klaviyo.recovered';
-    public const TYPE_KLAVIYO_FAILED = 'customer.klaviyo.failed';
-    public const TYPE_BATCH_SENT = 'customer.batch.sent';
-    public const TYPE_BATCH_RECOVERED = 'customer.batch.recovered';
-    public const TYPE_BATCH_FAILED = 'customer.batch.failed';
-    public const TYPE_REWARDED = 'customer.rewarded';
-    public const TYPE_REWARDED_LOYALTY_POINTS = 'customer.rewarded.loyalty_points';
-    public const TYPE_VOUCHER_GIFT_BALANCE_ADDED = 'customer.voucher.gift.balance_added';
-    public const TYPE_VOUCHER_LOYALTY_CARD_POINTS_ADDED = 'customer.voucher.loyalty_card.points_added';
-    public const TYPE_VOUCHER_LOYALTY_CARD_POINTS_TRANSFERRED = 'customer.voucher.loyalty_card.points_transferred';
-    public const TYPE_VOUCHER_LOYALTY_CARD_POINTS_EXPIRED = 'customer.voucher.loyalty_card.points_expired';
-    public const TYPE_VOUCHER_DELETED = 'customer.voucher.deleted';
-    public const TYPE_PUBLICATION_SUCCEEDED = 'customer.publication.succeeded';
-    public const TYPE_PUBLICATION_FAILED = 'customer.publication.failed';
-    public const TYPE_VALIDATION_SUCCEEDED = 'customer.validation.succeeded';
-    public const TYPE_VALIDATION_FAILED = 'customer.validation.failed';
-    public const TYPE_REDEMPTION_FAILED = 'customer.redemption.failed';
-    public const TYPE_REDEMPTION_SUCCEEDED = 'customer.redemption.succeeded';
-    public const TYPE_REDEMPTION_ROLLBACK_FAILED = 'customer.redemption.rollback.failed';
-    public const TYPE_REDEMPTION_ROLLBACK_SUCCEEDED = 'customer.redemption.rollback.succeeded';
-    public const TYPE_CONSENTS_GIVEN = 'customer.consents.given';
-    public const TYPE_CONSENTS_REVOKED = 'customer.consents.revoked';
-    public const TYPE_ORDER_CANCELED = 'customer.order.canceled';
-    public const TYPE_ORDER_CREATED = 'customer.order.created';
-    public const TYPE_ORDER_FULFILLED = 'customer.order.fulfilled';
-    public const TYPE_ORDER_PAID = 'customer.order.paid';
-    public const TYPE_ORDER_PROCESSING = 'customer.order.processing';
-    public const TYPE_ORDER_UPDATED = 'customer.order.updated';
-    public const TYPE_REWARD_REDEMPTIONS_CREATED = 'customer.reward_redemptions.created';
-    public const TYPE_REWARD_REDEMPTIONS_PENDING = 'customer.reward_redemptions.pending';
-    public const TYPE_REWARD_REDEMPTIONS_COMPLETED = 'customer.reward_redemptions.completed';
-    public const TYPE_REWARD_REDEMPTIONS_ROLLEDBACK = 'customer.reward_redemptions.rolledback';
-    public const TYPE_LOYALTY_UPDATED = 'customer.loyalty.updated';
-    public const TYPE_LOYALTY_TIER_UPGRADED = 'customer.loyalty.tier.upgraded';
-    public const TYPE_LOYALTY_TIER_DOWNGRADED = 'customer.loyalty.tier.downgraded';
-    public const TYPE_LOYALTY_TIER_PROLONGED = 'customer.loyalty.tier.prolonged';
-    public const TYPE_LOYALTY_TIER_EXPIRATION_CHANGED = 'customer.loyalty.tier.expiration.changed';
-    public const TYPE_LOYALTY_TIER_JOINED = 'customer.loyalty.tier.joined';
-    public const TYPE_LOYALTY_TIER_LEFT = 'customer.loyalty.tier.left';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CONFIRMED,
-            self::TYPE_CREATED,
-            self::TYPE_UPDATED,
-            self::TYPE_DELETED,
-            self::TYPE_REFERRED,
-            self::TYPE_CUSTOM_EVENT,
-            self::TYPE_SEGMENT_ENTERED,
-            self::TYPE_SEGMENT_LEFT,
-            self::TYPE_SMS_SENT,
-            self::TYPE_SMS_RECOVERED,
-            self::TYPE_SMS_FAILED,
-            self::TYPE_EMAIL_SENT,
-            self::TYPE_EMAIL_RECOVERED,
-            self::TYPE_EMAIL_FAILED,
-            self::TYPE_ACTIVECAMPAIGN_SENT,
-            self::TYPE_ACTIVECAMPAIGN_RECOVERED,
-            self::TYPE_ACTIVECAMPAIGN_FAILED,
-            self::TYPE_BRAZE_SENT,
-            self::TYPE_BRAZE_RECOVERED,
-            self::TYPE_BRAZE_FAILED,
-            self::TYPE_MAILCHIMP_SENT,
-            self::TYPE_MAILCHIMP_RECOVERED,
-            self::TYPE_MAILCHIMP_FAILED,
-            self::TYPE_INTERCOM_SENT,
-            self::TYPE_INTERCOM_RECOVERED,
-            self::TYPE_INTERCOM_FAILED,
-            self::TYPE_SHOPIFY_SENT,
-            self::TYPE_SHOPIFY_RECOVERED,
-            self::TYPE_SHOPIFY_FAILED,
-            self::TYPE_KLAVIYO_SENT,
-            self::TYPE_KLAVIYO_RECOVERED,
-            self::TYPE_KLAVIYO_FAILED,
-            self::TYPE_BATCH_SENT,
-            self::TYPE_BATCH_RECOVERED,
-            self::TYPE_BATCH_FAILED,
-            self::TYPE_REWARDED,
-            self::TYPE_REWARDED_LOYALTY_POINTS,
-            self::TYPE_VOUCHER_GIFT_BALANCE_ADDED,
-            self::TYPE_VOUCHER_LOYALTY_CARD_POINTS_ADDED,
-            self::TYPE_VOUCHER_LOYALTY_CARD_POINTS_TRANSFERRED,
-            self::TYPE_VOUCHER_LOYALTY_CARD_POINTS_EXPIRED,
-            self::TYPE_VOUCHER_DELETED,
-            self::TYPE_PUBLICATION_SUCCEEDED,
-            self::TYPE_PUBLICATION_FAILED,
-            self::TYPE_VALIDATION_SUCCEEDED,
-            self::TYPE_VALIDATION_FAILED,
-            self::TYPE_REDEMPTION_FAILED,
-            self::TYPE_REDEMPTION_SUCCEEDED,
-            self::TYPE_REDEMPTION_ROLLBACK_FAILED,
-            self::TYPE_REDEMPTION_ROLLBACK_SUCCEEDED,
-            self::TYPE_CONSENTS_GIVEN,
-            self::TYPE_CONSENTS_REVOKED,
-            self::TYPE_ORDER_CANCELED,
-            self::TYPE_ORDER_CREATED,
-            self::TYPE_ORDER_FULFILLED,
-            self::TYPE_ORDER_PAID,
-            self::TYPE_ORDER_PROCESSING,
-            self::TYPE_ORDER_UPDATED,
-            self::TYPE_REWARD_REDEMPTIONS_CREATED,
-            self::TYPE_REWARD_REDEMPTIONS_PENDING,
-            self::TYPE_REWARD_REDEMPTIONS_COMPLETED,
-            self::TYPE_REWARD_REDEMPTIONS_ROLLEDBACK,
-            self::TYPE_LOYALTY_UPDATED,
-            self::TYPE_LOYALTY_TIER_UPGRADED,
-            self::TYPE_LOYALTY_TIER_DOWNGRADED,
-            self::TYPE_LOYALTY_TIER_PROLONGED,
-            self::TYPE_LOYALTY_TIER_EXPIRATION_CHANGED,
-            self::TYPE_LOYALTY_TIER_JOINED,
-            self::TYPE_LOYALTY_TIER_LEFT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -445,15 +302,6 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -519,6 +367,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
+<<<<<<< Updated upstream
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -529,6 +378,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
                 )
             );
         }
+=======
+>>>>>>> Stashed changes
         $this->container['type'] = $type;
 
         return $this;
@@ -537,7 +388,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\CustomerActivityData[]|null
+=======
+     * @return object|null
+>>>>>>> Stashed changes
      */
     public function getData()
     {
@@ -547,7 +402,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\CustomerActivityData[]|null $data Contains details about the event. The objects that are returned in the data attribute differ based on the context of the event type.
+=======
+     * @param object|null $data Contains details about the event. The objects that are returned in the data attribute differ based on the context of the event type.
+>>>>>>> Stashed changes
      *
      * @return self
      */

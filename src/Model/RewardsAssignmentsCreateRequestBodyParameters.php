@@ -51,7 +51,7 @@ class RewardsAssignmentsCreateRequestBodyParameters implements ModelInterface, A
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RewardsAssignmentsCreateRequestBody_parameters';
+    protected static $openAPIModelName = 'RewardsAssignmentsCreateRequestBodyParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

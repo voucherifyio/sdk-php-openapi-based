@@ -62,7 +62,7 @@ class ProductCollectionsItem implements ModelInterface, ArrayAccess, \JsonSerial
         'id' => 'string',
         'name' => 'string',
         'type' => 'string',
-        'filter' => '\OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter',
+        'filter' => '\OpenAPI\Client\Model\ProductCollectionsItemFilter',
         'products' => '\OpenAPI\Client\Model\ProductCollectionsItemProductsItem[]',
         'created_at' => '\DateTime',
         'object' => 'string'
@@ -488,7 +488,7 @@ class ProductCollectionsItem implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets filter
      *
-     * @return \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter|null
+     * @return \OpenAPI\Client\Model\ProductCollectionsItemFilter|null
      */
     public function getFilter()
     {
@@ -498,7 +498,7 @@ class ProductCollectionsItem implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets filter
      *
-     * @param \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter|null $filter filter
+     * @param \OpenAPI\Client\Model\ProductCollectionsItemFilter|null $filter filter
      *
      * @return self
      */

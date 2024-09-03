@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PublicationsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for listing publications using **GET** &#x60;/publications&#x60;.
+ * @description Response body schema for listing publications using **GET** &#x60;v1/publications&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

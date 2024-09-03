@@ -66,7 +66,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         'exclusive_categories' => 'string[]',
         'joint_categories' => 'string[]',
         'redeemables_application_mode' => 'string',
-        'redeemables_sorting_rule' => 'string'
+        'redeemables_sorting_rule' => 'string',
+        'redeemables_products_application_mode' => 'string',
+        'redeemables_no_effect_rule' => 'string'
     ];
 
     /**
@@ -84,7 +86,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         'exclusive_categories' => null,
         'joint_categories' => null,
         'redeemables_application_mode' => null,
-        'redeemables_sorting_rule' => null
+        'redeemables_sorting_rule' => null,
+        'redeemables_products_application_mode' => null,
+        'redeemables_no_effect_rule' => null
     ];
 
     /**
@@ -93,6 +97,7 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'redeemables_limit' => false,
 		'applicable_redeemables_limit' => false,
 		'applicable_exclusive_redeemables_limit' => false,
@@ -101,6 +106,19 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
 		'joint_categories' => false,
 		'redeemables_application_mode' => false,
 		'redeemables_sorting_rule' => false
+=======
+        'redeemables_limit' => true,
+		'applicable_redeemables_limit' => true,
+		'applicable_redeemables_per_category_limit' => true,
+		'applicable_exclusive_redeemables_limit' => true,
+		'applicable_exclusive_redeemables_per_category_limit' => true,
+		'exclusive_categories' => true,
+		'joint_categories' => true,
+		'redeemables_application_mode' => true,
+		'redeemables_sorting_rule' => true,
+		'redeemables_products_application_mode' => true,
+		'redeemables_no_effect_rule' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -196,7 +214,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         'exclusive_categories' => 'exclusive_categories',
         'joint_categories' => 'joint_categories',
         'redeemables_application_mode' => 'redeemables_application_mode',
-        'redeemables_sorting_rule' => 'redeemables_sorting_rule'
+        'redeemables_sorting_rule' => 'redeemables_sorting_rule',
+        'redeemables_products_application_mode' => 'redeemables_products_application_mode',
+        'redeemables_no_effect_rule' => 'redeemables_no_effect_rule'
     ];
 
     /**
@@ -212,7 +232,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         'exclusive_categories' => 'setExclusiveCategories',
         'joint_categories' => 'setJointCategories',
         'redeemables_application_mode' => 'setRedeemablesApplicationMode',
-        'redeemables_sorting_rule' => 'setRedeemablesSortingRule'
+        'redeemables_sorting_rule' => 'setRedeemablesSortingRule',
+        'redeemables_products_application_mode' => 'setRedeemablesProductsApplicationMode',
+        'redeemables_no_effect_rule' => 'setRedeemablesNoEffectRule'
     ];
 
     /**
@@ -228,7 +250,9 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         'exclusive_categories' => 'getExclusiveCategories',
         'joint_categories' => 'getJointCategories',
         'redeemables_application_mode' => 'getRedeemablesApplicationMode',
-        'redeemables_sorting_rule' => 'getRedeemablesSortingRule'
+        'redeemables_sorting_rule' => 'getRedeemablesSortingRule',
+        'redeemables_products_application_mode' => 'getRedeemablesProductsApplicationMode',
+        'redeemables_no_effect_rule' => 'getRedeemablesNoEffectRule'
     ];
 
     /**
@@ -276,6 +300,10 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     public const REDEEMABLES_APPLICATION_MODE_PARTIAL = 'PARTIAL';
     public const REDEEMABLES_SORTING_RULE_CATEGORY_HIERARCHY = 'CATEGORY_HIERARCHY';
     public const REDEEMABLES_SORTING_RULE_REQUESTED_ORDER = 'REQUESTED_ORDER';
+    public const REDEEMABLES_PRODUCTS_APPLICATION_MODE_STACK = 'STACK';
+    public const REDEEMABLES_PRODUCTS_APPLICATION_MODE_ONCE = 'ONCE';
+    public const REDEEMABLES_NO_EFFECT_RULE_REDEEM_ANYWAY = 'REDEEM_ANYWAY';
+    public const REDEEMABLES_NO_EFFECT_RULE_SKIP = 'SKIP';
 
     /**
      * Gets allowable values of the enum
@@ -304,6 +332,32 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRedeemablesProductsApplicationModeAllowableValues()
+    {
+        return [
+            self::REDEEMABLES_PRODUCTS_APPLICATION_MODE_STACK,
+            self::REDEEMABLES_PRODUCTS_APPLICATION_MODE_ONCE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRedeemablesNoEffectRuleAllowableValues()
+    {
+        return [
+            self::REDEEMABLES_NO_EFFECT_RULE_REDEEM_ANYWAY,
+            self::REDEEMABLES_NO_EFFECT_RULE_SKIP,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -326,6 +380,8 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('joint_categories', $data ?? [], null);
         $this->setIfExists('redeemables_application_mode', $data ?? [], null);
         $this->setIfExists('redeemables_sorting_rule', $data ?? [], 'REQUESTED_ORDER');
+        $this->setIfExists('redeemables_products_application_mode', $data ?? [], null);
+        $this->setIfExists('redeemables_no_effect_rule', $data ?? [], null);
     }
 
     /**
@@ -416,6 +472,24 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'redeemables_sorting_rule', must be one of '%s'",
                 $this->container['redeemables_sorting_rule'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRedeemablesProductsApplicationModeAllowableValues();
+        if (!is_null($this->container['redeemables_products_application_mode']) && !in_array($this->container['redeemables_products_application_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'redeemables_products_application_mode', must be one of '%s'",
+                $this->container['redeemables_products_application_mode'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRedeemablesNoEffectRuleAllowableValues();
+        if (!is_null($this->container['redeemables_no_effect_rule']) && !in_array($this->container['redeemables_no_effect_rule'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'redeemables_no_effect_rule', must be one of '%s'",
+                $this->container['redeemables_no_effect_rule'],
                 implode("', '", $allowedValues)
             );
         }
@@ -699,6 +773,94 @@ class StackingRules implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['redeemables_sorting_rule'] = $redeemables_sorting_rule;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemables_products_application_mode
+     *
+     * @return string|null
+     */
+    public function getRedeemablesProductsApplicationMode()
+    {
+        return $this->container['redeemables_products_application_mode'];
+    }
+
+    /**
+     * Sets redeemables_products_application_mode
+     *
+     * @param string|null $redeemables_products_application_mode Defines redeemables products application mode.
+     *
+     * @return self
+     */
+    public function setRedeemablesProductsApplicationMode($redeemables_products_application_mode)
+    {
+        if (is_null($redeemables_products_application_mode)) {
+            array_push($this->openAPINullablesSetToNull, 'redeemables_products_application_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables_products_application_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getRedeemablesProductsApplicationModeAllowableValues();
+        if (!is_null($redeemables_products_application_mode) && !in_array($redeemables_products_application_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'redeemables_products_application_mode', must be one of '%s'",
+                    $redeemables_products_application_mode,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['redeemables_products_application_mode'] = $redeemables_products_application_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets redeemables_no_effect_rule
+     *
+     * @return string|null
+     */
+    public function getRedeemablesNoEffectRule()
+    {
+        return $this->container['redeemables_no_effect_rule'];
+    }
+
+    /**
+     * Sets redeemables_no_effect_rule
+     *
+     * @param string|null $redeemables_no_effect_rule Defines redeemables no effect rule.
+     *
+     * @return self
+     */
+    public function setRedeemablesNoEffectRule($redeemables_no_effect_rule)
+    {
+        if (is_null($redeemables_no_effect_rule)) {
+            array_push($this->openAPINullablesSetToNull, 'redeemables_no_effect_rule');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables_no_effect_rule', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getRedeemablesNoEffectRuleAllowableValues();
+        if (!is_null($redeemables_no_effect_rule) && !in_array($redeemables_no_effect_rule, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'redeemables_no_effect_rule', must be one of '%s'",
+                    $redeemables_no_effect_rule,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['redeemables_no_effect_rule'] = $redeemables_no_effect_rule;
 
         return $this;
     }

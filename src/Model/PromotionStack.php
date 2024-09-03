@@ -59,7 +59,7 @@ class PromotionStack implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'tiers' => '\OpenAPI\Client\Model\PromotionStackBaseTiers',
+        'tiers' => '\OpenAPI\Client\Model\PromotionStackTiers',
         'id' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -422,7 +422,11 @@ class PromotionStack implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tiers
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\PromotionStackBaseTiers
+=======
+     * @return \OpenAPI\Client\Model\PromotionStackTiers|null
+>>>>>>> Stashed changes
      */
     public function getTiers()
     {
@@ -432,7 +436,11 @@ class PromotionStack implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tiers
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\PromotionStackBaseTiers $tiers tiers
+=======
+     * @param \OpenAPI\Client\Model\PromotionStackTiers|null $tiers tiers
+>>>>>>> Stashed changes
      *
      * @return self
      */

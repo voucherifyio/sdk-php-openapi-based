@@ -51,7 +51,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultGift implements ModelI
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResult_gift';
+    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResultGift';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

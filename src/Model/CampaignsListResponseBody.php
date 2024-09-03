@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CampaignsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Schema model for **GET** &#x60;/campaigns&#x60;.
+ * @description Schema model for **GET** &#x60;v1/campaigns&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

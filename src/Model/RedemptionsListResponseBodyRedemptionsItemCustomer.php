@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemCustomer';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemCustomer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'source_id' => 'string',
         'name' => 'string',
         'email' => 'string',
+        'source_id' => 'string',
         'metadata' => 'object',
         'object' => 'string'
     ];
@@ -75,9 +75,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'source_id' => null,
         'name' => null,
         'email' => null,
+        'source_id' => null,
         'metadata' => null,
         'object' => null
     ];
@@ -88,10 +88,17 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'source_id' => false,
 		'name' => false,
 		'email' => false,
+=======
+        'id' => true,
+		'name' => true,
+		'email' => true,
+		'source_id' => true,
+>>>>>>> Stashed changes
 		'metadata' => false,
 		'object' => false
     ];
@@ -183,9 +190,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'source_id' => 'source_id',
         'name' => 'name',
         'email' => 'email',
+        'source_id' => 'source_id',
         'metadata' => 'metadata',
         'object' => 'object'
     ];
@@ -197,9 +204,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
      */
     protected static $setters = [
         'id' => 'setId',
-        'source_id' => 'setSourceId',
         'name' => 'setName',
         'email' => 'setEmail',
+        'source_id' => 'setSourceId',
         'metadata' => 'setMetadata',
         'object' => 'setObject'
     ];
@@ -211,9 +218,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
      */
     protected static $getters = [
         'id' => 'getId',
-        'source_id' => 'getSourceId',
         'name' => 'getName',
         'email' => 'getEmail',
+        'source_id' => 'getSourceId',
         'metadata' => 'getMetadata',
         'object' => 'getObject'
     ];
@@ -289,9 +296,9 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'customer');
     }
@@ -360,7 +367,7 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
     /**
      * Sets id
      *
-     * @param string|null $id The ID of an existing customer that will be linked to redemption in this request.
+     * @param string|null $id Unique identifier of an existing customer. It is assigned by Voucherify.
      *
      * @return self
      */
@@ -375,6 +382,7 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets source_id
      *
      * @return string|null
@@ -402,6 +410,8 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets name
      *
      * @return string|null
@@ -451,6 +461,40 @@ class RedemptionsListResponseBodyRedemptionsItemCustomer implements ModelInterfa
             throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
 
         return $this;
     }

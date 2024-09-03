@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersTransactionsExportCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/loyalties/members/{memberId}/transactions/export&#x60; and for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/transactions/export&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +67,7 @@ class LoyaltiesMembersTransactionsExportCreateResponseBody implements ModelInter
         'result' => 'object',
         'user_id' => 'string',
         'exported_object' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateRequestBodyParameters'
+        'parameters' => '\OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateResponseBodyParameters'
     ];
 
     /**
@@ -690,7 +690,7 @@ class LoyaltiesMembersTransactionsExportCreateResponseBody implements ModelInter
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateRequestBodyParameters|null
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateResponseBodyParameters|null
      */
     public function getParameters()
     {
@@ -700,7 +700,7 @@ class LoyaltiesMembersTransactionsExportCreateResponseBody implements ModelInter
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateRequestBodyParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransactionsExportCreateResponseBodyParameters|null $parameters parameters
      *
      * @return self
      */

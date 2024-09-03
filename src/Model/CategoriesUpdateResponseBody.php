@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CategoriesUpdateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **PUT** &#x60;/categories/{categoryId}&#x60;.
+ * @description Response body schema for **PUT** &#x60;v1/categories/{categoryId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

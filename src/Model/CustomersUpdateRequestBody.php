@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **PUT** &#x60;/customers/{customerId}&#x60;.
+ * @description Request body schema for **PUT** &#x60;v1/customers/{customerId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,7 @@ class CustomersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'phone' => 'string',
         'birthday' => '\DateTime',
         'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
+        'address' => '\OpenAPI\Client\Model\CustomersUpdateRequestBodyAddress',
         'metadata' => 'object'
     ];
 
@@ -505,7 +505,7 @@ class CustomersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomersUpdateRequestBodyAddress|null
      */
     public function getAddress()
     {
@@ -515,7 +515,7 @@ class CustomersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomersUpdateRequestBodyAddress|null $address address
      *
      * @return self
      */

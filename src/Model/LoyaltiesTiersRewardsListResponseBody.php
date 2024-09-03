@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesTiersRewardsListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

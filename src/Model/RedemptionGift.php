@@ -51,7 +51,7 @@ class RedemptionGift implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemption_gift';
+    protected static $openAPIModelName = 'RedemptionGift';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

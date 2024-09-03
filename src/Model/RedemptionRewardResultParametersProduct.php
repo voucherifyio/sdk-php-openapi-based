@@ -51,7 +51,7 @@ class RedemptionRewardResultParametersProduct implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RedemptionRewardResult_parameters_product';
+    protected static $openAPIModelName = 'RedemptionRewardResultParametersProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

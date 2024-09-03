@@ -23,8 +23,13 @@ Name | Type | Description | Notes
 **additional_info** | **string** | An optional field to keep any extra textual information about the code such as a code description and details. |
 **metadata** | **object** | The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format. |
 **assets** | [**\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyAssets**](LoyaltiesMembersTransfersCreateResponseBodyAssets.md) |  | [optional]
+<<<<<<< Updated upstream
 **is_referral_code** | **bool** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. |
 **holder_id** | **string** | Unique customer ID of voucher owner. | [optional]
+=======
+**is_referral_code** | **bool** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. | [optional]
+**holder_id** | **string** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. | [optional]
+>>>>>>> Stashed changes
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. | [optional]
 **created_at** | **\DateTime** |  |
 

@@ -51,7 +51,7 @@ class LoyaltiesMembersTransactionsExportCreateRequestBodyParameters implements M
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransactionsExportCreateRequestBody_parameters';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransactionsExportCreateRequestBodyParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

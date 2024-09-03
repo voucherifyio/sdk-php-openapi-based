@@ -51,7 +51,7 @@ class VoucherTransactionDetailsEarningRuleSource implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_earning_rule_source';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsEarningRuleSource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

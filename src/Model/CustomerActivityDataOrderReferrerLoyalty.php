@@ -50,7 +50,11 @@ class CustomerActivityDataOrderReferrerLoyalty implements ModelInterface, ArrayA
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerLoyalty.php
     protected static $openAPIModelName = 'CustomerActivityDataOrderReferrerLoyalty';
+=======
+    protected static $openAPIModelName = 'RewardsCreateRequestBodyParametersCoin';
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBodyParametersCoin.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

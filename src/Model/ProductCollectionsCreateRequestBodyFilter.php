@@ -51,7 +51,7 @@ class ProductCollectionsCreateRequestBodyFilter implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductCollectionsCreateRequestBody_filter';
+    protected static $openAPIModelName = 'ProductCollectionsCreateRequestBodyFilter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

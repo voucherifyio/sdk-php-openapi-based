@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResultDiscount';
+    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResultDiscount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

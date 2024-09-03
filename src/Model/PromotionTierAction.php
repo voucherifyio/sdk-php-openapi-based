@@ -51,7 +51,7 @@ class PromotionTierAction implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PromotionTier_action';
+    protected static $openAPIModelName = 'PromotionTierAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

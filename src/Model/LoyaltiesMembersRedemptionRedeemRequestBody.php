@@ -36,7 +36,11 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersRedemptionRedeemRequestBody Class Doc Comment
  *
  * @category Class
+<<<<<<< Updated upstream
  * @description Request body schema for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** and &#x60;/loyalties/members/{memberId}/redemption&#x60;.
+=======
+ * @description Request body schema for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** &#x60;v1/loyalties/members/{memberId}/redemption&#x60;.
+>>>>>>> Stashed changes
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

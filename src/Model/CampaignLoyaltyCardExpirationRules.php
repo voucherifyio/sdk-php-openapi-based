@@ -50,7 +50,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignLoyaltyCard_expiration_rules';
+    protected static $openAPIModelName = 'CampaignLoyaltyCardExpirationRules';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -247,6 +247,40 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+    public const PERIOD_TYPE_MONTH = 'MONTH';
+    public const ROUNDING_TYPE_END_OF_MONTH = 'END_OF_MONTH';
+    public const ROUNDING_TYPE_END_OF_QUARTER = 'END_OF_QUARTER';
+    public const ROUNDING_TYPE_END_OF_HALF_YEAR = 'END_OF_HALF_YEAR';
+    public const ROUNDING_TYPE_END_OF_YEAR = 'END_OF_YEAR';
+    public const ROUNDING_TYPE_PARTICULAR_MONTH = 'PARTICULAR_MONTH';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPeriodTypeAllowableValues()
+    {
+        return [
+            self::PERIOD_TYPE_MONTH,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRoundingTypeAllowableValues()
+    {
+        return [
+            self::ROUNDING_TYPE_END_OF_MONTH,
+            self::ROUNDING_TYPE_END_OF_QUARTER,
+            self::ROUNDING_TYPE_END_OF_HALF_YEAR,
+            self::ROUNDING_TYPE_END_OF_YEAR,
+            self::ROUNDING_TYPE_PARTICULAR_MONTH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -263,7 +297,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('period_type', $data ?? [], null);
+        $this->setIfExists('period_type', $data ?? [], 'MONTH');
         $this->setIfExists('period_value', $data ?? [], null);
         $this->setIfExists('rounding_type', $data ?? [], null);
         $this->setIfExists('rounding_value', $data ?? [], null);
@@ -296,6 +330,7 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+<<<<<<< Updated upstream
         if ($this->container['period_type'] === null) {
             $invalidProperties[] = "'period_type' can't be null";
         }
@@ -308,6 +343,26 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
         if ($this->container['rounding_value'] === null) {
             $invalidProperties[] = "'rounding_value' can't be null";
         }
+=======
+        $allowedValues = $this->getPeriodTypeAllowableValues();
+        if (!is_null($this->container['period_type']) && !in_array($this->container['period_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'period_type', must be one of '%s'",
+                $this->container['period_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRoundingTypeAllowableValues();
+        if (!is_null($this->container['rounding_type']) && !in_array($this->container['rounding_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'rounding_type', must be one of '%s'",
+                $this->container['rounding_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+>>>>>>> Stashed changes
         return $invalidProperties;
     }
 
@@ -344,6 +399,16 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     {
         if (is_null($period_type)) {
             throw new \InvalidArgumentException('non-nullable period_type cannot be null');
+        }
+        $allowedValues = $this->getPeriodTypeAllowableValues();
+        if (!is_null($period_type) && !in_array($period_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'period_type', must be one of '%s'",
+                    $period_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['period_type'] = $period_type;
 
@@ -398,6 +463,16 @@ class CampaignLoyaltyCardExpirationRules implements ModelInterface, ArrayAccess,
     {
         if (is_null($rounding_type)) {
             throw new \InvalidArgumentException('non-nullable rounding_type cannot be null');
+        }
+        $allowedValues = $this->getRoundingTypeAllowableValues();
+        if (!is_null($rounding_type) && !in_array($rounding_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'rounding_type', must be one of '%s'",
+                    $rounding_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['rounding_type'] = $rounding_type;
 

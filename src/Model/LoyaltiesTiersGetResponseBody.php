@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesTiersGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/loyalties/{campaignId}/tiers/{loyaltyTierId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/tiers/{loyaltyTierId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,13 +62,13 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
         'name' => 'string',
         'earning_rules' => 'array<string,\OpenAPI\Client\Model\MappingPoints>',
         'rewards' => 'array<string,\OpenAPI\Client\Model\MappingPoints>',
-        'points' => '\OpenAPI\Client\Model\LoyaltyTierBasePoints',
+        'points' => '\OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyPoints',
         'id' => 'string',
         'campaign_id' => 'string',
         'metadata' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'config' => '\OpenAPI\Client\Model\LoyaltyTierAllOfConfig',
+        'config' => '\OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyConfig',
         'expiration' => '\OpenAPI\Client\Model\LoyaltyTierExpiration',
         'object' => 'string'
     ];
@@ -498,7 +498,11 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets points
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\LoyaltyTierBasePoints
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyPoints|null
+>>>>>>> Stashed changes
      */
     public function getPoints()
     {
@@ -508,7 +512,11 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets points
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\LoyaltyTierBasePoints $points points
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyPoints|null $points points
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -674,7 +682,11 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets config
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfig
+=======
+     * @return \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyConfig|null
+>>>>>>> Stashed changes
      */
     public function getConfig()
     {
@@ -684,7 +696,11 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets config
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfig $config config
+=======
+     * @param \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyConfig|null $config config
+>>>>>>> Stashed changes
      *
      * @return self
      */

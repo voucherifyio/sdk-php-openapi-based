@@ -51,7 +51,7 @@ class RewardsAssignmentsUpdateRequestBodyParametersLoyalty implements ModelInter
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RewardsAssignmentsUpdateRequestBody_parameters_loyalty';
+    protected static $openAPIModelName = 'RewardsAssignmentsUpdateRequestBodyParametersLoyalty';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Order Class Doc Comment
  *
  * @category Class
+ * @description Order information.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,18 +59,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'source_id' => 'string',
         'status' => 'string',
         'amount' => 'int',
-        'discount_amount' => 'int',
         'initial_amount' => 'int',
+        'discount_amount' => 'int',
         'items' => '\OpenAPI\Client\Model\OrderItem[]',
-        'customer' => '\OpenAPI\Client\Model\Customer',
-        'customer_id' => 'string',
-        'referrer' => '\OpenAPI\Client\Model\Referrer',
-        'referrer_id' => 'string',
-        'metadata' => 'object',
-        'id' => 'string',
-        'source_id' => 'string'
+        'metadata' => 'object'
     ];
 
     /**
@@ -80,18 +77,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'source_id' => null,
         'status' => null,
         'amount' => null,
-        'discount_amount' => null,
         'initial_amount' => null,
+        'discount_amount' => null,
         'items' => null,
-        'customer' => null,
-        'customer_id' => null,
-        'referrer' => null,
-        'referrer_id' => null,
-        'metadata' => null,
-        'id' => null,
-        'source_id' => null
+        'metadata' => null
     ];
 
     /**
@@ -100,6 +93,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'status' => false,
 		'amount' => false,
 		'discount_amount' => false,
@@ -112,6 +106,16 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 		'metadata' => false,
 		'id' => false,
 		'source_id' => false
+=======
+        'id' => true,
+		'source_id' => true,
+		'status' => true,
+		'amount' => true,
+		'initial_amount' => true,
+		'discount_amount' => true,
+		'items' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -200,18 +204,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'source_id' => 'source_id',
         'status' => 'status',
         'amount' => 'amount',
-        'discount_amount' => 'discount_amount',
         'initial_amount' => 'initial_amount',
+        'discount_amount' => 'discount_amount',
         'items' => 'items',
-        'customer' => 'customer',
-        'customer_id' => 'customer_id',
-        'referrer' => 'referrer',
-        'referrer_id' => 'referrer_id',
-        'metadata' => 'metadata',
-        'id' => 'id',
-        'source_id' => 'source_id'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -220,18 +220,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'source_id' => 'setSourceId',
         'status' => 'setStatus',
         'amount' => 'setAmount',
-        'discount_amount' => 'setDiscountAmount',
         'initial_amount' => 'setInitialAmount',
+        'discount_amount' => 'setDiscountAmount',
         'items' => 'setItems',
-        'customer' => 'setCustomer',
-        'customer_id' => 'setCustomerId',
-        'referrer' => 'setReferrer',
-        'referrer_id' => 'setReferrerId',
-        'metadata' => 'setMetadata',
-        'id' => 'setId',
-        'source_id' => 'setSourceId'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -240,18 +236,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'source_id' => 'getSourceId',
         'status' => 'getStatus',
         'amount' => 'getAmount',
-        'discount_amount' => 'getDiscountAmount',
         'initial_amount' => 'getInitialAmount',
+        'discount_amount' => 'getDiscountAmount',
         'items' => 'getItems',
-        'customer' => 'getCustomer',
-        'customer_id' => 'getCustomerId',
-        'referrer' => 'getReferrer',
-        'referrer_id' => 'getReferrerId',
-        'metadata' => 'getMetadata',
-        'id' => 'getId',
-        'source_id' => 'getSourceId'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -330,18 +322,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('discount_amount', $data ?? [], null);
-        $this->setIfExists('initial_amount', $data ?? [], null);
-        $this->setIfExists('items', $data ?? [], null);
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
-        $this->setIfExists('referrer_id', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('source_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('initial_amount', $data ?? [], null);
+        $this->setIfExists('discount_amount', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -394,6 +382,74 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique ID assigned by Voucherify of an existing order that will be linked to the redemption of this request.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
 
     /**
      * Gets status
@@ -460,6 +516,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets discount_amount
      *
      * @return int|null
@@ -487,6 +544,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets initial_amount
      *
      * @return int|null
@@ -509,6 +568,40 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
         }
         $this->container['initial_amount'] = $initial_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_amount
+     *
+     * @return int|null
+     */
+    public function getDiscountAmount()
+    {
+        return $this->container['discount_amount'];
+    }
+
+    /**
+     * Sets discount_amount
+     *
+     * @param int|null $discount_amount Sum of all order-level discounts applied to the order.
+     *
+     * @return self
+     */
+    public function setDiscountAmount($discount_amount)
+    {
+        if (is_null($discount_amount)) {
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['discount_amount'] = $discount_amount;
 
         return $this;
     }
@@ -541,6 +634,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets customer
      *
      * @return \OpenAPI\Client\Model\Customer|null
@@ -649,6 +743,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets metadata
      *
      * @return object|null
@@ -674,6 +770,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets id
@@ -728,6 +825,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

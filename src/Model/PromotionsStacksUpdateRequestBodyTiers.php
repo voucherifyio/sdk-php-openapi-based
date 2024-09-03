@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PromotionsStacksUpdateRequestBodyTiers Class Doc Comment
  *
  * @category Class
- * @description Contains the tier configuration.
+ * @description Contains the tier configuration. A promotion stack can include up to 30 tiers.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -51,7 +51,7 @@ class PromotionsStacksUpdateRequestBodyTiers implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PromotionsStacksUpdateRequestBody_tiers';
+    protected static $openAPIModelName = 'PromotionsStacksUpdateRequestBodyTiers';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

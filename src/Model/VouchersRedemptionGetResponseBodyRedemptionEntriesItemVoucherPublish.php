@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemVoucherPublish imple
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemVoucherPublish.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemVoucherPublish';
+=======
+    protected static $openAPIModelName = 'ValidationsRedeemableInapplicableResultDetails';
+>>>>>>> Stashed changes:src/Model/ValidationsRedeemableInapplicableResultDetails.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

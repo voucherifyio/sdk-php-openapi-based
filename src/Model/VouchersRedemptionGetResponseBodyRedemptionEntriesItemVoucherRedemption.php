@@ -50,7 +50,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemVoucherRedemption im
       *
       * @var string
       */
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemVoucherRedemption.php
     protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemVoucherRedemption';
+=======
+    protected static $openAPIModelName = 'SimpleVoucherRedemption';
+>>>>>>> Stashed changes:src/Model/SimpleVoucherRedemption.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization

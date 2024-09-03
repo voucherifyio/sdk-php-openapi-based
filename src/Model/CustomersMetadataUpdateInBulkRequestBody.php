@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersMetadataUpdateInBulkRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/customers/metadata/async&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/customers/metadata/async&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

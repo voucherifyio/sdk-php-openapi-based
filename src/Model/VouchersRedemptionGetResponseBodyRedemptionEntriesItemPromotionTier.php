@@ -36,6 +36,10 @@ use \OpenAPI\Client\ObjectSerializer;
  * VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier Class Doc Comment
  *
  * @category Class
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
+=======
+ * @description Response body schema for **POST** &#x60;v1/promotions/{campaignId}/tiers&#x60;.
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,18 +67,31 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
         'updated_at' => '\DateTime',
         'name' => 'string',
         'banner' => 'string',
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
         'action' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierAction',
         'metadata' => 'object',
         'hierarchy' => 'int',
         'promotion_id' => 'string',
         'campaign' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign',
+=======
+        'action' => '\OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyAction',
+        'metadata' => 'object',
+        'hierarchy' => 'int',
+        'promotion_id' => 'string',
+        'campaign' => '\OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyCampaign',
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
         'campaign_id' => 'string',
         'active' => 'bool',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
         'validity_timeframe' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
         'summary' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierSummary',
+=======
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
+        'summary' => '\OpenAPI\Client\Model\PromotionsTiersCreateResponseBodySummary',
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
         'object' => 'string',
         'validation_rule_assignments' => '\OpenAPI\Client\Model\ValidationRuleAssignmentsList',
         'category_id' => 'string',
@@ -568,7 +585,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Gets action
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @return \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierAction|null
+=======
+     * @return \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyAction|null
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      */
     public function getAction()
     {
@@ -578,7 +599,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Sets action
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @param \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierAction|null $action action
+=======
+     * @param \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyAction|null $action action
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      *
      * @return self
      */
@@ -676,7 +701,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Gets campaign
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @return \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign|null
+=======
+     * @return \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyCampaign|null
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      */
     public function getCampaign()
     {
@@ -686,7 +715,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Sets campaign
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @param \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign|null $campaign campaign
+=======
+     * @param \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodyCampaign|null $campaign campaign
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      *
      * @return self
      */
@@ -865,7 +898,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Gets summary
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @return \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierSummary|null
+=======
+     * @return \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodySummary|null
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      */
     public function getSummary()
     {
@@ -875,7 +912,11 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier implem
     /**
      * Sets summary
      *
+<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTier.php
      * @param \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierSummary|null $summary summary
+=======
+     * @param \OpenAPI\Client\Model\PromotionsTiersCreateResponseBodySummary|null $summary summary
+>>>>>>> Stashed changes:src/Model/PromotionsTiersCreateResponseBody.php
      *
      * @return self
      */

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationRulesUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **PUT** &#x60;/validation-rules/{validationRuleId}&#x60;.
+ * @description Response body schema for **PUT** &#x60;v1/validation-rules/{validationRuleId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,8 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'name' => 'string',
         'rules' => 'object',
-        'error' => '\OpenAPI\Client\Model\ValidationRuleBaseError',
-        'applicable_to' => '\OpenAPI\Client\Model\ValidationRuleBaseApplicableTo',
+        'error' => '\OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyError',
+        'applicable_to' => '\OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyApplicableTo',
         'type' => 'string',
         'context_type' => 'string'
     ];
@@ -545,7 +545,7 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets error
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseError|null
+     * @return \OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyError|null
      */
     public function getError()
     {
@@ -555,7 +555,7 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets error
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseError|null $error error
+     * @param \OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyError|null $error error
      *
      * @return self
      */
@@ -572,7 +572,7 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Gets applicable_to
      *
-     * @return \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo|null
+     * @return \OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyApplicableTo|null
      */
     public function getApplicableTo()
     {
@@ -582,7 +582,7 @@ class ValidationRulesUpdateRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets applicable_to
      *
-     * @param \OpenAPI\Client\Model\ValidationRuleBaseApplicableTo|null $applicable_to applicable_to
+     * @param \OpenAPI\Client\Model\ValidationRulesUpdateRequestBodyApplicableTo|null $applicable_to applicable_to
      *
      * @return self
      */

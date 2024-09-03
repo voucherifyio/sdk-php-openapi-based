@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResult implements ModelInter
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResult';
+    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

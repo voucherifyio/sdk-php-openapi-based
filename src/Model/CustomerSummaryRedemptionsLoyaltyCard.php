@@ -51,7 +51,7 @@ class CustomerSummaryRedemptionsLoyaltyCard implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomerSummaryRedemptions_loyalty_card';
+    protected static $openAPIModelName = 'CustomerSummaryRedemptionsLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

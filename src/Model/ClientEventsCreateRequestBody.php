@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ClientEventsCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/events&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/events&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

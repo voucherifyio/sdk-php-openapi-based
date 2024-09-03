@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the promotion tier. |
 **banner** | **string** | Text to be displayed to your customers on your website. | [optional]
-**action** | [**\OpenAPI\Client\Model\PromotionTierAction**](PromotionTierAction.md) |  | [optional]
+**action** | [**\OpenAPI\Client\Model\PromotionTierCreateParamsAction**](PromotionTierCreateParamsAction.md) |  | [optional]
 **metadata** | **object** | The metadata object stores all custom attributes assigned to the promotion tier. A set of key/value pairs that you can attach to a promotion tier object. It can be useful for storing additional information about the promotion tier in a structured format. | [optional]
 **validation_rules** | **string[]** | Array containing the ID of the validation rule associated with the promotion tier. | [optional]
 **active** | **bool** | A flag to toggle the promotion tier on or off. You can disable a promotion tier even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* promotion tier - &#x60;false&#x60; indicates an *inactive* promotion tier | [optional]

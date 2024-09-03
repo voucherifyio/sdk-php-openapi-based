@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct implem
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_ItemResultDiscountProduct';
+    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItemResultDiscountProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -51,7 +51,7 @@ class RedemptionRewardResultParameters implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'RedemptionRewardResult_parameters';
+    protected static $openAPIModelName = 'RedemptionRewardResultParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

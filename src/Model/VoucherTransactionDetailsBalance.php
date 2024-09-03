@@ -51,7 +51,7 @@ class VoucherTransactionDetailsBalance implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_balance';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsBalance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

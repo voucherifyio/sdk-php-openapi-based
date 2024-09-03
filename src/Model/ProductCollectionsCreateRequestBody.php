@@ -60,7 +60,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'type' => 'string',
         'name' => 'string',
-        'products' => '\OpenAPI\Client\Model\ProductCollectionsCreateDynamicRequestBodyProductsItem[]',
+        'products' => '\OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyProductsItem[]',
         'filter' => '\OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter'
     ];
 
@@ -406,7 +406,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets products
      *
-     * @return \OpenAPI\Client\Model\ProductCollectionsCreateDynamicRequestBodyProductsItem[]|null
+     * @return \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyProductsItem[]|null
      */
     public function getProducts()
     {
@@ -416,7 +416,7 @@ class ProductCollectionsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets products
      *
-     * @param \OpenAPI\Client\Model\ProductCollectionsCreateDynamicRequestBodyProductsItem[]|null $products Defines a set of products for a `STATIC` product collection type.
+     * @param \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyProductsItem[]|null $products Defines a set of products for a `STATIC` product collection type.
      *
      * @return self
      */

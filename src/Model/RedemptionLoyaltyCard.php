@@ -51,7 +51,7 @@ class RedemptionLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemption_loyalty_card';
+    protected static $openAPIModelName = 'RedemptionLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

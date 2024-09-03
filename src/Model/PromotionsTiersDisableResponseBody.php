@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PromotionsTiersDisableResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/promotions/tiers/{promotionTierId}/disable&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/promotions/tiers/{promotionTierId}/disable&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,18 +64,23 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
         'updated_at' => '\DateTime',
         'name' => 'string',
         'banner' => 'string',
-        'action' => '\OpenAPI\Client\Model\PromotionTierAction',
+        'action' => '\OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyAction',
         'metadata' => 'object',
         'hierarchy' => 'int',
         'promotion_id' => 'string',
-        'campaign' => '\OpenAPI\Client\Model\PromotionTierCampaign',
+        'campaign' => '\OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyCampaign',
         'campaign_id' => 'string',
         'active' => 'bool',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
         'validity_timeframe' => '\OpenAPI\Client\Model\PromotionTierValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+<<<<<<< Updated upstream
         'summary' => '\OpenAPI\Client\Model\PromotionTierSummary',
+=======
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
+        'summary' => '\OpenAPI\Client\Model\PromotionsTiersDisableResponseBodySummary',
+>>>>>>> Stashed changes
         'object' => 'string',
         'validation_rule_assignments' => '\OpenAPI\Client\Model\ValidationRuleAssignmentsList',
         'category_id' => 'string',
@@ -569,7 +574,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets action
      *
-     * @return \OpenAPI\Client\Model\PromotionTierAction|null
+     * @return \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyAction|null
      */
     public function getAction()
     {
@@ -579,7 +584,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets action
      *
-     * @param \OpenAPI\Client\Model\PromotionTierAction|null $action action
+     * @param \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyAction|null $action action
      *
      * @return self
      */
@@ -677,7 +682,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets campaign
      *
-     * @return \OpenAPI\Client\Model\PromotionTierCampaign|null
+     * @return \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyCampaign|null
      */
     public function getCampaign()
     {
@@ -687,7 +692,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets campaign
      *
-     * @param \OpenAPI\Client\Model\PromotionTierCampaign|null $campaign campaign
+     * @param \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodyCampaign|null $campaign campaign
      *
      * @return self
      */
@@ -866,7 +871,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Gets summary
      *
-     * @return \OpenAPI\Client\Model\PromotionTierSummary|null
+     * @return \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodySummary|null
      */
     public function getSummary()
     {
@@ -876,7 +881,7 @@ class PromotionsTiersDisableResponseBody implements ModelInterface, ArrayAccess,
     /**
      * Sets summary
      *
-     * @param \OpenAPI\Client\Model\PromotionTierSummary|null $summary summary
+     * @param \OpenAPI\Client\Model\PromotionsTiersDisableResponseBodySummary|null $summary summary
      *
      * @return self
      */

@@ -51,7 +51,7 @@ class ReferralProgramCustomEvent implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReferralProgram_custom_event';
+    protected static $openAPIModelName = 'ReferralProgramCustomEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

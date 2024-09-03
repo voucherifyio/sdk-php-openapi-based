@@ -10,11 +10,15 @@ Name | Type | Description | Notes
 **campaign_id** | **string** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. | [optional]
 **category** | **string** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint. | [optional]
 **category_id** | **string** | Unique category ID assigned by Voucherify. | [optional]
-**categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) | Contains details about the category. | [optional]
 **type** | **string** | Defines the type of the voucher. | [optional]
 **discount** | [**\OpenAPI\Client\Model\Discount**](Discount.md) |  | [optional]
+<<<<<<< Updated upstream
 **gift** | [**\OpenAPI\Client\Model\VoucherGift**](VoucherGift.md) |  | [optional]
 **loyalty_card** | [**\OpenAPI\Client\Model\VoucherLoyaltyCard**](VoucherLoyaltyCard.md) |  | [optional]
+=======
+**gift** | [**\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyGift**](CampaignsVouchersCreateResponseBodyGift.md) |  | [optional]
+**loyalty_card** | [**\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyLoyaltyCard**](CampaignsVouchersCreateResponseBodyLoyaltyCard.md) |  | [optional]
+>>>>>>> Stashed changes
 **start_date** | **\DateTime** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date. | [optional]
 **expiration_date** | **\DateTime** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. | [optional]
 **validity_timeframe** | [**\OpenAPI\Client\Model\VoucherValidityTimeframe**](VoucherValidityTimeframe.md) |  | [optional]
@@ -26,6 +30,7 @@ Name | Type | Description | Notes
 **is_referral_code** | **bool** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. | [optional]
 **created_at** | **\DateTime** | Timestamp representing the date and time when the voucher was created in ISO 8601 format. | [optional]
 **updated_at** | **\DateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. | [optional]
+<<<<<<< Updated upstream
 **holder_id** | **string** | Unique customer ID of voucher owner. | [optional]
 **holder** | [**\OpenAPI\Client\Model\SimpleCustomer**](SimpleCustomer.md) |  | [optional]
 **object** | **string** | The type of object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] [default to 'voucher']
@@ -34,5 +39,14 @@ Name | Type | Description | Notes
 **validation_rules_assignments** | [**\OpenAPI\Client\Model\ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  | [optional]
 **publish** | [**\OpenAPI\Client\Model\VoucherPublish**](VoucherPublish.md) |  | [optional]
 **redemption** | [**\OpenAPI\Client\Model\VoucherRedemption**](VoucherRedemption.md) |  | [optional]
+=======
+**holder_id** | **string** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. | [optional]
+**referrer_id** | **string** | Unique identifier of the referring person. | [optional]
+**object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] [default to 'voucher']
+**publish** | [**\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyPublish**](CampaignsVouchersCreateResponseBodyPublish.md) |  | [optional]
+**redemption** | [**\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyRedemption**](CampaignsVouchersCreateResponseBodyRedemption.md) |  | [optional]
+**categories** | [**\OpenAPI\Client\Model\Category[]**](Category.md) | Contains details about the category. | [optional]
+**validation_rules_assignments** | [**\OpenAPI\Client\Model\ValidationRulesAssignmentsList**](ValidationRulesAssignmentsList.md) |  | [optional]
+>>>>>>> Stashed changes
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

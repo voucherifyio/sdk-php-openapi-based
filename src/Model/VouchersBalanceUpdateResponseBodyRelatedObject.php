@@ -51,7 +51,7 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VouchersBalanceUpdateResponseBody_related_object';
+    protected static $openAPIModelName = 'VouchersBalanceUpdateResponseBodyRelatedObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

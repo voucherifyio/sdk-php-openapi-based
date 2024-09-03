@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ProductCollectionsCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/product-collections&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/product-collections&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,8 +62,8 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
         'id' => 'string',
         'name' => 'string',
         'type' => 'string',
-        'filter' => '\OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter',
-        'products' => '\OpenAPI\Client\Model\ProductCollectionsItemProductsItem[]',
+        'filter' => '\OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyFilter',
+        'products' => '\OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyProductsItem[]',
         'created_at' => '\DateTime',
         'object' => 'string'
     ];
@@ -488,7 +488,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets filter
      *
-     * @return \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter|null
+     * @return \OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyFilter|null
      */
     public function getFilter()
     {
@@ -498,7 +498,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets filter
      *
-     * @param \OpenAPI\Client\Model\ProductCollectionsCreateRequestBodyFilter|null $filter filter
+     * @param \OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyFilter|null $filter filter
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets products
      *
-     * @return \OpenAPI\Client\Model\ProductCollectionsItemProductsItem[]|null
+     * @return \OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyProductsItem[]|null
      */
     public function getProducts()
     {
@@ -525,7 +525,7 @@ class ProductCollectionsCreateResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets products
      *
-     * @param \OpenAPI\Client\Model\ProductCollectionsItemProductsItem[]|null $products Defines a set of products for a `STATIC` product collection type.
+     * @param \OpenAPI\Client\Model\ProductCollectionsCreateResponseBodyProductsItem[]|null $products Defines a set of products for a `STATIC` product collection type.
      *
      * @return self
      */

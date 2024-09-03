@@ -50,7 +50,7 @@ class LoyaltiesTiersCreateInBulkRequestBodyItem implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Loyalties_Tiers_Create_In_Bulk_Request_Body_Item';
+    protected static $openAPIModelName = 'LoyaltiesTiersCreateInBulkRequestBodyItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersBalanceUpdateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response schema for **POST** &#x60;/loyalties/members/{memberId}/balance&#x60; and for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/balance&#x60;.
+ * @description Response schema for **POST** &#x60;v1/loyalties/members/{memberId}/balance&#x60; and for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/balance&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * OrdersListResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema representing **GET** &#x60;/orders&#x60;.
+ * @description Response body schema representing **GET** &#x60;v1/orders&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,7 @@ class OrdersListResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'object' => 'string',
         'data_ref' => 'string',
-        'orders' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData[]',
+        'orders' => '\OpenAPI\Client\Model\OrderCalculated[]',
         'total' => 'int'
     ];
 
@@ -445,7 +445,11 @@ class OrdersListResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets orders
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData[]
+=======
+     * @return \OpenAPI\Client\Model\OrderCalculated[]|null
+>>>>>>> Stashed changes
      */
     public function getOrders()
     {
@@ -455,7 +459,11 @@ class OrdersListResponseBody implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets orders
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData[] $orders Contains array of order objects.
+=======
+     * @param \OpenAPI\Client\Model\OrderCalculated[]|null $orders Contains array of order objects.
+>>>>>>> Stashed changes
      *
      * @return self
      */

@@ -73,8 +73,13 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
         'related_redemptions' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptions',
         'failure_code' => 'string',
         'failure_message' => 'string',
+<<<<<<< Updated upstream
         'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData',
         'channel' => '\OpenAPI\Client\Model\RedemptionChannel',
+=======
+        'order' => '\OpenAPI\Client\Model\OrderCalculated',
+        'channel' => '\OpenAPI\Client\Model\RedemptionRollbackChannel',
+>>>>>>> Stashed changes
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'related_object_type' => 'string',
         'related_object_id' => 'string',
@@ -133,6 +138,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
 		'metadata' => true,
 		'amount' => false,
 		'redemption' => true,
+<<<<<<< Updated upstream
 		'reason' => false,
 		'result' => false,
 		'status' => false,
@@ -144,6 +150,19 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
 		'customer' => true,
 		'related_object_type' => false,
 		'related_object_id' => false,
+=======
+		'reason' => true,
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => false,
+		'channel' => true,
+		'customer' => false,
+		'related_object_type' => true,
+		'related_object_id' => true,
+>>>>>>> Stashed changes
 		'voucher' => false,
 		'promotion_tier' => false,
 		'reward' => false,
@@ -1029,7 +1048,11 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets order
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData
+=======
+     * @return \OpenAPI\Client\Model\OrderCalculated|null
+>>>>>>> Stashed changes
      */
     public function getOrder()
     {
@@ -1039,21 +1062,18 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets order
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData $order order
+=======
+     * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setOrder($order)
     {
         if (is_null($order)) {
-            array_push($this->openAPINullablesSetToNull, 'order');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable order cannot be null');
         }
         $this->container['order'] = $order;
 
@@ -1107,14 +1127,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            array_push($this->openAPINullablesSetToNull, 'customer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
 

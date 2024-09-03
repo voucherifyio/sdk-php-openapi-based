@@ -51,7 +51,7 @@ class PromotionTierCampaign implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PromotionTier_campaign';
+    protected static $openAPIModelName = 'PromotionTierCampaign';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsCustomerId implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_customer_id';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsCustomerId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

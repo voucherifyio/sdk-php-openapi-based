@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CategoriesCreateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request body schema for **POST** &#x60;/categories&#x60;.
+ * @description Request body schema for **POST** &#x60;v1/categories&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

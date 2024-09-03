@@ -51,7 +51,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_publish';
+    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBodyPublish';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

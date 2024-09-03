@@ -51,7 +51,7 @@ class OrdersExportCreateRequestBodyParameters implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrdersExportCreateRequestBody_parameters';
+    protected static $openAPIModelName = 'OrdersExportCreateRequestBodyParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -51,7 +51,7 @@ class VoucherTransactionDetailsSegment implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_segment';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsSegment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

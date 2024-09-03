@@ -51,7 +51,7 @@ class VoucherTransactionDetailsRedemption implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'VoucherTransaction_details_redemption';
+    protected static $openAPIModelName = 'VoucherTransactionDetailsRedemption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

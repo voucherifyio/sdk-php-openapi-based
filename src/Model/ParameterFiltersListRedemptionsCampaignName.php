@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsCampaignName implements ModelInterface, Arr
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_campaign_name';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsCampaignName';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

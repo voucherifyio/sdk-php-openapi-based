@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesRewardsGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/loyalties/{campaignId}/rewards/{assignmentId}&#x60;
+ * @description Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/rewards/{assignmentId}&#x60;
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,7 +66,7 @@ class LoyaltiesRewardsGetResponseBody implements ModelInterface, ArrayAccess, \J
         'object' => 'string',
         'related_object_id' => 'string',
         'related_object_type' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\RewardAssignmentParametersParameters'
+        'parameters' => '\OpenAPI\Client\Model\LoyaltiesRewardsGetResponseBodyParameters'
     ];
 
     /**
@@ -624,7 +624,7 @@ class LoyaltiesRewardsGetResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null
+     * @return \OpenAPI\Client\Model\LoyaltiesRewardsGetResponseBodyParameters|null
      */
     public function getParameters()
     {
@@ -634,7 +634,7 @@ class LoyaltiesRewardsGetResponseBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\LoyaltiesRewardsGetResponseBodyParameters|null $parameters parameters
      *
      * @return self
      */

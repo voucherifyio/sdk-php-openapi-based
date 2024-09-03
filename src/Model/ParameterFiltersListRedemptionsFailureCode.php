@@ -51,7 +51,7 @@ class ParameterFiltersListRedemptionsFailureCode implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ParameterFiltersListRedemptions_failure_code';
+    protected static $openAPIModelName = 'ParameterFiltersListRedemptionsFailureCode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -71,7 +71,10 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregated_quantity_limit' => 'int',
         'amount_limit' => 'int',
         'aggregated_amount_limit' => 'int',
-        'order_item_indices' => 'int[]'
+        'order_item_indices' => 'int[]',
+        'repeat' => 'int',
+        'skip_initially' => 'int',
+        'target' => 'string'
     ];
 
     /**
@@ -95,7 +98,10 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregated_quantity_limit' => null,
         'amount_limit' => null,
         'aggregated_amount_limit' => null,
-        'order_item_indices' => null
+        'order_item_indices' => null,
+        'repeat' => null,
+        'skip_initially' => null,
+        'target' => null
     ];
 
     /**
@@ -104,6 +110,7 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'object' => false,
 		'id' => false,
 		'source_id' => false,
@@ -118,6 +125,25 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
 		'amount_limit' => false,
 		'aggregated_amount_limit' => false,
 		'order_item_indices' => false
+=======
+        'object' => true,
+		'id' => true,
+		'source_id' => true,
+		'product_id' => true,
+		'product_source_id' => true,
+		'strict' => true,
+		'price' => true,
+		'price_formula' => true,
+		'effect' => true,
+		'quantity_limit' => true,
+		'aggregated_quantity_limit' => true,
+		'amount_limit' => true,
+		'aggregated_amount_limit' => true,
+		'order_item_indices' => true,
+		'repeat' => true,
+		'skip_initially' => true,
+		'target' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -219,7 +245,10 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregated_quantity_limit' => 'aggregated_quantity_limit',
         'amount_limit' => 'amount_limit',
         'aggregated_amount_limit' => 'aggregated_amount_limit',
-        'order_item_indices' => 'order_item_indices'
+        'order_item_indices' => 'order_item_indices',
+        'repeat' => 'repeat',
+        'skip_initially' => 'skip_initially',
+        'target' => 'target'
     ];
 
     /**
@@ -241,7 +270,10 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregated_quantity_limit' => 'setAggregatedQuantityLimit',
         'amount_limit' => 'setAmountLimit',
         'aggregated_amount_limit' => 'setAggregatedAmountLimit',
-        'order_item_indices' => 'setOrderItemIndices'
+        'order_item_indices' => 'setOrderItemIndices',
+        'repeat' => 'setRepeat',
+        'skip_initially' => 'setSkipInitially',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -263,7 +295,10 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'aggregated_quantity_limit' => 'getAggregatedQuantityLimit',
         'amount_limit' => 'getAmountLimit',
         'aggregated_amount_limit' => 'getAggregatedAmountLimit',
-        'order_item_indices' => 'getOrderItemIndices'
+        'order_item_indices' => 'getOrderItemIndices',
+        'repeat' => 'getRepeat',
+        'skip_initially' => 'getSkipInitially',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -371,6 +406,9 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('amount_limit', $data ?? [], null);
         $this->setIfExists('aggregated_amount_limit', $data ?? [], null);
         $this->setIfExists('order_item_indices', $data ?? [], null);
+        $this->setIfExists('repeat', $data ?? [], null);
+        $this->setIfExists('skip_initially', $data ?? [], null);
+        $this->setIfExists('target', $data ?? [], null);
     }
 
     /**
@@ -839,6 +877,108 @@ class InapplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable order_item_indices cannot be null');
         }
         $this->container['order_item_indices'] = $order_item_indices;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeat
+     *
+     * @return int|null
+     */
+    public function getRepeat()
+    {
+        return $this->container['repeat'];
+    }
+
+    /**
+     * Sets repeat
+     *
+     * @param int|null $repeat repeat
+     *
+     * @return self
+     */
+    public function setRepeat($repeat)
+    {
+        if (is_null($repeat)) {
+            array_push($this->openAPINullablesSetToNull, 'repeat');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('repeat', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['repeat'] = $repeat;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_initially
+     *
+     * @return int|null
+     */
+    public function getSkipInitially()
+    {
+        return $this->container['skip_initially'];
+    }
+
+    /**
+     * Sets skip_initially
+     *
+     * @param int|null $skip_initially skip_initially
+     *
+     * @return self
+     */
+    public function setSkipInitially($skip_initially)
+    {
+        if (is_null($skip_initially)) {
+            array_push($this->openAPINullablesSetToNull, 'skip_initially');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('skip_initially', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['skip_initially'] = $skip_initially;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return string|null
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param string|null $target target
+     *
+     * @return self
+     */
+    public function setTarget($target)
+    {
+        if (is_null($target)) {
+            array_push($this->openAPINullablesSetToNull, 'target');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('target', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['target'] = $target;
 
         return $this;
     }

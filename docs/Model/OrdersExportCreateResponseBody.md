@@ -9,9 +9,16 @@ Name | Type | Description | Notes
 **created_at** | **\DateTime** | Timestamp representing the date and time when the export was scheduled in ISO 8601 format. |
 **status** | **string** | Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated. | [default to 'SCHEDULED']
 **channel** | **string** | The channel through which the export was triggered. | [optional]
+<<<<<<< Updated upstream
 **result** | **object** | Contains the URL of the CSV file. |
 **user_id** | **string** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE. |
 **exported_object** | **string** | The type of object to be exported. | [default to 'order']
 **parameters** | [**\OpenAPI\Client\Model\OrdersExportCreateRequestBodyParameters**](OrdersExportCreateRequestBodyParameters.md) |  | [optional]
+=======
+**result** | **object** | Contains the URL of the CSV file. | [optional]
+**user_id** | **string** | Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE. | [optional]
+**exported_object** | **string** | The type of object to be exported. | [optional] [default to 'order']
+**parameters** | [**\OpenAPI\Client\Model\OrdersExportCreateResponseBodyParameters**](OrdersExportCreateResponseBodyParameters.md) |  | [optional]
+>>>>>>> Stashed changes
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

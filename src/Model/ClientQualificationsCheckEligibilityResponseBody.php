@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ClientQualificationsCheckEligibilityResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/qualifications&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/qualifications&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -58,14 +58,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'description' => 'string',
-        'email' => 'string',
-        'phone' => 'string',
-        'birthday' => '\DateTime',
-        'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerBaseAddress',
-        'metadata' => 'object',
         'id' => 'string',
         'source_id' => 'string',
         'summary' => '\OpenAPI\Client\Model\CustomerSummary',
@@ -74,8 +66,16 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         'system_metadata' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'assets' => '\OpenAPI\Client\Model\CustomerResponseDataAssets',
-        'object' => 'string'
+        'assets' => '\OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAssets',
+        'object' => 'string',
+        'name' => 'string',
+        'description' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'birthday' => '\DateTime',
+        'birthdate' => '\DateTime',
+        'address' => '\OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAddress',
+        'metadata' => 'object'
     ];
 
     /**
@@ -86,14 +86,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'description' => null,
-        'email' => null,
-        'phone' => null,
-        'birthday' => 'date',
-        'birthdate' => 'date',
-        'address' => null,
-        'metadata' => null,
         'id' => null,
         'source_id' => null,
         'summary' => null,
@@ -103,7 +95,15 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'assets' => null,
-        'object' => null
+        'object' => null,
+        'name' => null,
+        'description' => null,
+        'email' => null,
+        'phone' => null,
+        'birthday' => 'date',
+        'birthdate' => 'date',
+        'address' => null,
+        'metadata' => null
     ];
 
     /**
@@ -112,6 +112,7 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'name' => false,
 		'description' => false,
 		'email' => false,
@@ -130,6 +131,26 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
 		'updated_at' => false,
 		'assets' => false,
 		'object' => false
+=======
+        'id' => true,
+		'source_id' => true,
+		'summary' => false,
+		'loyalty' => false,
+		'referrals' => false,
+		'system_metadata' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'assets' => true,
+		'object' => true,
+		'name' => true,
+		'description' => true,
+		'email' => true,
+		'phone' => true,
+		'birthday' => true,
+		'birthdate' => true,
+		'address' => true,
+		'metadata' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -218,14 +239,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'description' => 'description',
-        'email' => 'email',
-        'phone' => 'phone',
-        'birthday' => 'birthday',
-        'birthdate' => 'birthdate',
-        'address' => 'address',
-        'metadata' => 'metadata',
         'id' => 'id',
         'source_id' => 'source_id',
         'summary' => 'summary',
@@ -235,7 +248,15 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'assets' => 'assets',
-        'object' => 'object'
+        'object' => 'object',
+        'name' => 'name',
+        'description' => 'description',
+        'email' => 'email',
+        'phone' => 'phone',
+        'birthday' => 'birthday',
+        'birthdate' => 'birthdate',
+        'address' => 'address',
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -244,14 +265,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'birthday' => 'setBirthday',
-        'birthdate' => 'setBirthdate',
-        'address' => 'setAddress',
-        'metadata' => 'setMetadata',
         'id' => 'setId',
         'source_id' => 'setSourceId',
         'summary' => 'setSummary',
@@ -261,7 +274,15 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'assets' => 'setAssets',
-        'object' => 'setObject'
+        'object' => 'setObject',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'birthday' => 'setBirthday',
+        'birthdate' => 'setBirthdate',
+        'address' => 'setAddress',
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -270,14 +291,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'birthday' => 'getBirthday',
-        'birthdate' => 'getBirthdate',
-        'address' => 'getAddress',
-        'metadata' => 'getMetadata',
         'id' => 'getId',
         'source_id' => 'getSourceId',
         'summary' => 'getSummary',
@@ -287,7 +300,15 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'assets' => 'getAssets',
-        'object' => 'getObject'
+        'object' => 'getObject',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'birthday' => 'getBirthday',
+        'birthdate' => 'getBirthdate',
+        'address' => 'getAddress',
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -360,14 +381,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('birthday', $data ?? [], null);
-        $this->setIfExists('birthdate', $data ?? [], null);
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('source_id', $data ?? [], null);
         $this->setIfExists('summary', $data ?? [], null);
@@ -378,6 +391,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('assets', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'customer');
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('birthday', $data ?? [], null);
+        $this->setIfExists('birthdate', $data ?? [], null);
+        $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -442,6 +463,335 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The ID of an existing customer that will be linked to redemption in this request.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_id
+     *
+     * @return string|null
+     */
+    public function getSourceId()
+    {
+        return $this->container['source_id'];
+    }
+
+    /**
+     * Sets source_id
+     *
+     * @param string|null $source_id A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
+     *
+     * @return self
+     */
+    public function setSourceId($source_id)
+    {
+        if (is_null($source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['source_id'] = $source_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary
+     *
+     * @return \OpenAPI\Client\Model\CustomerSummary|null
+     */
+    public function getSummary()
+    {
+        return $this->container['summary'];
+    }
+
+    /**
+     * Sets summary
+     *
+     * @param \OpenAPI\Client\Model\CustomerSummary|null $summary summary
+     *
+     * @return self
+     */
+    public function setSummary($summary)
+    {
+        if (is_null($summary)) {
+            throw new \InvalidArgumentException('non-nullable summary cannot be null');
+        }
+        $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty
+     *
+     * @return \OpenAPI\Client\Model\CustomerLoyalty|null
+     */
+    public function getLoyalty()
+    {
+        return $this->container['loyalty'];
+    }
+
+    /**
+     * Sets loyalty
+     *
+     * @param \OpenAPI\Client\Model\CustomerLoyalty|null $loyalty loyalty
+     *
+     * @return self
+     */
+    public function setLoyalty($loyalty)
+    {
+        if (is_null($loyalty)) {
+            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
+        }
+        $this->container['loyalty'] = $loyalty;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrals
+     *
+     * @return \OpenAPI\Client\Model\CustomerReferrals|null
+     */
+    public function getReferrals()
+    {
+        return $this->container['referrals'];
+    }
+
+    /**
+     * Sets referrals
+     *
+     * @param \OpenAPI\Client\Model\CustomerReferrals|null $referrals referrals
+     *
+     * @return self
+     */
+    public function setReferrals($referrals)
+    {
+        if (is_null($referrals)) {
+            throw new \InvalidArgumentException('non-nullable referrals cannot be null');
+        }
+        $this->container['referrals'] = $referrals;
+
+        return $this;
+    }
+
+    /**
+     * Gets system_metadata
+     *
+     * @return object|null
+     */
+    public function getSystemMetadata()
+    {
+        return $this->container['system_metadata'];
+    }
+
+    /**
+     * Sets system_metadata
+     *
+     * @param object|null $system_metadata Object used to store system metadata information.
+     *
+     * @return self
+     */
+    public function setSystemMetadata($system_metadata)
+    {
+        if (is_null($system_metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'system_metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('system_metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['system_metadata'] = $system_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets assets
+     *
+     * @return \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAssets|null
+     */
+    public function getAssets()
+    {
+        return $this->container['assets'];
+    }
+
+    /**
+     * Sets assets
+     *
+     * @param \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAssets|null $assets assets
+     *
+     * @return self
+     */
+    public function setAssets($assets)
+    {
+        if (is_null($assets)) {
+            array_push($this->openAPINullablesSetToNull, 'assets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['assets'] = $assets;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object The type of the object represented by JSON.
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -608,7 +958,7 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\CustomerBaseAddress|null
+     * @return \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAddress|null
      */
     public function getAddress()
     {
@@ -618,7 +968,7 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\CustomerBaseAddress|null $address address
+     * @param \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferralsAddress|null $address address
      *
      * @return self
      */
@@ -665,6 +1015,7 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
 
         return $this;
     }
+<<<<<<< Updated upstream
 
     /**
      * Gets id
@@ -966,6 +1317,8 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
 
         return $this;
     }
+=======
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

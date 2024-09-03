@@ -324,7 +324,7 @@ class VouchersRedemptionGetResponseBodyRedemptionEntriesItemVoucherLoyaltyCard i
     /**
      * Sets points
      *
-     * @param int|null $points Total points incurred over lifespan of loyalty card.
+     * @param int|null $points Total points incurred over the lifespan of the loyalty card.
      *
      * @return self
      */

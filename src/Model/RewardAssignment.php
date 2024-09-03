@@ -65,7 +65,7 @@ class RewardAssignment implements ModelInterface, ArrayAccess, \JsonSerializable
         'object' => 'string',
         'related_object_id' => 'string',
         'related_object_type' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\RewardAssignmentParametersParameters'
+        'parameters' => '\OpenAPI\Client\Model\RewardAssignmentParameters'
     ];
 
     /**
@@ -623,7 +623,7 @@ class RewardAssignment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null
+     * @return \OpenAPI\Client\Model\RewardAssignmentParameters|null
      */
     public function getParameters()
     {
@@ -633,7 +633,7 @@ class RewardAssignment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\RewardAssignmentParameters|null $parameters parameters
      *
      * @return self
      */

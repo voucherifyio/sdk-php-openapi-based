@@ -50,7 +50,7 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationsRedeemableInapplicable_result';
+    protected static $openAPIModelName = 'ValidationsRedeemableInapplicableResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

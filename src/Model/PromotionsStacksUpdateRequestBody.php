@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PromotionsStacksUpdateRequestBody Class Doc Comment
  *
  * @category Class
- * @description Request Body schema for **put** &#x60;/promotions/{campaignId}/stacks/{stackId}&#x60;.
+ * @description Request Body schema for **PUT** &#x60;v1/promotions/{campaignId}/stacks/{stackId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

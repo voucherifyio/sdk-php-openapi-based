@@ -50,7 +50,7 @@ class LoyaltiesMembersPointsExpirationListResponseBodyDataItem implements ModelI
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Loyalties_Members_Points_Expiration_List_Response_Body_Data_Item';
+    protected static $openAPIModelName = 'LoyaltiesMembersPointsExpirationListResponseBodyDataItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

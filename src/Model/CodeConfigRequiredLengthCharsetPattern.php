@@ -58,12 +58,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => 'float',
         'charset' => 'string',
         'prefix' => 'string',
         'postfix' => 'string',
         'pattern' => 'string',
         'initial_count' => 'int'
+=======
+        'name' => 'string',
+        'parameters' => '\OpenAPI\Client\Model\RewardsCreateRequestBodyParameters',
+        'metadata' => 'object',
+        'stock' => 'int',
+        'attributes' => '\OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes'
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -74,12 +82,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => null,
         'charset' => null,
         'prefix' => null,
         'postfix' => null,
         'pattern' => null,
         'initial_count' => null
+=======
+        'name' => null,
+        'parameters' => null,
+        'metadata' => null,
+        'stock' => null,
+        'attributes' => null
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -88,12 +104,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => false,
 		'charset' => false,
 		'prefix' => false,
 		'postfix' => false,
 		'pattern' => false,
 		'initial_count' => false
+=======
+        'name' => true,
+		'parameters' => true,
+		'metadata' => true,
+		'stock' => true,
+		'attributes' => true
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -182,12 +206,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => 'length',
         'charset' => 'charset',
         'prefix' => 'prefix',
         'postfix' => 'postfix',
         'pattern' => 'pattern',
         'initial_count' => 'initial_count'
+=======
+        'name' => 'name',
+        'parameters' => 'parameters',
+        'metadata' => 'metadata',
+        'stock' => 'stock',
+        'attributes' => 'attributes'
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -196,12 +228,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => 'setLength',
         'charset' => 'setCharset',
         'prefix' => 'setPrefix',
         'postfix' => 'setPostfix',
         'pattern' => 'setPattern',
         'initial_count' => 'setInitialCount'
+=======
+        'name' => 'setName',
+        'parameters' => 'setParameters',
+        'metadata' => 'setMetadata',
+        'stock' => 'setStock',
+        'attributes' => 'setAttributes'
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -210,12 +250,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         'length' => 'getLength',
         'charset' => 'getCharset',
         'prefix' => 'getPrefix',
         'postfix' => 'getPostfix',
         'pattern' => 'getPattern',
         'initial_count' => 'getInitialCount'
+=======
+        'name' => 'getName',
+        'parameters' => 'getParameters',
+        'metadata' => 'getMetadata',
+        'stock' => 'getStock',
+        'attributes' => 'getAttributes'
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     ];
 
     /**
@@ -275,12 +323,20 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
         $this->setIfExists('length', $data ?? [], null);
         $this->setIfExists('charset', $data ?? [], null);
         $this->setIfExists('prefix', $data ?? [], null);
         $this->setIfExists('postfix', $data ?? [], null);
         $this->setIfExists('pattern', $data ?? [], null);
         $this->setIfExists('initial_count', $data ?? [], null);
+=======
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('parameters', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('stock', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
     }
 
     /**
@@ -443,6 +499,7 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
     }
 
     /**
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
      * Gets pattern
      *
      * @return string
@@ -465,12 +522,47 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable pattern cannot be null');
         }
         $this->container['pattern'] = $pattern;
+=======
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
 
         return $this;
     }
 
     /**
+<<<<<<< Updated upstream:src/Model/CodeConfigRequiredLengthCharsetPattern.php
      * Gets initial_count
+=======
+     * Gets stock
+>>>>>>> Stashed changes:src/Model/RewardsCreateRequestBody.php
      *
      * @return int|null
      */
@@ -492,6 +584,40 @@ class CodeConfigRequiredLengthCharsetPattern implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable initial_count cannot be null');
         }
         $this->container['initial_count'] = $initial_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \OpenAPI\Client\Model\RewardsCreateRequestBodyAttributes|null $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

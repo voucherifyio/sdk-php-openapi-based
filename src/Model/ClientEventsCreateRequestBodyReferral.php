@@ -51,7 +51,7 @@ class ClientEventsCreateRequestBodyReferral implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientEventsCreateRequestBody_referral';
+    protected static $openAPIModelName = 'ClientEventsCreateRequestBodyReferral';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

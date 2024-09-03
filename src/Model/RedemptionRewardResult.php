@@ -60,9 +60,9 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'assignment_id' => 'string',
-        'voucher' => '\OpenAPI\Client\Model\RedemptionRewardResultVoucher',
-        'product' => '\OpenAPI\Client\Model\RedemptionRewardResultProduct',
-        'sku' => '\OpenAPI\Client\Model\RedemptionRewardResultSku',
+        'voucher' => '\OpenAPI\Client\Model\Voucher',
+        'product' => '\OpenAPI\Client\Model\Product',
+        'sku' => '\OpenAPI\Client\Model\Sku',
         'loyalty_tier_id' => 'string',
         'id' => 'string',
         'name' => 'string',
@@ -70,6 +70,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'parameters' => '\OpenAPI\Client\Model\RedemptionRewardResultParameters',
+        'metadata' => 'object',
         'type' => 'string'
     ];
 
@@ -93,6 +94,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'parameters' => null,
+        'metadata' => null,
         'type' => null
     ];
 
@@ -102,12 +104,13 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'customer' => true,
+        'customer' => false,
 		'assignment_id' => true,
-		'voucher' => true,
-		'product' => true,
-		'sku' => true,
+		'voucher' => false,
+		'product' => false,
+		'sku' => false,
 		'loyalty_tier_id' => true,
+<<<<<<< Updated upstream
 		'id' => false,
 		'name' => false,
 		'object' => false,
@@ -115,6 +118,16 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
 		'updated_at' => false,
 		'parameters' => false,
 		'type' => false
+=======
+		'id' => true,
+		'name' => true,
+		'object' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'parameters' => true,
+		'metadata' => true,
+		'type' => true
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -215,6 +228,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'parameters' => 'parameters',
+        'metadata' => 'metadata',
         'type' => 'type'
     ];
 
@@ -236,6 +250,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'parameters' => 'setParameters',
+        'metadata' => 'setMetadata',
         'type' => 'setType'
     ];
 
@@ -257,6 +272,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'parameters' => 'getParameters',
+        'metadata' => 'getMetadata',
         'type' => 'getType'
     ];
 
@@ -359,6 +375,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('parameters', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
     }
 
@@ -460,14 +477,7 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            array_push($this->openAPINullablesSetToNull, 'customer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable customer cannot be null');
         }
         $this->container['customer'] = $customer;
 
@@ -511,7 +521,11 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets voucher
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionRewardResultVoucher
+=======
+     * @return \OpenAPI\Client\Model\Voucher|null
+>>>>>>> Stashed changes
      */
     public function getVoucher()
     {
@@ -521,21 +535,18 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets voucher
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionRewardResultVoucher $voucher voucher
+=======
+     * @param \OpenAPI\Client\Model\Voucher|null $voucher voucher
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            array_push($this->openAPINullablesSetToNull, 'voucher');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('voucher', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
         }
         $this->container['voucher'] = $voucher;
 
@@ -545,7 +556,11 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets product
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionRewardResultProduct
+=======
+     * @return \OpenAPI\Client\Model\Product|null
+>>>>>>> Stashed changes
      */
     public function getProduct()
     {
@@ -555,21 +570,18 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets product
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionRewardResultProduct $product product
+=======
+     * @param \OpenAPI\Client\Model\Product|null $product product
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setProduct($product)
     {
         if (is_null($product)) {
-            array_push($this->openAPINullablesSetToNull, 'product');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('product', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable product cannot be null');
         }
         $this->container['product'] = $product;
 
@@ -579,7 +591,11 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets sku
      *
+<<<<<<< Updated upstream
      * @return \OpenAPI\Client\Model\RedemptionRewardResultSku
+=======
+     * @return \OpenAPI\Client\Model\Sku|null
+>>>>>>> Stashed changes
      */
     public function getSku()
     {
@@ -589,21 +605,18 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets sku
      *
+<<<<<<< Updated upstream
      * @param \OpenAPI\Client\Model\RedemptionRewardResultSku $sku sku
+=======
+     * @param \OpenAPI\Client\Model\Sku|null $sku sku
+>>>>>>> Stashed changes
      *
      * @return self
      */
     public function setSku($sku)
     {
         if (is_null($sku)) {
-            array_push($this->openAPINullablesSetToNull, 'sku');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sku', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
         $this->container['sku'] = $sku;
 
@@ -812,6 +825,40 @@ class RedemptionRewardResult implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable parameters cannot be null');
         }
         $this->container['parameters'] = $parameters;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

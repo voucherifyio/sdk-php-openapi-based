@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemOrderReferrer implements ModelIn
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemOrderReferrer';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemOrderReferrer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

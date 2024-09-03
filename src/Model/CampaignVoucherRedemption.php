@@ -51,7 +51,7 @@ class CampaignVoucherRedemption implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CampaignVoucher_redemption';
+    protected static $openAPIModelName = 'CampaignVoucherRedemption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

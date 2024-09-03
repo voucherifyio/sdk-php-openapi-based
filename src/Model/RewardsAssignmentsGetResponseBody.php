@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * RewardsAssignmentsGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
+ * @description Response body schema for **GET** &#x60;v1/rewards/{rewardId}/assignments/{assignmentId}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,7 +66,7 @@ class RewardsAssignmentsGetResponseBody implements ModelInterface, ArrayAccess, 
         'object' => 'string',
         'related_object_id' => 'string',
         'related_object_type' => 'string',
-        'parameters' => '\OpenAPI\Client\Model\RewardAssignmentParametersParameters'
+        'parameters' => '\OpenAPI\Client\Model\RewardsAssignmentsGetResponseBodyParameters'
     ];
 
     /**
@@ -624,7 +624,7 @@ class RewardsAssignmentsGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets parameters
      *
-     * @return \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null
+     * @return \OpenAPI\Client\Model\RewardsAssignmentsGetResponseBodyParameters|null
      */
     public function getParameters()
     {
@@ -634,7 +634,7 @@ class RewardsAssignmentsGetResponseBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets parameters
      *
-     * @param \OpenAPI\Client\Model\RewardAssignmentParametersParameters|null $parameters parameters
+     * @param \OpenAPI\Client\Model\RewardsAssignmentsGetResponseBodyParameters|null $parameters parameters
      *
      * @return self
      */

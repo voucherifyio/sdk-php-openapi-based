@@ -61,7 +61,7 @@ class PromotionTierCreateParams implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'name' => 'string',
         'banner' => 'string',
-        'action' => '\OpenAPI\Client\Model\PromotionTierAction',
+        'action' => '\OpenAPI\Client\Model\PromotionTierCreateParamsAction',
         'metadata' => 'object',
         'validation_rules' => 'string[]',
         'active' => 'bool',
@@ -435,7 +435,7 @@ class PromotionTierCreateParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets action
      *
-     * @return \OpenAPI\Client\Model\PromotionTierAction|null
+     * @return \OpenAPI\Client\Model\PromotionTierCreateParamsAction|null
      */
     public function getAction()
     {
@@ -445,7 +445,7 @@ class PromotionTierCreateParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets action
      *
-     * @param \OpenAPI\Client\Model\PromotionTierAction|null $action action
+     * @param \OpenAPI\Client\Model\PromotionTierCreateParamsAction|null $action action
      *
      * @return self
      */

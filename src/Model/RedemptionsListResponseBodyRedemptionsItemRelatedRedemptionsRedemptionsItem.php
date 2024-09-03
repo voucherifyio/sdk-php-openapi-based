@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptionsIte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemRelatedRedemptionsRedemptionsItem';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemRelatedRedemptionsRedemptionsItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

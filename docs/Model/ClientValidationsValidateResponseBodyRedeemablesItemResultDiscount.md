@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** |  |
+**type** | **string** |  | [optional]
 **amount_off** | **float** | Amount taken off the subtotal of a price. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 discount is written as 1000. | [optional]
 **amount_off_formula** | **string** |  | [optional]
 **aggregated_amount_limit** | **int** | Maximum discount amount per order. | [optional]

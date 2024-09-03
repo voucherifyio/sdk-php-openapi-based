@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesRewardAssignmentsRewardGetResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **GET** &#x60;/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward&#x60;
+ * @description Response body schema for **GET** &#x60;v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward&#x60;
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
         'name' => 'string',
         'stock' => 'int',
         'redeemed' => 'int',
-        'attributes' => '\OpenAPI\Client\Model\RewardAttributes',
+        'attributes' => '\OpenAPI\Client\Model\LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes',
         'metadata' => 'object',
         'type' => 'string',
         'parameters' => '\OpenAPI\Client\Model\RewardType',
@@ -561,7 +561,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets attributes
      *
-     * @return \OpenAPI\Client\Model\RewardAttributes|null
+     * @return \OpenAPI\Client\Model\LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes|null
      */
     public function getAttributes()
     {
@@ -571,7 +571,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets attributes
      *
-     * @param \OpenAPI\Client\Model\RewardAttributes|null $attributes attributes
+     * @param \OpenAPI\Client\Model\LoyaltiesRewardAssignmentsRewardGetResponseBodyAttributes|null $attributes attributes
      *
      * @return self
      */

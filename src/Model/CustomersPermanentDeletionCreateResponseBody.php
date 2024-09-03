@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CustomersPermanentDeletionCreateResponseBody Class Doc Comment
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/customers/{customerId}/permanent-deletion&#x60;.
+ * @description Response body schema for **POST** &#x60;v1/customers/{customerId}/permanent-deletion&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemVoucher';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemVoucher';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -64,7 +64,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'campaign_id' => 'string',
         'category' => 'string',
         'category_id' => 'string',
-        'categories' => '\OpenAPI\Client\Model\Category[]',
         'type' => 'string',
         'discount' => '\OpenAPI\Client\Model\Discount',
         'gift' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherGift',
@@ -83,11 +82,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'holder_id' => 'string',
         'holder' => '\OpenAPI\Client\Model\SimpleCustomer',
         'object' => 'string',
+<<<<<<< Updated upstream
         'distributions' => 'object[]',
         'deleted' => 'bool',
         'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
         'publish' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherPublish',
         'redemption' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherRedemption'
+=======
+        'publish' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherPublish',
+        'redemption' => '\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherRedemption',
+        'categories' => '\OpenAPI\Client\Model\Category[]',
+        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
+        'holder' => '\OpenAPI\Client\Model\SimpleCustomer'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -104,7 +111,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'campaign_id' => null,
         'category' => null,
         'category_id' => null,
-        'categories' => null,
         'type' => null,
         'discount' => null,
         'gift' => null,
@@ -123,11 +129,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'holder_id' => null,
         'holder' => null,
         'object' => null,
+<<<<<<< Updated upstream
         'distributions' => null,
         'deleted' => null,
         'validation_rules_assignments' => null,
         'publish' => null,
         'redemption' => null
+=======
+        'publish' => null,
+        'redemption' => null,
+        'categories' => null,
+        'validation_rules_assignments' => null,
+        'holder' => null
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -136,6 +150,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+<<<<<<< Updated upstream
         'id' => false,
 		'code' => false,
 		'campaign' => false,
@@ -144,6 +159,15 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
 		'category_id' => false,
 		'categories' => false,
 		'type' => false,
+=======
+        'id' => true,
+		'code' => true,
+		'campaign' => true,
+		'campaign_id' => true,
+		'category' => true,
+		'category_id' => true,
+		'type' => true,
+>>>>>>> Stashed changes
 		'discount' => false,
 		'gift' => false,
 		'loyalty_card' => false,
@@ -156,6 +180,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
 		'metadata' => false,
 		'assets' => false,
 		'is_referral_code' => true,
+<<<<<<< Updated upstream
 		'created_at' => false,
 		'updated_at' => false,
 		'holder_id' => false,
@@ -166,6 +191,18 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
 		'validation_rules_assignments' => false,
 		'publish' => false,
 		'redemption' => false
+=======
+		'created_at' => true,
+		'updated_at' => true,
+		'holder_id' => true,
+		'referrer_id' => true,
+		'object' => true,
+		'publish' => false,
+		'redemption' => false,
+		'categories' => true,
+		'validation_rules_assignments' => false,
+		'holder' => false
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -260,7 +297,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'campaign_id' => 'campaign_id',
         'category' => 'category',
         'category_id' => 'category_id',
-        'categories' => 'categories',
         'type' => 'type',
         'discount' => 'discount',
         'gift' => 'gift',
@@ -279,11 +315,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'holder_id' => 'holder_id',
         'holder' => 'holder',
         'object' => 'object',
+<<<<<<< Updated upstream
         'distributions' => 'distributions',
         'deleted' => 'deleted',
         'validation_rules_assignments' => 'validation_rules_assignments',
         'publish' => 'publish',
         'redemption' => 'redemption'
+=======
+        'publish' => 'publish',
+        'redemption' => 'redemption',
+        'categories' => 'categories',
+        'validation_rules_assignments' => 'validation_rules_assignments',
+        'holder' => 'holder'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -298,7 +342,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'campaign_id' => 'setCampaignId',
         'category' => 'setCategory',
         'category_id' => 'setCategoryId',
-        'categories' => 'setCategories',
         'type' => 'setType',
         'discount' => 'setDiscount',
         'gift' => 'setGift',
@@ -317,11 +360,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'holder_id' => 'setHolderId',
         'holder' => 'setHolder',
         'object' => 'setObject',
+<<<<<<< Updated upstream
         'distributions' => 'setDistributions',
         'deleted' => 'setDeleted',
         'validation_rules_assignments' => 'setValidationRulesAssignments',
         'publish' => 'setPublish',
         'redemption' => 'setRedemption'
+=======
+        'publish' => 'setPublish',
+        'redemption' => 'setRedemption',
+        'categories' => 'setCategories',
+        'validation_rules_assignments' => 'setValidationRulesAssignments',
+        'holder' => 'setHolder'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -336,7 +387,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'campaign_id' => 'getCampaignId',
         'category' => 'getCategory',
         'category_id' => 'getCategoryId',
-        'categories' => 'getCategories',
         'type' => 'getType',
         'discount' => 'getDiscount',
         'gift' => 'getGift',
@@ -355,11 +405,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         'holder_id' => 'getHolderId',
         'holder' => 'getHolder',
         'object' => 'getObject',
+<<<<<<< Updated upstream
         'distributions' => 'getDistributions',
         'deleted' => 'getDeleted',
         'validation_rules_assignments' => 'getValidationRulesAssignments',
         'publish' => 'getPublish',
         'redemption' => 'getRedemption'
+=======
+        'publish' => 'getPublish',
+        'redemption' => 'getRedemption',
+        'categories' => 'getCategories',
+        'validation_rules_assignments' => 'getValidationRulesAssignments',
+        'holder' => 'getHolder'
+>>>>>>> Stashed changes
     ];
 
     /**
@@ -467,7 +525,6 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         $this->setIfExists('campaign_id', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('categories', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('gift', $data ?? [], null);
@@ -486,11 +543,19 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
         $this->setIfExists('holder_id', $data ?? [], null);
         $this->setIfExists('holder', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'voucher');
+<<<<<<< Updated upstream
         $this->setIfExists('distributions', $data ?? [], null);
         $this->setIfExists('deleted', $data ?? [], null);
         $this->setIfExists('validation_rules_assignments', $data ?? [], null);
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
+=======
+        $this->setIfExists('publish', $data ?? [], null);
+        $this->setIfExists('redemption', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
+        $this->setIfExists('holder', $data ?? [], null);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -707,6 +772,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets categories
      *
      * @return \OpenAPI\Client\Model\Category[]|null
@@ -734,6 +800,8 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets type
      *
      * @return string|null
@@ -1184,7 +1252,11 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
     /**
      * Sets holder_id
      *
+<<<<<<< Updated upstream
      * @param string|null $holder_id Unique customer ID of voucher owner.
+=======
+     * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
+>>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1253,6 +1325,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
     }
 
     /**
+<<<<<<< Updated upstream
      * Gets distributions
      *
      * @return object[]|null
@@ -1334,6 +1407,8 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Gets publish
      *
      * @return \OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucherPublish|null
@@ -1386,6 +1461,97 @@ class RedemptionsListResponseBodyRedemptionsItemVoucher implements ModelInterfac
 
         return $this;
     }
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets validation_rules_assignments
+     *
+     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null
+     */
+    public function getValidationRulesAssignments()
+    {
+        return $this->container['validation_rules_assignments'];
+    }
+
+    /**
+     * Sets validation_rules_assignments
+     *
+     * @param \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null $validation_rules_assignments validation_rules_assignments
+     *
+     * @return self
+     */
+    public function setValidationRulesAssignments($validation_rules_assignments)
+    {
+        if (is_null($validation_rules_assignments)) {
+            throw new \InvalidArgumentException('non-nullable validation_rules_assignments cannot be null');
+        }
+        $this->container['validation_rules_assignments'] = $validation_rules_assignments;
+
+        return $this;
+    }
+
+    /**
+     * Gets holder
+     *
+     * @return \OpenAPI\Client\Model\SimpleCustomer|null
+     */
+    public function getHolder()
+    {
+        return $this->container['holder'];
+    }
+
+    /**
+     * Sets holder
+     *
+     * @param \OpenAPI\Client\Model\SimpleCustomer|null $holder holder
+     *
+     * @return self
+     */
+    public function setHolder($holder)
+    {
+        if (is_null($holder)) {
+            throw new \InvalidArgumentException('non-nullable holder cannot be null');
+        }
+        $this->container['holder'] = $holder;
+
+        return $this;
+    }
+>>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

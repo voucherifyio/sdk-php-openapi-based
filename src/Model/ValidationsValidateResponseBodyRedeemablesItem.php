@@ -50,7 +50,7 @@ class ValidationsValidateResponseBodyRedeemablesItem implements ModelInterface, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Validations_Validate_Response_Body_Redeemables_Item';
+    protected static $openAPIModelName = 'ValidationsValidateResponseBodyRedeemablesItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

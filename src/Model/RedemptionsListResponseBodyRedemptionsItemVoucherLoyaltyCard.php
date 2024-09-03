@@ -50,7 +50,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherLoyaltyCard implements Mo
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Redemptions_List_Response_Body_Redemptions_ItemVoucherLoyaltyCard';
+    protected static $openAPIModelName = 'RedemptionsListResponseBodyRedemptionsItemVoucherLoyaltyCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -324,7 +324,7 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherLoyaltyCard implements Mo
     /**
      * Sets points
      *
-     * @param int|null $points Total points incurred over lifespan of loyalty card.
+     * @param int|null $points Total points incurred over the lifespan of the loyalty card.
      *
      * @return self
      */

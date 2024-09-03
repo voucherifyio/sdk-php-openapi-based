@@ -3505,9 +3505,9 @@ class ProductsApi
     /**
      * Operation updateProductsInBulk
      *
-     * Update Products in bulk
+     * Update Products in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body Create an array of product objects, each with the parameters which you want to update. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body List the product fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3523,9 +3523,9 @@ class ProductsApi
     /**
      * Operation updateProductsInBulkWithHttpInfo
      *
-     * Update Products in bulk
+     * Update Products in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body Create an array of product objects, each with the parameters which you want to update. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body List the product fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3623,9 +3623,9 @@ class ProductsApi
     /**
      * Operation updateProductsInBulkAsync
      *
-     * Update Products in bulk
+     * Update Products in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body Create an array of product objects, each with the parameters which you want to update. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body List the product fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3644,9 +3644,9 @@ class ProductsApi
     /**
      * Operation updateProductsInBulkAsyncWithHttpInfo
      *
-     * Update Products in bulk
+     * Update Products in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body Create an array of product objects, each with the parameters which you want to update. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body List the product fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3696,7 +3696,7 @@ class ProductsApi
     /**
      * Create request for operation 'updateProductsInBulk'
      *
-     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body Create an array of product objects, each with the parameters which you want to update. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsUpdateInBulkRequestBody[] $products_update_in_bulk_request_body List the product fields to be updated in each customer object. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3791,9 +3791,9 @@ class ProductsApi
     /**
      * Operation updateProductsMetadataInBulk
      *
-     * Update Products&#39; Metadata in bulk
+     * Update Products&#39; Metadata in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3809,9 +3809,9 @@ class ProductsApi
     /**
      * Operation updateProductsMetadataInBulkWithHttpInfo
      *
-     * Update Products&#39; Metadata in bulk
+     * Update Products&#39; Metadata in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3909,9 +3909,9 @@ class ProductsApi
     /**
      * Operation updateProductsMetadataInBulkAsync
      *
-     * Update Products&#39; Metadata in bulk
+     * Update Products&#39; Metadata in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3930,9 +3930,9 @@ class ProductsApi
     /**
      * Operation updateProductsMetadataInBulkAsyncWithHttpInfo
      *
-     * Update Products&#39; Metadata in bulk
+     * Update Products&#39; Metadata in Bulk
      *
-     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3982,7 +3982,7 @@ class ProductsApi
     /**
      * Create request for operation 'updateProductsMetadataInBulk'
      *
-     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body Specify the list of product source IDs and the metadata key value pairs to be udpated for these products. (optional)
+     * @param  \OpenAPI\Client\Model\ProductsMetadataUpdateInBulkRequestBody $products_metadata_update_in_bulk_request_body List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductsMetadataInBulk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
