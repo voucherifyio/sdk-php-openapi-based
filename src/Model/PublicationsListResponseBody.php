@@ -85,10 +85,10 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'publications' => false,
-		'total' => false
+        'object' => true,
+		'data_ref' => true,
+		'publications' => true,
+		'total' => true
     ];
 
     /**
@@ -297,18 +297,6 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['publications'] === null) {
-            $invalidProperties[] = "'publications' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +315,7 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -337,14 +325,21 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about publications in a dictionary.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about publications in a dictionary.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -354,7 +349,7 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -364,14 +359,21 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of publications.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of publications.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -381,7 +383,7 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets publications
      *
-     * @return \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItem[]
+     * @return \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItem[]|null
      */
     public function getPublications()
     {
@@ -391,14 +393,21 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets publications
      *
-     * @param \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItem[] $publications Response schema model for publishing vouchers to a specific customer.
+     * @param \OpenAPI\Client\Model\PublicationsListResponseBodyPublicationsItem[]|null $publications Response schema model for publishing vouchers to a specific customer.
      *
      * @return self
      */
     public function setPublications($publications)
     {
         if (is_null($publications)) {
-            throw new \InvalidArgumentException('non-nullable publications cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'publications');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('publications', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['publications'] = $publications;
 
@@ -408,7 +417,7 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -418,14 +427,21 @@ class PublicationsListResponseBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets total
      *
-     * @param int $total Total number of publications.
+     * @param int|null $total Total number of publications.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

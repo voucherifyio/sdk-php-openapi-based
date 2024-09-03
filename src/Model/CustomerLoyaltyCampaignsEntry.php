@@ -84,13 +84,8 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
       */
     protected static array $openAPINullables = [
         'points' => false,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerLoyalty.php
-		'referred_customers' => false,
-		'campaigns' => false
-=======
 		'loyalty_tier' => false,
 		'referred_customers' => false
->>>>>>> Stashed changes:src/Model/CustomerLoyaltyCampaignsEntry.php
     ];
 
     /**
@@ -295,15 +290,6 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['referred_customers'] === null) {
-            $invalidProperties[] = "'referred_customers' can't be null";
-        }
-        if ($this->container['campaigns'] === null) {
-            $invalidProperties[] = "'campaigns' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -322,7 +308,7 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -332,11 +318,7 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets points
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerLoyalty.php
-     * @param int $points Customer's loyalty points.
-=======
      * @param int|null $points Remaining point balance in campaign.
->>>>>>> Stashed changes:src/Model/CustomerLoyaltyCampaignsEntry.php
      *
      * @return self
      */
@@ -380,7 +362,7 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets referred_customers
      *
-     * @return int
+     * @return int|null
      */
     public function getReferredCustomers()
     {
@@ -390,11 +372,7 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets referred_customers
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerLoyalty.php
-     * @param int $referred_customers Total number of customers referred by the customer.
-=======
      * @param int|null $referred_customers Number of customers referred by the customer in campaign.
->>>>>>> Stashed changes:src/Model/CustomerLoyaltyCampaignsEntry.php
      *
      * @return self
      */
@@ -407,36 +385,6 @@ class CustomerLoyaltyCampaignsEntry implements ModelInterface, ArrayAccess, \Jso
 
         return $this;
     }
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerLoyalty.php
-
-    /**
-     * Gets campaigns
-     *
-     * @return object
-     */
-    public function getCampaigns()
-    {
-        return $this->container['campaigns'];
-    }
-
-    /**
-     * Sets campaigns
-     *
-     * @param object $campaigns campaigns
-     *
-     * @return self
-     */
-    public function setCampaigns($campaigns)
-    {
-        if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
-        }
-        $this->container['campaigns'] = $campaigns;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes:src/Model/CustomerLoyaltyCampaignsEntry.php
     /**
      * Returns true if offset exists. False otherwise.
      *

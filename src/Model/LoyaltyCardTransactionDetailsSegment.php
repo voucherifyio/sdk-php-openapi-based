@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem
-========
  * LoyaltyCardTransactionDetailsSegment
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem Class Doc Comment
- *
- * @category Class
-========
  * LoyaltyCardTransactionDetailsSegment Class Doc Comment
  *
  * @category Class
  * @description Contains information about the segment.
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
-class VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
-    protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemRelatedRedemptionsRedemptionsItem';
-========
     protected static $openAPIModelName = 'LoyaltyCardTransactionDetailsSegment';
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -78,7 +60,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'date' => '\DateTime'
+        'name' => 'string'
     ];
 
     /**
@@ -90,7 +72,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'date' => 'date-time'
+        'name' => null
     ];
 
     /**
@@ -99,8 +81,8 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'date' => false
+        'id' => true,
+		'name' => true
     ];
 
     /**
@@ -190,7 +172,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'date' => 'date'
+        'name' => 'name'
     ];
 
     /**
@@ -200,7 +182,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'id' => 'setId',
-        'date' => 'setDate'
+        'name' => 'setName'
     ];
 
     /**
@@ -210,7 +192,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'id' => 'getId',
-        'date' => 'getDate'
+        'name' => 'getName'
     ];
 
     /**
@@ -271,7 +253,7 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -329,18 +311,21 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
-     * @param string|null $id Unique redemption ID.
-========
      * @param string|null $id id
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -348,32 +333,35 @@ class LoyaltyCardTransactionDetailsSegment implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets date
+     * Gets name
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getDate()
+    public function getName()
     {
-        return $this->container['date'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets date
+     * Sets name
      *
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemRelatedRedemptionsRedemptionsItem.php
-     * @param \DateTime|null $date Timestamp representing the date and time when the object was created in ISO 8601 format.
-========
      * @param string|null $name name
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsSegment.php
      *
      * @return self
      */
-    public function setDate($date)
+    public function setName($name)
     {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['date'] = $date;
+        $this->container['name'] = $name;
 
         return $this;
     }

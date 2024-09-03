@@ -85,10 +85,10 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'balance' => false,
-		'next_expiration_date' => false,
-		'next_expiration_points' => false
+        'points' => true,
+		'balance' => true,
+		'next_expiration_date' => true,
+		'next_expiration_points' => true
     ];
 
     /**
@@ -297,12 +297,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['balance'] === null) {
-            $invalidProperties[] = "'balance' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -321,7 +315,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -331,18 +325,21 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     /**
      * Sets points
      *
-<<<<<<< Updated upstream
-     * @param int $points Total points incurred over lifespan of loyalty card.
-=======
      * @param int|null $points Total points incurred over the lifespan of the loyalty card.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -352,7 +349,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     /**
      * Gets balance
      *
-     * @return int
+     * @return int|null
      */
     public function getBalance()
     {
@@ -362,14 +359,21 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     /**
      * Sets balance
      *
-     * @param int $balance Points available for reward redemption.
+     * @param int|null $balance Points available for reward redemption.
      *
      * @return self
      */
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -396,7 +400,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     public function setNextExpirationDate($next_expiration_date)
     {
         if (is_null($next_expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_date'] = $next_expiration_date;
 
@@ -423,7 +434,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard implements ModelInt
     public function setNextExpirationPoints($next_expiration_points)
     {
         if (is_null($next_expiration_points)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_points'] = $next_expiration_points;
 

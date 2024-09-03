@@ -61,14 +61,9 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'type' => 'string',
-<<<<<<< Updated upstream
-        'data' => '\OpenAPI\Client\Model\CustomerActivityData[]',
-        'created_at' => '\DateTime'
-=======
         'data' => 'object',
         'created_at' => '\DateTime',
         'group_id' => 'string'
->>>>>>> Stashed changes
     ];
 
     /**
@@ -82,7 +77,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'type' => null,
         'data' => null,
-        'created_at' => 'date-time'
+        'created_at' => 'date-time',
+        'group_id' => null
     ];
 
     /**
@@ -91,10 +87,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'type' => false,
-		'data' => false,
-		'created_at' => false
+        'id' => true,
+		'type' => true,
+		'data' => true,
+		'created_at' => true,
+		'group_id' => true
     ];
 
     /**
@@ -186,7 +183,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'type' => 'type',
         'data' => 'data',
-        'created_at' => 'created_at'
+        'created_at' => 'created_at',
+        'group_id' => 'group_id'
     ];
 
     /**
@@ -198,7 +196,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'type' => 'setType',
         'data' => 'setData',
-        'created_at' => 'setCreatedAt'
+        'created_at' => 'setCreatedAt',
+        'group_id' => 'setGroupId'
     ];
 
     /**
@@ -210,7 +209,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'type' => 'getType',
         'data' => 'getData',
-        'created_at' => 'getCreatedAt'
+        'created_at' => 'getCreatedAt',
+        'group_id' => 'getGroupId'
     ];
 
     /**
@@ -274,6 +274,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('group_id', $data ?? [], null);
     }
 
     /**
@@ -338,7 +339,14 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -365,21 +373,15 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-<<<<<<< Updated upstream
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-=======
->>>>>>> Stashed changes
         $this->container['type'] = $type;
 
         return $this;
@@ -388,11 +390,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\CustomerActivityData[]|null
-=======
      * @return object|null
->>>>>>> Stashed changes
      */
     public function getData()
     {
@@ -402,18 +400,21 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\CustomerActivityData[]|null $data Contains details about the event. The objects that are returned in the data attribute differ based on the context of the event type.
-=======
      * @param object|null $data Contains details about the event. The objects that are returned in the data attribute differ based on the context of the event type.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -440,9 +441,50 @@ class CustomerActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_id
+     *
+     * @return string|null
+     */
+    public function getGroupId()
+    {
+        return $this->container['group_id'];
+    }
+
+    /**
+     * Sets group_id
+     *
+     * @param string|null $group_id Unique identifier of the request that caused the event.
+     *
+     * @return self
+     */
+    public function setGroupId($group_id)
+    {
+        if (is_null($group_id)) {
+            array_push($this->openAPINullablesSetToNull, 'group_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group_id'] = $group_id;
 
         return $this;
     }

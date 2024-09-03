@@ -81,7 +81,7 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'sku_id' => true
     ];
 
@@ -283,12 +283,6 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['sku_id'] === null) {
-            $invalidProperties[] = "'sku_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -317,14 +311,21 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param string $id Unique product ID, assigned by Voucherify.
+     * @param string|null $id Unique product ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -334,7 +335,7 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets sku_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSkuId()
     {
@@ -344,7 +345,7 @@ class RewardTypeProduct implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets sku_id
      *
-     * @param string $sku_id Unique SKU ID, assigned by Voucherify, of the SKU given as a reward.
+     * @param string|null $sku_id Unique SKU ID, assigned by Voucherify, of the SKU given as a reward.
      *
      * @return self
      */

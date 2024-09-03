@@ -92,15 +92,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'status' => false,
-		'channel' => false,
-		'result' => true,
-		'user_id' => false
-=======
         'in' => true,
 		'not_in' => true,
 		'is' => true,
@@ -109,7 +100,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
 		'is_unknown' => true,
 		'starts_with' => true,
 		'ends_with' => true
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
     ];
 
     /**
@@ -386,19 +376,8 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-=======
         $allowedValues = $this->getIsAllowableValues();
         if (!is_null($this->container['is']) && !in_array($this->container['is'], $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'is', must be one of '%s'",
                 $this->container['is'],
@@ -406,19 +385,8 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
             );
         }
 
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-=======
         $allowedValues = $this->getIsNotAllowableValues();
         if (!is_null($this->container['is_not']) && !in_array($this->container['is_not'], $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'is_not', must be one of '%s'",
                 $this->container['is_not'],
@@ -426,12 +394,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
             );
         }
 
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -450,11 +412,7 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Gets in
      *
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-     * @return string
-=======
      * @return string[]|null
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
      */
     public function getIn()
     {
@@ -464,50 +422,12 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Sets in
      *
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-     * @param string $id Unique export ID.
-=======
      * @param string[]|null $in Array of resource values that should be included in the results (multiple values).
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
      *
      * @return self
      */
     public function setIn($in)
     {
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object The type of object being represented. This object stores information about the export.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-=======
         if (is_null($in)) {
             array_push($this->openAPINullablesSetToNull, 'in');
         } else {
@@ -520,7 +440,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
         }
         $allowedValues = $this->getInAllowableValues();
         if (!is_null($in) && array_diff($in, $allowedValues)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'in', must be one of '%s'",
@@ -536,11 +455,7 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Gets not_in
      *
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-     * @return \DateTime
-=======
      * @return string[]|null
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
      */
     public function getNotIn()
     {
@@ -550,50 +465,12 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Sets not_in
      *
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-     * @param \DateTime $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
-=======
      * @param string[]|null $not_in Array of resource values that should be included in the results (multiple values).
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
      *
      * @return self
      */
     public function setNotIn($not_in)
     {
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-=======
         if (is_null($not_in)) {
             array_push($this->openAPINullablesSetToNull, 'not_in');
         } else {
@@ -606,7 +483,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
         }
         $allowedValues = $this->getNotInAllowableValues();
         if (!is_null($not_in) && array_diff($not_in, $allowedValues)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'not_in', must be one of '%s'",
@@ -638,44 +514,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
      */
     public function setIs($is)
     {
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     *
-     * @return object
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     *
-     * @param object $result Contains the URL of the CSV file.
-     *
-     * @return self
-     */
-    public function setResult($result)
-    {
-        if (is_null($result)) {
-            array_push($this->openAPINullablesSetToNull, 'result');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('result', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-=======
         if (is_null($is)) {
             array_push($this->openAPINullablesSetToNull, 'is');
         } else {
@@ -695,7 +533,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
                     implode("', '", $allowedValues)
                 )
             );
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
         }
         $this->container['is'] = $is;
 
@@ -705,7 +542,7 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Gets is_not
      *
-     * @return string
+     * @return string|null
      */
     public function getIsNot()
     {
@@ -715,20 +552,12 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
     /**
      * Sets is_not
      *
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-     * @param string $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE.
-=======
      * @param string|null $is_not Results omit this value (single value).
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
      *
      * @return self
      */
     public function setIsNot($is_not)
     {
-<<<<<<< Updated upstream:src/Model/ExportScheduledBase.php
-        if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
-=======
         if (is_null($is_not)) {
             array_push($this->openAPINullablesSetToNull, 'is_not');
         } else {
@@ -738,7 +567,6 @@ class ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions implemen
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions.php
         }
         $allowedValues = $this->getIsNotAllowableValues();
         if (!is_null($is_not) && !in_array($is_not, $allowedValues, true)) {

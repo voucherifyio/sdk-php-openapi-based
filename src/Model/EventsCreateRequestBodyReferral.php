@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
- * CustomEventReferral
-========
  * EventsCreateRequestBodyReferral
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
  *
  * PHP version 8.1
  *
@@ -37,11 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
- * CustomEventReferral Class Doc Comment
-========
  * EventsCreateRequestBodyReferral Class Doc Comment
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
  *
  * @category Class
  * @description If a **conversion event** for a referral program is set to a custom event, then you need to send the referral code in the payload to make a record of the conversion event.
@@ -50,11 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
-class CustomEventReferral implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
 {
     public const DISCRIMINATOR = null;
 
@@ -63,11 +51,7 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
-    protected static $openAPIModelName = 'CustomEvent_referral';
-========
     protected static $openAPIModelName = 'EventsCreateRequestBodyReferral';
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -97,14 +81,8 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
-        'referrer_id' => false,
-		'code' => false,
-		'id' => false
-========
         'code' => true,
 		'referrer_id' => true
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
     ];
 
     /**
@@ -321,36 +299,6 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
 
 
     /**
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
-     * Gets referrer_id
-     *
-     * @return string|null
-     */
-    public function getReferrerId()
-    {
-        return $this->container['referrer_id'];
-    }
-
-    /**
-     * Sets referrer_id
-     *
-     * @param string|null $referrer_id Unique referrer ID.
-     *
-     * @return self
-     */
-    public function setReferrerId($referrer_id)
-    {
-        if (is_null($referrer_id)) {
-            throw new \InvalidArgumentException('non-nullable referrer_id cannot be null');
-        }
-        $this->container['referrer_id'] = $referrer_id;
-
-        return $this;
-    }
-
-    /**
-========
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
      * Gets code
      *
      * @return string|null
@@ -370,7 +318,14 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -396,10 +351,6 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
      */
     public function setReferrerId($referrer_id)
     {
-<<<<<<<< Updated upstream:src/Model/CustomEventReferral.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-========
         if (is_null($referrer_id)) {
             array_push($this->openAPINullablesSetToNull, 'referrer_id');
         } else {
@@ -409,7 +360,6 @@ class EventsCreateRequestBodyReferral implements ModelInterface, ArrayAccess, \J
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyReferral.php
         }
         $this->container['referrer_id'] = $referrer_id;
 

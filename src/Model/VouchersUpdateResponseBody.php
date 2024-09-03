@@ -67,44 +67,27 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'category_id' => 'string',
         'type' => 'string',
         'discount' => '\OpenAPI\Client\Model\Discount',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'gift' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherGift',
-        'loyalty_card' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherLoyaltyCard',
-=======
         'gift' => '\OpenAPI\Client\Model\VouchersUpdateResponseBodyGift',
         'loyalty_card' => '\OpenAPI\Client\Model\VouchersUpdateResponseBodyLoyaltyCard',
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherValidityTimeframe',
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
         'active' => 'bool',
         'additional_info' => 'string',
         'metadata' => 'object',
         'assets' => '\OpenAPI\Client\Model\VoucherAssets',
         'is_referral_code' => 'bool',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'created_at' => 'string',
-=======
         'created_at' => '\DateTime',
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
         'updated_at' => '\DateTime',
         'holder_id' => 'string',
-        'holder' => '\OpenAPI\Client\Model\SimpleCustomer',
+        'referrer_id' => 'string',
         'object' => 'string',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'distributions' => 'object[]',
-        'deleted' => 'bool',
-        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
-        'publish' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherPublish',
-        'redemption' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherRedemption',
-        'referrer_id' => 'string'
-=======
         'publish' => '\OpenAPI\Client\Model\VouchersUpdateResponseBodyPublish',
         'redemption' => '\OpenAPI\Client\Model\VouchersUpdateResponseBodyRedemption',
         'categories' => '\OpenAPI\Client\Model\Category[]',
         'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList'
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -129,33 +112,21 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
+        'validity_hours' => null,
         'active' => null,
         'additional_info' => null,
         'metadata' => null,
         'assets' => null,
         'is_referral_code' => null,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'created_at' => null,
-=======
         'created_at' => 'date-time',
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
         'updated_at' => 'date-time',
         'holder_id' => null,
-        'holder' => null,
+        'referrer_id' => null,
         'object' => null,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'distributions' => null,
-        'deleted' => null,
-        'validation_rules_assignments' => null,
-        'publish' => null,
-        'redemption' => null,
-        'referrer_id' => null
-=======
         'publish' => null,
         'redemption' => null,
         'categories' => null,
         'validation_rules_assignments' => null
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -164,16 +135,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'id' => false,
-		'code' => false,
-		'campaign' => false,
-		'campaign_id' => false,
-		'category' => false,
-		'category_id' => false,
-		'categories' => false,
-		'type' => false,
-=======
         'id' => true,
 		'code' => true,
 		'campaign' => true,
@@ -181,32 +142,18 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
 		'category' => true,
 		'category_id' => true,
 		'type' => true,
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
 		'discount' => false,
-		'gift' => false,
-		'loyalty_card' => false,
-		'start_date' => false,
-		'expiration_date' => false,
+		'gift' => true,
+		'loyalty_card' => true,
+		'start_date' => true,
+		'expiration_date' => true,
 		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
+		'validity_day_of_week' => true,
+		'validity_hours' => false,
 		'active' => true,
-		'additional_info' => false,
-		'metadata' => false,
+		'additional_info' => true,
+		'metadata' => true,
 		'assets' => false,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-		'is_referral_code' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'holder_id' => false,
-		'holder' => false,
-		'object' => false,
-		'distributions' => false,
-		'deleted' => false,
-		'validation_rules_assignments' => false,
-		'publish' => false,
-		'redemption' => false,
-		'referrer_id' => false
-=======
 		'is_referral_code' => true,
 		'created_at' => true,
 		'updated_at' => true,
@@ -217,7 +164,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
 		'redemption' => true,
 		'categories' => true,
 		'validation_rules_assignments' => false
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -320,6 +266,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours',
         'active' => 'active',
         'additional_info' => 'additional_info',
         'metadata' => 'metadata',
@@ -328,21 +275,12 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'holder_id' => 'holder_id',
-        'holder' => 'holder',
+        'referrer_id' => 'referrer_id',
         'object' => 'object',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'distributions' => 'distributions',
-        'deleted' => 'deleted',
-        'validation_rules_assignments' => 'validation_rules_assignments',
-        'publish' => 'publish',
-        'redemption' => 'redemption',
-        'referrer_id' => 'referrer_id'
-=======
         'publish' => 'publish',
         'redemption' => 'redemption',
         'categories' => 'categories',
         'validation_rules_assignments' => 'validation_rules_assignments'
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -365,6 +303,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours',
         'active' => 'setActive',
         'additional_info' => 'setAdditionalInfo',
         'metadata' => 'setMetadata',
@@ -373,21 +312,12 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'holder_id' => 'setHolderId',
-        'holder' => 'setHolder',
+        'referrer_id' => 'setReferrerId',
         'object' => 'setObject',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'distributions' => 'setDistributions',
-        'deleted' => 'setDeleted',
-        'validation_rules_assignments' => 'setValidationRulesAssignments',
-        'publish' => 'setPublish',
-        'redemption' => 'setRedemption',
-        'referrer_id' => 'setReferrerId'
-=======
         'publish' => 'setPublish',
         'redemption' => 'setRedemption',
         'categories' => 'setCategories',
         'validation_rules_assignments' => 'setValidationRulesAssignments'
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -410,6 +340,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours',
         'active' => 'getActive',
         'additional_info' => 'getAdditionalInfo',
         'metadata' => 'getMetadata',
@@ -418,21 +349,12 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'holder_id' => 'getHolderId',
-        'holder' => 'getHolder',
+        'referrer_id' => 'getReferrerId',
         'object' => 'getObject',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        'distributions' => 'getDistributions',
-        'deleted' => 'getDeleted',
-        'validation_rules_assignments' => 'getValidationRulesAssignments',
-        'publish' => 'getPublish',
-        'redemption' => 'getRedemption',
-        'referrer_id' => 'getReferrerId'
-=======
         'publish' => 'getPublish',
         'redemption' => 'getRedemption',
         'categories' => 'getCategories',
         'validation_rules_assignments' => 'getValidationRulesAssignments'
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     ];
 
     /**
@@ -479,7 +401,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public const TYPE_GIFT_VOUCHER = 'GIFT_VOUCHER';
     public const TYPE_DISCOUNT_VOUCHER = 'DISCOUNT_VOUCHER';
     public const TYPE_LOYALTY_CARD = 'LOYALTY_CARD';
-    public const TYPE_VOUCHER = 'voucher';
     public const VALIDITY_DAY_OF_WEEK_0 = 0;
     public const VALIDITY_DAY_OF_WEEK_1 = 1;
     public const VALIDITY_DAY_OF_WEEK_2 = 2;
@@ -487,7 +408,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public const VALIDITY_DAY_OF_WEEK_4 = 4;
     public const VALIDITY_DAY_OF_WEEK_5 = 5;
     public const VALIDITY_DAY_OF_WEEK_6 = 6;
-    public const OBJECT_VOUCHER = 'voucher';
 
     /**
      * Gets allowable values of the enum
@@ -500,7 +420,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             self::TYPE_GIFT_VOUCHER,
             self::TYPE_DISCOUNT_VOUCHER,
             self::TYPE_LOYALTY_CARD,
-            self::TYPE_VOUCHER,
         ];
     }
 
@@ -519,18 +438,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             self::VALIDITY_DAY_OF_WEEK_4,
             self::VALIDITY_DAY_OF_WEEK_5,
             self::VALIDITY_DAY_OF_WEEK_6,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_VOUCHER,
         ];
     }
 
@@ -563,6 +470,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('additional_info', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
@@ -571,23 +479,12 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('holder_id', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-        $this->setIfExists('holder', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'voucher');
-        $this->setIfExists('distributions', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
-        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
-        $this->setIfExists('publish', $data ?? [], null);
-        $this->setIfExists('redemption', $data ?? [], null);
-        $this->setIfExists('referrer_id', $data ?? [], null);
-=======
         $this->setIfExists('referrer_id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'voucher');
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
         $this->setIfExists('categories', $data ?? [], null);
         $this->setIfExists('validation_rules_assignments', $data ?? [], null);
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     }
 
     /**
@@ -622,15 +519,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'type', must be one of '%s'",
                 $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
                 implode("', '", $allowedValues)
             );
         }
@@ -670,7 +558,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -697,7 +592,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -724,7 +626,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -751,7 +660,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -778,7 +694,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -805,7 +728,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 
@@ -813,36 +743,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-     * Gets categories
-     *
-     * @return \OpenAPI\Client\Model\Category[]|null
-     */
-    public function getCategories()
-    {
-        return $this->container['categories'];
-    }
-
-    /**
-     * Sets categories
-     *
-     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
-     *
-     * @return self
-     */
-    public function setCategories($categories)
-    {
-        if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
-        }
-        $this->container['categories'] = $categories;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
      * Gets type
      *
      * @return string|null
@@ -862,10 +762,17 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -926,7 +833,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -953,7 +867,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 
@@ -980,7 +901,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -1007,7 +935,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -1017,7 +952,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -1027,7 +962,7 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -1054,17 +989,24 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_day_of_week
      *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getValidityDayOfWeekAllowableValues();
-        if (array_diff($validity_day_of_week, $allowedValues)) {
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'validity_day_of_week', must be one of '%s'",
@@ -1073,6 +1015,33 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }
@@ -1131,7 +1100,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setAdditionalInfo($additional_info)
     {
         if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'additional_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('additional_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['additional_info'] = $additional_info;
 
@@ -1158,7 +1134,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -1212,7 +1195,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 
@@ -1239,7 +1229,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -1266,7 +1263,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -1293,7 +1297,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setHolderId($holder_id)
     {
         if (is_null($holder_id)) {
-            throw new \InvalidArgumentException('non-nullable holder_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'holder_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['holder_id'] = $holder_id;
 
@@ -1301,32 +1312,35 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets holder
+     * Gets referrer_id
      *
-     * @return \OpenAPI\Client\Model\SimpleCustomer|null
+     * @return string|null
      */
-    public function getHolder()
+    public function getReferrerId()
     {
-        return $this->container['holder'];
+        return $this->container['referrer_id'];
     }
 
     /**
-     * Sets holder
+     * Sets referrer_id
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-     * @param \OpenAPI\Client\Model\SimpleCustomer|null $holder holder
-=======
      * @param string|null $referrer_id Unique identifier of the referring person.
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
      *
      * @return self
      */
-    public function setHolder($holder)
+    public function setReferrerId($referrer_id)
     {
-        if (is_null($holder)) {
-            throw new \InvalidArgumentException('non-nullable holder cannot be null');
+        if (is_null($referrer_id)) {
+            array_push($this->openAPINullablesSetToNull, 'referrer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['holder'] = $holder;
+        $this->container['referrer_id'] = $referrer_id;
 
         return $this;
     }
@@ -1351,17 +1365,14 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -1369,30 +1380,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-     * Gets distributions
-     *
-     * @return object[]|null
-     */
-    public function getDistributions()
-    {
-        return $this->container['distributions'];
-    }
-
-    /**
-     * Sets distributions
-     *
-     * @param object[]|null $distributions distributions
-     *
-     * @return self
-     */
-    public function setDistributions($distributions)
-    {
-        if (is_null($distributions)) {
-            throw new \InvalidArgumentException('non-nullable distributions cannot be null');
-        }
-        $this->container['distributions'] = $distributions;
-=======
      * Gets publish
      *
      * @return \OpenAPI\Client\Model\VouchersUpdateResponseBodyPublish|null
@@ -1422,36 +1409,11 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['publish'] = $publish;
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
 
         return $this;
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-     * Gets deleted
-     *
-     * @return bool|null
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool|null $deleted Flag indicating whether this voucher is deleted.
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            throw new \InvalidArgumentException('non-nullable deleted cannot be null');
-        }
-        $this->container['deleted'] = $deleted;
-=======
      * Gets redemption
      *
      * @return \OpenAPI\Client\Model\VouchersUpdateResponseBodyRedemption|null
@@ -1515,7 +1477,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['categories'] = $categories;
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
 
         return $this;
     }
@@ -1546,90 +1507,6 @@ class VouchersUpdateResponseBody implements ModelInterface, ArrayAccess, \JsonSe
 
         return $this;
     }
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionVoucher.php
-
-    /**
-     * Gets publish
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherPublish|null
-     */
-    public function getPublish()
-    {
-        return $this->container['publish'];
-    }
-
-    /**
-     * Sets publish
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherPublish|null $publish publish
-     *
-     * @return self
-     */
-    public function setPublish($publish)
-    {
-        if (is_null($publish)) {
-            throw new \InvalidArgumentException('non-nullable publish cannot be null');
-        }
-        $this->container['publish'] = $publish;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemption
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherRedemption|null
-     */
-    public function getRedemption()
-    {
-        return $this->container['redemption'];
-    }
-
-    /**
-     * Sets redemption
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionVoucherRedemption|null $redemption redemption
-     *
-     * @return self
-     */
-    public function setRedemption($redemption)
-    {
-        if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
-        }
-        $this->container['redemption'] = $redemption;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer_id
-     *
-     * @return string|null
-     */
-    public function getReferrerId()
-    {
-        return $this->container['referrer_id'];
-    }
-
-    /**
-     * Sets referrer_id
-     *
-     * @param string|null $referrer_id Unique referrer ID.
-     *
-     * @return self
-     */
-    public function setReferrerId($referrer_id)
-    {
-        if (is_null($referrer_id)) {
-            throw new \InvalidArgumentException('non-nullable referrer_id cannot be null');
-        }
-        $this->container['referrer_id'] = $referrer_id;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes:src/Model/VouchersUpdateResponseBody.php
     /**
      * Returns true if offset exists. False otherwise.
      *

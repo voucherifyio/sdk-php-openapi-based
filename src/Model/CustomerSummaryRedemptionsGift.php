@@ -81,8 +81,8 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'redeemed_amount' => false,
-		'amount_to_go' => false
+        'redeemed_amount' => true,
+		'amount_to_go' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['redeemed_amount'] === null) {
-            $invalidProperties[] = "'redeemed_amount' can't be null";
-        }
-        if ($this->container['amount_to_go'] === null) {
-            $invalidProperties[] = "'amount_to_go' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets redeemed_amount
      *
-     * @return int
+     * @return int|null
      */
     public function getRedeemedAmount()
     {
@@ -317,14 +311,21 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets redeemed_amount
      *
-     * @param int $redeemed_amount Total amount of gift card credits redeemed by customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
+     * @param int|null $redeemed_amount Total amount of gift card credits redeemed by customer. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
      *
      * @return self
      */
     public function setRedeemedAmount($redeemed_amount)
     {
         if (is_null($redeemed_amount)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_amount'] = $redeemed_amount;
 
@@ -334,7 +335,7 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets amount_to_go
      *
-     * @return int
+     * @return int|null
      */
     public function getAmountToGo()
     {
@@ -344,14 +345,21 @@ class CustomerSummaryRedemptionsGift implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets amount_to_go
      *
-     * @param int $amount_to_go Remaining gift card balance across all gift cards. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
+     * @param int|null $amount_to_go Remaining gift card balance across all gift cards. Value is multiplied by 100 to precisely represent 2 decimal places. For example `10000 cents` for `$100.00`.
      *
      * @return self
      */
     public function setAmountToGo($amount_to_go)
     {
         if (is_null($amount_to_go)) {
-            throw new \InvalidArgumentException('non-nullable amount_to_go cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount_to_go');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount_to_go', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount_to_go'] = $amount_to_go;
 

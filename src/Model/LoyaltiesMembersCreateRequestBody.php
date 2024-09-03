@@ -87,20 +87,11 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/StackableValidateRedeemBase.php
-        'redeemables' => false,
-		'order' => false,
-		'customer' => false,
-		'session' => false,
-		'tracking_id' => false,
-		'metadata' => false
-=======
         'voucher' => true,
 		'source_id' => true,
 		'customer' => false,
 		'metadata' => true,
 		'channel' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesMembersCreateRequestBody.php
     ];
 
     /**
@@ -313,9 +304,6 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['redeemables'] === null) {
-            $invalidProperties[] = "'redeemables' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -334,11 +322,7 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets voucher
      *
-<<<<<<< Updated upstream:src/Model/StackableValidateRedeemBase.php
-     * @return \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]
-=======
      * @return string|null
->>>>>>> Stashed changes:src/Model/LoyaltiesMembersCreateRequestBody.php
      */
     public function getVoucher()
     {
@@ -348,20 +332,12 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets voucher
      *
-<<<<<<< Updated upstream:src/Model/StackableValidateRedeemBase.php
-     * @param \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[] $redeemables redeemables
-=======
      * @param string|null $voucher Code of voucher being published.
->>>>>>> Stashed changes:src/Model/LoyaltiesMembersCreateRequestBody.php
      *
      * @return self
      */
     public function setVoucher($voucher)
     {
-<<<<<<< Updated upstream:src/Model/StackableValidateRedeemBase.php
-        if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
-=======
         if (is_null($voucher)) {
             array_push($this->openAPINullablesSetToNull, 'voucher');
         } else {
@@ -371,7 +347,6 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesMembersCreateRequestBody.php
         }
         $this->container['voucher'] = $voucher;
 
@@ -440,63 +415,6 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/StackableValidateRedeemBase.php
-     * Gets session
-     *
-     * @return \OpenAPI\Client\Model\Session|null
-     */
-    public function getSession()
-    {
-        return $this->container['session'];
-    }
-
-    /**
-     * Sets session
-     *
-     * @param \OpenAPI\Client\Model\Session|null $session session
-     *
-     * @return self
-     */
-    public function setSession($session)
-    {
-        if (is_null($session)) {
-            throw new \InvalidArgumentException('non-nullable session cannot be null');
-        }
-        $this->container['session'] = $session;
-
-        return $this;
-    }
-
-    /**
-     * Gets tracking_id
-     *
-     * @return string|null
-     */
-    public function getTrackingId()
-    {
-        return $this->container['tracking_id'];
-    }
-
-    /**
-     * Sets tracking_id
-     *
-     * @param string|null $tracking_id Is correspondent to Customer's source_id
-     *
-     * @return self
-     */
-    public function setTrackingId($tracking_id)
-    {
-        if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
-        }
-        $this->container['tracking_id'] = $tracking_id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltiesMembersCreateRequestBody.php
      * Gets metadata
      *
      * @return object|null
@@ -516,7 +434,14 @@ class LoyaltiesMembersCreateRequestBody implements ModelInterface, ArrayAccess, 
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

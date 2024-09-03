@@ -84,16 +84,10 @@ class ValidationsValidateRequestBodyRedeemablesItem implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleConsent.php
-        'id' => false,
-		'name' => false,
-		'object' => false
-=======
         'object' => false,
 		'id' => false,
 		'gift' => true,
 		'reward' => true
->>>>>>> Stashed changes:src/Model/ValidationsValidateRequestBodyRedeemablesItem.php
     ];
 
     /**
@@ -319,9 +313,6 @@ class ValidationsValidateRequestBodyRedeemablesItem implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -347,66 +338,9 @@ class ValidationsValidateRequestBodyRedeemablesItem implements ModelInterface, A
 
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleConsent.php
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/ValidationsValidateRequestBodyRedeemablesItem.php
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -416,7 +350,7 @@ class ValidationsValidateRequestBodyRedeemablesItem implements ModelInterface, A
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */

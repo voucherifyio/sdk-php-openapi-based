@@ -124,30 +124,30 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'date' => false,
+        'id' => true,
+		'object' => true,
+		'date' => true,
 		'customer_id' => true,
 		'tracking_id' => true,
-		'metadata' => false,
-		'amount' => false,
+		'metadata' => true,
+		'amount' => true,
 		'redemption' => true,
-		'result' => false,
-		'status' => false,
-		'related_redemptions' => false,
-		'failure_code' => false,
-		'failure_message' => false,
-		'order' => false,
-		'channel' => false,
-		'customer' => false,
-		'related_object_type' => false,
-		'related_object_id' => false,
-		'voucher' => false,
-		'promotion_tier' => false,
+		'result' => true,
+		'status' => true,
+		'related_redemptions' => true,
+		'failure_code' => true,
+		'failure_message' => true,
+		'order' => true,
+		'channel' => true,
+		'customer' => true,
+		'related_object_type' => true,
+		'related_object_id' => true,
+		'voucher' => true,
+		'promotion_tier' => true,
 		'reward' => false,
-		'gift' => false,
-		'loyalty_card' => false,
-		'reason' => false
+		'gift' => true,
+		'loyalty_card' => true,
+		'reason' => true
     ];
 
     /**
@@ -500,12 +500,6 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -515,24 +509,6 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['tracking_id'] === null) {
-            $invalidProperties[] = "'tracking_id' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['redemption'] === null) {
-            $invalidProperties[] = "'redemption' can't be null";
-        }
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
         $allowedValues = $this->getResultAllowableValues();
         if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -542,9 +518,6 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -554,18 +527,6 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['customer'] === null) {
-            $invalidProperties[] = "'customer' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
         if (!is_null($this->container['related_object_type']) && !in_array($this->container['related_object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -575,9 +536,6 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
 
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -596,7 +554,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -606,14 +564,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets id
      *
-     * @param string $id Unique redemption ID.
+     * @param string|null $id id
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -623,7 +588,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -633,17 +598,24 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -660,7 +632,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDate()
     {
@@ -670,14 +642,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets date
      *
-     * @param \DateTime $date Timestamp representing the date and time when the object was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 
@@ -687,7 +666,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -697,7 +676,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique customer ID of the redeeming customer.
+     * @param string|null $customer_id Unique customer ID of the redeeming customer.
      *
      * @return self
      */
@@ -721,7 +700,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets tracking_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTrackingId()
     {
@@ -731,7 +710,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tracking_id
      *
-     * @param string $tracking_id Hashed customer source ID.
+     * @param string|null $tracking_id Hashed customer source ID.
      *
      * @return self
      */
@@ -755,7 +734,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -765,14 +744,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets metadata
      *
-     * @param object $metadata metadata
+     * @param object|null $metadata metadata
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -792,14 +778,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets amount
      *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
+     * @param int|null $amount For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this represents the number of the credits restored to the card in the rolledback redemption. The number is a negative integer in the smallest currency unit, e.g. -100 cents for $1.00 added back to the card. For loyalty cards, this represents the number of loyalty points restored to the card in the rolledback redemption. The number is a negative integer.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -809,7 +802,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets redemption
      *
-     * @return string
+     * @return string|null
      */
     public function getRedemption()
     {
@@ -819,7 +812,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets redemption
      *
-     * @param string $redemption Unique redemption ID of the parent redemption.
+     * @param string|null $redemption Unique redemption ID of the parent redemption.
      *
      * @return self
      */
@@ -843,7 +836,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets result
      *
-     * @return string
+     * @return string|null
      */
     public function getResult()
     {
@@ -853,17 +846,24 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets result
      *
-     * @param string $result Redemption result.
+     * @param string|null $result Redemption result.
      *
      * @return self
      */
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -880,7 +880,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -890,17 +890,24 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string|null $status status
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -934,7 +941,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setRelatedRedemptions($related_redemptions)
     {
         if (is_null($related_redemptions)) {
-            throw new \InvalidArgumentException('non-nullable related_redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_redemptions'] = $related_redemptions;
 
@@ -961,7 +975,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -988,7 +1009,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 
@@ -998,7 +1026,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets order
      *
-     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyOrder
+     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyOrder|null
      */
     public function getOrder()
     {
@@ -1008,14 +1036,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets order
      *
-     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyOrder $order order
+     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyOrder|null $order order
      *
      * @return self
      */
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order'] = $order;
 
@@ -1025,7 +1060,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets channel
      *
-     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyChannel
+     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyChannel|null
      */
     public function getChannel()
     {
@@ -1035,14 +1070,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets channel
      *
-     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyChannel $channel channel
+     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyChannel|null $channel channel
      *
      * @return self
      */
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel'] = $channel;
 
@@ -1052,7 +1094,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyCustomer
+     * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyCustomer|null
      */
     public function getCustomer()
     {
@@ -1062,14 +1104,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyCustomer $customer customer
+     * @param \OpenAPI\Client\Model\RedemptionsGetResponseBodyCustomer|null $customer customer
      *
      * @return self
      */
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer'] = $customer;
 
@@ -1079,7 +1128,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -1089,17 +1138,24 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type Defines the related object.
+     * @param string|null $related_object_type Defines the related object.
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",
@@ -1116,7 +1172,7 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -1126,14 +1182,21 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher.
+     * @param string|null $related_object_id related_object_id
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -1160,7 +1223,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setVoucher($voucher)
     {
         if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher'] = $voucher;
 
@@ -1187,7 +1257,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setPromotionTier($promotion_tier)
     {
         if (is_null($promotion_tier)) {
-            throw new \InvalidArgumentException('non-nullable promotion_tier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'promotion_tier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('promotion_tier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['promotion_tier'] = $promotion_tier;
 
@@ -1241,7 +1318,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -1268,7 +1352,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 
@@ -1295,7 +1386,14 @@ class RedemptionsGetResponseBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 

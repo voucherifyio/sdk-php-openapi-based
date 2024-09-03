@@ -51,11 +51,7 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-<<<<<<< Updated upstream
-    protected static $openAPIModelName = 'Voucher_loyalty_card';
-=======
     protected static $openAPIModelName = 'VoucherLoyaltyCard';
->>>>>>> Stashed changes
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -89,10 +85,10 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'balance' => false,
-		'next_expiration_date' => false,
-		'next_expiration_points' => false
+        'points' => true,
+		'balance' => true,
+		'next_expiration_date' => true,
+		'next_expiration_points' => true
     ];
 
     /**
@@ -336,7 +332,14 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -363,7 +366,14 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -390,7 +400,14 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNextExpirationDate($next_expiration_date)
     {
         if (is_null($next_expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_date'] = $next_expiration_date;
 
@@ -417,7 +434,14 @@ class VoucherLoyaltyCard implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNextExpirationPoints($next_expiration_points)
     {
         if (is_null($next_expiration_points)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_points'] = $next_expiration_points;
 

@@ -61,27 +61,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'id' => 'string',
         'created_at' => '\DateTime',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'updated_at' => '\DateTime',
-        'name' => 'string',
-        'banner' => 'string',
-        'action' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierAction',
-        'metadata' => 'object',
-        'hierarchy' => 'int',
-        'promotion_id' => 'string',
-        'campaign' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierCampaign',
-        'campaign_id' => 'string',
-        'active' => 'bool',
-        'start_date' => '\DateTime',
-        'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierValidityTimeframe',
-        'validity_day_of_week' => 'int[]',
-        'summary' => '\OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierSummary',
-        'object' => 'string',
-        'validation_rule_assignments' => '\OpenAPI\Client\Model\ValidationRuleAssignmentsList',
-        'category_id' => 'string',
-        'categories' => '\OpenAPI\Client\Model\Category[]'
-=======
         'loyalty' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesUpdateResponseBodyLoyalty',
         'event' => 'string',
         'custom_event' => '\OpenAPI\Client\Model\LoyaltiesEarningRulesUpdateResponseBodyCustomEvent',
@@ -99,7 +78,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         'validation_rule_id' => 'string',
         'updated_at' => '\DateTime',
         'active' => 'bool'
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -124,19 +102,11 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         'expiration_date' => null,
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'summary' => null,
-        'object' => null,
-        'validation_rule_assignments' => null,
-        'category_id' => null,
-        'categories' => null
-=======
         'validity_hours' => null,
         'metadata' => null,
         'validation_rule_id' => null,
         'updated_at' => 'date-time',
         'active' => null
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -145,29 +115,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'id' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'name' => false,
-		'banner' => false,
-		'action' => false,
-		'metadata' => false,
-		'hierarchy' => false,
-		'promotion_id' => false,
-		'campaign' => false,
-		'campaign_id' => false,
-		'active' => false,
-		'start_date' => false,
-		'expiration_date' => false,
-		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
-		'summary' => false,
-		'object' => false,
-		'validation_rule_assignments' => false,
-		'category_id' => false,
-		'categories' => false
-=======
         'id' => true,
 		'created_at' => true,
 		'loyalty' => true,
@@ -187,7 +134,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
 		'validation_rule_id' => true,
 		'updated_at' => true,
 		'active' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -290,19 +236,11 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'summary' => 'summary',
-        'object' => 'object',
-        'validation_rule_assignments' => 'validation_rule_assignments',
-        'category_id' => 'category_id',
-        'categories' => 'categories'
-=======
         'validity_hours' => 'validity_hours',
         'metadata' => 'metadata',
         'validation_rule_id' => 'validation_rule_id',
         'updated_at' => 'updated_at',
         'active' => 'active'
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -325,19 +263,11 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'summary' => 'setSummary',
-        'object' => 'setObject',
-        'validation_rule_assignments' => 'setValidationRuleAssignments',
-        'category_id' => 'setCategoryId',
-        'categories' => 'setCategories'
-=======
         'validity_hours' => 'setValidityHours',
         'metadata' => 'setMetadata',
         'validation_rule_id' => 'setValidationRuleId',
         'updated_at' => 'setUpdatedAt',
         'active' => 'setActive'
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -360,19 +290,11 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        'summary' => 'getSummary',
-        'object' => 'getObject',
-        'validation_rule_assignments' => 'getValidationRuleAssignments',
-        'category_id' => 'getCategoryId',
-        'categories' => 'getCategories'
-=======
         'validity_hours' => 'getValidityHours',
         'metadata' => 'getMetadata',
         'validation_rule_id' => 'getValidationRuleId',
         'updated_at' => 'getUpdatedAt',
         'active' => 'getActive'
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     ];
 
     /**
@@ -416,8 +338,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-=======
     public const OBJECT_EARNING_RULE = 'earning_rule';
     public const VALIDITY_DAY_OF_WEEK_0 = 0;
     public const VALIDITY_DAY_OF_WEEK_1 = 1;
@@ -456,7 +376,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
             self::VALIDITY_DAY_OF_WEEK_6,
         ];
     }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
 
     /**
      * Associative array for storing property values
@@ -487,19 +406,11 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        $this->setIfExists('summary', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'promotion_tier');
-        $this->setIfExists('validation_rule_assignments', $data ?? [], null);
-        $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('categories', $data ?? [], null);
-=======
         $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('validation_rule_id', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
     }
 
     /**
@@ -573,7 +484,14 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -593,18 +511,21 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Sets created_at
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the promotion tier was created in ISO 8601 format.
-=======
      * @param \DateTime|null $created_at Timestamp representing the date and time when the earning rule was created. The value is shown in the ISO 8601 format.
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -624,20 +545,12 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Sets loyalty
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the promotion tier was updated in ISO 8601 format.
-=======
      * @param \OpenAPI\Client\Model\LoyaltiesEarningRulesUpdateResponseBodyLoyalty|null $loyalty loyalty
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
      *
      * @return self
      */
     public function setLoyalty($loyalty)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-=======
         if (is_null($loyalty)) {
             array_push($this->openAPINullablesSetToNull, 'loyalty');
         } else {
@@ -647,7 +560,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['loyalty'] = $loyalty;
 
@@ -673,10 +585,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setEvent($event)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-=======
         if (is_null($event)) {
             array_push($this->openAPINullablesSetToNull, 'event');
         } else {
@@ -686,7 +594,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['event'] = $event;
 
@@ -848,37 +755,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setObject($object)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
-        }
-        $this->container['banner'] = $banner;
-
-        return $this;
-    }
-
-    /**
-     * Gets action
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierAction|null
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierAction|null $action action
-     *
-     * @return self
-     */
-    public function setAction($action)
-    {
-        if (is_null($action)) {
-            throw new \InvalidArgumentException('non-nullable action cannot be null');
-=======
         if (is_null($object)) {
             array_push($this->openAPINullablesSetToNull, 'object');
         } else {
@@ -898,7 +774,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                     implode("', '", $allowedValues)
                 )
             );
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['object'] = $object;
 
@@ -906,65 +781,7 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets hierarchy
-     *
-     * @return int|null
-     */
-    public function getHierarchy()
-    {
-        return $this->container['hierarchy'];
-    }
-
-    /**
-     * Sets hierarchy
-     *
-     * @param int|null $hierarchy The promotions hierarchy defines the order in which the discounts from different tiers will be applied to a customer's order. If a customer qualifies for discounts from more than one tier, discounts will be applied in the order defined in the hierarchy.
-     *
-     * @return self
-     */
-    public function setHierarchy($hierarchy)
-    {
-        if (is_null($hierarchy)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy cannot be null');
-        }
-        $this->container['hierarchy'] = $hierarchy;
-
-        return $this;
-    }
-
-    /**
-     * Gets promotion_id
-=======
      * Gets automation_id
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
      *
      * @return string|null
      */
@@ -982,93 +799,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setAutomationId($automation_id)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($promotion_id)) {
-            throw new \InvalidArgumentException('non-nullable promotion_id cannot be null');
-        }
-        $this->container['promotion_id'] = $promotion_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierCampaign|null
-     */
-    public function getCampaign()
-    {
-        return $this->container['campaign'];
-    }
-
-    /**
-     * Sets campaign
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierCampaign|null $campaign campaign
-     *
-     * @return self
-     */
-    public function setCampaign($campaign)
-    {
-        if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
-        }
-        $this->container['campaign'] = $campaign;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
-     *
-     * @return string|null
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaign_id'];
-    }
-
-    /**
-     * Sets campaign_id
-     *
-     * @param string|null $campaign_id Promotion tier's parent campaign's unique ID.
-     *
-     * @return self
-     */
-    public function setCampaignId($campaign_id)
-    {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
-        }
-        $this->container['campaign_id'] = $campaign_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active A flag to toggle the promotion tier on or off. You can disable a promotion tier even though it's within the active period defined by the `start_date` and `expiration_date`.    - `true` indicates an *active* promotion tier - `false` indicates an *inactive* promotion tier
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
-=======
         if (is_null($automation_id)) {
             array_push($this->openAPINullablesSetToNull, 'automation_id');
         } else {
@@ -1080,7 +810,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
             }
         }
         $this->container['automation_id'] = $automation_id;
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
 
         return $this;
     }
@@ -1105,7 +834,14 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -1132,7 +868,14 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -1142,7 +885,7 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -1152,7 +895,7 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataRedemptionPromotionTierValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -1179,14 +922,30 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Sets validity_day_of_week
      *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the promotion tier is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getValidityDayOfWeekAllowableValues();
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'validity_day_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
 
@@ -1194,9 +953,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-     * Gets summary
-=======
      * Gets validity_hours
      *
      * @return \OpenAPI\Client\Model\ValidityHours|null
@@ -1225,7 +981,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
 
     /**
      * Gets metadata
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
      *
      * @return object|null
      */
@@ -1243,10 +998,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setMetadata($metadata)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($summary)) {
-            throw new \InvalidArgumentException('non-nullable summary cannot be null');
-=======
         if (is_null($metadata)) {
             array_push($this->openAPINullablesSetToNull, 'metadata');
         } else {
@@ -1256,7 +1007,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['metadata'] = $metadata;
 
@@ -1276,20 +1026,12 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
     /**
      * Sets validation_rule_id
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-     * @param string|null $object The type of object represented by JSON. This object stores information about the promotion tier.
-=======
      * @param string|null $validation_rule_id A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
      *
      * @return self
      */
     public function setValidationRuleId($validation_rule_id)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-=======
         if (is_null($validation_rule_id)) {
             array_push($this->openAPINullablesSetToNull, 'validation_rule_id');
         } else {
@@ -1299,7 +1041,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['validation_rule_id'] = $validation_rule_id;
 
@@ -1325,37 +1066,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setUpdatedAt($updated_at)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($validation_rule_assignments)) {
-            throw new \InvalidArgumentException('non-nullable validation_rule_assignments cannot be null');
-        }
-        $this->container['validation_rule_assignments'] = $validation_rule_assignments;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_id
-     *
-     * @return string|null
-     */
-    public function getCategoryId()
-    {
-        return $this->container['category_id'];
-    }
-
-    /**
-     * Sets category_id
-     *
-     * @param string|null $category_id Promotion tier category ID.
-     *
-     * @return self
-     */
-    public function setCategoryId($category_id)
-    {
-        if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
-=======
         if (is_null($updated_at)) {
             array_push($this->openAPINullablesSetToNull, 'updated_at');
         } else {
@@ -1365,7 +1075,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -1391,10 +1100,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
      */
     public function setActive($active)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionPromotionTier.php
-        if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
-=======
         if (is_null($active)) {
             array_push($this->openAPINullablesSetToNull, 'active');
         } else {
@@ -1404,7 +1109,6 @@ class LoyaltiesEarningRulesUpdateResponseBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesUpdateResponseBody.php
         }
         $this->container['active'] = $active;
 

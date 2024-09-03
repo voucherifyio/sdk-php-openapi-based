@@ -85,10 +85,10 @@ class RedeemableVoucherLoyaltyCard implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'balance' => false,
-		'next_expiration_date' => false,
-		'next_expiration_points' => false
+        'points' => true,
+		'balance' => true,
+		'next_expiration_date' => true,
+		'next_expiration_points' => true
     ];
 
     /**
@@ -332,7 +332,14 @@ class RedeemableVoucherLoyaltyCard implements ModelInterface, ArrayAccess, \Json
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -359,7 +366,14 @@ class RedeemableVoucherLoyaltyCard implements ModelInterface, ArrayAccess, \Json
     public function setBalance($balance)
     {
         if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'balance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('balance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['balance'] = $balance;
 
@@ -386,7 +400,14 @@ class RedeemableVoucherLoyaltyCard implements ModelInterface, ArrayAccess, \Json
     public function setNextExpirationDate($next_expiration_date)
     {
         if (is_null($next_expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_date'] = $next_expiration_date;
 
@@ -413,7 +434,14 @@ class RedeemableVoucherLoyaltyCard implements ModelInterface, ArrayAccess, \Json
     public function setNextExpirationPoints($next_expiration_points)
     {
         if (is_null($next_expiration_points)) {
-            throw new \InvalidArgumentException('non-nullable next_expiration_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_expiration_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_expiration_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_expiration_points'] = $next_expiration_points;
 

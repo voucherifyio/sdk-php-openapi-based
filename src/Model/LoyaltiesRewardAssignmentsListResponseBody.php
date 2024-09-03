@@ -85,17 +85,10 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SkusList.php
-        'object' => false,
-		'data_ref' => false,
-		'skus' => false,
-		'total' => false
-=======
         'object' => true,
 		'data_ref' => true,
 		'data' => true,
 		'total' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
     ];
 
     /**
@@ -317,20 +310,6 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/SkusList.php
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['skus'] === null) {
-            $invalidProperties[] = "'skus' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-=======
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -340,7 +319,6 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
             );
         }
 
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
         return $invalidProperties;
     }
 
@@ -359,7 +337,7 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -369,18 +347,21 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets object
      *
-<<<<<<< Updated upstream:src/Model/SkusList.php
-     * @param string $object The type of object represented by JSON. This object stores information about SKUs.
-=======
      * @param string|null $object The type of the object represented by JSON. This object stores information about loyalty reward assignments in a dictionary.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($object) && !in_array($object, $allowedValues, true)) {
@@ -400,7 +381,7 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -410,18 +391,21 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets data_ref
      *
-<<<<<<< Updated upstream:src/Model/SkusList.php
-     * @param string $data_ref Identifies the name of the JSON property that contains the array of SKUs.
-=======
      * @param string|null $data_ref Identifies the name of the attribute that contains the array of reward assignment objects.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -431,11 +415,7 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets data
      *
-<<<<<<< Updated upstream:src/Model/SkusList.php
-     * @return \OpenAPI\Client\Model\Sku[]
-=======
      * @return \OpenAPI\Client\Model\RewardAssignment[]|null
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
      */
     public function getData()
     {
@@ -445,20 +425,12 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets data
      *
-<<<<<<< Updated upstream:src/Model/SkusList.php
-     * @param \OpenAPI\Client\Model\Sku[] $skus A dictionary that contains an array of SKUs.
-=======
      * @param \OpenAPI\Client\Model\RewardAssignment[]|null $data Contains array of reward assignment objects.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
      *
      * @return self
      */
     public function setData($data)
     {
-<<<<<<< Updated upstream:src/Model/SkusList.php
-        if (is_null($skus)) {
-            throw new \InvalidArgumentException('non-nullable skus cannot be null');
-=======
         if (is_null($data)) {
             array_push($this->openAPINullablesSetToNull, 'data');
         } else {
@@ -468,7 +440,6 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
         }
         $this->container['data'] = $data;
 
@@ -478,7 +449,7 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -488,18 +459,21 @@ class LoyaltiesRewardAssignmentsListResponseBody implements ModelInterface, Arra
     /**
      * Sets total
      *
-<<<<<<< Updated upstream:src/Model/SkusList.php
-     * @param int $total Total number of SKUs in the product.
-=======
      * @param int|null $total Total number of reward assignment objects.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardAssignmentsListResponseBody.php
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

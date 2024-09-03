@@ -93,14 +93,14 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'in' => false,
-		'not_in' => false,
-		'is' => false,
-		'is_not' => false,
-		'has_value' => false,
-		'is_unknown' => false,
-		'starts_with' => false,
-		'ends_with' => false
+        'in' => true,
+		'not_in' => true,
+		'is' => true,
+		'is_not' => true,
+		'has_value' => true,
+		'is_unknown' => true,
+		'starts_with' => true,
+		'ends_with' => true
     ];
 
     /**
@@ -353,14 +353,21 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets in
      *
-     * @param string[]|null $in Array of resource values that should be included in the results. (multiple values)
+     * @param string[]|null $in Array of resource values that should be included in the results (multiple values).
      *
      * @return self
      */
     public function setIn($in)
     {
         if (is_null($in)) {
-            throw new \InvalidArgumentException('non-nullable in cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['in'] = $in;
 
@@ -380,14 +387,21 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets not_in
      *
-     * @param string[]|null $not_in Array of resource values that should be included in the results. (multiple values)
+     * @param string[]|null $not_in Array of resource values that should be included in the results (multiple values).
      *
      * @return self
      */
     public function setNotIn($not_in)
     {
         if (is_null($not_in)) {
-            throw new \InvalidArgumentException('non-nullable not_in cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_in'] = $not_in;
 
@@ -407,14 +421,21 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets is
      *
-     * @param string|null $is Value is exactly this value. (single value)
+     * @param string|null $is Value is exactly this value (single value).
      *
      * @return self
      */
     public function setIs($is)
     {
         if (is_null($is)) {
-            throw new \InvalidArgumentException('non-nullable is cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is'] = $is;
 
@@ -434,14 +455,21 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets is_not
      *
-     * @param string|null $is_not Results omit this value. (single value)
+     * @param string|null $is_not Results omit this value (single value).
      *
      * @return self
      */
     public function setIsNot($is_not)
     {
         if (is_null($is_not)) {
-            throw new \InvalidArgumentException('non-nullable is_not cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_not');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_not', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_not'] = $is_not;
 
@@ -468,7 +496,14 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     public function setHasValue($has_value)
     {
         if (is_null($has_value)) {
-            throw new \InvalidArgumentException('non-nullable has_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_value'] = $has_value;
 
@@ -495,7 +530,14 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     public function setIsUnknown($is_unknown)
     {
         if (is_null($is_unknown)) {
-            throw new \InvalidArgumentException('non-nullable is_unknown cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_unknown');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_unknown', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_unknown'] = $is_unknown;
 
@@ -522,7 +564,14 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     public function setStartsWith($starts_with)
     {
         if (is_null($starts_with)) {
-            throw new \InvalidArgumentException('non-nullable starts_with cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'starts_with');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('starts_with', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['starts_with'] = $starts_with;
 
@@ -549,7 +598,14 @@ class FilterConditionsString implements ModelInterface, ArrayAccess, \JsonSerial
     public function setEndsWith($ends_with)
     {
         if (is_null($ends_with)) {
-            throw new \InvalidArgumentException('non-nullable ends_with cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ends_with');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ends_with', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ends_with'] = $ends_with;
 

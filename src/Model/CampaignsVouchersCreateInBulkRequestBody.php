@@ -93,16 +93,6 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'category' => false,
-		'metadata' => false,
-		'redemption' => false,
-		'additional_info' => false,
-		'start_date' => false,
-		'expiration_date' => false,
-		'code' => false,
-		'code_config' => false
-=======
         'code' => true,
 		'code_config' => false,
 		'category' => true,
@@ -111,7 +101,6 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
 		'additional_info' => true,
 		'start_date' => true,
 		'expiration_date' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -432,7 +421,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -459,7 +455,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -486,7 +489,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -513,7 +523,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setAdditionalInfo($additional_info)
     {
         if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'additional_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('additional_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['additional_info'] = $additional_info;
 
@@ -540,7 +557,14 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -567,69 +591,19 @@ class CampaignsVouchersCreateInBulkRequestBody implements ModelInterface, ArrayA
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
         return $this;
     }
-<<<<<<< Updated upstream
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code Unique voucher code.
-     *
-     * @return self
-     */
-    public function setCode($code)
-    {
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
-        }
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets code_config
-     *
-     * @return \OpenAPI\Client\Model\CodeConfig|null
-     */
-    public function getCodeConfig()
-    {
-        return $this->container['code_config'];
-    }
-
-    /**
-     * Sets code_config
-     *
-     * @param \OpenAPI\Client\Model\CodeConfig|null $code_config code_config
-     *
-     * @return self
-     */
-    public function setCodeConfig($code_config)
-    {
-        if (is_null($code_config)) {
-            throw new \InvalidArgumentException('non-nullable code_config cannot be null');
-        }
-        $this->container['code_config'] = $code_config;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

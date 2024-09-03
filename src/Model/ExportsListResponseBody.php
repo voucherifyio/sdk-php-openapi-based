@@ -85,10 +85,10 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'exports' => false,
-		'total' => false
+        'object' => true,
+		'data_ref' => true,
+		'exports' => true,
+		'total' => true
     ];
 
     /**
@@ -323,9 +323,6 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -335,9 +332,6 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
 
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
         $allowedValues = $this->getDataRefAllowableValues();
         if (!is_null($this->container['data_ref']) && !in_array($this->container['data_ref'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -347,12 +341,6 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
 
-        if ($this->container['exports'] === null) {
-            $invalidProperties[] = "'exports' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -371,7 +359,7 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -381,17 +369,24 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about exports.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about exports.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -408,7 +403,7 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -418,17 +413,24 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of exports.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of exports.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDataRefAllowableValues();
-        if (!in_array($data_ref, $allowedValues, true)) {
+        if (!is_null($data_ref) && !in_array($data_ref, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'data_ref', must be one of '%s'",
@@ -445,7 +447,7 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets exports
      *
-     * @return \OpenAPI\Client\Model\Export[]
+     * @return \OpenAPI\Client\Model\Export[]|null
      */
     public function getExports()
     {
@@ -455,14 +457,21 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets exports
      *
-     * @param \OpenAPI\Client\Model\Export[] $exports An array of export objects.
+     * @param \OpenAPI\Client\Model\Export[]|null $exports An array of export objects.
      *
      * @return self
      */
     public function setExports($exports)
     {
         if (is_null($exports)) {
-            throw new \InvalidArgumentException('non-nullable exports cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exports');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exports', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['exports'] = $exports;
 
@@ -472,7 +481,7 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -482,14 +491,21 @@ class ExportsListResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets total
      *
-     * @param int $total Total number of exports.
+     * @param int|null $total Total number of exports.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

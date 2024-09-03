@@ -89,12 +89,12 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'source_id' => false,
-		'name' => false,
-		'price' => false,
-		'attributes' => false,
-		'image_url' => false,
-		'metadata' => false
+        'source_id' => true,
+		'name' => true,
+		'price' => true,
+		'attributes' => true,
+		'image_url' => true,
+		'metadata' => true
     ];
 
     /**
@@ -311,9 +311,6 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -332,7 +329,7 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -342,14 +339,21 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     /**
      * Sets source_id
      *
-     * @param string $source_id Unique product source ID from your inventory system.
+     * @param string|null $source_id Unique product source ID from your inventory system.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -376,7 +380,14 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -403,7 +414,14 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -430,7 +448,14 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -457,7 +482,14 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     public function setImageUrl($image_url)
     {
         if (is_null($image_url)) {
-            throw new \InvalidArgumentException('non-nullable image_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['image_url'] = $image_url;
 
@@ -484,7 +516,14 @@ class ProductsUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \J
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

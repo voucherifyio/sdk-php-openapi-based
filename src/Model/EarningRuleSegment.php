@@ -36,11 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * EarningRuleSegment Class Doc Comment
  *
  * @category Class
-<<<<<<< Updated upstream:src/Model/EarningRuleBaseSegment.php
- * @description Contains the id of a customer segment. Required for the customer.segment.entered option in event.
-=======
  * @description Contains the ID of a customer segment. Required for the &#x60;customer.segment.entered&#x60; option in the event.
->>>>>>> Stashed changes:src/Model/EarningRuleSegment.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -83,7 +79,7 @@ class EarningRuleSegment implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false
+        'id' => true
     ];
 
     /**
@@ -280,9 +276,6 @@ class EarningRuleSegment implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,7 +294,7 @@ class EarningRuleSegment implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -311,14 +304,21 @@ class EarningRuleSegment implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param string $id Contains a unique identifier of a customer segment. Assigned by the Voucherify API.
+     * @param string|null $id Contains a unique identifier of a customer segment. Assigned by the Voucherify API.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

@@ -85,10 +85,10 @@ class CampaignsListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'campaigns' => false,
-		'total' => false
+        'object' => true,
+		'data_ref' => true,
+		'campaigns' => true,
+		'total' => true
     ];
 
     /**
@@ -325,14 +325,21 @@ class CampaignsListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. This object stores information about campaigns in a dictionary.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about campaigns in a dictionary.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -359,7 +366,14 @@ class CampaignsListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -386,7 +400,14 @@ class CampaignsListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setCampaigns($campaigns)
     {
         if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaigns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaigns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaigns'] = $campaigns;
 
@@ -413,7 +434,14 @@ class CampaignsListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

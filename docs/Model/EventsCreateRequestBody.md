@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event** | **string** | Event name. This is the same name that you used to define a custom event in the **Dashboard** &gt; **Project Settings** &gt; **Event Schema**. |
+**event** | **string** | Event name. This is the same name that you used to define a custom event in the **Dashboard** &gt; **Project Settings** &gt; **Event Schema**. | [optional]
 **customer** | [**\OpenAPI\Client\Model\Customer**](Customer.md) |  |
 **referral** | [**\OpenAPI\Client\Model\EventsCreateRequestBodyReferral**](EventsCreateRequestBodyReferral.md) |  | [optional]
 **loyalty** | [**\OpenAPI\Client\Model\EventsCreateRequestBodyLoyalty**](EventsCreateRequestBodyLoyalty.md) |  | [optional]

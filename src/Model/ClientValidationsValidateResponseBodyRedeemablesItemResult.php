@@ -87,15 +87,10 @@ class ClientValidationsValidateResponseBodyRedeemablesItemResult implements Mode
       */
     protected static array $openAPINullables = [
         'discount' => false,
-<<<<<<< Updated upstream:src/Model/ValidationsRedeemableApplicableResult.php
-		'gift' => false,
-		'loyalty_card' => false
-=======
 		'gift' => true,
 		'loyalty_card' => false,
 		'error' => false,
 		'details' => false
->>>>>>> Stashed changes:src/Model/ClientValidationsValidateResponseBodyRedeemablesItemResult.php
     ];
 
     /**
@@ -370,7 +365,14 @@ class ClientValidationsValidateResponseBodyRedeemablesItemResult implements Mode
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 

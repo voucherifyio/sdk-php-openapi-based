@@ -87,11 +87,11 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'customers' => false,
-		'total' => false,
-		'has_more' => false
+        'object' => true,
+		'data_ref' => true,
+		'customers' => true,
+		'total' => true,
+		'has_more' => true
     ];
 
     /**
@@ -304,18 +304,6 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['customers'] === null) {
-            $invalidProperties[] = "'customers' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -334,7 +322,7 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -344,14 +332,21 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about customers in a dictionary.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about customers in a dictionary.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -361,7 +356,7 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -371,14 +366,21 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of customer objects.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of customer objects.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -388,7 +390,7 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets customers
      *
-     * @return \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals[]
+     * @return \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals[]|null
      */
     public function getCustomers()
     {
@@ -398,14 +400,21 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets customers
      *
-     * @param \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals[] $customers Contains array of customer objects.
+     * @param \OpenAPI\Client\Model\CustomerWithSummaryLoyaltyReferrals[]|null $customers Contains array of customer objects.
      *
      * @return self
      */
     public function setCustomers($customers)
     {
         if (is_null($customers)) {
-            throw new \InvalidArgumentException('non-nullable customers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customers'] = $customers;
 
@@ -415,7 +424,7 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -425,14 +434,21 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets total
      *
-     * @param int $total Total number of customers.
+     * @param int|null $total Total number of customers.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 
@@ -452,14 +468,21 @@ class CustomersListResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets has_more
      *
-     * @param bool|null $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates whether there are more records for given filter parameters. This let's you know if you are able to run another request (with a different end date filter) to get more records returned in the results.
+     * @param bool|null $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different end date filter) to get more records returned in the results.
      *
      * @return self
      */
     public function setHasMore($has_more)
     {
         if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_more');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_more', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_more'] = $has_more;
 

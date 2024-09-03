@@ -83,9 +83,9 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'tiers' => false,
-		'category_id' => false
+        'name' => true,
+		'tiers' => true,
+		'category_id' => true
     ];
 
     /**
@@ -290,12 +290,6 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['tiers'] === null) {
-            $invalidProperties[] = "'tiers' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -314,7 +308,7 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -324,14 +318,21 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets name
      *
-     * @param string $name Promotion stack name.
+     * @param string|null $name Promotion stack name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -341,11 +342,7 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Gets tiers
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\PromotionStackBaseTiers
-=======
      * @return \OpenAPI\Client\Model\PromotionsStacksCreateRequestBodyTiers|null
->>>>>>> Stashed changes
      */
     public function getTiers()
     {
@@ -355,18 +352,21 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     /**
      * Sets tiers
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\PromotionStackBaseTiers $tiers tiers
-=======
      * @param \OpenAPI\Client\Model\PromotionsStacksCreateRequestBodyTiers|null $tiers tiers
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setTiers($tiers)
     {
         if (is_null($tiers)) {
-            throw new \InvalidArgumentException('non-nullable tiers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tiers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tiers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tiers'] = $tiers;
 
@@ -393,7 +393,14 @@ class PromotionsStacksCreateRequestBody implements ModelInterface, ArrayAccess, 
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 

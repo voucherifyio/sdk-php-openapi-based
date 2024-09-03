@@ -82,9 +82,9 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherPublish implements ModelI
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'count' => false,
-		'url' => false
+        'object' => true,
+		'count' => true,
+		'url' => true
     ];
 
     /**
@@ -317,14 +317,21 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherPublish implements ModelI
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the `url` attribute.
+     * @param string|null $object The type of the object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the `url` attribute.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -351,7 +358,14 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherPublish implements ModelI
     public function setCount($count)
     {
         if (is_null($count)) {
-            throw new \InvalidArgumentException('non-nullable count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['count'] = $count;
 
@@ -378,7 +392,14 @@ class RedemptionsListResponseBodyRedemptionsItemVoucherPublish implements ModelI
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 

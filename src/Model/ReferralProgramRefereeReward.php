@@ -83,9 +83,9 @@ class ReferralProgramRefereeReward implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'related_object_parent' => false,
-		'type' => false,
-		'amount' => false
+        'related_object_parent' => true,
+		'type' => true,
+		'amount' => true
     ];
 
     /**
@@ -353,7 +353,14 @@ class ReferralProgramRefereeReward implements ModelInterface, ArrayAccess, \Json
     public function setRelatedObjectParent($related_object_parent)
     {
         if (is_null($related_object_parent)) {
-            throw new \InvalidArgumentException('non-nullable related_object_parent cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_parent');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_parent', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_parent'] = $related_object_parent;
 
@@ -380,10 +387,17 @@ class ReferralProgramRefereeReward implements ModelInterface, ArrayAccess, \Json
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -417,7 +431,14 @@ class ReferralProgramRefereeReward implements ModelInterface, ArrayAccess, \Json
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 

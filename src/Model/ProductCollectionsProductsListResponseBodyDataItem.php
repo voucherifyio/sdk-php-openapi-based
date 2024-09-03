@@ -108,13 +108,13 @@ class ProductCollectionsProductsListResponseBodyDataItem implements ModelInterfa
 		'source_id' => false,
 		'name' => true,
 		'price' => true,
-		'attributes' => false,
+		'attributes' => true,
 		'metadata' => false,
 		'image_url' => false,
 		'created_at' => false,
 		'updated_at' => false,
 		'object' => false,
-		'product_id' => false,
+		'product_id' => true,
 		'sku' => true,
 		'currency' => true,
 		'product' => false
@@ -547,7 +547,14 @@ class ProductCollectionsProductsListResponseBodyDataItem implements ModelInterfa
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -719,7 +726,14 @@ class ProductCollectionsProductsListResponseBodyDataItem implements ModelInterfa
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 

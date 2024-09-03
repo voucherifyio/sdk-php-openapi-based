@@ -95,23 +95,14 @@ class ClientValidationsValidateResponseBodyRedeemablesItem implements ModelInter
       */
     protected static array $openAPINullables = [
         'status' => false,
-<<<<<<< Updated upstream:src/Model/ValidationsRedeemableApplicable.php
-		'id' => false,
-		'object' => false,
-=======
 		'id' => true,
 		'object' => true,
->>>>>>> Stashed changes:src/Model/ClientValidationsValidateResponseBodyRedeemablesItem.php
 		'order' => false,
 		'applicable_to' => false,
 		'inapplicable_to' => false,
 		'result' => false,
 		'metadata' => false,
-<<<<<<< Updated upstream:src/Model/ValidationsRedeemableApplicable.php
-		'categories' => false
-=======
 		'categories' => true
->>>>>>> Stashed changes:src/Model/ClientValidationsValidateResponseBodyRedeemablesItem.php
     ];
 
     /**
@@ -462,7 +453,14 @@ class ClientValidationsValidateResponseBodyRedeemablesItem implements ModelInter
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -489,10 +487,17 @@ class ClientValidationsValidateResponseBodyRedeemablesItem implements ModelInter
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -661,7 +666,14 @@ class ClientValidationsValidateResponseBodyRedeemablesItem implements ModelInter
     public function setCategories($categories)
     {
         if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['categories'] = $categories;
 

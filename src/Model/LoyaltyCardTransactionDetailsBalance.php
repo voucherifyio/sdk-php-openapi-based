@@ -60,19 +60,11 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
       */
     protected static $openAPITypes = [
         'type' => 'string',
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        'customer' => '\OpenAPI\Client\Model\SimpleCustomerRequiredObjectType',
-        'referral' => '\OpenAPI\Client\Model\CustomEventReferral',
-        'loyalty' => 'object',
-        'metadata' => 'object',
-        'created_at' => '\DateTime'
-=======
         'total' => 'int',
         'object' => 'string',
         'points' => 'int',
         'balance' => 'int',
         'related_object' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetailsBalanceRelatedObject'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
     ];
 
     /**
@@ -97,23 +89,12 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        'id' => false,
-		'object' => false,
-		'type' => false,
-		'customer' => false,
-		'referral' => false,
-		'loyalty' => false,
-		'metadata' => false,
-		'created_at' => false
-=======
         'type' => true,
 		'total' => true,
 		'object' => true,
 		'points' => true,
 		'balance' => true,
 		'related_object' => true
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
     ];
 
     /**
@@ -356,11 +337,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-=======
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -374,7 +350,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
             $invalidProperties[] = "invalid value for 'type', must be conform to the pattern /loyalty_card/.";
         }
 
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -384,25 +359,10 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
             );
         }
 
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['customer'] === null) {
-            $invalidProperties[] = "'customer' can't be null";
-        }
-        if ($this->container['referral'] === null) {
-            $invalidProperties[] = "'referral' can't be null";
-        }
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
-        }
-=======
         if (!is_null($this->container['object']) && !preg_match("/balance/", $this->container['object'])) {
             $invalidProperties[] = "invalid value for 'object', must be conform to the pattern /balance/.";
         }
 
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
         return $invalidProperties;
     }
 
@@ -437,10 +397,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
      */
     public function setType($type)
     {
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-=======
         if (is_null($type)) {
             array_push($this->openAPINullablesSetToNull, 'type');
         } else {
@@ -450,7 +406,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($type) && !in_array($type, $allowedValues, true)) {
@@ -509,7 +464,7 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -519,21 +474,24 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Sets object
      *
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-     * @param string $object The object represented is an `event`.
-=======
      * @param string|null $object The type of the object represented by the JSON.
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -555,11 +513,7 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Gets points
      *
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-     * @return string
-=======
      * @return int|null
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
      */
     public function getPoints()
     {
@@ -569,20 +523,12 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Sets points
      *
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-     * @param string $type The event name.
-=======
      * @param int|null $points Points added or subtracted in the transaction.
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
      *
      * @return self
      */
     public function setPoints($points)
     {
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-=======
         if (is_null($points)) {
             array_push($this->openAPINullablesSetToNull, 'points');
         } else {
@@ -592,7 +538,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
         }
         $this->container['points'] = $points;
 
@@ -618,37 +563,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
      */
     public function setBalance($balance)
     {
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
-        }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets referral
-     *
-     * @return \OpenAPI\Client\Model\CustomEventReferral
-     */
-    public function getReferral()
-    {
-        return $this->container['referral'];
-    }
-
-    /**
-     * Sets referral
-     *
-     * @param \OpenAPI\Client\Model\CustomEventReferral $referral referral
-     *
-     * @return self
-     */
-    public function setReferral($referral)
-    {
-        if (is_null($referral)) {
-            throw new \InvalidArgumentException('non-nullable referral cannot be null');
-=======
         if (is_null($balance)) {
             array_push($this->openAPINullablesSetToNull, 'balance');
         } else {
@@ -658,7 +572,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
         }
         $this->container['balance'] = $balance;
 
@@ -668,11 +581,7 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Gets related_object
      *
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-     * @return object
-=======
      * @return \OpenAPI\Client\Model\LoyaltyCardTransactionDetailsBalanceRelatedObject|null
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
      */
     public function getRelatedObject()
     {
@@ -682,76 +591,12 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
     /**
      * Sets related_object
      *
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-     * @param object $loyalty loyalty
-=======
      * @param \OpenAPI\Client\Model\LoyaltyCardTransactionDetailsBalanceRelatedObject|null $related_object related_object
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
      *
      * @return self
      */
     public function setRelatedObject($related_object)
     {
-<<<<<<< Updated upstream:src/Model/CustomEvent.php
-        if (is_null($loyalty)) {
-            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
-        }
-        $this->container['loyalty'] = $loyalty;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the custom event.
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the custom event was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-=======
         if (is_null($related_object)) {
             array_push($this->openAPINullablesSetToNull, 'related_object');
         } else {
@@ -763,7 +608,6 @@ class LoyaltyCardTransactionDetailsBalance implements ModelInterface, ArrayAcces
             }
         }
         $this->container['related_object'] = $related_object;
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalance.php
 
         return $this;
     }

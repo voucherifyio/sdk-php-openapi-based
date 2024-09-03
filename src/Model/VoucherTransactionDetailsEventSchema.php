@@ -81,8 +81,8 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false
+        'id' => true,
+		'name' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -317,14 +311,21 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id Unique metadata schema ID.
+     * @param string|null $id Unique metadata schema ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -334,7 +335,7 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -344,14 +345,21 @@ class VoucherTransactionDetailsEventSchema implements ModelInterface, ArrayAcces
     /**
      * Sets name
      *
-     * @param string $name Type of custom event.
+     * @param string|null $name Type of custom event.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 

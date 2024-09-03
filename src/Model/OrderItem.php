@@ -69,13 +69,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'discount_amount' => 'int',
         'initial_amount' => 'int',
         'price' => 'int',
-<<<<<<< Updated upstream
-        'product' => '\OpenAPI\Client\Model\OrderItemCalculatedProduct',
-        'sku' => '\OpenAPI\Client\Model\OrderItemCalculatedSku',
-=======
         'product' => '\OpenAPI\Client\Model\OrderItemProduct',
         'sku' => '\OpenAPI\Client\Model\OrderItemSku',
->>>>>>> Stashed changes
         'metadata' => 'object'
     ];
 
@@ -109,22 +104,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'sku_id' => false,
-		'product_id' => false,
-		'related_object' => false,
-		'source_id' => false,
-		'quantity' => false,
-		'discount_quantity' => false,
-		'initial_quantity' => false,
-		'amount' => false,
-		'discount_amount' => false,
-		'initial_amount' => false,
-		'price' => false,
-		'product' => false,
-		'sku' => false,
-		'metadata' => false
-=======
         'sku_id' => true,
 		'product_id' => true,
 		'related_object' => true,
@@ -139,7 +118,6 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 		'product' => true,
 		'sku' => true,
 		'metadata' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -440,14 +418,21 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id A unique SKU ID assigned by Voucherify.
+     * @param string|null $sku_id Unique identifier of the SKU. It is assigned by Voucherify.
      *
      * @return self
      */
     public function setSkuId($sku_id)
     {
         if (is_null($sku_id)) {
-            throw new \InvalidArgumentException('non-nullable sku_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku_id'] = $sku_id;
 
@@ -467,14 +452,21 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product_id
      *
-     * @param string|null $product_id A unique product ID assigned by Voucherify.
+     * @param string|null $product_id Unique identifier of the product. It is assigned by Voucherify.
      *
      * @return self
      */
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -501,10 +493,17 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRelatedObject($related_object)
     {
         if (is_null($related_object)) {
-            throw new \InvalidArgumentException('non-nullable related_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectAllowableValues();
-        if (!in_array($related_object, $allowedValues, true)) {
+        if (!is_null($related_object) && !in_array($related_object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object', must be one of '%s'",
@@ -531,14 +530,21 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The merchant’s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
+     * @param string|null $source_id The merchant's product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -565,7 +571,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQuantity($quantity)
     {
         if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['quantity'] = $quantity;
 
@@ -592,7 +605,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDiscountQuantity($discount_quantity)
     {
         if (is_null($discount_quantity)) {
-            throw new \InvalidArgumentException('non-nullable discount_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_quantity'] = $discount_quantity;
 
@@ -619,7 +639,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInitialQuantity($initial_quantity)
     {
         if (is_null($initial_quantity)) {
-            throw new \InvalidArgumentException('non-nullable initial_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_quantity'] = $initial_quantity;
 
@@ -646,7 +673,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -673,7 +707,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -700,7 +741,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
 
@@ -727,7 +775,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -754,7 +809,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setProduct($product)
     {
         if (is_null($product)) {
-            throw new \InvalidArgumentException('non-nullable product cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product'] = $product;
 
@@ -781,7 +843,14 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSku($sku)
     {
         if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sku'] = $sku;
 
@@ -801,14 +870,21 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to an SKU. It can be useful for storing additional information about the SKU in a structured format.
+     * @param object|null $metadata A set of custom key/value pairs that you can attach to an order item. It can be useful for storing additional information about the order item in a structured format.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

@@ -276,9 +276,6 @@ class CampaignVoucherRedemption implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class CampaignVoucherRedemption implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets quantity
      *
-     * @return int
+     * @return int|null
      */
     public function getQuantity()
     {
@@ -307,7 +304,7 @@ class CampaignVoucherRedemption implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets quantity
      *
-     * @param int $quantity How many times a voucher can be redeemed. A `null` value means unlimited.
+     * @param int|null $quantity How many times a voucher can be redeemed. A `null` value means unlimited.
      *
      * @return self
      */

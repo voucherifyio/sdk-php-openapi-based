@@ -72,6 +72,9 @@ class RewardsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createReward' => [
+            'application/json',
+        ],
         'createRewardAssignment' => [
             'application/json',
         ],
@@ -81,10 +84,19 @@ class RewardsApi
         'deleteRewardAssignment' => [
             'application/json',
         ],
+        'getReward' => [
+            'application/json',
+        ],
         'getRewardAssignment' => [
             'application/json',
         ],
         'listRewardAssignments' => [
+            'application/json',
+        ],
+        'listRewards' => [
+            'application/json',
+        ],
+        'updateReward' => [
             'application/json',
         ],
         'updateRewardAssignment' => [
@@ -139,8 +151,6 @@ class RewardsApi
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * Operation createReward
      *
      * Create Reward
@@ -427,7 +437,6 @@ class RewardsApi
     }
 
     /**
->>>>>>> Stashed changes
      * Operation createRewardAssignment
      *
      * Create Reward Assignment
@@ -1232,6 +1241,299 @@ class RewardsApi
     }
 
     /**
+     * Operation getReward
+     *
+     * Get Reward
+     *
+     * @param  string $reward_id A unique reward ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReward'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Reward
+     */
+    public function getReward($reward_id, string $contentType = self::contentTypes['getReward'][0])
+    {
+        list($response) = $this->getRewardWithHttpInfo($reward_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getRewardWithHttpInfo
+     *
+     * Get Reward
+     *
+     * @param  string $reward_id A unique reward ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReward'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Reward, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRewardWithHttpInfo($reward_id, string $contentType = self::contentTypes['getReward'][0])
+    {
+        $request = $this->getRewardRequest($reward_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\Reward' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Reward' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Reward', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Reward';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Reward',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getRewardAsync
+     *
+     * Get Reward
+     *
+     * @param  string $reward_id A unique reward ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReward'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRewardAsync($reward_id, string $contentType = self::contentTypes['getReward'][0])
+    {
+        return $this->getRewardAsyncWithHttpInfo($reward_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getRewardAsyncWithHttpInfo
+     *
+     * Get Reward
+     *
+     * @param  string $reward_id A unique reward ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReward'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRewardAsyncWithHttpInfo($reward_id, string $contentType = self::contentTypes['getReward'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Reward';
+        $request = $this->getRewardRequest($reward_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getReward'
+     *
+     * @param  string $reward_id A unique reward ID. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReward'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRewardRequest($reward_id, string $contentType = self::contentTypes['getReward'][0])
+    {
+
+        // verify the required parameter 'reward_id' is set
+        if ($reward_id === null || (is_array($reward_id) && count($reward_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reward_id when calling getReward'
+            );
+        }
+
+
+        $resourcePath = '/v1/rewards/{rewardId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($reward_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'rewardId' . '}',
+                ObjectSerializer::toPathValue($reward_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Id');
+        if ($apiKey !== null) {
+            $headers['X-App-Id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-App-Token');
+        if ($apiKey !== null) {
+            $headers['X-App-Token'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getRewardAssignment
      *
      * Get Reward Assignment
@@ -1550,8 +1852,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1570,8 +1872,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1672,8 +1974,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1695,8 +1997,8 @@ class RewardsApi
      * List Reward Assignments
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1747,8 +2049,8 @@ class RewardsApi
      * Create request for operation 'listRewardAssignments'
      *
      * @param  string $reward_id A unique reward ID. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRewardAssignments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1773,6 +2075,9 @@ class RewardsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling RewardsApi.listRewardAssignments, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling RewardsApi.listRewardAssignments, must be bigger than or equal to 1.');
         }
         
 
@@ -1877,8 +2182,6 @@ class RewardsApi
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * Operation listRewards
      *
      * List Rewards
@@ -2515,7 +2818,6 @@ class RewardsApi
     }
 
     /**
->>>>>>> Stashed changes
      * Operation updateRewardAssignment
      *
      * Update Reward Assignment

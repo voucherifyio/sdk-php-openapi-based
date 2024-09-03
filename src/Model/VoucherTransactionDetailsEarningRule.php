@@ -81,8 +81,8 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source' => false
+        'id' => true,
+		'source' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['source'] === null) {
-            $invalidProperties[] = "'source' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -317,14 +311,21 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id Unique earning rule ID.
+     * @param string|null $id Unique earning rule ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -334,7 +335,7 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
     /**
      * Gets source
      *
-     * @return \OpenAPI\Client\Model\VoucherTransactionDetailsEarningRuleSource
+     * @return \OpenAPI\Client\Model\VoucherTransactionDetailsEarningRuleSource|null
      */
     public function getSource()
     {
@@ -344,14 +345,21 @@ class VoucherTransactionDetailsEarningRule implements ModelInterface, ArrayAcces
     /**
      * Sets source
      *
-     * @param \OpenAPI\Client\Model\VoucherTransactionDetailsEarningRuleSource $source source
+     * @param \OpenAPI\Client\Model\VoucherTransactionDetailsEarningRuleSource|null $source source
      *
      * @return self
      */
     public function setSource($source)
     {
         if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source'] = $source;
 

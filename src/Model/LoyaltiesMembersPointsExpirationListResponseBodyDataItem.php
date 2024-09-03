@@ -517,7 +517,7 @@ class LoyaltiesMembersPointsExpirationListResponseBodyDataItem implements ModelI
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the loyalty points bucket object was created in ISO 8601 format.
+     * @param \DateTime $created_at Timestamp representing the date and time when the loyalty points bucket object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class LoyaltiesMembersPointsExpirationListResponseBodyDataItem implements ModelI
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty points bucket object was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty points bucket object was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -625,7 +625,7 @@ class LoyaltiesMembersPointsExpirationListResponseBodyDataItem implements ModelI
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the loyalty points bucket.
+     * @param string $object The type of the object represented by JSON. This object stores information about the loyalty points bucket.
      *
      * @return self
      */

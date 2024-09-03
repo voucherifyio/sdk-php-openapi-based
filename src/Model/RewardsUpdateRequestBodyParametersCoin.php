@@ -81,8 +81,8 @@ class RewardsUpdateRequestBodyParametersCoin implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'exchange_ratio' => false,
-		'points_ratio' => false
+        'exchange_ratio' => true,
+		'points_ratio' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class RewardsUpdateRequestBodyParametersCoin implements ModelInterface, ArrayAcc
     public function setExchangeRatio($exchange_ratio)
     {
         if (is_null($exchange_ratio)) {
-            throw new \InvalidArgumentException('non-nullable exchange_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exchange_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exchange_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['exchange_ratio'] = $exchange_ratio;
 
@@ -345,7 +352,14 @@ class RewardsUpdateRequestBodyParametersCoin implements ModelInterface, ArrayAcc
     public function setPointsRatio($points_ratio)
     {
         if (is_null($points_ratio)) {
-            throw new \InvalidArgumentException('non-nullable points_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points_ratio'] = $points_ratio;
 

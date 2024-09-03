@@ -62,7 +62,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         'quantity' => 'int',
         'redeemed_points' => 'int',
         'redeemed_quantity' => 'int',
-        'redemption_entries' => 'string[]',
         'object' => 'string',
         'url' => 'string'
     ];
@@ -78,7 +77,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         'quantity' => null,
         'redeemed_points' => null,
         'redeemed_quantity' => null,
-        'redemption_entries' => null,
         'object' => null,
         'url' => null
     ];
@@ -90,11 +88,10 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
       */
     protected static array $openAPINullables = [
         'quantity' => true,
-		'redeemed_points' => false,
-		'redeemed_quantity' => false,
-		'redemption_entries' => false,
-		'object' => false,
-		'url' => false
+		'redeemed_points' => true,
+		'redeemed_quantity' => true,
+		'object' => true,
+		'url' => true
     ];
 
     /**
@@ -186,7 +183,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         'quantity' => 'quantity',
         'redeemed_points' => 'redeemed_points',
         'redeemed_quantity' => 'redeemed_quantity',
-        'redemption_entries' => 'redemption_entries',
         'object' => 'object',
         'url' => 'url'
     ];
@@ -200,7 +196,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         'quantity' => 'setQuantity',
         'redeemed_points' => 'setRedeemedPoints',
         'redeemed_quantity' => 'setRedeemedQuantity',
-        'redemption_entries' => 'setRedemptionEntries',
         'object' => 'setObject',
         'url' => 'setUrl'
     ];
@@ -214,7 +209,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         'quantity' => 'getQuantity',
         'redeemed_points' => 'getRedeemedPoints',
         'redeemed_quantity' => 'getRedeemedQuantity',
-        'redemption_entries' => 'getRedemptionEntries',
         'object' => 'getObject',
         'url' => 'getUrl'
     ];
@@ -292,7 +286,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('redeemed_points', $data ?? [], null);
         $this->setIfExists('redeemed_quantity', $data ?? [], null);
-        $this->setIfExists('redemption_entries', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'list');
         $this->setIfExists('url', $data ?? [], null);
     }
@@ -324,9 +317,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     {
         $invalidProperties = [];
 
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -354,7 +344,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     /**
      * Gets quantity
      *
-     * @return int
+     * @return int|null
      */
     public function getQuantity()
     {
@@ -364,7 +354,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     /**
      * Sets quantity
      *
-     * @param int $quantity How many times a voucher can be redeemed. A null value means unlimited.
+     * @param int|null $quantity How many times a voucher can be redeemed. A null value means unlimited.
      *
      * @return self
      */
@@ -405,7 +395,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     public function setRedeemedPoints($redeemed_points)
     {
         if (is_null($redeemed_points)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_points'] = $redeemed_points;
 
@@ -432,36 +429,16 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     public function setRedeemedQuantity($redeemed_quantity)
     {
         if (is_null($redeemed_quantity)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemed_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemed_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemed_quantity'] = $redeemed_quantity;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemption_entries
-     *
-     * @return string[]|null
-     */
-    public function getRedemptionEntries()
-    {
-        return $this->container['redemption_entries'];
-    }
-
-    /**
-     * Sets redemption_entries
-     *
-     * @param string[]|null $redemption_entries redemption_entries
-     *
-     * @return self
-     */
-    public function setRedemptionEntries($redemption_entries)
-    {
-        if (is_null($redemption_entries)) {
-            throw new \InvalidArgumentException('non-nullable redemption_entries cannot be null');
-        }
-        $this->container['redemption_entries'] = $redemption_entries;
 
         return $this;
     }
@@ -479,17 +456,24 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute.
+     * @param string|null $object The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -523,7 +507,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyRedemption implements ModelInte
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 

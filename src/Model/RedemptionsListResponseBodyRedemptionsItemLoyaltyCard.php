@@ -303,7 +303,7 @@ class RedemptionsListResponseBodyRedemptionsItemLoyaltyCard implements ModelInte
     /**
      * Sets points
      *
-     * @param int|null $points Number of points being added back to the loyalty card for the reward redemption rollback.
+     * @param int|null $points Number of points subtracted from the loyalty card as a result of the redemption. and Number of points being returned to the loyalty card for the reward redemption rollback. It is expressed as a negative integer.
      *
      * @return self
      */

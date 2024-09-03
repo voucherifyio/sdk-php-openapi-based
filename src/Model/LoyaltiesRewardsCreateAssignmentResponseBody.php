@@ -93,20 +93,14 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'reward_id' => false,
-		'created_at' => false,
+        'id' => true,
+		'reward_id' => true,
+		'created_at' => true,
 		'updated_at' => true,
-<<<<<<< Updated upstream:src/Model/RewardAssignmentBase.php
-		'object' => false,
-		'related_object_id' => false,
-		'related_object_type' => false
-=======
 		'object' => true,
 		'related_object_id' => true,
 		'related_object_type' => true,
 		'parameters' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsCreateAssignmentResponseBody.php
     ];
 
     /**
@@ -357,21 +351,6 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['reward_id'] === null) {
-            $invalidProperties[] = "'reward_id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -381,12 +360,6 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
             );
         }
 
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
         if (!is_null($this->container['related_object_type']) && !in_array($this->container['related_object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -414,7 +387,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -424,14 +397,21 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets id
      *
-     * @param string $id Unique reward assignment ID, assigned by Voucherify.
+     * @param string|null $id Unique reward assignment ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -441,7 +421,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets reward_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRewardId()
     {
@@ -451,14 +431,21 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets reward_id
      *
-     * @param string $reward_id Associated reward ID.
+     * @param string|null $reward_id Associated reward ID.
      *
      * @return self
      */
     public function setRewardId($reward_id)
     {
         if (is_null($reward_id)) {
-            throw new \InvalidArgumentException('non-nullable reward_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reward_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reward_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reward_id'] = $reward_id;
 
@@ -468,7 +455,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -478,14 +465,21 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the reward assignment was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the reward assignment was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -495,7 +489,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets updated_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -505,7 +499,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Timestamp representing the date and time when the reward assignment was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the reward assignment was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -529,7 +523,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -539,17 +533,24 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by the JSON. This object stores information about the reward assignment.
+     * @param string|null $object The type of the object represented by the JSON. This object stores information about the reward assignment.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -566,7 +567,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -576,14 +577,21 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id Related object ID to which the reward was assigned.
+     * @param string|null $related_object_id Related object ID to which the reward was assigned.
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -593,7 +601,7 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -603,17 +611,24 @@ class LoyaltiesRewardsCreateAssignmentResponseBody implements ModelInterface, Ar
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type Related object type to which the reward was assigned.
+     * @param string|null $related_object_type Related object type to which the reward was assigned.
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * ValidationsRedeemableInapplicableResult Class Doc Comment
  *
  * @category Class
+ * @description Includes the error object with details about the reason why the redeemable is inapplicable
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +59,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\OpenAPI\Client\Model\Error'
+        'error' => '\OpenAPI\Client\Model\Error',
+        'details' => '\OpenAPI\Client\Model\ValidationsRedeemableInapplicableResultDetails'
     ];
 
     /**
@@ -69,7 +71,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null
+        'error' => null,
+        'details' => null
     ];
 
     /**
@@ -78,7 +81,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'error' => false
+        'error' => false,
+		'details' => true
     ];
 
     /**
@@ -167,7 +171,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error'
+        'error' => 'error',
+        'details' => 'details'
     ];
 
     /**
@@ -176,7 +181,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError'
+        'error' => 'setError',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -185,7 +191,8 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError'
+        'error' => 'getError',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -246,6 +253,7 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
     public function __construct(array $data = null)
     {
         $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('details', $data ?? [], null);
     }
 
     /**
@@ -313,6 +321,40 @@ class ValidationsRedeemableInapplicableResult implements ModelInterface, ArrayAc
             throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return \OpenAPI\Client\Model\ValidationsRedeemableInapplicableResultDetails|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \OpenAPI\Client\Model\ValidationsRedeemableInapplicableResultDetails|null $details details
+     *
+     * @return self
+     */
+    public function setDetails($details)
+    {
+        if (is_null($details)) {
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['details'] = $details;
 
         return $this;
     }

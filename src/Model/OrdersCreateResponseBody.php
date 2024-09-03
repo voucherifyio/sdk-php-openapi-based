@@ -78,16 +78,9 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
         'updated_at' => '\DateTime',
         'customer_id' => 'string',
         'referrer_id' => 'string',
-<<<<<<< Updated upstream
-        'object' => 'string',
-        'redemptions' => 'array<string,\OpenAPI\Client\Model\OrderRedemptions>',
-        'customer' => '\OpenAPI\Client\Model\OrderCalculatedCustomer',
-        'referrer' => '\OpenAPI\Client\Model\OrderCalculatedReferrer'
-=======
         'customer' => '\OpenAPI\Client\Model\CustomerId',
         'referrer' => '\OpenAPI\Client\Model\ReferrerId',
         'redemptions' => 'array<string,\OpenAPI\Client\Model\OrderRedemptionsEntry>'
->>>>>>> Stashed changes
     ];
 
     /**
@@ -128,30 +121,8 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'source_id' => true,
-<<<<<<< Updated upstream
-		'created_at' => false,
-		'updated_at' => true,
-		'status' => false,
-		'amount' => false,
-		'initial_amount' => false,
-		'discount_amount' => false,
-		'items_discount_amount' => false,
-		'total_discount_amount' => false,
-		'total_amount' => false,
-		'applied_discount_amount' => false,
-		'items_applied_discount_amount' => false,
-		'total_applied_discount_amount' => false,
-		'items' => false,
-		'metadata' => false,
-		'customer_id' => true,
-		'referrer_id' => true,
-		'object' => false,
-		'redemptions' => false,
-		'customer' => false,
-		'referrer' => false
-=======
 		'status' => true,
 		'amount' => true,
 		'initial_amount' => true,
@@ -172,7 +143,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
 		'customer' => false,
 		'referrer' => false,
 		'redemptions' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -485,9 +455,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -497,15 +464,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['referrer_id'] === null) {
-            $invalidProperties[] = "'referrer_id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -550,7 +508,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -560,7 +525,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -570,7 +535,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets source_id
      *
-     * @param string $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
+     * @param string|null $source_id Unique source ID of an existing order that will be linked to the redemption of this request.
      *
      * @return self
      */
@@ -592,70 +557,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            array_push($this->openAPINullablesSetToNull, 'updated_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updated_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets status
      *
      * @return string|null
@@ -675,10 +576,17 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -712,7 +620,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -739,7 +654,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
 
@@ -766,7 +688,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -793,7 +722,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setItemsDiscountAmount($items_discount_amount)
     {
         if (is_null($items_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_discount_amount'] = $items_discount_amount;
 
@@ -820,7 +756,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setTotalDiscountAmount($total_discount_amount)
     {
         if (is_null($total_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_discount_amount'] = $total_discount_amount;
 
@@ -847,7 +790,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -874,7 +824,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setAppliedDiscountAmount($applied_discount_amount)
     {
         if (is_null($applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applied_discount_amount'] = $applied_discount_amount;
 
@@ -901,7 +858,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setItemsAppliedDiscountAmount($items_applied_discount_amount)
     {
         if (is_null($items_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_applied_discount_amount'] = $items_applied_discount_amount;
 
@@ -928,7 +892,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
     {
         if (is_null($total_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
@@ -955,7 +926,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setItems($items)
     {
         if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items'] = $items;
 
@@ -982,7 +960,14 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -1104,7 +1089,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -1114,7 +1099,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique customer ID of the customer making the purchase.
+     * @param string|null $customer_id Unique customer ID of the customer making the purchase.
      *
      * @return self
      */
@@ -1138,7 +1123,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets referrer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getReferrerId()
     {
@@ -1148,7 +1133,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets referrer_id
      *
-     * @param string $referrer_id Unique referrer ID.
+     * @param string|null $referrer_id Unique referrer ID.
      *
      * @return self
      */
@@ -1170,76 +1155,9 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object The type of object represented by JSON.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemptions
-     *
-     * @return array<string,\OpenAPI\Client\Model\OrderRedemptions>|null
-     */
-    public function getRedemptions()
-    {
-        return $this->container['redemptions'];
-    }
-
-    /**
-     * Sets redemptions
-     *
-     * @param array<string,\OpenAPI\Client\Model\OrderRedemptions>|null $redemptions redemptions
-     *
-     * @return self
-     */
-    public function setRedemptions($redemptions)
-    {
-        if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
-        }
-        $this->container['redemptions'] = $redemptions;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\OrderCalculatedCustomer|null
+     * @return \OpenAPI\Client\Model\CustomerId|null
      */
     public function getCustomer()
     {
@@ -1249,7 +1167,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\OrderCalculatedCustomer|null $customer customer
+     * @param \OpenAPI\Client\Model\CustomerId|null $customer customer
      *
      * @return self
      */
@@ -1266,11 +1184,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets referrer
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\OrderCalculatedReferrer|null
-=======
      * @return \OpenAPI\Client\Model\ReferrerId|null
->>>>>>> Stashed changes
      */
     public function getReferrer()
     {
@@ -1280,11 +1194,7 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets referrer
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\OrderCalculatedReferrer|null $referrer referrer
-=======
      * @param \OpenAPI\Client\Model\ReferrerId|null $referrer referrer
->>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1292,8 +1202,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($referrer)) {
             throw new \InvalidArgumentException('non-nullable referrer cannot be null');
-<<<<<<< Updated upstream
-=======
         }
         $this->container['referrer'] = $referrer;
 
@@ -1328,7 +1236,6 @@ class OrdersCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['redemptions'] = $redemptions;
 

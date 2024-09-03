@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAssets.php
- * CustomerActivityDataOrderReferrerAssets
-========
  * LoyaltiesEarningRulesGetResponseBodyLoyaltyTier
->>>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAssets.php
- * CustomerActivityDataOrderReferrerAssets Class Doc Comment
- *
- * @category Class
-========
  * LoyaltiesEarningRulesGetResponseBodyLoyaltyTier Class Doc Comment
  *
  * @category Class
  * @description Defines the tier associated with the earning rule definition.
->>>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAssets.php
-class CustomerActivityDataOrderReferrerAssets implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAssets.php
-    protected static $openAPIModelName = 'CustomerActivityDataOrderReferrerAssets';
-========
     protected static $openAPIModelName = 'LoyaltiesEarningRulesGetResponseBodyLoyaltyTier';
->>>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -77,7 +59,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cockpit_url' => 'string'
+        'id' => 'string'
     ];
 
     /**
@@ -88,7 +70,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cockpit_url' => null
+        'id' => null
     ];
 
     /**
@@ -97,7 +79,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cockpit_url' => false
+        'id' => true
     ];
 
     /**
@@ -186,7 +168,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'cockpit_url' => 'cockpit_url'
+        'id' => 'id'
     ];
 
     /**
@@ -195,7 +177,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'cockpit_url' => 'setCockpitUrl'
+        'id' => 'setId'
     ];
 
     /**
@@ -204,7 +186,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'cockpit_url' => 'getCockpitUrl'
+        'id' => 'getId'
     ];
 
     /**
@@ -264,7 +246,7 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('cockpit_url', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -310,32 +292,35 @@ class LoyaltiesEarningRulesGetResponseBodyLoyaltyTier implements ModelInterface,
 
 
     /**
-     * Gets cockpit_url
+     * Gets id
      *
      * @return string|null
      */
-    public function getCockpitUrl()
+    public function getId()
     {
-        return $this->container['cockpit_url'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets cockpit_url
+     * Sets id
      *
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderReferrerAssets.php
-     * @param string|null $cockpit_url Customer's cockpit URL address.
-========
      * @param string|null $id Unique loyalty tier ID associated with the earning rule.      - `__ANY__`: any loyalty tier within the campaign
->>>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodyLoyaltyTier.php
      *
      * @return self
      */
-    public function setCockpitUrl($cockpit_url)
+    public function setId($id)
     {
-        if (is_null($cockpit_url)) {
-            throw new \InvalidArgumentException('non-nullable cockpit_url cannot be null');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['cockpit_url'] = $cockpit_url;
+        $this->container['id'] = $id;
 
         return $this;
     }

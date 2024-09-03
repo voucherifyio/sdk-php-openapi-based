@@ -99,21 +99,6 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleRedemptionRewardResult.php
-        'customer' => false,
-		'assignment_id' => false,
-		'voucher' => false,
-		'product' => false,
-		'sku' => false,
-		'loyalty_tier_id' => false,
-		'id' => false,
-		'object' => false,
-		'name' => false,
-		'created_at' => false,
-		'updated_at' => true,
-		'parameters' => false,
-		'type' => false
-=======
         'id' => true,
 		'name' => true,
 		'stock' => true,
@@ -125,7 +110,6 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
 		'created_at' => true,
 		'updated_at' => true,
 		'object' => false
->>>>>>> Stashed changes:src/Model/RewardsCreateResponseBody.php
     ];
 
     /**
@@ -429,171 +413,6 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleRedemptionRewardResult.php
-     * Gets customer
-     *
-     * @return \OpenAPI\Client\Model\SimpleCustomer|null
-     */
-    public function getCustomer()
-    {
-        return $this->container['customer'];
-    }
-
-    /**
-     * Sets customer
-     *
-     * @param \OpenAPI\Client\Model\SimpleCustomer|null $customer customer
-     *
-     * @return self
-     */
-    public function setCustomer($customer)
-    {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
-        }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets assignment_id
-     *
-     * @return string|null
-     */
-    public function getAssignmentId()
-    {
-        return $this->container['assignment_id'];
-    }
-
-    /**
-     * Sets assignment_id
-     *
-     * @param string|null $assignment_id Unique reward assignment ID assigned by Voucherify.
-     *
-     * @return self
-     */
-    public function setAssignmentId($assignment_id)
-    {
-        if (is_null($assignment_id)) {
-            throw new \InvalidArgumentException('non-nullable assignment_id cannot be null');
-        }
-        $this->container['assignment_id'] = $assignment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets voucher
-     *
-     * @return \OpenAPI\Client\Model\SimpleVoucher|null
-     */
-    public function getVoucher()
-    {
-        return $this->container['voucher'];
-    }
-
-    /**
-     * Sets voucher
-     *
-     * @param \OpenAPI\Client\Model\SimpleVoucher|null $voucher voucher
-     *
-     * @return self
-     */
-    public function setVoucher($voucher)
-    {
-        if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
-        }
-        $this->container['voucher'] = $voucher;
-
-        return $this;
-    }
-
-    /**
-     * Gets product
-     *
-     * @return \OpenAPI\Client\Model\SimpleProduct|null
-     */
-    public function getProduct()
-    {
-        return $this->container['product'];
-    }
-
-    /**
-     * Sets product
-     *
-     * @param \OpenAPI\Client\Model\SimpleProduct|null $product product
-     *
-     * @return self
-     */
-    public function setProduct($product)
-    {
-        if (is_null($product)) {
-            throw new \InvalidArgumentException('non-nullable product cannot be null');
-        }
-        $this->container['product'] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-     *
-     * @return \OpenAPI\Client\Model\SimpleSku|null
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param \OpenAPI\Client\Model\SimpleSku|null $sku sku
-     *
-     * @return self
-     */
-    public function setSku($sku)
-    {
-        if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
-        }
-        $this->container['sku'] = $sku;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyalty_tier_id
-     *
-     * @return string|null
-     */
-    public function getLoyaltyTierId()
-    {
-        return $this->container['loyalty_tier_id'];
-    }
-
-    /**
-     * Sets loyalty_tier_id
-     *
-     * @param string|null $loyalty_tier_id Unique loyalty tier ID assigned by Voucherify.
-     *
-     * @return self
-     */
-    public function setLoyaltyTierId($loyalty_tier_id)
-    {
-        if (is_null($loyalty_tier_id)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_tier_id cannot be null');
-        }
-        $this->container['loyalty_tier_id'] = $loyalty_tier_id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/RewardsCreateResponseBody.php
      * Gets id
      *
      * @return string|null
@@ -613,7 +432,14 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -621,46 +447,6 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleRedemptionRewardResult.php
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the reward.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/RewardsCreateResponseBody.php
      * Gets name
      *
      * @return string|null
@@ -680,7 +466,14 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -907,14 +700,21 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the reward was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -934,7 +734,7 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the reward was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -974,46 +774,11 @@ class RewardsCreateResponseBody implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function setObject($object)
     {
-<<<<<<< Updated upstream:src/Model/SimpleRedemptionRewardResult.php
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-        }
-        $this->container['parameters'] = $parameters;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Reward type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-=======
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
         $allowedValues = $this->getObjectAllowableValues();
         if (!in_array($object, $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/RewardsCreateResponseBody.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

@@ -81,14 +81,8 @@ class LoyaltyCardTransactionDetailsOrder implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleSku.php
-        'id' => false,
-		'source_id' => false,
-		'sku' => false
-=======
         'id' => true,
 		'source_id' => true
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsOrder.php
     ];
 
     /**
@@ -324,7 +318,14 @@ class LoyaltyCardTransactionDetailsOrder implements ModelInterface, ArrayAccess,
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -351,42 +352,19 @@ class LoyaltyCardTransactionDetailsOrder implements ModelInterface, ArrayAccess,
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
         return $this;
     }
-<<<<<<< Updated upstream:src/Model/SimpleSku.php
-
-    /**
-     * Gets sku
-     *
-     * @return string|null
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param string|null $sku Sku name.
-     *
-     * @return self
-     */
-    public function setSku($sku)
-    {
-        if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
-        }
-        $this->container['sku'] = $sku;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsOrder.php
     /**
      * Returns true if offset exists. False otherwise.
      *

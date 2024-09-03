@@ -89,12 +89,12 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'category' => false,
-		'metadata' => false,
-		'redemption' => false,
-		'additional_info' => false,
-		'start_date' => false,
-		'expiration_date' => false
+        'category' => true,
+		'metadata' => true,
+		'redemption' => true,
+		'additional_info' => true,
+		'start_date' => true,
+		'expiration_date' => true
     ];
 
     /**
@@ -346,7 +346,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -373,7 +380,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -400,7 +414,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -427,7 +448,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setAdditionalInfo($additional_info)
     {
         if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'additional_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('additional_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['additional_info'] = $additional_info;
 
@@ -454,7 +482,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -481,7 +516,14 @@ class CampaignsVouchersCreateRequestBody implements ModelInterface, ArrayAccess,
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 

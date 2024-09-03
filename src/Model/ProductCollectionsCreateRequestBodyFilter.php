@@ -103,7 +103,7 @@ class ProductCollectionsCreateRequestBodyFilter implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'junction' => false,
+        'junction' => true,
 		'id' => false,
 		'product_id' => false,
 		'source_id' => false,
@@ -375,9 +375,6 @@ class ProductCollectionsCreateRequestBodyFilter implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['junction'] === null) {
-            $invalidProperties[] = "'junction' can't be null";
-        }
         $allowedValues = $this->getJunctionAllowableValues();
         if (!is_null($this->container['junction']) && !in_array($this->container['junction'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -405,7 +402,7 @@ class ProductCollectionsCreateRequestBodyFilter implements ModelInterface, Array
     /**
      * Gets junction
      *
-     * @return string
+     * @return string|null
      */
     public function getJunction()
     {
@@ -415,17 +412,24 @@ class ProductCollectionsCreateRequestBodyFilter implements ModelInterface, Array
     /**
      * Sets junction
      *
-     * @param string $junction Logical Operator Between Filters. Filter by conditions set on the `junction` parameter indicating how the `conditions` should be accounted for in the query. An `AND` is an all-inclusive logical operator, meaning the `AND` operator displays a record if **ALL** the conditions separated by AND are TRUE, while  an `OR` operator displays a record if **ANY** of the conditions separated by OR is TRUE.
+     * @param string|null $junction Logical Operator Between Filters. Filter by conditions set on the `junction` parameter indicating how the `conditions` should be accounted for in the query. An `AND` is an all-inclusive logical operator, meaning the `AND` operator displays a record if **ALL** the conditions separated by AND are TRUE, while  an `OR` operator displays a record if **ANY** of the conditions separated by OR is TRUE.
      *
      * @return self
      */
     public function setJunction($junction)
     {
         if (is_null($junction)) {
-            throw new \InvalidArgumentException('non-nullable junction cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'junction');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('junction', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getJunctionAllowableValues();
-        if (!in_array($junction, $allowedValues, true)) {
+        if (!is_null($junction) && !in_array($junction, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'junction', must be one of '%s'",

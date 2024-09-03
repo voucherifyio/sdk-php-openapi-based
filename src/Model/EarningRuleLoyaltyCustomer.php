@@ -78,7 +78,7 @@ class EarningRuleLoyaltyCustomer implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'metadata' => false
+        'metadata' => true
     ];
 
     /**
@@ -275,9 +275,6 @@ class EarningRuleLoyaltyCustomer implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -296,11 +293,7 @@ class EarningRuleLoyaltyCustomer implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets metadata
      *
-<<<<<<< Updated upstream:src/Model/EarningRuleBaseLoyaltyCustomEvent.php
-     * @return \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata
-=======
      * @return \OpenAPI\Client\Model\EarningRuleLoyaltyCustomerMetadata|null
->>>>>>> Stashed changes:src/Model/EarningRuleLoyaltyCustomer.php
      */
     public function getMetadata()
     {
@@ -310,18 +303,21 @@ class EarningRuleLoyaltyCustomer implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets metadata
      *
-<<<<<<< Updated upstream:src/Model/EarningRuleBaseLoyaltyCustomEvent.php
-     * @param \OpenAPI\Client\Model\EarningRuleBaseLoyaltyCustomEventMetadata $metadata metadata
-=======
      * @param \OpenAPI\Client\Model\EarningRuleLoyaltyCustomerMetadata|null $metadata metadata
->>>>>>> Stashed changes:src/Model/EarningRuleLoyaltyCustomer.php
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

@@ -61,7 +61,9 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         'status' => 'string',
         'id' => 'string',
         'object' => 'string',
-        'result' => '\OpenAPI\Client\Model\ValidationsRedeemableInapplicableResult'
+        'result' => '\OpenAPI\Client\Model\ValidationsRedeemableInapplicableResult',
+        'metadata' => 'object',
+        'categories' => '\OpenAPI\Client\Model\Category[]'
     ];
 
     /**
@@ -75,7 +77,9 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         'status' => null,
         'id' => null,
         'object' => null,
-        'result' => null
+        'result' => null,
+        'metadata' => null,
+        'categories' => null
     ];
 
     /**
@@ -84,10 +88,12 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
-		'id' => false,
-		'object' => false,
-		'result' => false
+        'status' => true,
+		'id' => true,
+		'object' => true,
+		'result' => true,
+		'metadata' => true,
+		'categories' => true
     ];
 
     /**
@@ -179,7 +185,9 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         'status' => 'status',
         'id' => 'id',
         'object' => 'object',
-        'result' => 'result'
+        'result' => 'result',
+        'metadata' => 'metadata',
+        'categories' => 'categories'
     ];
 
     /**
@@ -191,7 +199,9 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         'status' => 'setStatus',
         'id' => 'setId',
         'object' => 'setObject',
-        'result' => 'setResult'
+        'result' => 'setResult',
+        'metadata' => 'setMetadata',
+        'categories' => 'setCategories'
     ];
 
     /**
@@ -203,7 +213,9 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         'status' => 'getStatus',
         'id' => 'getId',
         'object' => 'getObject',
-        'result' => 'getResult'
+        'result' => 'getResult',
+        'metadata' => 'getMetadata',
+        'categories' => 'getCategories'
     ];
 
     /**
@@ -295,6 +307,8 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('result', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
     }
 
     /**
@@ -377,10 +391,17 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -414,7 +435,14 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -441,10 +469,17 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -478,9 +513,84 @@ class ValidationsRedeemableInapplicable implements ModelInterface, ArrayAccess, 
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['result'] = $result;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata The metadata object stores all custom attributes in the form of key/value pairs assigned to the redeemable.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories categories
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
 
         return $this;
     }

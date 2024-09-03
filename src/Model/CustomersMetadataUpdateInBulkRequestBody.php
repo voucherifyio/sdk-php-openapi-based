@@ -81,8 +81,8 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'source_ids' => false,
-		'metadata' => false
+        'source_ids' => true,
+		'metadata' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['source_ids'] === null) {
-            $invalidProperties[] = "'source_ids' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Gets source_ids
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getSourceIds()
     {
@@ -317,14 +311,21 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Sets source_ids
      *
-     * @param string[] $source_ids An array of customer `source_id`'s.
+     * @param string[]|null $source_ids An array of customer `source_id`'s.
      *
      * @return self
      */
     public function setSourceIds($source_ids)
     {
         if (is_null($source_ids)) {
-            throw new \InvalidArgumentException('non-nullable source_ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_ids'] = $source_ids;
 
@@ -334,7 +335,7 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -344,14 +345,21 @@ class CustomersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayA
     /**
      * Sets metadata
      *
-     * @param object $metadata Metadata key value pairs to be updated. A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
+     * @param object|null $metadata Metadata key value pairs to be updated. A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

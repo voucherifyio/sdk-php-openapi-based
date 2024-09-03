@@ -92,17 +92,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'status' => false,
-		'channel' => false,
-		'result' => true,
-		'user_id' => false,
-		'exported_object' => false,
-		'parameters' => false
-=======
         'in' => true,
 		'not_in' => true,
 		'is' => true,
@@ -111,7 +100,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
 		'is_unknown' => true,
 		'starts_with' => true,
 		'ends_with' => true
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
     ];
 
     /**
@@ -412,19 +400,8 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-=======
         $allowedValues = $this->getIsAllowableValues();
         if (!is_null($this->container['is']) && !in_array($this->container['is'], $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'is', must be one of '%s'",
                 $this->container['is'],
@@ -432,43 +409,11 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
             );
         }
 
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'exported_object', must be one of '%s'",
-                $this->container['exported_object'],
-=======
         $allowedValues = $this->getIsNotAllowableValues();
         if (!is_null($this->container['is_not']) && !in_array($this->container['is_not'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'is_not', must be one of '%s'",
                 $this->container['is_not'],
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
                 implode("', '", $allowedValues)
             );
         }
@@ -491,11 +436,7 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
     /**
      * Gets in
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-     * @return string
-=======
      * @return string[]|null
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
      */
     public function getIn()
     {
@@ -505,50 +446,12 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
     /**
      * Sets in
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-     * @param string $id Unique export ID.
-=======
      * @param string[]|null $in Array of resource values that should be included in the results (multiple values).
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
      *
      * @return self
      */
     public function setIn($in)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object The type of object being represented. This object stores information about the export.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-=======
         if (is_null($in)) {
             array_push($this->openAPINullablesSetToNull, 'in');
         } else {
@@ -561,7 +464,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
         }
         $allowedValues = $this->getInAllowableValues();
         if (!is_null($in) && array_diff($in, $allowedValues)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'in', must be one of '%s'",
@@ -577,11 +479,7 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
     /**
      * Gets not_in
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-     * @return \DateTime
-=======
      * @return string[]|null
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
      */
     public function getNotIn()
     {
@@ -591,50 +489,12 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
     /**
      * Sets not_in
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-     * @param \DateTime $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
-=======
      * @param string[]|null $not_in Array of resource values that should be included in the results (multiple values).
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
      *
      * @return self
      */
     public function setNotIn($not_in)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-=======
         if (is_null($not_in)) {
             array_push($this->openAPINullablesSetToNull, 'not_in');
         } else {
@@ -647,7 +507,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
         }
         $allowedValues = $this->getNotInAllowableValues();
         if (!is_null($not_in) && array_diff($not_in, $allowedValues)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'not_in', must be one of '%s'",
@@ -679,101 +538,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
      */
     public function setIs($is)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     *
-     * @return object
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     *
-     * @param object $result Contains the URL of the CSV file.
-     *
-     * @return self
-     */
-    public function setResult($result)
-    {
-        if (is_null($result)) {
-            array_push($this->openAPINullablesSetToNull, 'result');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('result', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['result'] = $result;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE.
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
-        }
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets exported_object
-     *
-     * @return string
-     */
-    public function getExportedObject()
-    {
-        return $this->container['exported_object'];
-    }
-
-    /**
-     * Sets exported_object
-     *
-     * @param string $exported_object The type of object to be exported.
-     *
-     * @return self
-     */
-    public function setExportedObject($exported_object)
-    {
-        if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
-=======
         if (is_null($is)) {
             array_push($this->openAPINullablesSetToNull, 'is');
         } else {
@@ -786,7 +550,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
         }
         $allowedValues = $this->getIsAllowableValues();
         if (!is_null($is) && !in_array($is, $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'is', must be one of '%s'",
@@ -819,10 +582,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
      */
     public function setIsNot($is_not)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsScheduled.php
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-=======
         if (is_null($is_not)) {
             array_push($this->openAPINullablesSetToNull, 'is_not');
         } else {
@@ -832,7 +591,6 @@ class ParameterFiltersListCustomerRedeemablesCampaignTypeConditions implements M
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCampaignTypeConditions.php
         }
         $allowedValues = $this->getIsNotAllowableValues();
         if (!is_null($is_not) && !in_array($is_not, $allowedValues, true)) {

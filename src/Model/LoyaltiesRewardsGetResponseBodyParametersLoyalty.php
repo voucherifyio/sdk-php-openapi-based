@@ -79,7 +79,7 @@ class LoyaltiesRewardsGetResponseBodyParametersLoyalty implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false
+        'points' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class LoyaltiesRewardsGetResponseBodyParametersLoyalty implements ModelInterface
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class LoyaltiesRewardsGetResponseBodyParametersLoyalty implements ModelInterface
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -307,18 +304,21 @@ class LoyaltiesRewardsGetResponseBodyParametersLoyalty implements ModelInterface
     /**
      * Sets points
      *
-<<<<<<< Updated upstream:src/Model/CampaignsImportVoucherLoyaltyCard.php
-     * @param int $points The initial number of points to assign to the loyalty card. This is the current loyalty card score i.e. the number of loyalty points on the card.
-=======
      * @param int|null $points The number of points required to redeem the reward.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsGetResponseBodyParametersLoyalty.php
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

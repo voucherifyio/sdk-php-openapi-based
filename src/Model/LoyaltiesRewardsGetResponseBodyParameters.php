@@ -79,7 +79,7 @@ class LoyaltiesRewardsGetResponseBodyParameters implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'loyalty' => false
+        'loyalty' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class LoyaltiesRewardsGetResponseBodyParameters implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,11 +294,7 @@ class LoyaltiesRewardsGetResponseBodyParameters implements ModelInterface, Array
     /**
      * Gets loyalty
      *
-<<<<<<< Updated upstream:src/Model/RewardAssignmentParametersParameters.php
-     * @return \OpenAPI\Client\Model\RewardAssignmentParametersParametersLoyalty
-=======
      * @return \OpenAPI\Client\Model\LoyaltiesRewardsGetResponseBodyParametersLoyalty|null
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsGetResponseBodyParameters.php
      */
     public function getLoyalty()
     {
@@ -311,18 +304,21 @@ class LoyaltiesRewardsGetResponseBodyParameters implements ModelInterface, Array
     /**
      * Sets loyalty
      *
-<<<<<<< Updated upstream:src/Model/RewardAssignmentParametersParameters.php
-     * @param \OpenAPI\Client\Model\RewardAssignmentParametersParametersLoyalty $loyalty loyalty
-=======
      * @param \OpenAPI\Client\Model\LoyaltiesRewardsGetResponseBodyParametersLoyalty|null $loyalty loyalty
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsGetResponseBodyParameters.php
      *
      * @return self
      */
     public function setLoyalty($loyalty)
     {
         if (is_null($loyalty)) {
-            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty'] = $loyalty;
 

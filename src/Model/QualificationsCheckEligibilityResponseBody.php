@@ -86,7 +86,7 @@ class QualificationsCheckEligibilityResponseBody implements ModelInterface, Arra
       */
     protected static array $openAPINullables = [
         'redeemables' => false,
-		'tracking_id' => false,
+		'tracking_id' => true,
 		'order' => false,
 		'stacking_rules' => false
     ];
@@ -359,7 +359,14 @@ class QualificationsCheckEligibilityResponseBody implements ModelInterface, Arra
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 

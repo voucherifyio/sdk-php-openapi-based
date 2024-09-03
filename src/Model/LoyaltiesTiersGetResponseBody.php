@@ -101,18 +101,18 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'earning_rules' => false,
-		'rewards' => false,
-		'points' => false,
-		'id' => false,
-		'campaign_id' => false,
+        'name' => true,
+		'earning_rules' => true,
+		'rewards' => true,
+		'points' => true,
+		'id' => true,
+		'campaign_id' => true,
 		'metadata' => true,
-		'created_at' => false,
+		'created_at' => true,
 		'updated_at' => true,
-		'config' => false,
+		'config' => true,
 		'expiration' => false,
-		'object' => false
+		'object' => true
     ];
 
     /**
@@ -366,30 +366,6 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['config'] === null) {
-            $invalidProperties[] = "'config' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -417,7 +393,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -427,14 +403,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets name
      *
-     * @param string $name Loyalty Tier name.
+     * @param string|null $name Loyalty Tier name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -461,7 +444,14 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     public function setEarningRules($earning_rules)
     {
         if (is_null($earning_rules)) {
-            throw new \InvalidArgumentException('non-nullable earning_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'earning_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('earning_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['earning_rules'] = $earning_rules;
 
@@ -488,7 +478,14 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     public function setRewards($rewards)
     {
         if (is_null($rewards)) {
-            throw new \InvalidArgumentException('non-nullable rewards cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rewards');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rewards', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rewards'] = $rewards;
 
@@ -498,11 +495,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets points
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\LoyaltyTierBasePoints
-=======
      * @return \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyPoints|null
->>>>>>> Stashed changes
      */
     public function getPoints()
     {
@@ -512,18 +505,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets points
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\LoyaltyTierBasePoints $points points
-=======
      * @param \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyPoints|null $points points
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -533,7 +529,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -543,14 +539,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets id
      *
-     * @param string $id Unique loyalty tier ID.
+     * @param string|null $id Unique loyalty tier ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -560,7 +563,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets campaign_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaignId()
     {
@@ -570,14 +573,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets campaign_id
      *
-     * @param string $campaign_id Unique parent campaign ID.
+     * @param string|null $campaign_id Unique parent campaign ID.
      *
      * @return self
      */
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -587,7 +597,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -597,7 +607,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the loyalty tier. A set of key/value pairs that you can attach to a loyalty tier object. It can be useful for storing additional information about the loyalty tier in a structured format.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the loyalty tier. A set of key/value pairs that you can attach to a loyalty tier object. It can be useful for storing additional information about the loyalty tier in a structured format.
      *
      * @return self
      */
@@ -621,7 +631,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -631,14 +641,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the loyalty tier was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the loyalty tier was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -658,7 +675,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets updated_at
      *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty tier was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the loyalty tier was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -682,11 +699,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets config
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfig
-=======
      * @return \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyConfig|null
->>>>>>> Stashed changes
      */
     public function getConfig()
     {
@@ -696,18 +709,21 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets config
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfig $config config
-=======
      * @param \OpenAPI\Client\Model\LoyaltiesTiersGetResponseBodyConfig|null $config config
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setConfig($config)
     {
         if (is_null($config)) {
-            throw new \InvalidArgumentException('non-nullable config cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'config');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('config', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['config'] = $config;
 
@@ -744,7 +760,7 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -754,17 +770,24 @@ class LoyaltiesTiersGetResponseBody implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON. This object stores information about the loyalty.
+     * @param string|null $object The type of the object represented by JSON. This object stores information about the loyalty.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

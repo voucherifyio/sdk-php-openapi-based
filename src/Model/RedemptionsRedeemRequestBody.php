@@ -91,15 +91,6 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'redeemables' => false,
-		'order' => false,
-		'customer' => false,
-		'session' => false,
-		'tracking_id' => false,
-		'metadata' => false,
-		'options' => false
-=======
         'options' => true,
 		'redeemables' => true,
 		'order' => false,
@@ -107,7 +98,6 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
 		'session' => false,
 		'tracking_id' => true,
 		'metadata' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -328,9 +318,6 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['redeemables'] === null) {
-            $invalidProperties[] = "'redeemables' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -383,11 +370,7 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets redeemables
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]
-=======
      * @return \OpenAPI\Client\Model\RedemptionsRedeemRequestBodyRedeemablesItem[]|null
->>>>>>> Stashed changes
      */
     public function getRedeemables()
     {
@@ -397,18 +380,21 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets redeemables
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[] $redeemables redeemables
-=======
      * @param \OpenAPI\Client\Model\RedemptionsRedeemRequestBodyRedeemablesItem[]|null $redeemables redeemables
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setRedeemables($redeemables)
     {
         if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redeemables');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redeemables', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redeemables'] = $redeemables;
 
@@ -516,7 +502,14 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
     public function setTrackingId($tracking_id)
     {
         if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tracking_id'] = $tracking_id;
 
@@ -543,42 +536,19 @@ class RedemptionsRedeemRequestBody implements ModelInterface, ArrayAccess, \Json
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
         return $this;
     }
-<<<<<<< Updated upstream
-
-    /**
-     * Gets options
-     *
-     * @return \OpenAPI\Client\Model\ClientRedemptionsRedeemRequestBodyAllOfOptions|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param \OpenAPI\Client\Model\ClientRedemptionsRedeemRequestBodyAllOfOptions|null $options options
-     *
-     * @return self
-     */
-    public function setOptions($options)
-    {
-        if (is_null($options)) {
-            throw new \InvalidArgumentException('non-nullable options cannot be null');
-        }
-        $this->container['options'] = $options;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

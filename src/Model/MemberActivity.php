@@ -60,16 +60,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'name' => 'string',
-        'banner' => 'string',
-        'campaign' => '\OpenAPI\Client\Model\SimplePromotionTierCampaign'
-=======
         'type' => 'string',
         'data' => 'object',
         'created_at' => '\DateTime',
         'group_id' => 'string'
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -81,16 +75,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'name' => null,
-        'banner' => null,
-        'campaign' => null
-=======
         'type' => null,
         'data' => null,
         'created_at' => 'date-time',
         'group_id' => null
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -99,18 +87,11 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'id' => false,
-		'name' => false,
-		'banner' => false,
-		'campaign' => false
-=======
         'id' => true,
 		'type' => true,
 		'data' => true,
 		'created_at' => true,
 		'group_id' => true
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -200,16 +181,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'name' => 'name',
-        'banner' => 'banner',
-        'campaign' => 'campaign'
-=======
         'type' => 'type',
         'data' => 'data',
         'created_at' => 'created_at',
         'group_id' => 'group_id'
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -219,16 +194,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'name' => 'setName',
-        'banner' => 'setBanner',
-        'campaign' => 'setCampaign'
-=======
         'type' => 'setType',
         'data' => 'setData',
         'created_at' => 'setCreatedAt',
         'group_id' => 'setGroupId'
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -238,16 +207,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        'name' => 'getName',
-        'banner' => 'getBanner',
-        'campaign' => 'getCampaign'
-=======
         'type' => 'getType',
         'data' => 'getData',
         'created_at' => 'getCreatedAt',
         'group_id' => 'getGroupId'
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     ];
 
     /**
@@ -308,16 +271,10 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('banner', $data ?? [], null);
-        $this->setIfExists('campaign', $data ?? [], null);
-=======
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('group_id', $data ?? [], null);
->>>>>>> Stashed changes:src/Model/MemberActivity.php
     }
 
     /**
@@ -382,7 +339,14 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -408,10 +372,6 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setType($type)
     {
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-=======
         if (is_null($type)) {
             array_push($this->openAPINullablesSetToNull, 'type');
         } else {
@@ -421,7 +381,6 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/MemberActivity.php
         }
         $this->container['type'] = $type;
 
@@ -429,57 +388,6 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimplePromotionTier.php
-     * Gets banner
-     *
-     * @return string|null
-     */
-    public function getBanner()
-    {
-        return $this->container['banner'];
-    }
-
-    /**
-     * Sets banner
-     *
-     * @param string|null $banner Text to be displayed to your customers on your website.
-     *
-     * @return self
-     */
-    public function setBanner($banner)
-    {
-        if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
-        }
-        $this->container['banner'] = $banner;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign
-     *
-     * @return \OpenAPI\Client\Model\SimplePromotionTierCampaign|null
-     */
-    public function getCampaign()
-    {
-        return $this->container['campaign'];
-    }
-
-    /**
-     * Sets campaign
-     *
-     * @param \OpenAPI\Client\Model\SimplePromotionTierCampaign|null $campaign campaign
-     *
-     * @return self
-     */
-    public function setCampaign($campaign)
-    {
-        if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
-        }
-        $this->container['campaign'] = $campaign;
-=======
      * Gets data
      *
      * @return object|null
@@ -577,7 +485,6 @@ class MemberActivity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['group_id'] = $group_id;
->>>>>>> Stashed changes:src/Model/MemberActivity.php
 
         return $this;
     }

@@ -95,15 +95,15 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'rule_id' => false,
-		'related_object_id' => false,
-		'related_object_type' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'object' => false,
-		'validation_status' => false,
-		'validation_omitted_rules' => false
+        'id' => true,
+		'rule_id' => true,
+		'related_object_id' => true,
+		'related_object_type' => true,
+		'created_at' => true,
+		'updated_at' => true,
+		'object' => true,
+		'validation_status' => true,
+		'validation_omitted_rules' => true
     ];
 
     /**
@@ -362,21 +362,6 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['rule_id'] === null) {
-            $invalidProperties[] = "'rule_id' can't be null";
-        }
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -413,7 +398,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -423,14 +408,21 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string $id The unique identifier for a assignment
+     * @param string|null $id The unique identifier for a assignment
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -440,7 +432,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets rule_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRuleId()
     {
@@ -450,14 +442,21 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets rule_id
      *
-     * @param string $rule_id The unique identifier for a rule
+     * @param string|null $rule_id The unique identifier for a rule
      *
      * @return self
      */
     public function setRuleId($rule_id)
     {
         if (is_null($rule_id)) {
-            throw new \InvalidArgumentException('non-nullable rule_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'rule_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rule_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['rule_id'] = $rule_id;
 
@@ -467,7 +466,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -477,14 +476,21 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id The unique identifier for a related object
+     * @param string|null $related_object_id The unique identifier for a related object
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -494,7 +500,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -504,14 +510,21 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type The type of related object
+     * @param string|null $related_object_type The type of related object
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_type'] = $related_object_type;
 
@@ -531,14 +544,21 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the object was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -565,7 +585,14 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -575,7 +602,7 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -585,17 +612,24 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -629,10 +663,17 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setValidationStatus($validation_status)
     {
         if (is_null($validation_status)) {
-            throw new \InvalidArgumentException('non-nullable validation_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validation_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getValidationStatusAllowableValues();
-        if (!in_array($validation_status, $allowedValues, true)) {
+        if (!is_null($validation_status) && !in_array($validation_status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'validation_status', must be one of '%s'",
@@ -666,7 +707,14 @@ class BusValRuleAssignment implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setValidationOmittedRules($validation_omitted_rules)
     {
         if (is_null($validation_omitted_rules)) {
-            throw new \InvalidArgumentException('non-nullable validation_omitted_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validation_omitted_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_omitted_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['validation_omitted_rules'] = $validation_omitted_rules;
 

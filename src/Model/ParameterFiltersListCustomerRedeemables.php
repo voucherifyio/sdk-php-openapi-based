@@ -92,16 +92,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-        'id' => false,
-		'session_id' => false,
-		'status' => false,
-		'created_at' => false,
-		'customer_id' => false,
-		'redeemables' => false,
-		'skipped_redeemables' => false,
-		'inapplicable_redeemables' => false
-=======
         'id' => true,
 		'created_at' => true,
 		'redeemable_id' => true,
@@ -110,7 +100,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
 		'campaign_id' => true,
 		'campaign_type' => true,
 		'voucher_type' => true
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
     ];
 
     /**
@@ -370,7 +359,14 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -378,73 +374,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-     * Gets session_id
-     *
-     * @return string|null
-     */
-    public function getSessionId()
-    {
-        return $this->container['session_id'];
-    }
-
-    /**
-     * Sets session_id
-     *
-     * @param string|null $session_id Unique session id.
-     *
-     * @return self
-     */
-    public function setSessionId($session_id)
-    {
-        if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
-        }
-        $this->container['session_id'] = $session_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status The validation status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
      * Gets created_at
      *
      * @return \OpenAPI\Client\Model\ParameterFiltersListCustomerRedeemablesCreatedAt|null
@@ -457,18 +386,21 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
     /**
      * Sets created_at
      *
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the validation was created in ISO 8601 format.
-=======
      * @param \OpenAPI\Client\Model\ParameterFiltersListCustomerRedeemablesCreatedAt|null $created_at created_at
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -494,10 +426,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
      */
     public function setRedeemableId($redeemable_id)
     {
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-        if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
-=======
         if (is_null($redeemable_id)) {
             array_push($this->openAPINullablesSetToNull, 'redeemable_id');
         } else {
@@ -507,7 +435,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
         }
         $this->container['redeemable_id'] = $redeemable_id;
 
@@ -533,10 +460,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
      */
     public function setRedeemableObject($redeemable_object)
     {
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-        if (is_null($redeemables)) {
-            throw new \InvalidArgumentException('non-nullable redeemables cannot be null');
-=======
         if (is_null($redeemable_object)) {
             array_push($this->openAPINullablesSetToNull, 'redeemable_object');
         } else {
@@ -546,7 +469,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
         }
         $this->container['redeemable_object'] = $redeemable_object;
 
@@ -572,10 +494,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
      */
     public function setHolderRole($holder_role)
     {
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-        if (is_null($skipped_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable skipped_redeemables cannot be null');
-=======
         if (is_null($holder_role)) {
             array_push($this->openAPINullablesSetToNull, 'holder_role');
         } else {
@@ -585,7 +503,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
         }
         $this->container['holder_role'] = $holder_role;
 
@@ -611,10 +528,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
      */
     public function setCampaignId($campaign_id)
     {
-<<<<<<< Updated upstream:src/Model/ValidationEntity.php
-        if (is_null($inapplicable_redeemables)) {
-            throw new \InvalidArgumentException('non-nullable inapplicable_redeemables cannot be null');
-=======
         if (is_null($campaign_id)) {
             array_push($this->openAPINullablesSetToNull, 'campaign_id');
         } else {
@@ -624,7 +537,6 @@ class ParameterFiltersListCustomerRedeemables implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemables.php
         }
         $this->container['campaign_id'] = $campaign_id;
 

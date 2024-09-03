@@ -103,20 +103,6 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-        'id' => false,
-		'source_id' => true,
-		'product_id' => false,
-		'sku' => true,
-		'price' => true,
-		'currency' => true,
-		'attributes' => false,
-		'image_url' => true,
-		'metadata' => false,
-		'created_at' => false,
-		'updated_at' => true,
-		'object' => false
-=======
         'junction' => true,
 		'id' => false,
 		'product_id' => false,
@@ -130,7 +116,6 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
 		'skus' => false,
 		'created_at' => false,
 		'updated_at' => false
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
     ];
 
     /**
@@ -390,46 +375,8 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
-        if ($this->container['product_id'] === null) {
-            $invalidProperties[] = "'product_id' can't be null";
-        }
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
-        }
-        if ($this->container['image_url'] === null) {
-            $invalidProperties[] = "'image_url' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-=======
         $allowedValues = $this->getJunctionAllowableValues();
         if (!is_null($this->container['junction']) && !in_array($this->container['junction'], $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'junction', must be one of '%s'",
                 $this->container['junction'],
@@ -455,7 +402,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Gets junction
      *
-     * @return string
+     * @return string|null
      */
     public function getJunction()
     {
@@ -509,11 +456,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Sets id
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @param string $id A unique identifier that represents the SKU and is assigned by Voucherify.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $id id
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      *
      * @return self
      */
@@ -528,49 +471,9 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * Gets source_id
-     *
-     * @return string
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string $source_id A unique SKU identifier from your inventory system.
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            array_push($this->openAPINullablesSetToNull, 'source_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_id
-     *
-     * @return string
-=======
      * Gets product_id
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      */
     public function getProductId()
     {
@@ -580,11 +483,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Sets product_id
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @param string $product_id The parent product's unique ID.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $product_id product_id
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      *
      * @return self
      */
@@ -601,11 +500,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Gets source_id
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @return string
-=======
      * @return \OpenAPI\Client\Model\FieldConditions|null
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      */
     public function getSourceId()
     {
@@ -615,11 +510,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Sets source_id
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @param string $sku Unique user-defined SKU name.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $source_id source_id
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      *
      * @return self
      */
@@ -663,11 +554,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Gets price
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @return int
-=======
      * @return \OpenAPI\Client\Model\FieldConditions|null
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      */
     public function getPrice()
     {
@@ -677,11 +564,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Sets price
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @param int $price Unit price. It is represented by a value multiplied by 100 to accurately reflect 2 decimal places, such as `$100.00` being expressed as `10000`.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $price price
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      *
      * @return self
      */
@@ -696,198 +579,9 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency SKU price currency.
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            array_push($this->openAPINullablesSetToNull, 'currency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return object
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param object $attributes The attributes object stores values for all custom attributes inherited by the SKU from the parent product. A set of key/value pairs that are attached to a SKU object and are unique to each SKU within a product family.
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
-        }
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_url
-     *
-     * @return string
-     */
-    public function getImageUrl()
-    {
-        return $this->container['image_url'];
-    }
-
-    /**
-     * Sets image_url
-     *
-     * @param string $image_url The HTTPS URL pointing to the .png or .jpg file that will be used to render the SKU image.
-     *
-     * @return self
-     */
-    public function setImageUrl($image_url)
-    {
-        if (is_null($image_url)) {
-            array_push($this->openAPINullablesSetToNull, 'image_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image_url'] = $image_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the SKU. A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format.
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at Timestamp representing the date and time when the SKU was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at Timestamp representing the date and time when the SKU was updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            array_push($this->openAPINullablesSetToNull, 'updated_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updated_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-=======
      * Gets object
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      */
     public function getObject()
     {
@@ -897,11 +591,7 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     /**
      * Sets object
      *
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-     * @param string $object The type of object represented by JSON. This object stores information about the `SKU`.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $object object
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
      *
      * @return self
      */
@@ -909,19 +599,6 @@ class ProductCollectionsCreateResponseBodyFilter implements ModelInterface, Arra
     {
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
-<<<<<<< Updated upstream:src/Model/RedemptionRewardResultSku.php
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-=======
->>>>>>> Stashed changes:src/Model/ProductCollectionsCreateResponseBodyFilter.php
         }
         $this->container['object'] = $object;
 

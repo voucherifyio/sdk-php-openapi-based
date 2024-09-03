@@ -60,8 +60,9 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\CampaignsUpdateRequestBodyValidityTimeframe',
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
         'description' => 'string',
         'category' => 'string',
         'metadata' => 'object',
@@ -93,6 +94,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
+        'validity_hours' => null,
         'description' => null,
         'category' => null,
         'metadata' => null,
@@ -118,27 +120,28 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'start_date' => false,
-		'expiration_date' => false,
+        'start_date' => true,
+		'expiration_date' => true,
 		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
-		'description' => false,
-		'category' => false,
-		'metadata' => false,
+		'validity_day_of_week' => true,
+		'validity_hours' => false,
+		'description' => true,
+		'category' => true,
+		'metadata' => true,
 		'unset_metadata_fields' => true,
-		'category_id' => false,
-		'activity_duration_after_publishing' => false,
-		'join_once' => false,
-		'auto_join' => false,
-		'type' => false,
-		'discount' => false,
+		'category_id' => true,
+		'activity_duration_after_publishing' => true,
+		'join_once' => true,
+		'auto_join' => true,
+		'type' => true,
+		'discount' => true,
 		'referral_program' => false,
 		'gift' => false,
 		'loyalty_tiers_expiration' => false,
-		'options' => false,
-		'winners_count' => false,
-		'unique_winners_per_draw' => false,
-		'unique_winners' => false
+		'options' => true,
+		'winners_count' => true,
+		'unique_winners_per_draw' => true,
+		'unique_winners' => true
     ];
 
     /**
@@ -231,6 +234,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours',
         'description' => 'description',
         'category' => 'category',
         'metadata' => 'metadata',
@@ -260,6 +264,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours',
         'description' => 'setDescription',
         'category' => 'setCategory',
         'metadata' => 'setMetadata',
@@ -289,6 +294,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours',
         'description' => 'getDescription',
         'category' => 'getCategory',
         'metadata' => 'getMetadata',
@@ -349,8 +355,33 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const VALIDITY_DAY_OF_WEEK_0 = 0;
+    public const VALIDITY_DAY_OF_WEEK_1 = 1;
+    public const VALIDITY_DAY_OF_WEEK_2 = 2;
+    public const VALIDITY_DAY_OF_WEEK_3 = 3;
+    public const VALIDITY_DAY_OF_WEEK_4 = 4;
+    public const VALIDITY_DAY_OF_WEEK_5 = 5;
+    public const VALIDITY_DAY_OF_WEEK_6 = 6;
     public const TYPE_AUTO_UPDATE = 'AUTO_UPDATE';
     public const TYPE__STATIC = 'STATIC';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValidityDayOfWeekAllowableValues()
+    {
+        return [
+            self::VALIDITY_DAY_OF_WEEK_0,
+            self::VALIDITY_DAY_OF_WEEK_1,
+            self::VALIDITY_DAY_OF_WEEK_2,
+            self::VALIDITY_DAY_OF_WEEK_3,
+            self::VALIDITY_DAY_OF_WEEK_4,
+            self::VALIDITY_DAY_OF_WEEK_5,
+            self::VALIDITY_DAY_OF_WEEK_6,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -384,6 +415,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
@@ -474,7 +506,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -501,7 +540,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -511,7 +557,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\CampaignsUpdateRequestBodyValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -521,7 +567,7 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\CampaignsUpdateRequestBodyValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -548,16 +594,59 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_day_of_week
      *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the campaign is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getValidityDayOfWeekAllowableValues();
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'validity_day_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }
@@ -582,7 +671,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -609,7 +705,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -636,7 +739,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -697,7 +807,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 
@@ -724,7 +841,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setActivityDurationAfterPublishing($activity_duration_after_publishing)
     {
         if (is_null($activity_duration_after_publishing)) {
-            throw new \InvalidArgumentException('non-nullable activity_duration_after_publishing cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'activity_duration_after_publishing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('activity_duration_after_publishing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['activity_duration_after_publishing'] = $activity_duration_after_publishing;
 
@@ -751,7 +875,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setJoinOnce($join_once)
     {
         if (is_null($join_once)) {
-            throw new \InvalidArgumentException('non-nullable join_once cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'join_once');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('join_once', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['join_once'] = $join_once;
 
@@ -778,7 +909,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setAutoJoin($auto_join)
     {
         if (is_null($auto_join)) {
-            throw new \InvalidArgumentException('non-nullable auto_join cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'auto_join');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('auto_join', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['auto_join'] = $auto_join;
 
@@ -805,10 +943,17 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -842,7 +987,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setDiscount($discount)
     {
         if (is_null($discount)) {
-            throw new \InvalidArgumentException('non-nullable discount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount'] = $discount;
 
@@ -950,7 +1102,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setOptions($options)
     {
         if (is_null($options)) {
-            throw new \InvalidArgumentException('non-nullable options cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['options'] = $options;
 
@@ -977,7 +1136,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setWinnersCount($winners_count)
     {
         if (is_null($winners_count)) {
-            throw new \InvalidArgumentException('non-nullable winners_count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'winners_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('winners_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
@@ -1006,7 +1172,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setUniqueWinnersPerDraw($unique_winners_per_draw)
     {
         if (is_null($unique_winners_per_draw)) {
-            throw new \InvalidArgumentException('non-nullable unique_winners_per_draw cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_winners_per_draw');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_winners_per_draw', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unique_winners_per_draw'] = $unique_winners_per_draw;
 
@@ -1033,7 +1206,14 @@ class CampaignsUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSe
     public function setUniqueWinners($unique_winners)
     {
         if (is_null($unique_winners)) {
-            throw new \InvalidArgumentException('non-nullable unique_winners cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_winners');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_winners', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unique_winners'] = $unique_winners;
 

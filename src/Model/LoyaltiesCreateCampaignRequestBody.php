@@ -36,11 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesCreateCampaignRequestBody Class Doc Comment
  *
  * @category Class
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
- * @description Request body schema for creating a discount voucher campaign using **POST** &#x60;/campaigns&#x60;.
-=======
  * @description Request body schema for **POST** &#x60;/loyalties&#x60;.
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,17 +62,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'name' => 'string',
         'description' => 'string',
         'type' => 'string',
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'is_referral_code' => 'bool',
-        'voucher' => 'object',
-        'lucky_draw' => 'object',
-        'referral_program' => '\OpenAPI\Client\Model\ReferralProgram',
-        'auto_join' => 'bool',
-        'join_once' => 'bool',
-        'active' => 'bool',
-        'created_at' => '\DateTime',
-        'object' => 'string'
-=======
         'join_once' => 'bool',
         'auto_join' => 'bool',
         'use_voucher_metadata_schema' => 'bool',
@@ -93,7 +78,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'metadata' => 'object',
         'campaign_type' => 'string',
         'voucher' => '\OpenAPI\Client\Model\CampaignLoyaltyVoucher'
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -108,11 +92,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'description' => null,
         'type' => null,
         'join_once' => null,
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'active' => null,
-        'created_at' => 'date-time',
-        'object' => null
-=======
         'auto_join' => null,
         'use_voucher_metadata_schema' => null,
         'vouchers_count' => null,
@@ -128,7 +107,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'metadata' => null,
         'campaign_type' => null,
         'voucher' => null
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -137,21 +115,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'id' => false,
-		'name' => false,
-		'campaign_type' => false,
-		'type' => false,
-		'is_referral_code' => false,
-		'voucher' => false,
-		'lucky_draw' => false,
-		'referral_program' => false,
-		'auto_join' => false,
-		'join_once' => false,
-		'active' => false,
-		'created_at' => false,
-		'object' => false
-=======
         'name' => true,
 		'description' => true,
 		'type' => true,
@@ -171,7 +134,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
 		'metadata' => true,
 		'campaign_type' => true,
 		'voucher' => false
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -264,11 +226,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'description' => 'description',
         'type' => 'type',
         'join_once' => 'join_once',
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'active' => 'active',
-        'created_at' => 'created_at',
-        'object' => 'object'
-=======
         'auto_join' => 'auto_join',
         'use_voucher_metadata_schema' => 'use_voucher_metadata_schema',
         'vouchers_count' => 'vouchers_count',
@@ -284,7 +241,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'metadata' => 'metadata',
         'campaign_type' => 'campaign_type',
         'voucher' => 'voucher'
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -297,11 +253,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'description' => 'setDescription',
         'type' => 'setType',
         'join_once' => 'setJoinOnce',
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'active' => 'setActive',
-        'created_at' => 'setCreatedAt',
-        'object' => 'setObject'
-=======
         'auto_join' => 'setAutoJoin',
         'use_voucher_metadata_schema' => 'setUseVoucherMetadataSchema',
         'vouchers_count' => 'setVouchersCount',
@@ -317,7 +268,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'metadata' => 'setMetadata',
         'campaign_type' => 'setCampaignType',
         'voucher' => 'setVoucher'
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -330,11 +280,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'description' => 'getDescription',
         'type' => 'getType',
         'join_once' => 'getJoinOnce',
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        'active' => 'getActive',
-        'created_at' => 'getCreatedAt',
-        'object' => 'getObject'
-=======
         'auto_join' => 'getAutoJoin',
         'use_voucher_metadata_schema' => 'getUseVoucherMetadataSchema',
         'vouchers_count' => 'getVouchersCount',
@@ -350,7 +295,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         'metadata' => 'getMetadata',
         'campaign_type' => 'getCampaignType',
         'voucher' => 'getVoucher'
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     ];
 
     /**
@@ -467,11 +411,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('join_once', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'campaign');
-=======
         $this->setIfExists('auto_join', $data ?? [], null);
         $this->setIfExists('use_voucher_metadata_schema', $data ?? [], null);
         $this->setIfExists('vouchers_count', $data ?? [], null);
@@ -487,7 +426,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('campaign_type', $data ?? [], 'LOYALTY_PROGRAM');
         $this->setIfExists('voucher', $data ?? [], null);
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
     }
 
     /**
@@ -555,36 +493,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
 
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Campaign name.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
      * Gets name
      *
      * @return string|null
@@ -604,7 +512,14 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -630,10 +545,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
      */
     public function setDescription($description)
     {
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        if (is_null($campaign_type)) {
-            throw new \InvalidArgumentException('non-nullable campaign_type cannot be null');
-=======
         if (is_null($description)) {
             array_push($this->openAPINullablesSetToNull, 'description');
         } else {
@@ -643,7 +554,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
         }
         $this->container['description'] = $description;
 
@@ -670,10 +580,17 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -688,144 +605,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-     * Gets is_referral_code
-     *
-     * @return bool|null
-     */
-    public function getIsReferralCode()
-    {
-        return $this->container['is_referral_code'];
-    }
-
-    /**
-     * Sets is_referral_code
-     *
-     * @param bool|null $is_referral_code Flag indicating whether this voucher is a referral code; `true` for campaign type `REFERRAL_PROGRAM`.
-     *
-     * @return self
-     */
-    public function setIsReferralCode($is_referral_code)
-    {
-        if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
-        }
-        $this->container['is_referral_code'] = $is_referral_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets voucher
-     *
-     * @return object|null
-     */
-    public function getVoucher()
-    {
-        return $this->container['voucher'];
-    }
-
-    /**
-     * Sets voucher
-     *
-     * @param object|null $voucher voucher
-     *
-     * @return self
-     */
-    public function setVoucher($voucher)
-    {
-        if (is_null($voucher)) {
-            throw new \InvalidArgumentException('non-nullable voucher cannot be null');
-        }
-        $this->container['voucher'] = $voucher;
-
-        return $this;
-    }
-
-    /**
-     * Gets lucky_draw
-     *
-     * @return object|null
-     */
-    public function getLuckyDraw()
-    {
-        return $this->container['lucky_draw'];
-    }
-
-    /**
-     * Sets lucky_draw
-     *
-     * @param object|null $lucky_draw lucky_draw
-     *
-     * @return self
-     */
-    public function setLuckyDraw($lucky_draw)
-    {
-        if (is_null($lucky_draw)) {
-            throw new \InvalidArgumentException('non-nullable lucky_draw cannot be null');
-        }
-        $this->container['lucky_draw'] = $lucky_draw;
-
-        return $this;
-    }
-
-    /**
-     * Gets referral_program
-     *
-     * @return \OpenAPI\Client\Model\ReferralProgram|null
-     */
-    public function getReferralProgram()
-    {
-        return $this->container['referral_program'];
-    }
-
-    /**
-     * Sets referral_program
-     *
-     * @param \OpenAPI\Client\Model\ReferralProgram|null $referral_program referral_program
-     *
-     * @return self
-     */
-    public function setReferralProgram($referral_program)
-    {
-        if (is_null($referral_program)) {
-            throw new \InvalidArgumentException('non-nullable referral_program cannot be null');
-        }
-        $this->container['referral_program'] = $referral_program;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_join
-     *
-     * @return bool|null
-     */
-    public function getAutoJoin()
-    {
-        return $this->container['auto_join'];
-    }
-
-    /**
-     * Sets auto_join
-     *
-     * @param bool|null $auto_join Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
-     *
-     * @return self
-     */
-    public function setAutoJoin($auto_join)
-    {
-        if (is_null($auto_join)) {
-            throw new \InvalidArgumentException('non-nullable auto_join cannot be null');
-        }
-        $this->container['auto_join'] = $auto_join;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
      * Gets join_once
      *
      * @return bool|null
@@ -845,7 +624,14 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     public function setJoinOnce($join_once)
     {
         if (is_null($join_once)) {
-            throw new \InvalidArgumentException('non-nullable join_once cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'join_once');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('join_once', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['join_once'] = $join_once;
 
@@ -865,20 +651,12 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     /**
      * Sets auto_join
      *
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-     * @param bool|null $active Indicates whether campaign is active
-=======
      * @param bool|null $auto_join Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
      *
      * @return self
      */
     public function setAutoJoin($auto_join)
     {
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-=======
         if (is_null($auto_join)) {
             array_push($this->openAPINullablesSetToNull, 'auto_join');
         } else {
@@ -888,7 +666,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
         }
         $this->container['auto_join'] = $auto_join;
 
@@ -896,9 +673,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-     * Gets created_at
-=======
      * Gets use_voucher_metadata_schema
      *
      * @return bool|null
@@ -1063,7 +837,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
 
     /**
      * Gets validity_day_of_week
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
      *
      * @return int[]|null
      */
@@ -1075,50 +848,12 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
     /**
      * Sets validity_day_of_week
      *
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the campaign was created in ISO 8601 format.
-=======
      * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
-<<<<<<< Updated upstream:src/Model/SimpleCampaign.php
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object The type of object represented by JSON. This object stores information about the campaign.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-=======
         if (is_null($validity_day_of_week)) {
             array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
         } else {
@@ -1131,7 +866,6 @@ class LoyaltiesCreateCampaignRequestBody implements ModelInterface, ArrayAccess,
         }
         $allowedValues = $this->getValidityDayOfWeekAllowableValues();
         if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
->>>>>>> Stashed changes:src/Model/LoyaltiesCreateCampaignRequestBody.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'validity_day_of_week', must be one of '%s'",

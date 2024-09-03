@@ -81,8 +81,8 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'id' => false
+        'type' => true,
+		'id' => true
     ];
 
     /**
@@ -296,9 +296,6 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -308,9 +305,6 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
             );
         }
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -329,7 +323,7 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -339,17 +333,24 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
     /**
      * Sets type
      *
-     * @param string $type The object being modified, i.e. `voucher`.
+     * @param string|null $type The object being modified, i.e. `voucher`.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -366,7 +367,7 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -376,14 +377,21 @@ class VouchersBalanceUpdateResponseBodyRelatedObject implements ModelInterface, 
     /**
      * Sets id
      *
-     * @param string $id Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
+     * @param string|null $id Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

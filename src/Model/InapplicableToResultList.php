@@ -84,10 +84,10 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false,
-		'total' => false,
-		'object' => false,
-		'data_ref' => false
+        'data' => true,
+		'total' => true,
+		'object' => true,
+		'data_ref' => true
     ];
 
     /**
@@ -322,19 +322,10 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if (($this->container['total'] < 0)) {
+        if (!is_null($this->container['total']) && ($this->container['total'] < 0)) {
             $invalidProperties[] = "invalid value for 'total', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -344,9 +335,6 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
         $allowedValues = $this->getDataRefAllowableValues();
         if (!is_null($this->container['data_ref']) && !in_array($this->container['data_ref'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -374,7 +362,7 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\InapplicableTo[]
+     * @return \OpenAPI\Client\Model\InapplicableTo[]|null
      */
     public function getData()
     {
@@ -384,14 +372,21 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\InapplicableTo[] $data Contains array of items to which the discount cannot apply.
+     * @param \OpenAPI\Client\Model\InapplicableTo[]|null $data Contains array of items to which the discount cannot apply.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -401,7 +396,7 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -411,17 +406,24 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets total
      *
-     * @param int $total Total number of objects defining included products, SKUs, or product collections.
+     * @param int|null $total Total number of objects defining included products, SKUs, or product collections.
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($total < 0)) {
+        if (!is_null($total) && ($total < 0)) {
             throw new \InvalidArgumentException('invalid value for $total when calling InapplicableToResultList., must be bigger than or equal to 0.');
         }
 
@@ -433,7 +435,7 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -443,17 +445,24 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -470,7 +479,7 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -480,17 +489,24 @@ class InapplicableToResultList implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data_ref
      *
-     * @param string $data_ref The type of object represented by JSON.
+     * @param string|null $data_ref The type of the object represented by JSON.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDataRefAllowableValues();
-        if (!in_array($data_ref, $allowedValues, true)) {
+        if (!is_null($data_ref) && !in_array($data_ref, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'data_ref', must be one of '%s'",

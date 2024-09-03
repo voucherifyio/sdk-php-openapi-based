@@ -79,7 +79,7 @@ class VoucherTransactionDetailsEarningRuleSource implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'banner' => false
+        'banner' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class VoucherTransactionDetailsEarningRuleSource implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        if ($this->container['banner'] === null) {
-            $invalidProperties[] = "'banner' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class VoucherTransactionDetailsEarningRuleSource implements ModelInterface, Arra
     /**
      * Gets banner
      *
-     * @return string
+     * @return string|null
      */
     public function getBanner()
     {
@@ -307,14 +304,21 @@ class VoucherTransactionDetailsEarningRuleSource implements ModelInterface, Arra
     /**
      * Sets banner
      *
-     * @param string $banner Name of the earning rule. This is displayed as a header for the earning rule in the Dashboard.
+     * @param string|null $banner Name of the earning rule. This is displayed as a header for the earning rule in the Dashboard.
      *
      * @return self
      */
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 

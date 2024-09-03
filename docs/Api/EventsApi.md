@@ -5,7 +5,6 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**trackCustomEvent()**](EventsApi.md#trackCustomEvent) | **POST** /v1/events | Track Custom Event |
-| [**trackCustomEventClientSide()**](EventsApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side) |
 
 
 ## `trackCustomEvent()`
@@ -16,7 +15,7 @@ trackCustomEvent($events_create_request_body): \OpenAPI\Client\Model\EventsCreat
 
 Track Custom Event
 
-To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn't exist in Voucherify, the customer will be created.
+To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
 
 ### Example
 
@@ -65,75 +64,6 @@ try {
 ### Authorization
 
 [X-App-Id](../../README.md#X-App-Id), [X-App-Token](../../README.md#X-App-Token)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `trackCustomEventClientSide()`
-
-```php
-trackCustomEventClientSide($origin, $client_events_create_request_body): \OpenAPI\Client\Model\ClientEventsCreateResponseBody
-```
-
-Track Custom Event (client-side)
-
-To track a custom event, you create an event object.    The event object must be linked to the customer who performs the action. If a customer doesn't exist in Voucherify, the customer will be created.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: X-Client-Application-Id
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Application-Id', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Application-Id', 'Bearer');
-
-// Configure API key authorization: X-Client-Token
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Token', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EventsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$origin = 'origin_example'; // string | Indicates the origin (scheme, hostname, and port).
-$client_events_create_request_body = {"event":"user_subscribed","customer":{"source_id":"source_customer_event"},"referral":{"code":"46jL0kYI","referrer_id":"cust_Vzck5i8U3OhcEUFY6MKhN9Rv"},"metadata":{"login":"bob","pricing_plan":"PP1","volume_number":4}}; // \OpenAPI\Client\Model\ClientEventsCreateRequestBody | Specify the details of the custom event.
-
-try {
-    $result = $apiInstance->trackCustomEventClientSide($origin, $client_events_create_request_body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EventsApi->trackCustomEventClientSide: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **origin** | **string**| Indicates the origin (scheme, hostname, and port). | |
-| **client_events_create_request_body** | [**\OpenAPI\Client\Model\ClientEventsCreateRequestBody**](../Model/ClientEventsCreateRequestBody.md)| Specify the details of the custom event. | [optional] |
-
-### Return type
-
-[**\OpenAPI\Client\Model\ClientEventsCreateResponseBody**](../Model/ClientEventsCreateResponseBody.md)
-
-### Authorization
-
-[X-Client-Application-Id](../../README.md#X-Client-Application-Id), [X-Client-Token](../../README.md#X-Client-Token)
 
 ### HTTP request headers
 

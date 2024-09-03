@@ -82,9 +82,9 @@ class ValidationRuleApplicableTo implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'excluded' => false,
-		'included' => false,
-		'included_all' => false
+        'excluded' => true,
+		'included' => true,
+		'included_all' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class ValidationRuleApplicableTo implements ModelInterface, ArrayAccess, \JsonSe
     public function setExcluded($excluded)
     {
         if (is_null($excluded)) {
-            throw new \InvalidArgumentException('non-nullable excluded cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'excluded');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('excluded', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['excluded'] = $excluded;
 
@@ -351,7 +358,14 @@ class ValidationRuleApplicableTo implements ModelInterface, ArrayAccess, \JsonSe
     public function setIncluded($included)
     {
         if (is_null($included)) {
-            throw new \InvalidArgumentException('non-nullable included cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'included');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('included', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['included'] = $included;
 
@@ -378,7 +392,14 @@ class ValidationRuleApplicableTo implements ModelInterface, ArrayAccess, \JsonSe
     public function setIncludedAll($included_all)
     {
         if (is_null($included_all)) {
-            throw new \InvalidArgumentException('non-nullable included_all cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'included_all');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('included_all', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['included_all'] = $included_all;
 

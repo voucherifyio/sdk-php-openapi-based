@@ -67,17 +67,13 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'category_id' => 'string',
         'type' => 'string',
         'discount' => '\OpenAPI\Client\Model\Discount',
-<<<<<<< Updated upstream
-        'gift' => '\OpenAPI\Client\Model\VoucherGift',
-        'loyalty_card' => '\OpenAPI\Client\Model\VoucherLoyaltyCard',
-=======
         'gift' => '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyGift',
         'loyalty_card' => '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyLoyaltyCard',
->>>>>>> Stashed changes
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\VoucherValidityTimeframe',
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
         'active' => 'bool',
         'additional_info' => 'string',
         'metadata' => 'object',
@@ -86,20 +82,12 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'holder_id' => 'string',
-        'holder' => '\OpenAPI\Client\Model\SimpleCustomer',
+        'referrer_id' => 'string',
         'object' => 'string',
-<<<<<<< Updated upstream
-        'distributions' => 'object[]',
-        'deleted' => 'bool',
-        'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList',
-        'publish' => '\OpenAPI\Client\Model\VoucherPublish',
-        'redemption' => '\OpenAPI\Client\Model\VoucherRedemption'
-=======
         'publish' => '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyPublish',
         'redemption' => '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyRedemption',
         'categories' => '\OpenAPI\Client\Model\Category[]',
         'validation_rules_assignments' => '\OpenAPI\Client\Model\ValidationRulesAssignmentsList'
->>>>>>> Stashed changes
     ];
 
     /**
@@ -124,6 +112,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
+        'validity_hours' => null,
         'active' => null,
         'additional_info' => null,
         'metadata' => null,
@@ -132,14 +121,8 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'holder_id' => null,
-        'holder' => null,
+        'referrer_id' => null,
         'object' => null,
-<<<<<<< Updated upstream
-        'distributions' => null,
-        'deleted' => null,
-        'validation_rules_assignments' => null,
-=======
->>>>>>> Stashed changes
         'publish' => null,
         'redemption' => null,
         'categories' => null,
@@ -152,16 +135,6 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'id' => false,
-		'code' => false,
-		'campaign' => false,
-		'campaign_id' => false,
-		'category' => false,
-		'category_id' => false,
-		'categories' => false,
-		'type' => false,
-=======
         'id' => true,
 		'code' => true,
 		'campaign' => true,
@@ -169,31 +142,19 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
 		'category' => true,
 		'category_id' => true,
 		'type' => true,
->>>>>>> Stashed changes
 		'discount' => false,
-		'gift' => false,
-		'loyalty_card' => false,
-		'start_date' => false,
-		'expiration_date' => false,
+		'gift' => true,
+		'loyalty_card' => true,
+		'start_date' => true,
+		'expiration_date' => true,
 		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
+		'validity_day_of_week' => true,
+		'validity_hours' => false,
 		'active' => true,
-		'additional_info' => false,
-		'metadata' => false,
+		'additional_info' => true,
+		'metadata' => true,
 		'assets' => false,
 		'is_referral_code' => true,
-<<<<<<< Updated upstream
-		'created_at' => false,
-		'updated_at' => false,
-		'holder_id' => false,
-		'holder' => false,
-		'object' => false,
-		'distributions' => false,
-		'deleted' => false,
-		'validation_rules_assignments' => false,
-		'publish' => false,
-		'redemption' => false
-=======
 		'created_at' => true,
 		'updated_at' => true,
 		'holder_id' => true,
@@ -203,7 +164,6 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
 		'redemption' => true,
 		'categories' => true,
 		'validation_rules_assignments' => false
->>>>>>> Stashed changes
     ];
 
     /**
@@ -306,6 +266,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours',
         'active' => 'active',
         'additional_info' => 'additional_info',
         'metadata' => 'metadata',
@@ -314,14 +275,8 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'holder_id' => 'holder_id',
-        'holder' => 'holder',
+        'referrer_id' => 'referrer_id',
         'object' => 'object',
-<<<<<<< Updated upstream
-        'distributions' => 'distributions',
-        'deleted' => 'deleted',
-        'validation_rules_assignments' => 'validation_rules_assignments',
-=======
->>>>>>> Stashed changes
         'publish' => 'publish',
         'redemption' => 'redemption',
         'categories' => 'categories',
@@ -348,6 +303,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours',
         'active' => 'setActive',
         'additional_info' => 'setAdditionalInfo',
         'metadata' => 'setMetadata',
@@ -356,14 +312,8 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'holder_id' => 'setHolderId',
-        'holder' => 'setHolder',
+        'referrer_id' => 'setReferrerId',
         'object' => 'setObject',
-<<<<<<< Updated upstream
-        'distributions' => 'setDistributions',
-        'deleted' => 'setDeleted',
-        'validation_rules_assignments' => 'setValidationRulesAssignments',
-=======
->>>>>>> Stashed changes
         'publish' => 'setPublish',
         'redemption' => 'setRedemption',
         'categories' => 'setCategories',
@@ -390,6 +340,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours',
         'active' => 'getActive',
         'additional_info' => 'getAdditionalInfo',
         'metadata' => 'getMetadata',
@@ -398,14 +349,8 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'holder_id' => 'getHolderId',
-        'holder' => 'getHolder',
+        'referrer_id' => 'getReferrerId',
         'object' => 'getObject',
-<<<<<<< Updated upstream
-        'distributions' => 'getDistributions',
-        'deleted' => 'getDeleted',
-        'validation_rules_assignments' => 'getValidationRulesAssignments',
-=======
->>>>>>> Stashed changes
         'publish' => 'getPublish',
         'redemption' => 'getRedemption',
         'categories' => 'getCategories',
@@ -525,6 +470,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('additional_info', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
@@ -533,14 +479,8 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('holder_id', $data ?? [], null);
-        $this->setIfExists('holder', $data ?? [], null);
+        $this->setIfExists('referrer_id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'voucher');
-<<<<<<< Updated upstream
-        $this->setIfExists('distributions', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
-        $this->setIfExists('validation_rules_assignments', $data ?? [], null);
-=======
->>>>>>> Stashed changes
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
         $this->setIfExists('categories', $data ?? [], null);
@@ -618,7 +558,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -645,7 +592,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -672,7 +626,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -699,7 +660,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -726,7 +694,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -753,7 +728,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setCategoryId($category_id)
     {
         if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category_id'] = $category_id;
 
@@ -761,36 +743,6 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets categories
-     *
-     * @return \OpenAPI\Client\Model\Category[]|null
-     */
-    public function getCategories()
-    {
-        return $this->container['categories'];
-    }
-
-    /**
-     * Sets categories
-     *
-     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
-     *
-     * @return self
-     */
-    public function setCategories($categories)
-    {
-        if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
-        }
-        $this->container['categories'] = $categories;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets type
      *
      * @return string|null
@@ -810,10 +762,17 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -857,11 +816,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Gets gift
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\VoucherGift|null
-=======
      * @return \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyGift|null
->>>>>>> Stashed changes
      */
     public function getGift()
     {
@@ -871,18 +826,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets gift
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\VoucherGift|null $gift gift
-=======
      * @param \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyGift|null $gift gift
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -892,11 +850,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty_card
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\VoucherLoyaltyCard|null
-=======
      * @return \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyLoyaltyCard|null
->>>>>>> Stashed changes
      */
     public function getLoyaltyCard()
     {
@@ -906,18 +860,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty_card
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\VoucherLoyaltyCard|null $loyalty_card loyalty_card
-=======
      * @param \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyLoyaltyCard|null $loyalty_card loyalty_card
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 
@@ -944,7 +901,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'start_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('start_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['start_date'] = $start_date;
 
@@ -971,7 +935,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -981,7 +952,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\VoucherValidityTimeframe|null
+     * @return \OpenAPI\Client\Model\ValidityTimeframe|null
      */
     public function getValidityTimeframe()
     {
@@ -991,7 +962,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\VoucherValidityTimeframe|null $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
      *
      * @return self
      */
@@ -1018,17 +989,24 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets validity_day_of_week
      *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validity_day_of_week', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getValidityDayOfWeekAllowableValues();
-        if (array_diff($validity_day_of_week, $allowedValues)) {
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'validity_day_of_week', must be one of '%s'",
@@ -1037,6 +1015,33 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
             );
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }
@@ -1095,7 +1100,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setAdditionalInfo($additional_info)
     {
         if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'additional_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('additional_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['additional_info'] = $additional_info;
 
@@ -1122,7 +1134,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -1203,14 +1222,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the voucher was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -1237,7 +1263,14 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -1257,18 +1290,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets holder_id
      *
-<<<<<<< Updated upstream
-     * @param string|null $holder_id Unique customer ID of voucher owner.
-=======
      * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setHolderId($holder_id)
     {
         if (is_null($holder_id)) {
-            throw new \InvalidArgumentException('non-nullable holder_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'holder_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['holder_id'] = $holder_id;
 
@@ -1276,28 +1312,35 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets holder
+     * Gets referrer_id
      *
-     * @return \OpenAPI\Client\Model\SimpleCustomer|null
+     * @return string|null
      */
-    public function getHolder()
+    public function getReferrerId()
     {
-        return $this->container['holder'];
+        return $this->container['referrer_id'];
     }
 
     /**
-     * Sets holder
+     * Sets referrer_id
      *
-     * @param \OpenAPI\Client\Model\SimpleCustomer|null $holder holder
+     * @param string|null $referrer_id Unique identifier of the referring person.
      *
      * @return self
      */
-    public function setHolder($holder)
+    public function setReferrerId($referrer_id)
     {
-        if (is_null($holder)) {
-            throw new \InvalidArgumentException('non-nullable holder cannot be null');
+        if (is_null($referrer_id)) {
+            array_push($this->openAPINullablesSetToNull, 'referrer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['holder'] = $holder;
+        $this->container['referrer_id'] = $referrer_id;
 
         return $this;
     }
@@ -1315,14 +1358,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON. Default is `voucher`.
+     * @param string|null $object The type of the object represented by JSON. Default is `voucher`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -1330,96 +1380,9 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets distributions
-     *
-     * @return object[]|null
-     */
-    public function getDistributions()
-    {
-        return $this->container['distributions'];
-    }
-
-    /**
-     * Sets distributions
-     *
-     * @param object[]|null $distributions distributions
-     *
-     * @return self
-     */
-    public function setDistributions($distributions)
-    {
-        if (is_null($distributions)) {
-            throw new \InvalidArgumentException('non-nullable distributions cannot be null');
-        }
-        $this->container['distributions'] = $distributions;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool|null
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool|null $deleted Flag indicating whether this voucher is deleted.
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            throw new \InvalidArgumentException('non-nullable deleted cannot be null');
-        }
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets validation_rules_assignments
-     *
-     * @return \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null
-     */
-    public function getValidationRulesAssignments()
-    {
-        return $this->container['validation_rules_assignments'];
-    }
-
-    /**
-     * Sets validation_rules_assignments
-     *
-     * @param \OpenAPI\Client\Model\ValidationRulesAssignmentsList|null $validation_rules_assignments validation_rules_assignments
-     *
-     * @return self
-     */
-    public function setValidationRulesAssignments($validation_rules_assignments)
-    {
-        if (is_null($validation_rules_assignments)) {
-            throw new \InvalidArgumentException('non-nullable validation_rules_assignments cannot be null');
-        }
-        $this->container['validation_rules_assignments'] = $validation_rules_assignments;
-
-        return $this;
-    }
-
-    /**
-     * Gets publish
-     *
-     * @return \OpenAPI\Client\Model\VoucherPublish|null
-=======
      * Gets publish
      *
      * @return \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyPublish|null
->>>>>>> Stashed changes
      */
     public function getPublish()
     {
@@ -1429,18 +1392,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets publish
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\VoucherPublish|null $publish publish
-=======
      * @param \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyPublish|null $publish publish
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setPublish($publish)
     {
         if (is_null($publish)) {
-            throw new \InvalidArgumentException('non-nullable publish cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'publish');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('publish', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['publish'] = $publish;
 
@@ -1450,11 +1416,7 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Gets redemption
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\VoucherRedemption|null
-=======
      * @return \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyRedemption|null
->>>>>>> Stashed changes
      */
     public function getRedemption()
     {
@@ -1464,18 +1426,21 @@ class CampaignsVouchersCreateResponseBody implements ModelInterface, ArrayAccess
     /**
      * Sets redemption
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\VoucherRedemption|null $redemption redemption
-=======
      * @param \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBodyRedemption|null $redemption redemption
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 

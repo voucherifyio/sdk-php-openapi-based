@@ -82,9 +82,9 @@ class EarningRuleLoyaltyOrder implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-		'total_amount' => false,
-		'metadata' => false
+        'amount' => true,
+		'total_amount' => true,
+		'metadata' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class EarningRuleLoyaltyOrder implements ModelInterface, ArrayAccess, \JsonSeria
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -351,7 +358,14 @@ class EarningRuleLoyaltyOrder implements ModelInterface, ArrayAccess, \JsonSeria
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -378,7 +392,14 @@ class EarningRuleLoyaltyOrder implements ModelInterface, ArrayAccess, \JsonSeria
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

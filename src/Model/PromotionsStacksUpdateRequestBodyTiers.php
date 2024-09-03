@@ -81,8 +81,8 @@ class PromotionsStacksUpdateRequestBodyTiers implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ids' => false,
-		'hierarchy_mode' => false
+        'ids' => true,
+		'hierarchy_mode' => true
     ];
 
     /**
@@ -340,7 +340,14 @@ class PromotionsStacksUpdateRequestBodyTiers implements ModelInterface, ArrayAcc
     public function setIds($ids)
     {
         if (is_null($ids)) {
-            throw new \InvalidArgumentException('non-nullable ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ids'] = $ids;
 
@@ -367,10 +374,17 @@ class PromotionsStacksUpdateRequestBodyTiers implements ModelInterface, ArrayAcc
     public function setHierarchyMode($hierarchy_mode)
     {
         if (is_null($hierarchy_mode)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy_mode cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hierarchy_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hierarchy_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getHierarchyModeAllowableValues();
-        if (!in_array($hierarchy_mode, $allowedValues, true)) {
+        if (!is_null($hierarchy_mode) && !in_array($hierarchy_mode, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'hierarchy_mode', must be one of '%s'",

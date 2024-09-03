@@ -89,21 +89,12 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-        'id' => false,
-		'source_id' => false,
-		'override' => false,
-		'name' => false,
-		'metadata' => false,
-		'price' => false
-=======
         'after' => true,
 		'before' => true,
 		'has_value' => true,
 		'is_unknown' => true,
 		'more_than' => true,
 		'less_than' => true
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
     ];
 
     /**
@@ -422,10 +413,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
      */
     public function setHasValue($has_value)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-=======
         if (is_null($has_value)) {
             array_push($this->openAPINullablesSetToNull, 'has_value');
         } else {
@@ -435,7 +422,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
         }
         $this->container['has_value'] = $has_value;
 
@@ -455,20 +441,12 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
     /**
      * Sets is_unknown
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-     * @param string|null $source_id The merchant’s product ID (if it is different than Voucherify's product ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
-=======
      * @param string|null $is_unknown Value is null. The value for this parameter is an empty string.
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
      *
      * @return self
      */
     public function setIsUnknown($is_unknown)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-=======
         if (is_null($is_unknown)) {
             array_push($this->openAPINullablesSetToNull, 'is_unknown');
         } else {
@@ -478,7 +456,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
         }
         $this->container['is_unknown'] = $is_unknown;
 
@@ -504,10 +481,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
      */
     public function setMoreThan($more_than)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-        if (is_null($override)) {
-            throw new \InvalidArgumentException('non-nullable override cannot be null');
-=======
         if (is_null($more_than)) {
             array_push($this->openAPINullablesSetToNull, 'more_than');
         } else {
@@ -517,7 +490,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
         }
         $this->container['more_than'] = $more_than;
 
@@ -543,66 +515,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
      */
     public function setLessThan($less_than)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemProduct.php
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return float|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param float|null $price Product price. A positive integer in the smallest currency unit (e.g. 100 cents for $1.00).
-     *
-     * @return self
-     */
-    public function setPrice($price)
-    {
-        if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
-        }
-        $this->container['price'] = $price;
-=======
         if (is_null($less_than)) {
             array_push($this->openAPINullablesSetToNull, 'less_than');
         } else {
@@ -614,7 +526,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAtConditions implements Mode
             }
         }
         $this->container['less_than'] = $less_than;
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAtConditions.php
 
         return $this;
     }

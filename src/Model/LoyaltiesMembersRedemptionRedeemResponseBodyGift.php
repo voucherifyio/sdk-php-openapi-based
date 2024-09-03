@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift
-========
  * LoyaltiesMembersRedemptionRedeemResponseBodyGift
->>>>>>>> Stashed changes:src/Model/LoyaltiesMembersRedemptionRedeemResponseBodyGift.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift Class Doc Comment
- *
- * @category Class
-========
  * LoyaltiesMembersRedemptionRedeemResponseBodyGift Class Doc Comment
  *
  * @category Class
  * @description Contains the amount subtracted from the gift card for the redemption.
->>>>>>>> Stashed changes:src/Model/LoyaltiesMembersRedemptionRedeemResponseBodyGift.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift.php
-class VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class LoyaltiesMembersRedemptionRedeemResponseBodyGift implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/LoyaltiesMembersRedemptionRedeemResponseBodyGift.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBodyGift implements ModelInterface
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift.php
-    protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemGift';
-========
     protected static $openAPIModelName = 'LoyaltiesMembersRedemptionRedeemResponseBodyGift';
->>>>>>>> Stashed changes:src/Model/LoyaltiesMembersRedemptionRedeemResponseBodyGift.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -97,7 +79,7 @@ class LoyaltiesMembersRedemptionRedeemResponseBodyGift implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false
+        'amount' => true
     ];
 
     /**
@@ -322,18 +304,21 @@ class LoyaltiesMembersRedemptionRedeemResponseBodyGift implements ModelInterface
     /**
      * Sets amount
      *
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemGift.php
-     * @param int|null $amount The amount subtracted from the gift card expressed as the smallest currency unit (e.g. 100 cents for $1.00).
-========
      * @param int|null $amount Amount subtracted from the gift card as a result of the redemption. The amount is expressed as the smallest currency unit (e.g. 100 cents for $1.00).
->>>>>>>> Stashed changes:src/Model/LoyaltiesMembersRedemptionRedeemResponseBodyGift.php
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 

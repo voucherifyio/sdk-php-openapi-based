@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Unique redemption ID. |
-**object** | **string** |  |
-**date** | **\DateTime** | Timestamp representing the date and time when the object was created in ISO 8601 format. |
-**customer_id** | **string** | Unique customer ID of the redeeming customer. |
-**tracking_id** | **string** | Hashed customer source ID. |
-**metadata** | **object** |  |
-**amount** | **int** | A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items&#39; amounts. | [optional]
-**redemption** | **string** | Unique redemption ID of the parent redemption. |
-**result** | **string** | Redemption result. |
-**status** | **string** |  |
+**id** | **string** |  | [optional]
+**object** | **string** |  | [optional]
+**date** | **\DateTime** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. | [optional]
+**customer_id** | **string** | Unique customer ID of the redeeming customer. | [optional]
+**tracking_id** | **string** | Hashed customer source ID. | [optional]
+**metadata** | **object** |  | [optional]
+**amount** | **int** | For gift cards, this is a positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the number of redeemed credits. For loyalty cards, this is the number of loyalty points used in the transaction. and For gift cards, this represents the number of the credits restored to the card in the rolledback redemption. The number is a negative integer in the smallest currency unit, e.g. -100 cents for $1.00 added back to the card. For loyalty cards, this represents the number of loyalty points restored to the card in the rolledback redemption. The number is a negative integer. | [optional]
+**redemption** | **string** | Unique redemption ID of the parent redemption. | [optional]
+**result** | **string** | Redemption result. | [optional]
+**status** | **string** |  | [optional]
 **related_redemptions** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions**](RedemptionsListResponseBodyRedemptionsItemRelatedRedemptions.md) |  | [optional]
 **failure_code** | **string** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. | [optional]
 **failure_message** | **string** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. | [optional]
-**order** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder**](RedemptionsListResponseBodyRedemptionsItemOrder.md) |  |
-**channel** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel**](RedemptionsListResponseBodyRedemptionsItemChannel.md) |  |
-**customer** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer**](RedemptionsListResponseBodyRedemptionsItemCustomer.md) |  |
-**related_object_type** | **string** | Defines the related object. |
-**related_object_id** | **string** | Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher. |
+**order** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemOrder**](RedemptionsListResponseBodyRedemptionsItemOrder.md) |  | [optional]
+**channel** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemChannel**](RedemptionsListResponseBodyRedemptionsItemChannel.md) |  | [optional]
+**customer** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemCustomer**](RedemptionsListResponseBodyRedemptionsItemCustomer.md) |  | [optional]
+**related_object_type** | **string** | Defines the related object. | [optional]
+**related_object_id** | **string** |  | [optional]
 **voucher** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemVoucher**](RedemptionsListResponseBodyRedemptionsItemVoucher.md) |  | [optional]
 **promotion_tier** | [**\OpenAPI\Client\Model\RedemptionsListResponseBodyRedemptionsItemPromotionTier**](RedemptionsListResponseBodyRedemptionsItemPromotionTier.md) |  | [optional]
 **reward** | [**\OpenAPI\Client\Model\RedemptionRewardResult**](RedemptionRewardResult.md) |  | [optional]

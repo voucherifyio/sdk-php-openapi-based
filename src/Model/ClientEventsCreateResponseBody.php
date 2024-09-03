@@ -89,8 +89,8 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'type' => false,
+        'object' => true,
+		'type' => true,
 		'customer' => false,
 		'referral' => true,
 		'loyalty' => true,
@@ -324,9 +324,6 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -336,17 +333,8 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
             );
         }
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         if ($this->container['customer'] === null) {
             $invalidProperties[] = "'customer' can't be null";
-        }
-        if ($this->container['referral'] === null) {
-            $invalidProperties[] = "'referral' can't be null";
-        }
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
         }
         return $invalidProperties;
     }
@@ -366,7 +354,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -376,17 +364,24 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets object
      *
-     * @param string $object The object represented is an `event`.
+     * @param string|null $object The object represented is an `event`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -403,7 +398,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -413,14 +408,21 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param string $type The event name.
+     * @param string|null $type The event name.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 
@@ -457,7 +459,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets referral
      *
-     * @return object
+     * @return object|null
      */
     public function getReferral()
     {
@@ -467,7 +469,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets referral
      *
-     * @param object $referral A `null` referral object.
+     * @param object|null $referral A `null` referral object.
      *
      * @return self
      */
@@ -491,7 +493,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets loyalty
      *
-     * @return object
+     * @return object|null
      */
     public function getLoyalty()
     {
@@ -501,7 +503,7 @@ class ClientEventsCreateResponseBody implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets loyalty
      *
-     * @param object $loyalty A `null` loyalty object.
+     * @param object|null $loyalty A `null` loyalty object.
      *
      * @return self
      */

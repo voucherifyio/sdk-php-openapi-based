@@ -81,8 +81,8 @@ class CreatePublicationCampaign implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'count' => false
+        'name' => true,
+		'count' => true
     ];
 
     /**
@@ -283,9 +283,6 @@ class CreatePublicationCampaign implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if (!is_null($this->container['count']) && ($this->container['count'] > 20)) {
             $invalidProperties[] = "invalid value for 'count', must be smaller than or equal to 20.";
         }
@@ -312,7 +309,7 @@ class CreatePublicationCampaign implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -322,14 +319,21 @@ class CreatePublicationCampaign implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets name
      *
-     * @param string $name Name of voucher's parent campaign or unique campaign ID that was assigned by Voucherify.
+     * @param string|null $name Name of voucher's parent campaign or unique campaign ID that was assigned by Voucherify.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -356,13 +360,20 @@ class CreatePublicationCampaign implements ModelInterface, ArrayAccess, \JsonSer
     public function setCount($count)
     {
         if (is_null($count)) {
-            throw new \InvalidArgumentException('non-nullable count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($count > 20)) {
+        if (!is_null($count) && ($count > 20)) {
             throw new \InvalidArgumentException('invalid value for $count when calling CreatePublicationCampaign., must be smaller than or equal to 20.');
         }
-        if (($count < 1)) {
+        if (!is_null($count) && ($count < 1)) {
             throw new \InvalidArgumentException('invalid value for $count when calling CreatePublicationCampaign., must be bigger than or equal to 1.');
         }
 

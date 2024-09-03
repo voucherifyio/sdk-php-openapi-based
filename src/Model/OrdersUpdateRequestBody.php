@@ -99,18 +99,6 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'status' => false,
-		'amount' => false,
-		'discount_amount' => false,
-		'initial_amount' => false,
-		'items' => false,
-		'customer' => false,
-		'customer_id' => false,
-		'referrer' => false,
-		'referrer_id' => false,
-		'metadata' => false
-=======
         'source_id' => true,
 		'status' => true,
 		'amount' => true,
@@ -122,7 +110,6 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
 		'referrer_id' => true,
 		'customer' => false,
 		'referrer' => false
->>>>>>> Stashed changes
     ];
 
     /**
@@ -456,10 +443,17 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -493,7 +487,14 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -501,36 +502,6 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets discount_amount
-     *
-     * @return int|null
-     */
-    public function getDiscountAmount()
-    {
-        return $this->container['discount_amount'];
-    }
-
-    /**
-     * Sets discount_amount
-     *
-     * @param int|null $discount_amount Sum of all order-level discounts applied to the order.
-     *
-     * @return self
-     */
-    public function setDiscountAmount($discount_amount)
-    {
-        if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
-        }
-        $this->container['discount_amount'] = $discount_amount;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets initial_amount
      *
      * @return int|null
@@ -550,7 +521,14 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
 
@@ -611,7 +589,14 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setItems($items)
     {
         if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items'] = $items;
 
@@ -637,37 +622,6 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setMetadata($metadata)
     {
-<<<<<<< Updated upstream
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
-        }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_id
-     *
-     * @return string|null
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string|null $customer_id Unique customer ID of the customer making the purchase.
-     *
-     * @return self
-     */
-    public function setCustomerId($customer_id)
-    {
-        if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
-=======
         if (is_null($metadata)) {
             array_push($this->openAPINullablesSetToNull, 'metadata');
         } else {
@@ -677,7 +631,6 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['metadata'] = $metadata;
 
@@ -738,7 +691,14 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
     public function setReferrerId($referrer_id)
     {
         if (is_null($referrer_id)) {
-            throw new \InvalidArgumentException('non-nullable referrer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referrer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referrer_id'] = $referrer_id;
 
@@ -764,13 +724,8 @@ class OrdersUpdateRequestBody implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCustomer($customer)
     {
-<<<<<<< Updated upstream
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-=======
         if (is_null($customer)) {
             throw new \InvalidArgumentException('non-nullable customer cannot be null');
->>>>>>> Stashed changes
         }
         $this->container['customer'] = $customer;
 

@@ -81,8 +81,8 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'source_id' => false
+        'id' => true,
+		'source_id' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -317,14 +311,21 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets id
      *
-     * @param string $id Unique order ID.
+     * @param string|null $id Unique order ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -334,7 +335,7 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -344,14 +345,21 @@ class VoucherTransactionDetailsOrder implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets source_id
      *
-     * @param string $source_id The merchant’s order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
+     * @param string|null $source_id The merchant's order ID if it is different from the Voucherify order ID. It is really useful in case of integration between multiple systems. It can be an order ID from CRM, database or 3rd party service.
      *
      * @return self
      */
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 

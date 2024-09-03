@@ -82,7 +82,7 @@ class ParameterFiltersListRedemptionsCustomerId implements ModelInterface, Array
       */
     protected static array $openAPINullables = [
         'conditions' => false,
-		'junction' => false
+		'junction' => true
     ];
 
     /**
@@ -369,10 +369,17 @@ class ParameterFiltersListRedemptionsCustomerId implements ModelInterface, Array
     public function setJunction($junction)
     {
         if (is_null($junction)) {
-            throw new \InvalidArgumentException('non-nullable junction cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'junction');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('junction', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getJunctionAllowableValues();
-        if (!in_array($junction, $allowedValues, true)) {
+        if (!is_null($junction) && !in_array($junction, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'junction', must be one of '%s'",

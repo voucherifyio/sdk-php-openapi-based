@@ -79,7 +79,7 @@ class PromotionsTiersGetResponseBodySummaryRedemptions implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_redeemed' => false
+        'total_redeemed' => true
     ];
 
     /**
@@ -311,7 +311,14 @@ class PromotionsTiersGetResponseBodySummaryRedemptions implements ModelInterface
     public function setTotalRedeemed($total_redeemed)
     {
         if (is_null($total_redeemed)) {
-            throw new \InvalidArgumentException('non-nullable total_redeemed cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_redeemed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_redeemed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_redeemed'] = $total_redeemed;
 

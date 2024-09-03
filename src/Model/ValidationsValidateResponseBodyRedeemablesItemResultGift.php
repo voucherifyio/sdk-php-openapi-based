@@ -79,7 +79,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultGift implements ModelI
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'credits' => false
+        'credits' => true
     ];
 
     /**
@@ -311,7 +311,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultGift implements ModelI
     public function setCredits($credits)
     {
         if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'credits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('credits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['credits'] = $credits;
 

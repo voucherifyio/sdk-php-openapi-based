@@ -79,7 +79,7 @@ class EarningRuleCustomEvent implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'schema_id' => false
+        'schema_id' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class EarningRuleCustomEvent implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['schema_id'] === null) {
-            $invalidProperties[] = "'schema_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class EarningRuleCustomEvent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets schema_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSchemaId()
     {
@@ -307,18 +304,21 @@ class EarningRuleCustomEvent implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets schema_id
      *
-<<<<<<< Updated upstream:src/Model/EarningRuleBaseCustomEvent.php
-     * @param string $schema_id schema_id
-=======
      * @param string|null $schema_id Unique identifier of the custom event schema
->>>>>>> Stashed changes:src/Model/EarningRuleCustomEvent.php
      *
      * @return self
      */
     public function setSchemaId($schema_id)
     {
         if (is_null($schema_id)) {
-            throw new \InvalidArgumentException('non-nullable schema_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'schema_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('schema_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['schema_id'] = $schema_id;
 

@@ -95,17 +95,6 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
-		'address' => true,
-		'metadata' => false,
-		'source_id' => false
-=======
         'source_id' => true,
 		'name' => true,
 		'description' => true,
@@ -115,7 +104,6 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
 		'birthdate' => true,
 		'address' => true,
 		'metadata' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -344,9 +332,6 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -416,7 +401,14 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -443,7 +435,14 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -470,7 +469,14 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setEmail($email)
     {
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['email'] = $email;
 
@@ -497,7 +503,14 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setPhone($phone)
     {
         if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['phone'] = $phone;
 
@@ -517,14 +530,21 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     /**
      * Sets birthday
      *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
+     * @param \DateTime|null $birthday `Deprecated`. ~~Customer's birthdate; format YYYY-MM-DD~~.
      *
      * @return self
      */
     public function setBirthday($birthday)
     {
         if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthday');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthday', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthday'] = $birthday;
 
@@ -551,7 +571,14 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setBirthdate($birthdate)
     {
         if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthdate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthdate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthdate'] = $birthdate;
 
@@ -612,42 +639,19 @@ class CustomersUpdateInBulkRequestBody implements ModelInterface, ArrayAccess, \
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
         return $this;
     }
-<<<<<<< Updated upstream
-
-    /**
-     * Gets source_id
-     *
-     * @return string
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string $source_id Unique customer source ID.
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

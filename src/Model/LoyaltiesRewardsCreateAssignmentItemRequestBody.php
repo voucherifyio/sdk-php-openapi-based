@@ -82,14 +82,9 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ExportOrderBase.php
-        'exported_object' => false,
-		'parameters' => false
-=======
         'reward' => true,
 		'parameters' => true,
 		'validation_rules' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsCreateAssignmentItemRequestBody.php
     ];
 
     /**
@@ -294,21 +289,6 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/ExportOrderBase.php
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'exported_object', must be one of '%s'",
-                $this->container['exported_object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-=======
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsCreateAssignmentItemRequestBody.php
         return $invalidProperties;
     }
 
@@ -327,7 +307,7 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
     /**
      * Gets reward
      *
-     * @return string
+     * @return string|null
      */
     public function getReward()
     {
@@ -337,32 +317,12 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
     /**
      * Sets reward
      *
-<<<<<<< Updated upstream:src/Model/ExportOrderBase.php
-     * @param string $exported_object The type of object to be exported.
-=======
      * @param string|null $reward The ID of the reward that will be assigned to the campaign.
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsCreateAssignmentItemRequestBody.php
      *
      * @return self
      */
     public function setReward($reward)
     {
-<<<<<<< Updated upstream:src/Model/ExportOrderBase.php
-        if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'exported_object', must be one of '%s'",
-                    $exported_object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['exported_object'] = $exported_object;
-=======
         if (is_null($reward)) {
             array_push($this->openAPINullablesSetToNull, 'reward');
         } else {
@@ -374,7 +334,6 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
             }
         }
         $this->container['reward'] = $reward;
->>>>>>> Stashed changes:src/Model/LoyaltiesRewardsCreateAssignmentItemRequestBody.php
 
         return $this;
     }
@@ -399,7 +358,14 @@ class LoyaltiesRewardsCreateAssignmentItemRequestBody implements ModelInterface,
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 

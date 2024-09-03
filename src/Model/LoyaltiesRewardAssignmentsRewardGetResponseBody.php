@@ -99,15 +99,15 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'name' => false,
+        'id' => true,
+		'name' => true,
 		'stock' => true,
 		'redeemed' => true,
-		'attributes' => false,
-		'metadata' => false,
-		'type' => false,
+		'attributes' => true,
+		'metadata' => true,
+		'type' => true,
 		'parameters' => false,
-		'created_at' => false,
+		'created_at' => true,
 		'updated_at' => true,
 		'object' => false
     ];
@@ -376,24 +376,6 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['stock'] === null) {
-            $invalidProperties[] = "'stock' can't be null";
-        }
-        if ($this->container['redeemed'] === null) {
-            $invalidProperties[] = "'redeemed' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -403,12 +385,6 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
         if ($this->container['object'] === null) {
             $invalidProperties[] = "'object' can't be null";
         }
@@ -439,7 +415,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -449,14 +425,21 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets id
      *
-     * @param string $id Unique reward ID, assigned by Voucherify.
+     * @param string|null $id Unique reward ID, assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -466,7 +449,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -476,14 +459,21 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets name
      *
-     * @param string $name Reward name.
+     * @param string|null $name Reward name.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -493,7 +483,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets stock
      *
-     * @return int
+     * @return int|null
      */
     public function getStock()
     {
@@ -503,7 +493,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets stock
      *
-     * @param int $stock Configurable for **material rewards**. The number of units of the product that you want to share as reward.
+     * @param int|null $stock Configurable for **material rewards**. The number of units of the product that you want to share as reward.
      *
      * @return self
      */
@@ -527,7 +517,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets redeemed
      *
-     * @return int
+     * @return int|null
      */
     public function getRedeemed()
     {
@@ -537,7 +527,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets redeemed
      *
-     * @param int $redeemed Defines the number of already invoked (successful) reward redemptions.
+     * @param int|null $redeemed Defines the number of already invoked (successful) reward redemptions.
      *
      * @return self
      */
@@ -578,7 +568,14 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     public function setAttributes($attributes)
     {
         if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['attributes'] = $attributes;
 
@@ -588,7 +585,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -598,14 +595,21 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -615,7 +619,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -625,17 +629,24 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets type
      *
-     * @param string $type Reward type.
+     * @param string|null $type Reward type.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -679,7 +690,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -689,14 +700,21 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the reward was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -706,7 +724,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Gets updated_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -716,7 +734,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at Timestamp representing the date and time when the reward was updated in ISO 8601 format.
+     * @param \DateTime|null $updated_at Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
@@ -750,7 +768,7 @@ class LoyaltiesRewardAssignmentsRewardGetResponseBody implements ModelInterface,
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by the JSON. This object stores information about the reward.
+     * @param string $object The type of the object represented by the JSON. This object stores information about the reward.
      *
      * @return self
      */

@@ -78,7 +78,7 @@ class RedemptionsGetResponseBodyLoyaltyCard implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false
+        'points' => true
     ];
 
     /**
@@ -303,14 +303,21 @@ class RedemptionsGetResponseBodyLoyaltyCard implements ModelInterface, ArrayAcce
     /**
      * Sets points
      *
-     * @param int|null $points Number of points being added back to the loyalty card for the reward redemption rollback.
+     * @param int|null $points Number of points subtracted from the loyalty card as a result of the redemption. and Number of points being returned to the loyalty card for the reward redemption rollback. It is expressed as a negative integer.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

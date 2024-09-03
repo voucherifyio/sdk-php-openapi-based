@@ -95,12 +95,12 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'created_at' => false,
-		'status' => false,
-		'channel' => false,
-		'exported_object' => false,
+        'id' => true,
+		'object' => true,
+		'created_at' => true,
+		'status' => true,
+		'channel' => true,
+		'exported_object' => true,
 		'parameters' => false,
 		'result' => true,
 		'user_id' => true
@@ -371,12 +371,6 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -386,12 +380,6 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -401,12 +389,6 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
             );
         }
 
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
         $allowedValues = $this->getExportedObjectAllowableValues();
         if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -418,12 +400,6 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
 
         if ($this->container['parameters'] === null) {
             $invalidProperties[] = "'parameters' can't be null";
-        }
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -443,7 +419,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -453,14 +429,21 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets id
      *
-     * @param string $id Unique export ID.
+     * @param string|null $id Unique export ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -470,7 +453,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -480,17 +463,24 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets object
      *
-     * @param string $object The type of object being represented. This object stores information about the `export`.
+     * @param string|null $object The type of object being represented. This object stores information about the `export`.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -507,7 +497,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -517,14 +507,21 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the export was scheduled in ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -534,7 +531,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -544,17 +541,24 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets status
      *
-     * @param string $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
+     * @param string|null $status Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -571,7 +575,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets channel
      *
-     * @return string
+     * @return string|null
      */
     public function getChannel()
     {
@@ -581,14 +585,21 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets channel
      *
-     * @param string $channel The channel through which the export was triggered.
+     * @param string|null $channel The channel through which the export was triggered.
      *
      * @return self
      */
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel'] = $channel;
 
@@ -598,7 +609,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets exported_object
      *
-     * @return string
+     * @return string|null
      */
     public function getExportedObject()
     {
@@ -608,17 +619,24 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets exported_object
      *
-     * @param string $exported_object The type of exported object.
+     * @param string|null $exported_object The type of exported object.
      *
      * @return self
      */
     public function setExportedObject($exported_object)
     {
         if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exported_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exported_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
+        if (!is_null($exported_object) && !in_array($exported_object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'exported_object', must be one of '%s'",
@@ -662,11 +680,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets result
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\VoucherTransactionsExportResult
-=======
      * @return \OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult|null
->>>>>>> Stashed changes
      */
     public function getResult()
     {
@@ -676,11 +690,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets result
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\VoucherTransactionsExportResult $result result
-=======
      * @param \OpenAPI\Client\Model\VouchersTransactionsExportCreateResponseBodyResult|null $result result
->>>>>>> Stashed changes
      *
      * @return self
      */
@@ -704,7 +714,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets user_id
      *
-     * @return string
+     * @return string|null
      */
     public function getUserId()
     {
@@ -714,7 +724,7 @@ class VouchersTransactionsExportCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets user_id
      *
-     * @param string $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the `channel` value is `WEBSITE`.
+     * @param string|null $user_id Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the `channel` value is `WEBSITE`.
      *
      * @return self
      */

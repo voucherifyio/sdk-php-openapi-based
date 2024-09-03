@@ -81,8 +81,8 @@ class RewardTypeCoin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'exchange_ratio' => false,
-		'points_ratio' => false
+        'exchange_ratio' => true,
+		'points_ratio' => true
     ];
 
     /**
@@ -283,9 +283,6 @@ class RewardTypeCoin implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['exchange_ratio'] === null) {
-            $invalidProperties[] = "'exchange_ratio' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -304,7 +301,7 @@ class RewardTypeCoin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets exchange_ratio
      *
-     * @return float
+     * @return float|null
      */
     public function getExchangeRatio()
     {
@@ -314,14 +311,21 @@ class RewardTypeCoin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets exchange_ratio
      *
-     * @param float $exchange_ratio The cash equivalent of the points defined in the points_ratio property.
+     * @param float|null $exchange_ratio The cash equivalent of the points defined in the points_ratio property.
      *
      * @return self
      */
     public function setExchangeRatio($exchange_ratio)
     {
         if (is_null($exchange_ratio)) {
-            throw new \InvalidArgumentException('non-nullable exchange_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exchange_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exchange_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['exchange_ratio'] = $exchange_ratio;
 
@@ -348,7 +352,14 @@ class RewardTypeCoin implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPointsRatio($points_ratio)
     {
         if (is_null($points_ratio)) {
-            throw new \InvalidArgumentException('non-nullable points_ratio cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points_ratio');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points_ratio', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points_ratio'] = $points_ratio;
 

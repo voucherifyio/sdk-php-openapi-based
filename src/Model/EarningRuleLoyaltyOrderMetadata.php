@@ -83,9 +83,9 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'every' => false,
-		'points' => false,
-		'property' => false
+        'every' => true,
+		'points' => true,
+		'property' => true
     ];
 
     /**
@@ -290,15 +290,6 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['every'] === null) {
-            $invalidProperties[] = "'every' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['property'] === null) {
-            $invalidProperties[] = "'property' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -317,7 +308,7 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Gets every
      *
-     * @return int
+     * @return int|null
      */
     public function getEvery()
     {
@@ -327,14 +318,21 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Sets every
      *
-     * @param int $every For how many increments of the order metadata property to grant points for.
+     * @param int|null $every For how many increments of the order metadata property to grant points for.
      *
      * @return self
      */
     public function setEvery($every)
     {
         if (is_null($every)) {
-            throw new \InvalidArgumentException('non-nullable every cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'every');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('every', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['every'] = $every;
 
@@ -344,7 +342,7 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -354,14 +352,21 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Sets points
      *
-     * @param int $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
+     * @param int|null $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -371,7 +376,7 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Gets property
      *
-     * @return string
+     * @return string|null
      */
     public function getProperty()
     {
@@ -381,14 +386,21 @@ class EarningRuleLoyaltyOrderMetadata implements ModelInterface, ArrayAccess, \J
     /**
      * Sets property
      *
-     * @param string $property Order metadata property.
+     * @param string|null $property Order metadata property.
      *
      * @return self
      */
     public function setProperty($property)
     {
         if (is_null($property)) {
-            throw new \InvalidArgumentException('non-nullable property cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'property');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('property', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['property'] = $property;
 

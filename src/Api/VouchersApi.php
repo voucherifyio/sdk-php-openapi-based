@@ -480,7 +480,7 @@ class VouchersApi
      * Delete Voucher
      *
      * @param  string $code A unique **code** that identifies the voucher. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the voucher will be removed permanently. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
+     * @param  bool $force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -498,7 +498,7 @@ class VouchersApi
      * Delete Voucher
      *
      * @param  string $code A unique **code** that identifies the voucher. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the voucher will be removed permanently. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
+     * @param  bool $force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -559,7 +559,7 @@ class VouchersApi
      * Delete Voucher
      *
      * @param  string $code A unique **code** that identifies the voucher. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the voucher will be removed permanently. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
+     * @param  bool $force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -581,7 +581,7 @@ class VouchersApi
      * Delete Voucher
      *
      * @param  string $code A unique **code** that identifies the voucher. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the voucher will be removed permanently. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
+     * @param  bool $force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -619,7 +619,7 @@ class VouchersApi
      * Create request for operation 'deleteVoucher'
      *
      * @param  string $code A unique **code** that identifies the voucher. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the voucher will be removed permanently. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
+     * @param  bool $force If this flag is set to true, the voucher will be removed permanently. If it is set to false or not set at all, the voucher will be moved to the bin. Going forward, the user will be able to create another voucher with exactly the same code. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -733,7 +733,7 @@ class VouchersApi
      *
      * Disable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -751,7 +751,7 @@ class VouchersApi
      *
      * Disable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -851,7 +851,7 @@ class VouchersApi
      *
      * Disable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -872,7 +872,7 @@ class VouchersApi
      *
      * Disable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -922,7 +922,7 @@ class VouchersApi
     /**
      * Create request for operation 'disableVoucher'
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['disableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1026,7 +1026,7 @@ class VouchersApi
      *
      * Enable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1044,7 +1044,7 @@ class VouchersApi
      *
      * Enable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableVoucher'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1144,7 +1144,7 @@ class VouchersApi
      *
      * Enable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1165,7 +1165,7 @@ class VouchersApi
      *
      * Enable Voucher
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1215,7 +1215,7 @@ class VouchersApi
     /**
      * Create request for operation 'enableVoucher'
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['enableVoucher'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1319,7 +1319,7 @@ class VouchersApi
      *
      * Export Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersTransactionsExportCreateRequestBody $vouchers_transactions_export_create_request_body Specify the parameters for the transaction export. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportVoucherTransactions'] to see the possible values for this operation
      *
@@ -1338,7 +1338,7 @@ class VouchersApi
      *
      * Export Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersTransactionsExportCreateRequestBody $vouchers_transactions_export_create_request_body Specify the parameters for the transaction export. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportVoucherTransactions'] to see the possible values for this operation
      *
@@ -1439,7 +1439,7 @@ class VouchersApi
      *
      * Export Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersTransactionsExportCreateRequestBody $vouchers_transactions_export_create_request_body Specify the parameters for the transaction export. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportVoucherTransactions'] to see the possible values for this operation
      *
@@ -1461,7 +1461,7 @@ class VouchersApi
      *
      * Export Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersTransactionsExportCreateRequestBody $vouchers_transactions_export_create_request_body Specify the parameters for the transaction export. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportVoucherTransactions'] to see the possible values for this operation
      *
@@ -1512,7 +1512,7 @@ class VouchersApi
     /**
      * Create request for operation 'exportVoucherTransactions'
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersTransactionsExportCreateRequestBody $vouchers_transactions_export_create_request_body Specify the parameters for the transaction export. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exportVoucherTransactions'] to see the possible values for this operation
      *
@@ -2496,14 +2496,14 @@ class VouchersApi
      *
      * Import Vouchers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\VouchersImportCsvCreateResponseBody
      */
-    public function importVouchersUsingCsv($file, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
+    public function importVouchersUsingCsv($file = null, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
     {
         list($response) = $this->importVouchersUsingCsvWithHttpInfo($file, $contentType);
         return $response;
@@ -2514,14 +2514,14 @@ class VouchersApi
      *
      * Import Vouchers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\VouchersImportCsvCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importVouchersUsingCsvWithHttpInfo($file, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
+    public function importVouchersUsingCsvWithHttpInfo($file = null, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
     {
         $request = $this->importVouchersUsingCsvRequest($file, $contentType);
 
@@ -2614,13 +2614,13 @@ class VouchersApi
      *
      * Import Vouchers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importVouchersUsingCsvAsync($file, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
+    public function importVouchersUsingCsvAsync($file = null, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
     {
         return $this->importVouchersUsingCsvAsyncWithHttpInfo($file, $contentType)
             ->then(
@@ -2635,13 +2635,13 @@ class VouchersApi
      *
      * Import Vouchers using CSV
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importVouchersUsingCsvAsyncWithHttpInfo($file, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
+    public function importVouchersUsingCsvAsyncWithHttpInfo($file = null, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
     {
         $returnType = '\OpenAPI\Client\Model\VouchersImportCsvCreateResponseBody';
         $request = $this->importVouchersUsingCsvRequest($file, $contentType);
@@ -2685,21 +2685,15 @@ class VouchersApi
     /**
      * Create request for operation 'importVouchersUsingCsv'
      *
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importVouchersUsingCsvRequest($file, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
+    public function importVouchersUsingCsvRequest($file = null, string $contentType = self::contentTypes['importVouchersUsingCsv'][0])
     {
 
-        // verify the required parameter 'file' is set
-        if ($file === null || (is_array($file) && count($file) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling importVouchersUsingCsv'
-            );
-        }
 
 
         $resourcePath = '/v1/vouchers/importCSV';
@@ -2793,9 +2787,9 @@ class VouchersApi
      *
      * List Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoucherTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2813,9 +2807,9 @@ class VouchersApi
      *
      * List Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoucherTransactions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2915,9 +2909,9 @@ class VouchersApi
      *
      * List Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoucherTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2938,9 +2932,9 @@ class VouchersApi
      *
      * List Voucher Transactions
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoucherTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2990,9 +2984,9 @@ class VouchersApi
     /**
      * Create request for operation 'listVoucherTransactions'
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listVoucherTransactions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3017,6 +3011,9 @@ class VouchersApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling VouchersApi.listVoucherTransactions, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling VouchersApi.listVoucherTransactions, must be bigger than or equal to 1.');
         }
         
 
@@ -4146,7 +4143,7 @@ class VouchersApi
      *
      * Add or Remove Voucher Balance
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersBalanceUpdateRequestBody $vouchers_balance_update_request_body Provide the amount to be added to/subtracted from the voucher. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucherBalance'] to see the possible values for this operation
      *
@@ -4165,7 +4162,7 @@ class VouchersApi
      *
      * Add or Remove Voucher Balance
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersBalanceUpdateRequestBody $vouchers_balance_update_request_body Provide the amount to be added to/subtracted from the voucher. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucherBalance'] to see the possible values for this operation
      *
@@ -4266,7 +4263,7 @@ class VouchersApi
      *
      * Add or Remove Voucher Balance
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersBalanceUpdateRequestBody $vouchers_balance_update_request_body Provide the amount to be added to/subtracted from the voucher. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucherBalance'] to see the possible values for this operation
      *
@@ -4288,7 +4285,7 @@ class VouchersApi
      *
      * Add or Remove Voucher Balance
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersBalanceUpdateRequestBody $vouchers_balance_update_request_body Provide the amount to be added to/subtracted from the voucher. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucherBalance'] to see the possible values for this operation
      *
@@ -4339,7 +4336,7 @@ class VouchersApi
     /**
      * Create request for operation 'updateVoucherBalance'
      *
-     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. &#x60;v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u&#x60;. (required)
+     * @param  string $code A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. (required)
      * @param  \OpenAPI\Client\Model\VouchersBalanceUpdateRequestBody $vouchers_balance_update_request_body Provide the amount to be added to/subtracted from the voucher. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateVoucherBalance'] to see the possible values for this operation
      *

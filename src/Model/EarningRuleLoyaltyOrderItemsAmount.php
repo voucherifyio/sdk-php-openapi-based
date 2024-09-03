@@ -85,10 +85,10 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'every' => false,
-		'points' => false,
-		'object' => false,
-		'id' => false
+        'every' => true,
+		'points' => true,
+		'object' => true,
+		'id' => true
     ];
 
     /**
@@ -314,15 +314,6 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['every'] === null) {
-            $invalidProperties[] = "'every' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -332,9 +323,6 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
             );
         }
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -353,7 +341,7 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Gets every
      *
-     * @return int
+     * @return int|null
      */
     public function getEvery()
     {
@@ -363,14 +351,21 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Sets every
      *
-     * @param int $every Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 order amount is written as 1000.
+     * @param int|null $every Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 order amount is written as 1000.
      *
      * @return self
      */
     public function setEvery($every)
     {
         if (is_null($every)) {
-            throw new \InvalidArgumentException('non-nullable every cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'every');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('every', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['every'] = $every;
 
@@ -380,7 +375,7 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -390,14 +385,21 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Sets points
      *
-     * @param int $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
+     * @param int|null $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -407,7 +409,7 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -417,17 +419,24 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Sets object
      *
-     * @param string $object Type of object taken under consideration.
+     * @param string|null $object Type of object taken under consideration.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -444,7 +453,7 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -454,14 +463,21 @@ class EarningRuleLoyaltyOrderItemsAmount implements ModelInterface, ArrayAccess,
     /**
      * Sets id
      *
-     * @param string $id Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619.
+     * @param string|null $id Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

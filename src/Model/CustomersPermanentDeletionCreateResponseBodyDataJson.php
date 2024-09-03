@@ -91,13 +91,13 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'events' => false,
-		'customer_events' => false,
-		'daily_events' => false,
-		'segments' => false,
-		'orders' => false,
-		'order_events' => false,
-		'customer' => false
+        'events' => true,
+		'customer_events' => true,
+		'daily_events' => true,
+		'segments' => true,
+		'orders' => true,
+		'order_events' => true,
+		'customer' => true
     ];
 
     /**
@@ -318,27 +318,6 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     {
         $invalidProperties = [];
 
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
-        }
-        if ($this->container['customer_events'] === null) {
-            $invalidProperties[] = "'customer_events' can't be null";
-        }
-        if ($this->container['daily_events'] === null) {
-            $invalidProperties[] = "'daily_events' can't be null";
-        }
-        if ($this->container['segments'] === null) {
-            $invalidProperties[] = "'segments' can't be null";
-        }
-        if ($this->container['orders'] === null) {
-            $invalidProperties[] = "'orders' can't be null";
-        }
-        if ($this->container['order_events'] === null) {
-            $invalidProperties[] = "'order_events' can't be null";
-        }
-        if ($this->container['customer'] === null) {
-            $invalidProperties[] = "'customer' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -357,7 +336,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets events
      *
-     * @return int
+     * @return int|null
      */
     public function getEvents()
     {
@@ -367,14 +346,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets events
      *
-     * @param int $events Number of events deleted.
+     * @param int|null $events Number of events deleted.
      *
      * @return self
      */
     public function setEvents($events)
     {
         if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'events');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('events', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['events'] = $events;
 
@@ -384,7 +370,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets customer_events
      *
-     * @return int
+     * @return int|null
      */
     public function getCustomerEvents()
     {
@@ -394,14 +380,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets customer_events
      *
-     * @param int $customer_events Number of customer events deleted.
+     * @param int|null $customer_events Number of customer events deleted.
      *
      * @return self
      */
     public function setCustomerEvents($customer_events)
     {
         if (is_null($customer_events)) {
-            throw new \InvalidArgumentException('non-nullable customer_events cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_events');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_events', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_events'] = $customer_events;
 
@@ -411,7 +404,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets daily_events
      *
-     * @return int
+     * @return int|null
      */
     public function getDailyEvents()
     {
@@ -421,14 +414,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets daily_events
      *
-     * @param int $daily_events Number of daily events deleted.
+     * @param int|null $daily_events Number of daily events deleted.
      *
      * @return self
      */
     public function setDailyEvents($daily_events)
     {
         if (is_null($daily_events)) {
-            throw new \InvalidArgumentException('non-nullable daily_events cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'daily_events');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('daily_events', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['daily_events'] = $daily_events;
 
@@ -438,7 +438,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets segments
      *
-     * @return int
+     * @return int|null
      */
     public function getSegments()
     {
@@ -448,14 +448,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets segments
      *
-     * @param int $segments Number of segments deleted.
+     * @param int|null $segments Number of segments deleted.
      *
      * @return self
      */
     public function setSegments($segments)
     {
         if (is_null($segments)) {
-            throw new \InvalidArgumentException('non-nullable segments cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'segments');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('segments', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['segments'] = $segments;
 
@@ -465,7 +472,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets orders
      *
-     * @return int
+     * @return int|null
      */
     public function getOrders()
     {
@@ -475,14 +482,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets orders
      *
-     * @param int $orders Number of orders deleted.
+     * @param int|null $orders Number of orders deleted.
      *
      * @return self
      */
     public function setOrders($orders)
     {
         if (is_null($orders)) {
-            throw new \InvalidArgumentException('non-nullable orders cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'orders');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('orders', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['orders'] = $orders;
 
@@ -492,7 +506,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets order_events
      *
-     * @return int
+     * @return int|null
      */
     public function getOrderEvents()
     {
@@ -502,14 +516,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets order_events
      *
-     * @param int $order_events Number of order events deleted.
+     * @param int|null $order_events Number of order events deleted.
      *
      * @return self
      */
     public function setOrderEvents($order_events)
     {
         if (is_null($order_events)) {
-            throw new \InvalidArgumentException('non-nullable order_events cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_events');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_events', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order_events'] = $order_events;
 
@@ -519,7 +540,7 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Gets customer
      *
-     * @return int
+     * @return int|null
      */
     public function getCustomer()
     {
@@ -529,14 +550,21 @@ class CustomersPermanentDeletionCreateResponseBodyDataJson implements ModelInter
     /**
      * Sets customer
      *
-     * @param int $customer Number of customers deleted.
+     * @param int|null $customer Number of customers deleted.
      *
      * @return self
      */
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer'] = $customer;
 

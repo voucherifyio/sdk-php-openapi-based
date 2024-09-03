@@ -89,20 +89,12 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-        'id' => false,
-		'source_id' => false,
-		'override' => false,
-		'sku' => false,
-		'price' => false
-=======
         'city' => true,
 		'state' => true,
 		'line_1' => true,
 		'line_2' => true,
 		'country' => true,
 		'postal_code' => true
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
     ];
 
     /**
@@ -353,10 +345,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
      */
     public function setCity($city)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-=======
         if (is_null($city)) {
             array_push($this->openAPINullablesSetToNull, 'city');
         } else {
@@ -366,7 +354,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
         }
         $this->container['city'] = $city;
 
@@ -386,20 +373,12 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
     /**
      * Sets state
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-     * @param string|null $source_id The merchant’s SKU ID (if it is different than Voucherify's SKU ID). It is really useful in case of integration between multiple systems. It can be an ID from an eCommerce site, a database or a 3rd party service.
-=======
      * @param string|null $state State
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
      *
      * @return self
      */
     public function setState($state)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-=======
         if (is_null($state)) {
             array_push($this->openAPINullablesSetToNull, 'state');
         } else {
@@ -409,7 +388,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
         }
         $this->container['state'] = $state;
 
@@ -417,38 +395,7 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-     * Gets override
-     *
-     * @return bool|null
-     */
-    public function getOverride()
-    {
-        return $this->container['override'];
-    }
-
-    /**
-     * Sets override
-     *
-     * @param bool|null $override The override set to `true` is used to store the product information in the system. If the product does not exist, it will be created with a source_id; if it does exist, the provided values for the name, price, and metadata will replace those already stored in the system.
-     *
-     * @return self
-     */
-    public function setOverride($override)
-    {
-        if (is_null($override)) {
-            throw new \InvalidArgumentException('non-nullable override cannot be null');
-        }
-        $this->container['override'] = $override;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-=======
      * Gets line_1
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
      *
      * @return string|null
      */
@@ -466,10 +413,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
      */
     public function setLine1($line_1)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-        if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
-=======
         if (is_null($line_1)) {
             array_push($this->openAPINullablesSetToNull, 'line_1');
         } else {
@@ -479,7 +422,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
         }
         $this->container['line_1'] = $line_1;
 
@@ -505,10 +447,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
      */
     public function setLine2($line_2)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderItemsItemSku.php
-        if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
-=======
         if (is_null($line_2)) {
             array_push($this->openAPINullablesSetToNull, 'line_2');
         } else {
@@ -518,7 +456,6 @@ class CustomersCreateResponseBodyAddress implements ModelInterface, ArrayAccess,
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/CustomersCreateResponseBodyAddress.php
         }
         $this->container['line_2'] = $line_2;
 

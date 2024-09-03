@@ -79,7 +79,7 @@ class ClientEventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false
+        'code' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class ClientEventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class ClientEventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAcces
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -307,14 +304,21 @@ class ClientEventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAcces
     /**
      * Sets code
      *
-     * @param string $code Code of the loyalty card to receive points based on the calculation method defined in the related earning rule. An earning rule is triggered for the loyalty card when the event passed in the `event` parameter of the request payload gets sent along with this loyalty card code.
+     * @param string|null $code Code of the loyalty card to receive points based on the calculation method defined in the related earning rule. An earning rule is triggered for the loyalty card when the event passed in the `event` parameter of the request payload gets sent along with this loyalty card code.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 

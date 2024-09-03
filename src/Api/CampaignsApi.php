@@ -491,7 +491,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody|\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody
+     * @return \OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody
      */
     public function addVouchersToCampaign($campaign_id, $vouchers_count = null, $campaigns_vouchers_create_in_bulk_request_body = null, string $contentType = self::contentTypes['addVouchersToCampaign'][0])
     {
@@ -511,7 +511,7 @@ class CampaignsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody|\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
     public function addVouchersToCampaignWithHttpInfo($campaign_id, $vouchers_count = null, $campaigns_vouchers_create_in_bulk_request_body = null, string $contentType = self::contentTypes['addVouchersToCampaign'][0])
     {
@@ -554,38 +554,23 @@ class CampaignsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody' !== 'string') {
+                        if ('\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 202:
-                    if ('\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody';
+            $returnType = '\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -606,15 +591,7 @@ class CampaignsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CampaignsVouchersCreateInBulkResponseBody',
+                        '\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -662,7 +639,7 @@ class CampaignsApi
      */
     public function addVouchersToCampaignAsyncWithHttpInfo($campaign_id, $vouchers_count = null, $campaigns_vouchers_create_in_bulk_request_body = null, string $contentType = self::contentTypes['addVouchersToCampaign'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CampaignsVouchersCreateResponseBody';
+        $returnType = '\OpenAPI\Client\Model\CampaignsVouchersCreateCombinedResponseBody';
         $request = $this->addVouchersToCampaignRequest($campaign_id, $vouchers_count, $campaigns_vouchers_create_in_bulk_request_body, $contentType);
 
         return $this->client
@@ -1115,7 +1092,7 @@ class CampaignsApi
      * Delete Campaign
      *
      * @param  string $campaign_id You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaign'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1134,7 +1111,7 @@ class CampaignsApi
      * Delete Campaign
      *
      * @param  string $campaign_id You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaign'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -1235,7 +1212,7 @@ class CampaignsApi
      * Delete Campaign
      *
      * @param  string $campaign_id You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1257,7 +1234,7 @@ class CampaignsApi
      * Delete Campaign
      *
      * @param  string $campaign_id You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1308,7 +1285,7 @@ class CampaignsApi
      * Create request for operation 'deleteCampaign'
      *
      * @param  string $campaign_id You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  bool $force If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
+     * @param  bool $force If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the campaign and related vouchers will be moved to the bin. Going forward, the user will be able to create the next campaign with exactly the same name. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2301,8 +2278,8 @@ class CampaignsApi
      *
      * Import Vouchers to Campaign
      *
-     * @param  string $campaign_id The ID of an existing campaign to which you&#39;re importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the &lt;!-- [Campaign](OpenAPI.json/components/schemas/Campaign) --&gt;[Campaign](ref:get-campaign) settings. (optional)
+     * @param  string $campaign_id The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaign'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2320,8 +2297,8 @@ class CampaignsApi
      *
      * Import Vouchers to Campaign
      *
-     * @param  string $campaign_id The ID of an existing campaign to which you&#39;re importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the &lt;!-- [Campaign](OpenAPI.json/components/schemas/Campaign) --&gt;[Campaign](ref:get-campaign) settings. (optional)
+     * @param  string $campaign_id The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaign'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2421,8 +2398,8 @@ class CampaignsApi
      *
      * Import Vouchers to Campaign
      *
-     * @param  string $campaign_id The ID of an existing campaign to which you&#39;re importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the &lt;!-- [Campaign](OpenAPI.json/components/schemas/Campaign) --&gt;[Campaign](ref:get-campaign) settings. (optional)
+     * @param  string $campaign_id The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2443,8 +2420,8 @@ class CampaignsApi
      *
      * Import Vouchers to Campaign
      *
-     * @param  string $campaign_id The ID of an existing campaign to which you&#39;re importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the &lt;!-- [Campaign](OpenAPI.json/components/schemas/Campaign) --&gt;[Campaign](ref:get-campaign) settings. (optional)
+     * @param  string $campaign_id The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2494,8 +2471,8 @@ class CampaignsApi
     /**
      * Create request for operation 'importVouchersToCampaign'
      *
-     * @param  string $campaign_id The ID of an existing campaign to which you&#39;re importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
-     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the &lt;!-- [Campaign](OpenAPI.json/components/schemas/Campaign) --&gt;[Campaign](ref:get-campaign) settings. (optional)
+     * @param  string $campaign_id The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
+     * @param  \OpenAPI\Client\Model\CampaignsImportVoucherItem[] $campaigns_import_voucher_item Discount type, expiration date and the remaining attributes will be taken from the Campaign settings. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2608,14 +2585,14 @@ class CampaignsApi
      * Import Vouchers to Campaign by CSV
      *
      * @param  string $campaign_id The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaignUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\CampaignsImportCsvCreateResponseBody
      */
-    public function importVouchersToCampaignUsingCsv($campaign_id, $file, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
+    public function importVouchersToCampaignUsingCsv($campaign_id, $file = null, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
     {
         list($response) = $this->importVouchersToCampaignUsingCsvWithHttpInfo($campaign_id, $file, $contentType);
         return $response;
@@ -2627,14 +2604,14 @@ class CampaignsApi
      * Import Vouchers to Campaign by CSV
      *
      * @param  string $campaign_id The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaignUsingCsv'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\CampaignsImportCsvCreateResponseBody, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importVouchersToCampaignUsingCsvWithHttpInfo($campaign_id, $file, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
+    public function importVouchersToCampaignUsingCsvWithHttpInfo($campaign_id, $file = null, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
     {
         $request = $this->importVouchersToCampaignUsingCsvRequest($campaign_id, $file, $contentType);
 
@@ -2728,13 +2705,13 @@ class CampaignsApi
      * Import Vouchers to Campaign by CSV
      *
      * @param  string $campaign_id The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaignUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importVouchersToCampaignUsingCsvAsync($campaign_id, $file, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
+    public function importVouchersToCampaignUsingCsvAsync($campaign_id, $file = null, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
     {
         return $this->importVouchersToCampaignUsingCsvAsyncWithHttpInfo($campaign_id, $file, $contentType)
             ->then(
@@ -2750,13 +2727,13 @@ class CampaignsApi
      * Import Vouchers to Campaign by CSV
      *
      * @param  string $campaign_id The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaignUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importVouchersToCampaignUsingCsvAsyncWithHttpInfo($campaign_id, $file, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
+    public function importVouchersToCampaignUsingCsvAsyncWithHttpInfo($campaign_id, $file = null, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
     {
         $returnType = '\OpenAPI\Client\Model\CampaignsImportCsvCreateResponseBody';
         $request = $this->importVouchersToCampaignUsingCsvRequest($campaign_id, $file, $contentType);
@@ -2801,13 +2778,13 @@ class CampaignsApi
      * Create request for operation 'importVouchersToCampaignUsingCsv'
      *
      * @param  string $campaign_id The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value. (required)
-     * @param  \SplFileObject $file File path. (required)
+     * @param  \SplFileObject $file File path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importVouchersToCampaignUsingCsv'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importVouchersToCampaignUsingCsvRequest($campaign_id, $file, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
+    public function importVouchersToCampaignUsingCsvRequest($campaign_id, $file = null, string $contentType = self::contentTypes['importVouchersToCampaignUsingCsv'][0])
     {
 
         // verify the required parameter 'campaign_id' is set
@@ -2817,12 +2794,6 @@ class CampaignsApi
             );
         }
 
-        // verify the required parameter 'file' is set
-        if ($file === null || (is_array($file) && count($file) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling importVouchersToCampaignUsingCsv'
-            );
-        }
 
 
         $resourcePath = '/v1/campaigns/{campaignId}/importCSV';
@@ -2924,11 +2895,11 @@ class CampaignsApi
      *
      * List Campaigns
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  ParameterCampaignType $campaign_type This attribute allows filtering by campaign type. (optional)
-     * @param  ParameterExpandListCampaigns $expand Include an expanded &#x60;categories&#x60; object in the response. (optional)
-     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  ParameterExpandListCampaigns $expand Include an expanded categories object in the response. (optional)
+     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCampaigns'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -2946,11 +2917,11 @@ class CampaignsApi
      *
      * List Campaigns
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  ParameterCampaignType $campaign_type This attribute allows filtering by campaign type. (optional)
-     * @param  ParameterExpandListCampaigns $expand Include an expanded &#x60;categories&#x60; object in the response. (optional)
-     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  ParameterExpandListCampaigns $expand Include an expanded categories object in the response. (optional)
+     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCampaigns'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -3050,11 +3021,11 @@ class CampaignsApi
      *
      * List Campaigns
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  ParameterCampaignType $campaign_type This attribute allows filtering by campaign type. (optional)
-     * @param  ParameterExpandListCampaigns $expand Include an expanded &#x60;categories&#x60; object in the response. (optional)
-     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  ParameterExpandListCampaigns $expand Include an expanded categories object in the response. (optional)
+     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3075,11 +3046,11 @@ class CampaignsApi
      *
      * List Campaigns
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  ParameterCampaignType $campaign_type This attribute allows filtering by campaign type. (optional)
-     * @param  ParameterExpandListCampaigns $expand Include an expanded &#x60;categories&#x60; object in the response. (optional)
-     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  ParameterExpandListCampaigns $expand Include an expanded categories object in the response. (optional)
+     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3129,11 +3100,11 @@ class CampaignsApi
     /**
      * Create request for operation 'listCampaigns'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
      * @param  ParameterCampaignType $campaign_type This attribute allows filtering by campaign type. (optional)
-     * @param  ParameterExpandListCampaigns $expand Include an expanded &#x60;categories&#x60; object in the response. (optional)
-     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  ParameterExpandListCampaigns $expand Include an expanded categories object in the response. (optional)
+     * @param  ParameterOrderListCampaigns $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3151,6 +3122,9 @@ class CampaignsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling CampaignsApi.listCampaigns, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling CampaignsApi.listCampaigns, must be bigger than or equal to 1.');
         }
         
 

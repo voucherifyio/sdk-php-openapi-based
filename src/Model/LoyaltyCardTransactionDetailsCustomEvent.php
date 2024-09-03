@@ -81,14 +81,8 @@ class LoyaltyCardTransactionDetailsCustomEvent implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardParametersCampaign.php
-        'id' => false,
-		'balance' => false,
-		'type' => false
-=======
         'id' => true,
 		'type' => true
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsCustomEvent.php
     ];
 
     /**
@@ -324,7 +318,14 @@ class LoyaltyCardTransactionDetailsCustomEvent implements ModelInterface, ArrayA
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -332,36 +333,6 @@ class LoyaltyCardTransactionDetailsCustomEvent implements ModelInterface, ArrayA
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardParametersCampaign.php
-     * Gets balance
-     *
-     * @return int|null
-     */
-    public function getBalance()
-    {
-        return $this->container['balance'];
-    }
-
-    /**
-     * Sets balance
-     *
-     * @param int|null $balance Points available for reward redemption.
-     *
-     * @return self
-     */
-    public function setBalance($balance)
-    {
-        if (is_null($balance)) {
-            throw new \InvalidArgumentException('non-nullable balance cannot be null');
-        }
-        $this->container['balance'] = $balance;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsCustomEvent.php
      * Gets type
      *
      * @return string|null
@@ -381,7 +352,14 @@ class LoyaltyCardTransactionDetailsCustomEvent implements ModelInterface, ArrayA
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 

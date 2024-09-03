@@ -36,11 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * LoyaltiesMembersRedemptionRedeemRequestBody Class Doc Comment
  *
  * @category Class
-<<<<<<< Updated upstream
- * @description Request body schema for **POST** &#x60;/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** and &#x60;/loyalties/members/{memberId}/redemption&#x60;.
-=======
  * @description Request body schema for **POST** &#x60;v1/loyalties/{campaignId}/members/{memberId}/redemption&#x60; and for **POST** &#x60;v1/loyalties/members/{memberId}/redemption&#x60;.
->>>>>>> Stashed changes
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -87,9 +83,9 @@ class LoyaltiesMembersRedemptionRedeemRequestBody implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'reward' => false,
+        'reward' => true,
 		'order' => false,
-		'metadata' => false
+		'metadata' => true
     ];
 
     /**
@@ -329,7 +325,14 @@ class LoyaltiesMembersRedemptionRedeemRequestBody implements ModelInterface, Arr
     public function setReward($reward)
     {
         if (is_null($reward)) {
-            throw new \InvalidArgumentException('non-nullable reward cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reward');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reward', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reward'] = $reward;
 
@@ -383,7 +386,14 @@ class LoyaltiesMembersRedemptionRedeemRequestBody implements ModelInterface, Arr
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 

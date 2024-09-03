@@ -81,8 +81,8 @@ class PromotionsTiersGetResponseBodySummaryOrders implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total_amount' => false,
-		'total_discount_amount' => false
+        'total_amount' => true,
+		'total_discount_amount' => true
     ];
 
     /**
@@ -318,7 +318,14 @@ class PromotionsTiersGetResponseBodySummaryOrders implements ModelInterface, Arr
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -345,7 +352,14 @@ class PromotionsTiersGetResponseBodySummaryOrders implements ModelInterface, Arr
     public function setTotalDiscountAmount($total_discount_amount)
     {
         if (is_null($total_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_discount_amount'] = $total_discount_amount;
 

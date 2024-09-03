@@ -79,7 +79,7 @@ class VoucherTransactionDetailsRedemption implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false
+        'id' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class VoucherTransactionDetailsRedemption implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class VoucherTransactionDetailsRedemption implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -307,14 +304,21 @@ class VoucherTransactionDetailsRedemption implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id Unique redemption ID.
+     * @param string|null $id Unique redemption ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 

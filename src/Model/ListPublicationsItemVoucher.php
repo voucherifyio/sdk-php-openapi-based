@@ -90,13 +90,13 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
-		'object' => false,
-		'campaign' => false,
+        'code' => true,
+		'object' => true,
+		'campaign' => true,
 		'gift' => false,
-		'loyalty_card' => false,
+		'loyalty_card' => true,
 		'discount' => false,
-		'is_referral_code' => false
+		'is_referral_code' => true
     ];
 
     /**
@@ -330,12 +330,6 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -345,9 +339,6 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
             );
         }
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -366,7 +357,7 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -376,14 +367,21 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets code
      *
-     * @param string $code Voucher code.
+     * @param string|null $code Voucher code.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -393,7 +391,7 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -403,17 +401,24 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -430,7 +435,7 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets campaign
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaign()
     {
@@ -440,14 +445,21 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign
      *
-     * @param string $campaign Campaign name
+     * @param string|null $campaign Campaign name
      *
      * @return self
      */
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -501,7 +513,14 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 
@@ -555,7 +574,14 @@ class ListPublicationsItemVoucher implements ModelInterface, ArrayAccess, \JsonS
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 

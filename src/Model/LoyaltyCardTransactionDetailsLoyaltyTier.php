@@ -81,14 +81,8 @@ class LoyaltyCardTransactionDetailsLoyaltyTier implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleProduct.php
-        'id' => false,
-		'source_id' => false,
-		'name' => false
-=======
         'id' => true,
 		'name' => true
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsLoyaltyTier.php
     ];
 
     /**
@@ -324,7 +318,14 @@ class LoyaltyCardTransactionDetailsLoyaltyTier implements ModelInterface, ArrayA
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -332,36 +333,6 @@ class LoyaltyCardTransactionDetailsLoyaltyTier implements ModelInterface, ArrayA
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleProduct.php
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id Product source id.
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsLoyaltyTier.php
      * Gets name
      *
      * @return string|null
@@ -381,7 +352,14 @@ class LoyaltyCardTransactionDetailsLoyaltyTier implements ModelInterface, ArrayA
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 

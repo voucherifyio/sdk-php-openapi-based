@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
- * CampaignsVouchersCreateInBulkResponseBody
-========
  * QualificationsOptionFiltersHolderRole
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
  *
  * PHP version 8.1
  *
@@ -37,24 +33,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
- * CampaignsVouchersCreateInBulkResponseBody Class Doc Comment
-========
  * QualificationsOptionFiltersHolderRole Class Doc Comment
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
  *
  * @category Class
- * @description Response body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers/{code}&#x60;.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
-class CampaignsVouchersCreateInBulkResponseBody implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
 {
     public const DISCRIMINATOR = null;
 
@@ -63,11 +50,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
-    protected static $openAPIModelName = 'CampaignsVouchersCreateInBulkResponseBody';
-========
     protected static $openAPIModelName = 'QualificationsOptionFiltersHolderRole';
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -75,11 +58,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
-        'async_action_id' => 'string'
-========
         'conditions' => '\OpenAPI\Client\Model\QualificationsOptionFiltersHolderRoleConditions'
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
     ];
 
     /**
@@ -90,7 +69,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'async_action_id' => null
+        'conditions' => null
     ];
 
     /**
@@ -99,7 +78,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'async_action_id' => false
+        'conditions' => true
     ];
 
     /**
@@ -188,7 +167,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'async_action_id' => 'async_action_id'
+        'conditions' => 'conditions'
     ];
 
     /**
@@ -197,7 +176,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'async_action_id' => 'setAsyncActionId'
+        'conditions' => 'setConditions'
     ];
 
     /**
@@ -206,7 +185,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'async_action_id' => 'getAsyncActionId'
+        'conditions' => 'getConditions'
     ];
 
     /**
@@ -266,7 +245,7 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('async_action_id', $data ?? [], null);
+        $this->setIfExists('conditions', $data ?? [], null);
     }
 
     /**
@@ -296,9 +275,6 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['async_action_id'] === null) {
-            $invalidProperties[] = "'async_action_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -315,36 +291,35 @@ class QualificationsOptionFiltersHolderRole implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets async_action_id
+     * Gets conditions
      *
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
-     * @return string
-========
      * @return \OpenAPI\Client\Model\QualificationsOptionFiltersHolderRoleConditions|null
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
      */
-    public function getAsyncActionId()
+    public function getConditions()
     {
-        return $this->container['async_action_id'];
+        return $this->container['conditions'];
     }
 
     /**
-     * Sets async_action_id
+     * Sets conditions
      *
-<<<<<<<< Updated upstream:src/Model/CampaignsVouchersCreateInBulkResponseBody.php
-     * @param string $async_action_id The ID of the scheduled asynchronous action.
-========
      * @param \OpenAPI\Client\Model\QualificationsOptionFiltersHolderRoleConditions|null $conditions conditions
->>>>>>>> Stashed changes:src/Model/QualificationsOptionFiltersHolderRole.php
      *
      * @return self
      */
-    public function setAsyncActionId($async_action_id)
+    public function setConditions($conditions)
     {
-        if (is_null($async_action_id)) {
-            throw new \InvalidArgumentException('non-nullable async_action_id cannot be null');
+        if (is_null($conditions)) {
+            array_push($this->openAPINullablesSetToNull, 'conditions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('conditions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['async_action_id'] = $async_action_id;
+        $this->container['conditions'] = $conditions;
 
         return $this;
     }

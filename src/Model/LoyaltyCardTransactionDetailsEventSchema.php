@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
- * LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe
-========
  * LoyaltyCardTransactionDetailsEventSchema
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
  *
  * PHP version 8.1
  *
@@ -37,27 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
- * LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe Class Doc Comment
- *
- * @category Class
- * @description Set recurrent time periods when the voucher is valid. For example, valid for 1 hour every other day.start_date required when including the validity_timeframe.
-========
  * LoyaltyCardTransactionDetailsEventSchema Class Doc Comment
  *
  * @category Class
  * @description Contains information about the custom event metadata schema.
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-class LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
 {
     public const DISCRIMINATOR = null;
 
@@ -66,11 +51,7 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-    protected static $openAPIModelName = 'LoyaltiesMembersTransfersCreateResponseBody_validity_timeframe';
-========
     protected static $openAPIModelName = 'LoyaltyCardTransactionDetailsEventSchema';
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -78,13 +59,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => 'string',
-        'duration' => 'string'
-========
         'id' => 'string',
         'name' => 'string'
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -95,13 +71,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => null,
-        'duration' => null
-========
         'id' => null,
         'name' => null
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -110,13 +81,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => false,
-		'duration' => false
-========
         'id' => true,
 		'name' => true
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -205,13 +171,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => 'interval',
-        'duration' => 'duration'
-========
         'id' => 'id',
         'name' => 'name'
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -220,13 +181,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => 'setInterval',
-        'duration' => 'setDuration'
-========
         'id' => 'setId',
         'name' => 'setName'
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -235,13 +191,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        'interval' => 'getInterval',
-        'duration' => 'getDuration'
-========
         'id' => 'getId',
         'name' => 'getName'
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     ];
 
     /**
@@ -301,13 +252,8 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-        $this->setIfExists('interval', $data ?? [], null);
-        $this->setIfExists('duration', $data ?? [], null);
-========
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     }
 
     /**
@@ -353,9 +299,6 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
 
 
     /**
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-     * Gets interval
-========
      * Gets id
      *
      * @return string|null
@@ -391,65 +334,37 @@ class LoyaltyCardTransactionDetailsEventSchema implements ModelInterface, ArrayA
 
     /**
      * Gets name
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
      *
      * @return string|null
      */
-    public function getInterval()
+    public function getName()
     {
-        return $this->container['interval'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets interval
+     * Sets name
      *
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-     * @param string|null $interval Defines the amount of time the voucher will be active in ISO 8601 format. For example, a voucher with a duration of PT1H will be valid for a duration of one hour.
-========
      * @param string|null $name Type of custom event.
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
      *
      * @return self
      */
-    public function setInterval($interval)
+    public function setName($name)
     {
-        if (is_null($interval)) {
-            throw new \InvalidArgumentException('non-nullable interval cannot be null');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['interval'] = $interval;
+        $this->container['name'] = $name;
 
         return $this;
     }
-<<<<<<<< Updated upstream:src/Model/LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe.php
-
-    /**
-     * Gets duration
-     *
-     * @return string|null
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration
-     *
-     * @param string|null $duration Defines the intervening time between two time points in ISO 8601 format, expressed as a duration. For example, a voucher with an interval of P2D will be active every other day.
-     *
-     * @return self
-     */
-    public function setDuration($duration)
-    {
-        if (is_null($duration)) {
-            throw new \InvalidArgumentException('non-nullable duration cannot be null');
-        }
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-========
->>>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsEventSchema.php
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -81,8 +81,8 @@ class PromotionStackBaseTiers implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'ids' => false,
-		'hierarchy_mode' => false
+        'ids' => true,
+		'hierarchy_mode' => true
     ];
 
     /**
@@ -296,10 +296,7 @@ class PromotionStackBaseTiers implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['ids'] === null) {
-            $invalidProperties[] = "'ids' can't be null";
-        }
-        if ((count($this->container['ids']) < 1)) {
+        if (!is_null($this->container['ids']) && (count($this->container['ids']) < 1)) {
             $invalidProperties[] = "invalid value for 'ids', number of items must be greater than or equal to 1.";
         }
 
@@ -330,7 +327,7 @@ class PromotionStackBaseTiers implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets ids
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getIds()
     {
@@ -340,18 +337,25 @@ class PromotionStackBaseTiers implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets ids
      *
-     * @param string[] $ids Contains the list of tiers in a pre-defined sequence.
+     * @param string[]|null $ids Contains the list of tiers in a pre-defined sequence.
      *
      * @return self
      */
     public function setIds($ids)
     {
         if (is_null($ids)) {
-            throw new \InvalidArgumentException('non-nullable ids cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ids');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ids', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
 
-        if ((count($ids) < 1)) {
+        if (!is_null($ids) && (count($ids) < 1)) {
             throw new \InvalidArgumentException('invalid length for $ids when calling PromotionStackBaseTiers., number of items must be greater than or equal to 1.');
         }
         $this->container['ids'] = $ids;
@@ -379,10 +383,17 @@ class PromotionStackBaseTiers implements ModelInterface, ArrayAccess, \JsonSeria
     public function setHierarchyMode($hierarchy_mode)
     {
         if (is_null($hierarchy_mode)) {
-            throw new \InvalidArgumentException('non-nullable hierarchy_mode cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hierarchy_mode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hierarchy_mode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getHierarchyModeAllowableValues();
-        if (!in_array($hierarchy_mode, $allowedValues, true)) {
+        if (!is_null($hierarchy_mode) && !in_array($hierarchy_mode, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'hierarchy_mode', must be one of '%s'",

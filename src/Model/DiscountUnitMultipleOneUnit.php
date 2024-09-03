@@ -88,10 +88,10 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'unit_off' => false,
-		'unit_off_formula' => false,
-		'effect' => false,
-		'unit_type' => false,
+        'unit_off' => true,
+		'unit_off_formula' => true,
+		'effect' => true,
+		'unit_type' => true,
 		'product' => false,
 		'sku' => false
     ];
@@ -325,9 +325,6 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['effect'] === null) {
-            $invalidProperties[] = "'effect' can't be null";
-        }
         $allowedValues = $this->getEffectAllowableValues();
         if (!is_null($this->container['effect']) && !in_array($this->container['effect'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -337,9 +334,6 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
             );
         }
 
-        if ($this->container['unit_type'] === null) {
-            $invalidProperties[] = "'unit_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -375,7 +369,14 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     public function setUnitOff($unit_off)
     {
         if (is_null($unit_off)) {
-            throw new \InvalidArgumentException('non-nullable unit_off cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_off');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_off', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_off'] = $unit_off;
 
@@ -402,7 +403,14 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     public function setUnitOffFormula($unit_off_formula)
     {
         if (is_null($unit_off_formula)) {
-            throw new \InvalidArgumentException('non-nullable unit_off_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_off_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_off_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_off_formula'] = $unit_off_formula;
 
@@ -412,7 +420,7 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets effect
      *
-     * @return string
+     * @return string|null
      */
     public function getEffect()
     {
@@ -422,17 +430,24 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets effect
      *
-     * @param string $effect Defines how the unit is added to the customer's order.
+     * @param string|null $effect Defines how the unit is added to the customer's order.
      *
      * @return self
      */
     public function setEffect($effect)
     {
         if (is_null($effect)) {
-            throw new \InvalidArgumentException('non-nullable effect cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'effect');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('effect', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getEffectAllowableValues();
-        if (!in_array($effect, $allowedValues, true)) {
+        if (!is_null($effect) && !in_array($effect, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'effect', must be one of '%s'",
@@ -449,7 +464,7 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets unit_type
      *
-     * @return string
+     * @return string|null
      */
     public function getUnitType()
     {
@@ -459,14 +474,21 @@ class DiscountUnitMultipleOneUnit implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets unit_type
      *
-     * @param string $unit_type The product deemed as free, chosen from product inventory (e.g. time, items).
+     * @param string|null $unit_type The product deemed as free, chosen from product inventory (e.g. time, items).
      *
      * @return self
      */
     public function setUnitType($unit_type)
     {
         if (is_null($unit_type)) {
-            throw new \InvalidArgumentException('non-nullable unit_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_type'] = $unit_type;
 

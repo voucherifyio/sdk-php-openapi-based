@@ -90,13 +90,13 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'calculation_type' => false,
-		'order' => false,
-		'order_items' => false,
-		'customer' => false,
-		'custom_event' => false,
-		'points' => false
+        'type' => true,
+		'calculation_type' => true,
+		'order' => true,
+		'order_items' => true,
+		'customer' => true,
+		'custom_event' => true,
+		'points' => true
     ];
 
     /**
@@ -412,10 +412,17 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -449,10 +456,17 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCalculationType($calculation_type)
     {
         if (is_null($calculation_type)) {
-            throw new \InvalidArgumentException('non-nullable calculation_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'calculation_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('calculation_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getCalculationTypeAllowableValues();
-        if (!in_array($calculation_type, $allowedValues, true)) {
+        if (!is_null($calculation_type) && !in_array($calculation_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'calculation_type', must be one of '%s'",
@@ -486,7 +500,14 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrder($order)
     {
         if (is_null($order)) {
-            throw new \InvalidArgumentException('non-nullable order cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order'] = $order;
 
@@ -513,7 +534,14 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setOrderItems($order_items)
     {
         if (is_null($order_items)) {
-            throw new \InvalidArgumentException('non-nullable order_items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order_items'] = $order_items;
 
@@ -540,7 +568,14 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer'] = $customer;
 
@@ -567,7 +602,14 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCustomEvent($custom_event)
     {
         if (is_null($custom_event)) {
-            throw new \InvalidArgumentException('non-nullable custom_event cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_event');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_event', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['custom_event'] = $custom_event;
 
@@ -594,7 +636,14 @@ class EarningRuleLoyalty implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

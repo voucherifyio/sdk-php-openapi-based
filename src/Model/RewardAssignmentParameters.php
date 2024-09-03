@@ -79,11 +79,7 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'parameters' => false
-=======
         'loyalty' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -314,10 +310,6 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function setLoyalty($loyalty)
     {
-<<<<<<< Updated upstream
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-=======
         if (is_null($loyalty)) {
             array_push($this->openAPINullablesSetToNull, 'loyalty');
         } else {
@@ -327,7 +319,6 @@ class RewardAssignmentParameters implements ModelInterface, ArrayAccess, \JsonSe
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['loyalty'] = $loyalty;
 

@@ -82,9 +82,9 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false,
-		'referred_customers' => false,
-		'campaigns' => false
+        'points' => true,
+		'referred_customers' => true,
+		'campaigns' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
-        if ($this->container['referred_customers'] === null) {
-            $invalidProperties[] = "'referred_customers' can't be null";
-        }
-        if ($this->container['campaigns'] === null) {
-            $invalidProperties[] = "'campaigns' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -326,14 +317,21 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets points
      *
-     * @param int $points Customer's loyalty points.
+     * @param int|null $points Customer's loyalty points.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 
@@ -343,7 +341,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets referred_customers
      *
-     * @return int
+     * @return int|null
      */
     public function getReferredCustomers()
     {
@@ -353,14 +351,21 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets referred_customers
      *
-     * @param int $referred_customers Total number of customers referred by the customer.
+     * @param int|null $referred_customers Total number of customers referred by the customer.
      *
      * @return self
      */
     public function setReferredCustomers($referred_customers)
     {
         if (is_null($referred_customers)) {
-            throw new \InvalidArgumentException('non-nullable referred_customers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referred_customers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referred_customers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referred_customers'] = $referred_customers;
 
@@ -370,11 +375,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets campaigns
      *
-<<<<<<< Updated upstream
-     * @return array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsValue>
-=======
      * @return array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsEntry>|null
->>>>>>> Stashed changes
      */
     public function getCampaigns()
     {
@@ -384,18 +385,21 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaigns
      *
-<<<<<<< Updated upstream
-     * @param array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsValue> $campaigns Contains campaigns with details about point balances and how many customers were referred by the customer.
-=======
      * @param array<string,\OpenAPI\Client\Model\CustomerLoyaltyCampaignsEntry>|null $campaigns Contains campaigns with details about point balances and how many customers were referred by the customer.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setCampaigns($campaigns)
     {
         if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaigns');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaigns', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaigns'] = $campaigns;
 

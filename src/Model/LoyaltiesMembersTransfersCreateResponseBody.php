@@ -70,8 +70,9 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         'loyalty_card' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard',
         'start_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe',
+        'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
+        'validity_hours' => '\OpenAPI\Client\Model\ValidityHours',
         'publish' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyPublish',
         'redemption' => '\OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyRedemption',
         'active' => 'string',
@@ -105,6 +106,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
+        'validity_hours' => null,
         'publish' => null,
         'redemption' => null,
         'active' => null,
@@ -123,29 +125,30 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'code' => false,
-		'campaign' => false,
-		'campaign_id' => false,
+        'id' => true,
+		'code' => true,
+		'campaign' => true,
+		'campaign_id' => true,
 		'category' => true,
 		'category_id' => true,
-		'categories' => false,
-		'type' => false,
-		'loyalty_card' => false,
+		'categories' => true,
+		'type' => true,
+		'loyalty_card' => true,
 		'start_date' => true,
 		'expiration_date' => true,
-		'validity_timeframe' => true,
+		'validity_timeframe' => false,
 		'validity_day_of_week' => true,
-		'publish' => false,
-		'redemption' => false,
-		'active' => false,
+		'validity_hours' => false,
+		'publish' => true,
+		'redemption' => true,
+		'active' => true,
 		'additional_info' => true,
-		'metadata' => false,
-		'assets' => false,
-		'is_referral_code' => false,
-		'holder_id' => false,
-		'updated_at' => false,
-		'created_at' => false
+		'metadata' => true,
+		'assets' => true,
+		'is_referral_code' => true,
+		'holder_id' => true,
+		'updated_at' => true,
+		'created_at' => true
     ];
 
     /**
@@ -247,6 +250,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
+        'validity_hours' => 'validity_hours',
         'publish' => 'publish',
         'redemption' => 'redemption',
         'active' => 'active',
@@ -278,6 +282,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
+        'validity_hours' => 'setValidityHours',
         'publish' => 'setPublish',
         'redemption' => 'setRedemption',
         'active' => 'setActive',
@@ -309,6 +314,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
+        'validity_hours' => 'getValidityHours',
         'publish' => 'getPublish',
         'redemption' => 'getRedemption',
         'active' => 'getActive',
@@ -363,6 +369,13 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     }
 
     public const TYPE_LOYALTY_CARD = 'LOYALTY_CARD';
+    public const VALIDITY_DAY_OF_WEEK_0 = 0;
+    public const VALIDITY_DAY_OF_WEEK_1 = 1;
+    public const VALIDITY_DAY_OF_WEEK_2 = 2;
+    public const VALIDITY_DAY_OF_WEEK_3 = 3;
+    public const VALIDITY_DAY_OF_WEEK_4 = 4;
+    public const VALIDITY_DAY_OF_WEEK_5 = 5;
+    public const VALIDITY_DAY_OF_WEEK_6 = 6;
 
     /**
      * Gets allowable values of the enum
@@ -373,6 +386,24 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     {
         return [
             self::TYPE_LOYALTY_CARD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValidityDayOfWeekAllowableValues()
+    {
+        return [
+            self::VALIDITY_DAY_OF_WEEK_0,
+            self::VALIDITY_DAY_OF_WEEK_1,
+            self::VALIDITY_DAY_OF_WEEK_2,
+            self::VALIDITY_DAY_OF_WEEK_3,
+            self::VALIDITY_DAY_OF_WEEK_4,
+            self::VALIDITY_DAY_OF_WEEK_5,
+            self::VALIDITY_DAY_OF_WEEK_6,
         ];
     }
 
@@ -404,6 +435,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
+        $this->setIfExists('validity_hours', $data ?? [], null);
         $this->setIfExists('publish', $data ?? [], null);
         $this->setIfExists('redemption', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
@@ -443,21 +475,6 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['category'] === null) {
-            $invalidProperties[] = "'category' can't be null";
-        }
-        if ($this->container['category_id'] === null) {
-            $invalidProperties[] = "'category_id' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -467,35 +484,8 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
             );
         }
 
-        if ($this->container['loyalty_card'] === null) {
-            $invalidProperties[] = "'loyalty_card' can't be null";
-        }
-        if ($this->container['start_date'] === null) {
-            $invalidProperties[] = "'start_date' can't be null";
-        }
-        if ($this->container['expiration_date'] === null) {
-            $invalidProperties[] = "'expiration_date' can't be null";
-        }
         if ($this->container['validity_timeframe'] === null) {
             $invalidProperties[] = "'validity_timeframe' can't be null";
-        }
-        if ($this->container['validity_day_of_week'] === null) {
-            $invalidProperties[] = "'validity_day_of_week' can't be null";
-        }
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['is_referral_code'] === null) {
-            $invalidProperties[] = "'is_referral_code' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -515,7 +505,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -525,14 +515,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets id
      *
-     * @param string $id Assigned by the Voucherify API, identifies the voucher.
+     * @param string|null $id Assigned by the Voucherify API, identifies the voucher.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -542,7 +539,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -552,14 +549,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets code
      *
-     * @param string $code A code that identifies a voucher. Pattern can use all letters of the English alphabet, Arabic numerals, and special characters.
+     * @param string|null $code A code that identifies a voucher. Pattern can use all letters of the English alphabet, Arabic numerals, and special characters.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -586,7 +590,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -613,7 +624,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -623,7 +641,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets category
      *
-     * @return string
+     * @return string|null
      */
     public function getCategory()
     {
@@ -633,7 +651,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets category
      *
-     * @param string $category Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint.
+     * @param string|null $category Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint.
      *
      * @return self
      */
@@ -657,7 +675,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets category_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCategoryId()
     {
@@ -667,7 +685,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets category_id
      *
-     * @param string $category_id Unique category ID assigned by Voucherify.
+     * @param string|null $category_id Unique category ID assigned by Voucherify.
      *
      * @return self
      */
@@ -708,7 +726,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setCategories($categories)
     {
         if (is_null($categories)) {
-            throw new \InvalidArgumentException('non-nullable categories cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['categories'] = $categories;
 
@@ -718,7 +743,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -728,17 +753,24 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets type
      *
-     * @param string $type Defines the type of the voucher.
+     * @param string|null $type Defines the type of the voucher.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -755,7 +787,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets loyalty_card
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard
+     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard|null
      */
     public function getLoyaltyCard()
     {
@@ -765,14 +797,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets loyalty_card
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard $loyalty_card loyalty_card
+     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard|null $loyalty_card loyalty_card
      *
      * @return self
      */
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 
@@ -782,7 +821,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets start_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getStartDate()
     {
@@ -792,7 +831,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is inactive before this date.
+     * @param \DateTime|null $start_date Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is inactive before this date.
      *
      * @return self
      */
@@ -816,7 +855,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets expiration_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getExpirationDate()
     {
@@ -826,7 +865,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets expiration_date
      *
-     * @param \DateTime $expiration_date Expiration timestamp defines when the code expires in ISO 8601 format. Voucher is inactive after this date.
+     * @param \DateTime|null $expiration_date Expiration timestamp defines when the code expires in ISO 8601 format. Voucher is inactive after this date.
      *
      * @return self
      */
@@ -850,7 +889,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets validity_timeframe
      *
-     * @return \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe
+     * @return \OpenAPI\Client\Model\ValidityTimeframe
      */
     public function getValidityTimeframe()
     {
@@ -860,21 +899,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets validity_timeframe
      *
-     * @param \OpenAPI\Client\Model\LoyaltiesMembersTransfersCreateResponseBodyValidityTimeframe $validity_timeframe validity_timeframe
+     * @param \OpenAPI\Client\Model\ValidityTimeframe $validity_timeframe validity_timeframe
      *
      * @return self
      */
     public function setValidityTimeframe($validity_timeframe)
     {
         if (is_null($validity_timeframe)) {
-            array_push($this->openAPINullablesSetToNull, 'validity_timeframe');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('validity_timeframe', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable validity_timeframe cannot be null');
         }
         $this->container['validity_timeframe'] = $validity_timeframe;
 
@@ -884,7 +916,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets validity_day_of_week
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getValidityDayOfWeek()
     {
@@ -894,7 +926,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets validity_day_of_week
      *
-     * @param int[] $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
+     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
@@ -910,7 +942,43 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        $allowedValues = $this->getValidityDayOfWeekAllowableValues();
+        if (!is_null($validity_day_of_week) && array_diff($validity_day_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'validity_day_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
+
+        return $this;
+    }
+
+    /**
+     * Gets validity_hours
+     *
+     * @return \OpenAPI\Client\Model\ValidityHours|null
+     */
+    public function getValidityHours()
+    {
+        return $this->container['validity_hours'];
+    }
+
+    /**
+     * Sets validity_hours
+     *
+     * @param \OpenAPI\Client\Model\ValidityHours|null $validity_hours validity_hours
+     *
+     * @return self
+     */
+    public function setValidityHours($validity_hours)
+    {
+        if (is_null($validity_hours)) {
+            throw new \InvalidArgumentException('non-nullable validity_hours cannot be null');
+        }
+        $this->container['validity_hours'] = $validity_hours;
 
         return $this;
     }
@@ -935,7 +1003,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setPublish($publish)
     {
         if (is_null($publish)) {
-            throw new \InvalidArgumentException('non-nullable publish cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'publish');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('publish', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['publish'] = $publish;
 
@@ -962,7 +1037,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -972,7 +1054,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets active
      *
-     * @return string
+     * @return string|null
      */
     public function getActive()
     {
@@ -982,14 +1064,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets active
      *
-     * @param string $active A flag to toggle the voucher on or off. You can disable a voucher even though it's within the active period defined by the start_date and expiration_date.  - `true` indicates an active voucher - `false` indicates an inactive voucher
+     * @param string|null $active A flag to toggle the voucher on or off. You can disable a voucher even though it's within the active period defined by the start_date and expiration_date.  - `true` indicates an active voucher - `false` indicates an inactive voucher
      *
      * @return self
      */
     public function setActive($active)
     {
         if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['active'] = $active;
 
@@ -999,7 +1088,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets additional_info
      *
-     * @return string
+     * @return string|null
      */
     public function getAdditionalInfo()
     {
@@ -1009,7 +1098,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets additional_info
      *
-     * @param string $additional_info An optional field to keep any extra textual information about the code such as a code description and details.
+     * @param string|null $additional_info An optional field to keep any extra textual information about the code such as a code description and details.
      *
      * @return self
      */
@@ -1033,7 +1122,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -1043,14 +1132,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format.
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -1077,7 +1173,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setAssets($assets)
     {
         if (is_null($assets)) {
-            throw new \InvalidArgumentException('non-nullable assets cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assets');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assets', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assets'] = $assets;
 
@@ -1087,7 +1190,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets is_referral_code
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsReferralCode()
     {
@@ -1097,14 +1200,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets is_referral_code
      *
-     * @param bool $is_referral_code Flag indicating whether this voucher is a referral code; `true` for campaign type `REFERRAL_PROGRAM`.
+     * @param bool|null $is_referral_code Flag indicating whether this voucher is a referral code; `true` for campaign type `REFERRAL_PROGRAM`.
      *
      * @return self
      */
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 
@@ -1124,18 +1234,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets holder_id
      *
-<<<<<<< Updated upstream
-     * @param string|null $holder_id Unique customer ID of voucher owner.
-=======
      * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setHolderId($holder_id)
     {
         if (is_null($holder_id)) {
-            throw new \InvalidArgumentException('non-nullable holder_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'holder_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['holder_id'] = $holder_id;
 
@@ -1162,7 +1275,14 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     public function setUpdatedAt($updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'updated_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('updated_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -1172,7 +1292,7 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -1182,14 +1302,21 @@ class LoyaltiesMembersTransfersCreateResponseBody implements ModelInterface, Arr
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at created_at
+     * @param \DateTime|null $created_at created_at
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 

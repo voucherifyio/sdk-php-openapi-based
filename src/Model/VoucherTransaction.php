@@ -96,16 +96,16 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'source_id' => true,
-		'voucher_id' => false,
-		'campaign_id' => false,
+		'voucher_id' => true,
+		'campaign_id' => true,
 		'source' => true,
 		'reason' => true,
-		'type' => false,
-		'details' => false,
+		'type' => true,
+		'details' => true,
 		'related_transaction_id' => true,
-		'created_at' => false
+		'created_at' => true
     ];
 
     /**
@@ -365,27 +365,6 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['source_id'] === null) {
-            $invalidProperties[] = "'source_id' can't be null";
-        }
-        if ($this->container['voucher_id'] === null) {
-            $invalidProperties[] = "'voucher_id' can't be null";
-        }
-        if ($this->container['campaign_id'] === null) {
-            $invalidProperties[] = "'campaign_id' can't be null";
-        }
-        if ($this->container['source'] === null) {
-            $invalidProperties[] = "'source' can't be null";
-        }
-        if ($this->container['reason'] === null) {
-            $invalidProperties[] = "'reason' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -395,15 +374,6 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['details'] === null) {
-            $invalidProperties[] = "'details' can't be null";
-        }
-        if ($this->container['related_transaction_id'] === null) {
-            $invalidProperties[] = "'related_transaction_id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -422,7 +392,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -432,14 +402,21 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param string $id Unique transaction ID.
+     * @param string|null $id Unique transaction ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -449,7 +426,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets source_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceId()
     {
@@ -459,7 +436,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets source_id
      *
-     * @param string $source_id The merchant’s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. In case of a redemption, this value is null.
+     * @param string|null $source_id The merchant's transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. In case of a redemption, this value is null.
      *
      * @return self
      */
@@ -483,7 +460,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets voucher_id
      *
-     * @return string
+     * @return string|null
      */
     public function getVoucherId()
     {
@@ -493,14 +470,21 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets voucher_id
      *
-     * @param string $voucher_id Unique voucher ID.
+     * @param string|null $voucher_id Unique voucher ID.
      *
      * @return self
      */
     public function setVoucherId($voucher_id)
     {
         if (is_null($voucher_id)) {
-            throw new \InvalidArgumentException('non-nullable voucher_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'voucher_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('voucher_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['voucher_id'] = $voucher_id;
 
@@ -510,7 +494,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets campaign_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaignId()
     {
@@ -520,14 +504,21 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets campaign_id
      *
-     * @param string $campaign_id Unqiue campaign ID of the voucher's parent campaign if it is part of campaign that generates bulk codes.
+     * @param string|null $campaign_id Unqiue campaign ID of the voucher's parent campaign if it is part of campaign that generates bulk codes.
      *
      * @return self
      */
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -537,7 +528,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets source
      *
-     * @return string
+     * @return string|null
      */
     public function getSource()
     {
@@ -547,7 +538,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets source
      *
-     * @param string $source The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null.
+     * @param string|null $source The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null.
      *
      * @return self
      */
@@ -571,7 +562,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets reason
      *
-     * @return string
+     * @return string|null
      */
     public function getReason()
     {
@@ -581,7 +572,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets reason
      *
-     * @param string $reason Reason why the transaction occurred. In case of a redemption, this value is null.
+     * @param string|null $reason Reason why the transaction occurred. In case of a redemption, this value is null.
      *
      * @return self
      */
@@ -605,7 +596,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -615,17 +606,24 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string|null $type type
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -642,7 +640,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets details
      *
-     * @return \OpenAPI\Client\Model\VoucherTransactionDetails
+     * @return \OpenAPI\Client\Model\VoucherTransactionDetails|null
      */
     public function getDetails()
     {
@@ -652,14 +650,21 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets details
      *
-     * @param \OpenAPI\Client\Model\VoucherTransactionDetails $details details
+     * @param \OpenAPI\Client\Model\VoucherTransactionDetails|null $details details
      *
      * @return self
      */
     public function setDetails($details)
     {
         if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['details'] = $details;
 
@@ -669,7 +674,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets related_transaction_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedTransactionId()
     {
@@ -679,7 +684,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets related_transaction_id
      *
-     * @param string $related_transaction_id The related transaction ID on the receiving card.
+     * @param string|null $related_transaction_id The related transaction ID on the receiving card.
      *
      * @return self
      */
@@ -703,7 +708,7 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -713,14 +718,21 @@ class VoucherTransaction implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the transaction was created in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the transaction was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 

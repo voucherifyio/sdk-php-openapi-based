@@ -81,8 +81,8 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'every' => false,
-		'points' => false
+        'every' => true,
+		'points' => true
     ];
 
     /**
@@ -283,12 +283,6 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['every'] === null) {
-            $invalidProperties[] = "'every' can't be null";
-        }
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -307,7 +301,7 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets every
      *
-     * @return int
+     * @return int|null
      */
     public function getEvery()
     {
@@ -317,14 +311,21 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets every
      *
-     * @param int $every Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 order amount is written as 1000.
+     * @param int|null $every Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 order amount is written as 1000.
      *
      * @return self
      */
     public function setEvery($every)
     {
         if (is_null($every)) {
-            throw new \InvalidArgumentException('non-nullable every cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'every');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('every', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['every'] = $every;
 
@@ -334,7 +335,7 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets points
      *
-     * @return int
+     * @return int|null
      */
     public function getPoints()
     {
@@ -344,14 +345,21 @@ class EarningRuleLoyaltyOrderAmount implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets points
      *
-     * @param int $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
+     * @param int|null $points Number of points to be awarded, i.e. how many points to be added to the loyalty card.
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

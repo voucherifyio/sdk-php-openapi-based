@@ -15,16 +15,9 @@ All URIs are relative to https://api.voucherify.io, except if the operation defi
 | [**listCustomerSegments()**](CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments |
 | [**listCustomers()**](CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers |
 | [**updateCustomer()**](CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer |
-<<<<<<< Updated upstream
-| [**updateCustomersConsents()**](CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents |
-| [**updateCustomersConsentsClientSide()**](CustomersApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) |
-| [**updateCustomersInBulk()**](CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in bulk |
-| [**updateCustomersMetadataInBulk()**](CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in bulk |
-=======
 | [**updateCustomersConsents()**](CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents [Deprecated] |
 | [**updateCustomersInBulk()**](CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in Bulk |
 | [**updateCustomersMetadataInBulk()**](CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in Bulk |
->>>>>>> Stashed changes
 
 
 ## `createCustomer()`
@@ -35,7 +28,7 @@ createCustomer($customers_create_request_body): \OpenAPI\Client\Model\CustomersC
 
 Create Customer
 
-Creates a customer object.  <!-- theme: info -->  > 📘 Upsert Mode > > If you pass an `id` or a `source_id` that already exists in the customer database, Voucherify will return a related customer object with updated fields.
+Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
 
 ### Example
 
@@ -102,7 +95,7 @@ customerPermanentlyDeletion($customer_id): \OpenAPI\Client\Model\CustomersPerman
 
 Delete Customer Permanently
 
-The organization user can remove consumer data permanently from the Voucherify system by using this API method. It d​eletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
 
 ### Example
 
@@ -128,7 +121,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_id = 'customer_id_example'; // string | A Voucherify customer's `id` or `source_id`.
+$customer_id = 'customer_id_example'; // string | A Voucherify customers id or source_id.
 
 try {
     $result = $apiInstance->customerPermanentlyDeletion($customer_id);
@@ -142,7 +135,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. | |
+| **customer_id** | **string**| A Voucherify customers id or source_id. | |
 
 ### Return type
 
@@ -195,7 +188,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_id = 'customer_id_example'; // string | A Voucherify customer's `id` or `source_id`.
+$customer_id = 'customer_id_example'; // string | A Voucherify customers id or source_id.
 
 try {
     $apiInstance->deleteCustomer($customer_id);
@@ -208,7 +201,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. | |
+| **customer_id** | **string**| A Voucherify customers id or source_id. | |
 
 ### Return type
 
@@ -261,7 +254,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_id = 'customer_id_example'; // string | A Voucherify customer's `id` or `source_id`.
+$customer_id = 'customer_id_example'; // string | A Voucherify customers id or source_id.
 
 try {
     $result = $apiInstance->getCustomer($customer_id);
@@ -275,7 +268,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. | |
+| **customer_id** | **string**| A Voucherify customers id or source_id. | |
 
 ### Return type
 
@@ -302,7 +295,7 @@ importCustomersUsingCsv($file): \OpenAPI\Client\Model\CustomersImportCsvCreateRe
 
 Import and Update Customers using CSV
 
-This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.    ## Request Example <!-- title: \"Example Request\" lineNumbers: true --> ```cURL curl -X POST \\   https://api.voucherify.io/v1/customers/importCSV \\   -F file=@/path/to/customers.csv \\   -H \"X-App-Id: c70a6f00-cf91-4756-9df5-47628850002b\" \\   -H \"X-App-Token: 3266b9f8-e246-4f79-bdf0-833929b1380c\" ``` ## CSV File Format  The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object.  <!-- theme: info --> > 📘 Standard customer fields mapping > > **No spaces allowed in field names**   > Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2  ## Update Customers using CSV  If you would like to update customer's data, you can do it using the CSV file with new data. However, remember to include a `source_id` in your CSV file to manage the update successfully.  This API request starts a process that affects Voucherify data in bulk.   In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS` status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.   The result will return the async ID. You can verify the status of your request via this [API request](ref:get-async-action).
+This API method lets you import or update customer data. To get a proper and valid response, please send a CSV file with data separated by commas.   # Request Example # CSV File Format The CSV file has to include headers in the first line. All properties which cannot be mapped to standard customer fields will be added to the metadata object.  📘 Standard customer fields mapping  **No spaces allowed in field names**    Id, Name, Email, Phone, Birthdate, Source_id, Address_line_1, Address_line_2, Address_Postal_Code, Address_City, Address_State, Address_Country, Description, Metadata_name_1, Metadata_name_2 # Update Customers using CSV If you would like to update customers data, you can do it using the CSV file with new data. However, remember to include a source_id in your CSV file to manage the update successfully. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this API request.
 
 ### Example
 
@@ -342,7 +335,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**| File path. | |
+| **file** | **\SplFileObject****\SplFileObject**| File path. | [optional] |
 
 ### Return type
 
@@ -369,7 +362,7 @@ listCustomerActivities($customer_id, $limit, $order, $starting_after, $starting_
 
 List Customer Activities [Deprecated]
 
-Retrieve customer activities.
+> ❗️ Deprecated    This endpoint represents the deprecated version of the API responsible for listing customer activities and we do not recommend using it. Developers are encouraged to migrate to the latest version to take advantage of the latest enhancements and bug fixes. No updates will be provided to the deprecated endpoint. Retrieve customer activities.
 
 ### Example
 
@@ -395,12 +388,12 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_id = 'customer_id_example'; // string | A Voucherify customer's `id` or source ID of the customer who performed the activities.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
-$starting_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | A cursor for use in pagination. `starting_after` is a date-time value that defines your place in the list based on `created_at` property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at `2020-05-24T13:43:09.024Z`, your subsequent call can include `starting_after=2020-05-24T13:43:09.024Z` in order to fetch the next page of the list.
-$starting_after_id = 'starting_after_id_example'; // string | By applying this filter value, you will get events starting after an event with the given ID.
-$campaign_type = new \OpenAPI\Client\Model\ParameterCampaignType(); // ParameterCampaignType | Through this parameter you can control a type of campaign by which Voucherify will filter related customer's activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM
+$customer_id = 'customer_id_example'; // string | A Voucherify customers id or source ID of the customer who performed the activities.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$order = new \OpenAPI\Client\Model\ParameterOrder(); // ParameterOrder | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+$starting_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.
+$starting_after_id = 'starting_after_id_example'; // string | A cursor for pagination. It retrieves the events starting after an event with the given ID.
+$campaign_type = new \OpenAPI\Client\Model\ParameterCampaignType(); // ParameterCampaignType | Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM
 $campaign_id = 'campaign_id_example'; // string | By applying this parameter you request only events related to specific campaign identified by its ID.
 $product_id = 'product_id_example'; // string | By applying this parameter you request only events related to specific product identified by its ID.
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Timestamp representing the date and time which results must end on. Represented in ISO 8601 format.
@@ -418,12 +411,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer&#39;s &#x60;id&#x60; or source ID of the customer who performed the activities. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. | [optional] |
-| **starting_after** | **\DateTime**| A cursor for use in pagination. &#x60;starting_after&#x60; is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list. | [optional] |
-| **starting_after_id** | **string**| By applying this filter value, you will get events starting after an event with the given ID. | [optional] |
-| **campaign_type** | [**ParameterCampaignType**](../Model/.md)| Through this parameter you can control a type of campaign by which Voucherify will filter related customer&#39;s activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM | [optional] |
+| **customer_id** | **string**| A Voucherify customers id or source ID of the customer who performed the activities. | |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **order** | [**ParameterOrder**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
+| **starting_after** | **\DateTime**| A cursor for pagination. starting_after is a date-time value that defines your place in the list based on created_at property from the activity object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. | [optional] |
+| **starting_after_id** | **string**| A cursor for pagination. It retrieves the events starting after an event with the given ID. | [optional] |
+| **campaign_type** | [**ParameterCampaignType**](../Model/.md)| Through this parameter you can control a type of campaign by which Voucherify will filter related customers activity. API will return only records related to that given type. Allowed values: DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM | [optional] |
 | **campaign_id** | **string**| By applying this parameter you request only events related to specific campaign identified by its ID. | [optional] |
 | **product_id** | **string**| By applying this parameter you request only events related to specific product identified by its ID. | [optional] |
 | **start_date** | **\DateTime**| Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. | [optional] |
@@ -614,7 +607,7 @@ listCustomerSegments($customer_id): \OpenAPI\Client\Model\CustomersSegmentsListR
 
 List Customer's Segments
 
-Returns the list of segments IDs to which the customer belongs to.    If you pass a `customerId` which is not stored and recognized by Voucherify as an existing customer in the system, the response will generate a list of segments that the customer would potentialy qualify for if they were to become a customer tracked in the system.
+Returns the list of segments IDs to which the customer belongs to.   If you pass a customerId which is not stored and recognized by Voucherify as an existing customer in the system, the response will generate a list of segments that the customer would potentialy qualify for if they were to become a customer tracked in the system.
 
 ### Example
 
@@ -707,8 +700,8 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
 $email = 'email_example'; // string | Limit the customers to the ones that have this specific email address.
 $city = 'city_example'; // string | Limit the customers to the ones that are located in the specified city.
 $name = 'name_example'; // string | Filter customers by the name property.
@@ -717,8 +710,8 @@ $created_at_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | 
 $created_at_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter customers by date customer was created.
 $updated_at_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter customers by date customer was updated last time.
 $updated_at_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter customers by date customer was updated last time.
-$order = new \OpenAPI\Client\Model\ParameterOrderListCustomers(); // ParameterOrderListCustomers | This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash `-` preceding a sorting option means sorting in a descending order.
-$starting_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | A cursor for use in pagination. This is a date-time value that defines your place in the list based on `created_at` property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at `2020-05-24T13:43:09.024Z`, your subsequent call can include `starting_after=2020-05-24T13:43:09.024Z` in order to fetch the next page of the list.  <!-- title: Options --> | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set `starting_after` parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the `order` parameter set to `created_at` or `updated_at`<br>- set `starting_after` to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. |
+$order = new \OpenAPI\Client\Model\ParameterOrderListCustomers(); // ParameterOrderListCustomers | This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
+$starting_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.
 
 try {
     $result = $apiInstance->listCustomers($limit, $page, $email, $city, $name, $segment_id, $created_at_before, $created_at_after, $updated_at_before, $updated_at_after, $order, $starting_after);
@@ -732,8 +725,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
 | **email** | **string**| Limit the customers to the ones that have this specific email address. | [optional] |
 | **city** | **string**| Limit the customers to the ones that are located in the specified city. | [optional] |
 | **name** | **string**| Filter customers by the name property. | [optional] |
@@ -742,8 +735,8 @@ try {
 | **created_at_after** | **\DateTime**| Filter customers by date customer was created. | [optional] |
 | **updated_at_before** | **\DateTime**| Filter customers by date customer was updated last time. | [optional] |
 | **updated_at_after** | **\DateTime**| Filter customers by date customer was updated last time. | [optional] |
-| **order** | [**ParameterOrderListCustomers**](../Model/.md)| This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. | [optional] |
-| **starting_after** | **\DateTime**| A cursor for use in pagination. This is a date-time value that defines your place in the list based on &#x60;created_at&#x60; property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at &#x60;2020-05-24T13:43:09.024Z&#x60;, your subsequent call can include &#x60;starting_after&#x3D;2020-05-24T13:43:09.024Z&#x60; in order to fetch the next page of the list.  &lt;!-- title: Options --&gt; | **Option** | **Format** | **Sorting** | |:---|:---|:---| | Return customers **before** a specific creation date  | - set &#x60;starting_after&#x60; parameter to the breakpoint date | Sorting order is **descending**; the most recent dates first and least recent dates last. | | Return customers **after** a specific create or update date | - include the &#x60;order&#x60; parameter set to &#x60;created_at&#x60; or &#x60;updated_at&#x60;&lt;br&gt;- set &#x60;starting_after&#x60; to the breakpoint date | Sorting order is **ascending**; the least recent dates first and the most recent dates last. | | [optional] |
+| **order** | [**ParameterOrderListCustomers**](../Model/.md)| This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
+| **starting_after** | **\DateTime**| A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list. | [optional] |
 
 ### Return type
 
@@ -796,7 +789,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$customer_id = 'customer_id_example'; // string | A Voucherify customer's `id` or `source_id`.
+$customer_id = 'customer_id_example'; // string | A Voucherify customers id or source_id.
 $customers_update_request_body = {"name":"Alice McDonald","email":"alice.mdconald@email.com","description":"Updating customer data","phone":"+1 (132) 222-2222","address":{"city":"New York","country":"United States","line_1":"123 Main St.","line_2":"APT 3 BLG 4","postal_code":"10001","state":"NY"},"metadata":{"lang":"en","test":true},"birthdate":"2022-01-01","birthday":"2022-01-02"}; // \OpenAPI\Client\Model\CustomersUpdateRequestBody | Specify the parameters to be updated.
 
 try {
@@ -811,7 +804,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer&#39;s &#x60;id&#x60; or &#x60;source_id&#x60;. | |
+| **customer_id** | **string**| A Voucherify customers id or source_id. | |
 | **customers_update_request_body** | [**\OpenAPI\Client\Model\CustomersUpdateRequestBody**](../Model/CustomersUpdateRequestBody.md)| Specify the parameters to be updated. | [optional] |
 
 ### Return type
@@ -866,7 +859,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     $config
 );
 $customer_id = 'customer_id_example'; // string | A Voucherify unique customer identifier or source ID.
-$body = {"cnst_6jQ5XcUOLnj5L7ImQAdBsJ1I":true,"cnst_VCmucIvAsmDYw2PPAok6bcYy":false}; // object | Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \"unsubscribed\" as a consent identifier and \"true\" as its value.    #### Examples  <!-- title: \"Request Body\" lineNumbers: true --> ```json {     \"cnst_aIdUulAh0SCsOCaS3005y7yS\": true,     \"cnst_aIdUulAhwewqaS31213fdsfds\": false } ```  Opt-out from all communication:  <!-- title: \"Request Body\" lineNumbers: true --> ```json {     \"unsubscribed\": true } ```
+$body = {"cnst_6jQ5XcUOLnj5L7ImQAdBsJ1I":true,"cnst_VCmucIvAsmDYw2PPAok6bcYy":false}; // object | Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication:
 
 try {
     $apiInstance->updateCustomersConsents($customer_id, $body);
@@ -880,7 +873,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **customer_id** | **string**| A Voucherify unique customer identifier or source ID. | |
-| **body** | **object**| Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; | [optional] |
+| **body** | **object**| Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use unsubscribed as a consent identifier and true as its value.   ## Examples  Opt-out from all communication: | [optional] |
 
 ### Return type
 
@@ -899,74 +892,6 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateCustomersConsentsClientSide()`
-
-```php
-updateCustomersConsentsClientSide($customer_id, $body)
-```
-
-Update Customer's consents (client-side)
-
-Update marketing permissions for the specified customer.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: X-Client-Application-Id
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Application-Id', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Application-Id', 'Bearer');
-
-// Configure API key authorization: X-Client-Token
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Client-Token', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Client-Token', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$customer_id = 'customer_id_example'; // string | A Voucherify customer identifier or `source_id`
-$body = {"cnst_6jQ5XcUOLnj5L7ImQAdBsJ1I":true,"cnst_VCmucIvAsmDYw2PPAok6bcYy":false}; // object | Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \"unsubscribed\" as a consent identifier and \"true\" as its value.    #### Examples  <!-- title: \"Request Body\" lineNumbers: true --> ```json {     \"cnst_aIdUulAh0SCsOCaS3005y7yS\": true,     \"cnst_aIdUulAhwewqaS31213fdsfds\": false } ```  Opt-out from all communication:  <!-- title: \"Request Body\" lineNumbers: true --> ```json {     \"unsubscribed\": true } ```
-
-try {
-    $apiInstance->updateCustomersConsentsClientSide($customer_id, $body);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->updateCustomersConsentsClientSide: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **customer_id** | **string**| A Voucherify customer identifier or &#x60;source_id&#x60; | |
-| **body** | **object**| Key-value pairs where the key is the consent identifier and value is a boolean that identifies if a customer has given the consent or not. To deny all consents use \&quot;unsubscribed\&quot; as a consent identifier and \&quot;true\&quot; as its value.    #### Examples  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;cnst_aIdUulAh0SCsOCaS3005y7yS\&quot;: true,     \&quot;cnst_aIdUulAhwewqaS31213fdsfds\&quot;: false } &#x60;&#x60;&#x60;  Opt-out from all communication:  &lt;!-- title: \&quot;Request Body\&quot; lineNumbers: true --&gt; &#x60;&#x60;&#x60;json {     \&quot;unsubscribed\&quot;: true } &#x60;&#x60;&#x60; | [optional] |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[X-Client-Application-Id](../../README.md#X-Client-Application-Id), [X-Client-Token](../../README.md#X-Client-Token)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `updateCustomersInBulk()`
 
 ```php
@@ -975,11 +900,7 @@ updateCustomersInBulk($customers_update_in_bulk_request_body): \OpenAPI\Client\M
 
 Update Customers in Bulk
 
-<<<<<<< Updated upstream
-Update several customers in one asynchronous operation.   In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.    If a requested customer object is not found, then an **upsert** occurs. This is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) -->[Get Async Action](ref:get-async-action) endpoint as follows:    <!-- title: \"Response\" lineNumbers: true --> ```json {     \"found\": false,     \"updated\": true } ```  This API request starts a process that affects Voucherify data in bulk.   In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS` status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.   The result will return the async ID. You can verify the status of your request via this [API request](ref:get-async-action).
-=======
 Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
->>>>>>> Stashed changes
 
 ### Example
 
@@ -1046,11 +967,7 @@ updateCustomersMetadataInBulk($customers_metadata_update_in_bulk_request_body): 
 
 Update Customers' Metadata in Bulk
 
-<<<<<<< Updated upstream
-Update several customers metadata properties in one asynchronous operation.   In one request, it is possible to update a maximum of **100** records. In the response body, you get a unique async action identifier.    If a requested customer object is not found, then an **upsert** occurs. This is reflected in the <!-- [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) -->[Get Async Action](ref:get-async-action) endpoint as follows:    <!-- title: \"Response\" lineNumbers: true --> ```json {     \"found\": false,     \"updated\": true } ```  This API request starts a process that affects Voucherify data in bulk.   In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the `IN_PROGRESS` status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.   The result will return the async ID. You can verify the status of your request via this [API request](ref:get-async-action).
-=======
 Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the GET Async Action endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the GET Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
->>>>>>> Stashed changes
 
 ### Example
 
@@ -1076,11 +993,7 @@ $apiInstance = new OpenAPI\Client\Api\CustomersApi(
     new GuzzleHttp\Client(),
     $config
 );
-<<<<<<< Updated upstream
-$customers_metadata_update_in_bulk_request_body = {"source_ids":["source_123","source_456"],"metadata":{"lang":"en","test":false}}; // \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody | List the `source_ids` of the customer's you would like to update along with the metadata key value pairs.
-=======
 $customers_metadata_update_in_bulk_request_body = {"source_ids":["source_123","source_456"],"metadata":{"lang":"en","test":false}}; // \OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update with the metadata key/value pairs.
->>>>>>> Stashed changes
 
 try {
     $result = $apiInstance->updateCustomersMetadataInBulk($customers_metadata_update_in_bulk_request_body);
@@ -1094,11 +1007,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-<<<<<<< Updated upstream
-| **customers_metadata_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody**](../Model/CustomersMetadataUpdateInBulkRequestBody.md)| List the &#x60;source_ids&#x60; of the customer&#39;s you would like to update along with the metadata key value pairs. | [optional] |
-=======
 | **customers_metadata_update_in_bulk_request_body** | [**\OpenAPI\Client\Model\CustomersMetadataUpdateInBulkRequestBody**](../Model/CustomersMetadataUpdateInBulkRequestBody.md)| List the source_ids of the customers you would like to update with the metadata key/value pairs. | [optional] |
->>>>>>> Stashed changes
 
 ### Return type
 

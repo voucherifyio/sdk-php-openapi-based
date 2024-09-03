@@ -81,13 +81,8 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-        'exported_object' => false,
-		'parameters' => false
-=======
         'conditions' => true,
 		'junction' => true
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
     ];
 
     /**
@@ -303,16 +298,8 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-        if ($this->container['exported_object'] === null) {
-            $invalidProperties[] = "'exported_object' can't be null";
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!is_null($this->container['exported_object']) && !in_array($this->container['exported_object'], $allowedValues, true)) {
-=======
         $allowedValues = $this->getJunctionAllowableValues();
         if (!is_null($this->container['junction']) && !in_array($this->container['junction'], $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'junction', must be one of '%s'",
                 $this->container['junction'],
@@ -338,11 +325,7 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
     /**
      * Gets conditions
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-     * @return string
-=======
      * @return \OpenAPI\Client\Model\ParameterFiltersListCustomerRedeemablesCreatedAtConditions|null
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
      */
     public function getConditions()
     {
@@ -352,32 +335,12 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
     /**
      * Sets conditions
      *
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-     * @param string $exported_object The type of object to be exported.
-=======
      * @param \OpenAPI\Client\Model\ParameterFiltersListCustomerRedeemablesCreatedAtConditions|null $conditions conditions
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
      *
      * @return self
      */
     public function setConditions($conditions)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-        if (is_null($exported_object)) {
-            throw new \InvalidArgumentException('non-nullable exported_object cannot be null');
-        }
-        $allowedValues = $this->getExportedObjectAllowableValues();
-        if (!in_array($exported_object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'exported_object', must be one of '%s'",
-                    $exported_object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['exported_object'] = $exported_object;
-=======
         if (is_null($conditions)) {
             array_push($this->openAPINullablesSetToNull, 'conditions');
         } else {
@@ -389,7 +352,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
             }
         }
         $this->container['conditions'] = $conditions;
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
 
         return $this;
     }
@@ -413,10 +375,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
      */
     public function setJunction($junction)
     {
-<<<<<<< Updated upstream:src/Model/ExportVoucherTransactionsBase.php
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-=======
         if (is_null($junction)) {
             array_push($this->openAPINullablesSetToNull, 'junction');
         } else {
@@ -426,7 +384,6 @@ class ParameterFiltersListCustomerRedeemablesCreatedAt implements ModelInterface
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/ParameterFiltersListCustomerRedeemablesCreatedAt.php
         }
         $allowedValues = $this->getJunctionAllowableValues();
         if (!is_null($junction) && !in_array($junction, $allowedValues, true)) {

@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderCustomerAssets.php
- * CustomerActivityDataRedemptionOrderCustomerAssets
-========
  * EventsCreateRequestBodyLoyalty
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyLoyalty.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderCustomerAssets.php
- * CustomerActivityDataRedemptionOrderCustomerAssets Class Doc Comment
- *
- * @category Class
-========
  * EventsCreateRequestBodyLoyalty Class Doc Comment
  *
  * @category Class
  * @description If an earning rule in a loyalty program is based on a custom event. This objects let&#39;s you specify the loyalty card to which the custom event should be attributed to.
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyLoyalty.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderCustomerAssets.php
-class CustomerActivityDataRedemptionOrderCustomerAssets implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyLoyalty.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderCustomerAssets.php
-    protected static $openAPIModelName = 'CustomerActivityDataRedemptionOrderCustomerAssets';
-========
     protected static $openAPIModelName = 'EventsCreateRequestBodyLoyalty';
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyLoyalty.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -77,7 +59,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cockpit_url' => 'string'
+        'code' => 'string'
     ];
 
     /**
@@ -88,7 +70,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cockpit_url' => null
+        'code' => null
     ];
 
     /**
@@ -97,7 +79,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cockpit_url' => false
+        'code' => true
     ];
 
     /**
@@ -186,7 +168,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'cockpit_url' => 'cockpit_url'
+        'code' => 'code'
     ];
 
     /**
@@ -195,7 +177,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'cockpit_url' => 'setCockpitUrl'
+        'code' => 'setCode'
     ];
 
     /**
@@ -204,7 +186,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'cockpit_url' => 'getCockpitUrl'
+        'code' => 'getCode'
     ];
 
     /**
@@ -264,7 +246,7 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('cockpit_url', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
     }
 
     /**
@@ -310,32 +292,35 @@ class EventsCreateRequestBodyLoyalty implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets cockpit_url
+     * Gets code
      *
      * @return string|null
      */
-    public function getCockpitUrl()
+    public function getCode()
     {
-        return $this->container['cockpit_url'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets cockpit_url
+     * Sets code
      *
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionOrderCustomerAssets.php
-     * @param string|null $cockpit_url Customer's cockpit URL address.
-========
      * @param string|null $code Code of the loyalty card to receive points based on the calculation method defined in the related earning rule. An earning rule is triggered for the loyalty card when the event passed in the `event` parameter of the request payload gets sent along with this loyalty card code.
->>>>>>>> Stashed changes:src/Model/EventsCreateRequestBodyLoyalty.php
      *
      * @return self
      */
-    public function setCockpitUrl($cockpit_url)
+    public function setCode($code)
     {
-        if (is_null($cockpit_url)) {
-            throw new \InvalidArgumentException('non-nullable cockpit_url cannot be null');
+        if (is_null($code)) {
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['cockpit_url'] = $cockpit_url;
+        $this->container['code'] = $code;
 
         return $this;
     }

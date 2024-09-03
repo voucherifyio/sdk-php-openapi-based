@@ -83,9 +83,9 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'banner' => false,
-		'object_id' => false,
-		'object_type' => false
+        'banner' => true,
+		'object_id' => true,
+		'object_type' => true
     ];
 
     /**
@@ -303,12 +303,6 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['object_id'] === null) {
-            $invalidProperties[] = "'object_id' can't be null";
-        }
-        if ($this->container['object_type'] === null) {
-            $invalidProperties[] = "'object_type' can't be null";
-        }
         $allowedValues = $this->getObjectTypeAllowableValues();
         if (!is_null($this->container['object_type']) && !in_array($this->container['object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -353,7 +347,14 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 
@@ -363,7 +364,7 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getObjectId()
     {
@@ -373,14 +374,21 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets object_id
      *
-     * @param string $object_id A unique campaign identifier assigned by the Voucherify API.
+     * @param string|null $object_id A unique campaign identifier assigned by the Voucherify API.
      *
      * @return self
      */
     public function setObjectId($object_id)
     {
         if (is_null($object_id)) {
-            throw new \InvalidArgumentException('non-nullable object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object_id'] = $object_id;
 
@@ -390,7 +398,7 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getObjectType()
     {
@@ -400,17 +408,24 @@ class EarningRuleSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets object_type
      *
-     * @param string $object_type Defines the object associated with the earning rule. Defaults to `campaign`.
+     * @param string|null $object_type Defines the object associated with the earning rule. Defaults to `campaign`.
      *
      * @return self
      */
     public function setObjectType($object_type)
     {
         if (is_null($object_type)) {
-            throw new \InvalidArgumentException('non-nullable object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectTypeAllowableValues();
-        if (!in_array($object_type, $allowedValues, true)) {
+        if (!is_null($object_type) && !in_array($object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object_type', must be one of '%s'",

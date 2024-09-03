@@ -79,7 +79,7 @@ class ClientValidationsValidateRequestBodyOptions implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'expand' => false
+        'expand' => true
     ];
 
     /**
@@ -330,10 +330,17 @@ class ClientValidationsValidateRequestBodyOptions implements ModelInterface, Arr
     public function setExpand($expand)
     {
         if (is_null($expand)) {
-            throw new \InvalidArgumentException('non-nullable expand cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expand');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expand', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getExpandAllowableValues();
-        if (array_diff($expand, $allowedValues)) {
+        if (!is_null($expand) && array_diff($expand, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'expand', must be one of '%s'",

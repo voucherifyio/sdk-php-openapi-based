@@ -103,20 +103,6 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-        'id' => false,
-		'source_id' => false,
-		'product_id' => false,
-		'sku' => false,
-		'price' => true,
-		'currency' => true,
-		'attributes' => false,
-		'image_url' => true,
-		'metadata' => false,
-		'created_at' => false,
-		'updated_at' => true,
-		'object' => false
-=======
         'junction' => true,
 		'id' => false,
 		'product_id' => false,
@@ -130,7 +116,6 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
 		'skus' => false,
 		'created_at' => false,
 		'updated_at' => false
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
     ];
 
     /**
@@ -486,36 +471,6 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id source_id
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
      * Gets product_id
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
@@ -561,13 +516,8 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
      */
     public function setSourceId($source_id)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-        if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
-=======
         if (is_null($source_id)) {
             throw new \InvalidArgumentException('non-nullable source_id cannot be null');
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
         }
         $this->container['source_id'] = $source_id;
 
@@ -629,192 +579,6 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency SKU price currency.
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            array_push($this->openAPINullablesSetToNull, 'currency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return object|null
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param object|null $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
-        }
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets image_url
-     *
-     * @return string|null
-     */
-    public function getImageUrl()
-    {
-        return $this->container['image_url'];
-    }
-
-    /**
-     * Sets image_url
-     *
-     * @param string|null $image_url The HTTPS URL pointing to the .png or .jpg file that will be used to render the SKU image.
-     *
-     * @return self
-     */
-    public function setImageUrl($image_url)
-    {
-        if (is_null($image_url)) {
-            array_push($this->openAPINullablesSetToNull, 'image_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image_url'] = $image_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the SKU was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the SKU was updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            array_push($this->openAPINullablesSetToNull, 'updated_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updated_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
      * Gets object
      *
      * @return \OpenAPI\Client\Model\FieldConditions|null
@@ -827,11 +591,7 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
     /**
      * Sets object
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-     * @param string|null $object The type of object represented by JSON. This object stores information about the `SKU`.
-=======
      * @param \OpenAPI\Client\Model\FieldConditions|null $object object
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
      *
      * @return self
      */
@@ -839,19 +599,6 @@ class ProductCollectionsGetResponseBodyFilter implements ModelInterface, ArrayAc
     {
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataRedemptionRewardSku.php
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-=======
->>>>>>> Stashed changes:src/Model/ProductCollectionsGetResponseBodyFilter.php
         }
         $this->container['object'] = $object;
 

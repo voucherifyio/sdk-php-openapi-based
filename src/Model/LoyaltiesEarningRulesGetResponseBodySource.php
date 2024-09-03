@@ -83,16 +83,9 @@ class LoyaltiesEarningRulesGetResponseBodySource implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleReferralTier.php
-        'id' => false,
-		'campaign_id' => false,
-		'banner' => false,
-		'parameters' => false
-=======
         'banner' => true,
 		'object_id' => true,
 		'object_type' => true
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodySource.php
     ];
 
     /**
@@ -335,63 +328,6 @@ class LoyaltiesEarningRulesGetResponseBodySource implements ModelInterface, Arra
 
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleReferralTier.php
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Unique referral tier ID.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
-     *
-     * @return string|null
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaign_id'];
-    }
-
-    /**
-     * Sets campaign_id
-     *
-     * @param string|null $campaign_id Campaign Id.
-     *
-     * @return self
-     */
-    public function setCampaignId($campaign_id)
-    {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
-        }
-        $this->container['campaign_id'] = $campaign_id;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodySource.php
      * Gets banner
      *
      * @return string|null
@@ -411,7 +347,14 @@ class LoyaltiesEarningRulesGetResponseBodySource implements ModelInterface, Arra
     public function setBanner($banner)
     {
         if (is_null($banner)) {
-            throw new \InvalidArgumentException('non-nullable banner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'banner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('banner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['banner'] = $banner;
 
@@ -437,10 +380,6 @@ class LoyaltiesEarningRulesGetResponseBodySource implements ModelInterface, Arra
      */
     public function setObjectId($object_id)
     {
-<<<<<<< Updated upstream:src/Model/SimpleReferralTier.php
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
-=======
         if (is_null($object_id)) {
             array_push($this->openAPINullablesSetToNull, 'object_id');
         } else {
@@ -450,7 +389,6 @@ class LoyaltiesEarningRulesGetResponseBodySource implements ModelInterface, Arra
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltiesEarningRulesGetResponseBodySource.php
         }
         $this->container['object_id'] = $object_id;
 

@@ -60,27 +60,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
       */
     protected static $openAPITypes = [
         'id' => 'string',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'source_id' => 'string',
-        'summary' => '\OpenAPI\Client\Model\CustomerActivityDataOrderCustomerSummary',
-        'loyalty' => '\OpenAPI\Client\Model\CustomerActivityDataOrderCustomerLoyalty',
-        'referrals' => '\OpenAPI\Client\Model\CustomerActivityDataOrderCustomerReferrals',
-        'system_metadata' => 'object',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'assets' => '\OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAssets',
-        'object' => 'string',
-        'name' => 'string',
-        'description' => 'string',
-        'email' => 'string',
-        'phone' => 'string',
-        'birthday' => '\DateTime',
-        'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAddress',
-        'metadata' => 'object'
-=======
         'type' => 'string'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -92,27 +72,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
       */
     protected static $openAPIFormats = [
         'id' => null,
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'source_id' => null,
-        'summary' => null,
-        'loyalty' => null,
-        'referrals' => null,
-        'system_metadata' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'assets' => null,
-        'object' => null,
-        'name' => null,
-        'description' => null,
-        'email' => null,
-        'phone' => null,
-        'birthday' => 'date',
-        'birthdate' => 'date',
-        'address' => null,
-        'metadata' => null
-=======
         'type' => null
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -121,29 +81,8 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'id' => false,
-		'source_id' => false,
-		'summary' => false,
-		'loyalty' => false,
-		'referrals' => false,
-		'system_metadata' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'assets' => false,
-		'object' => false,
-		'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
-		'address' => false,
-		'metadata' => false
-=======
         'id' => true,
 		'type' => true
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -233,27 +172,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
      */
     protected static $attributeMap = [
         'id' => 'id',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'source_id' => 'source_id',
-        'summary' => 'summary',
-        'loyalty' => 'loyalty',
-        'referrals' => 'referrals',
-        'system_metadata' => 'system_metadata',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'assets' => 'assets',
-        'object' => 'object',
-        'name' => 'name',
-        'description' => 'description',
-        'email' => 'email',
-        'phone' => 'phone',
-        'birthday' => 'birthday',
-        'birthdate' => 'birthdate',
-        'address' => 'address',
-        'metadata' => 'metadata'
-=======
         'type' => 'type'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -263,27 +182,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
      */
     protected static $setters = [
         'id' => 'setId',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'source_id' => 'setSourceId',
-        'summary' => 'setSummary',
-        'loyalty' => 'setLoyalty',
-        'referrals' => 'setReferrals',
-        'system_metadata' => 'setSystemMetadata',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'assets' => 'setAssets',
-        'object' => 'setObject',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'birthday' => 'setBirthday',
-        'birthdate' => 'setBirthdate',
-        'address' => 'setAddress',
-        'metadata' => 'setMetadata'
-=======
         'type' => 'setType'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -293,27 +192,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
      */
     protected static $getters = [
         'id' => 'getId',
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        'source_id' => 'getSourceId',
-        'summary' => 'getSummary',
-        'loyalty' => 'getLoyalty',
-        'referrals' => 'getReferrals',
-        'system_metadata' => 'getSystemMetadata',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'assets' => 'getAssets',
-        'object' => 'getObject',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'birthday' => 'getBirthday',
-        'birthdate' => 'getBirthdate',
-        'address' => 'getAddress',
-        'metadata' => 'getMetadata'
-=======
         'type' => 'getType'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     ];
 
     /**
@@ -387,27 +266,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        $this->setIfExists('source_id', $data ?? [], null);
-        $this->setIfExists('summary', $data ?? [], null);
-        $this->setIfExists('loyalty', $data ?? [], null);
-        $this->setIfExists('referrals', $data ?? [], null);
-        $this->setIfExists('system_metadata', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('assets', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'customer');
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('birthday', $data ?? [], null);
-        $this->setIfExists('birthdate', $data ?? [], null);
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
-=======
         $this->setIfExists('type', $data ?? [], 'voucher');
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
     }
 
     /**
@@ -478,18 +337,21 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
     /**
      * Sets id
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-     * @param string|null $id id
-=======
      * @param string|null $id Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API.
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -497,227 +359,7 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets summary
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerSummary|null
-     */
-    public function getSummary()
-    {
-        return $this->container['summary'];
-    }
-
-    /**
-     * Sets summary
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerSummary|null $summary summary
-     *
-     * @return self
-     */
-    public function setSummary($summary)
-    {
-        if (is_null($summary)) {
-            throw new \InvalidArgumentException('non-nullable summary cannot be null');
-        }
-        $this->container['summary'] = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyalty
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerLoyalty|null
-     */
-    public function getLoyalty()
-    {
-        return $this->container['loyalty'];
-    }
-
-    /**
-     * Sets loyalty
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerLoyalty|null $loyalty loyalty
-     *
-     * @return self
-     */
-    public function setLoyalty($loyalty)
-    {
-        if (is_null($loyalty)) {
-            throw new \InvalidArgumentException('non-nullable loyalty cannot be null');
-        }
-        $this->container['loyalty'] = $loyalty;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrals
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerReferrals|null
-     */
-    public function getReferrals()
-    {
-        return $this->container['referrals'];
-    }
-
-    /**
-     * Sets referrals
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerReferrals|null $referrals referrals
-     *
-     * @return self
-     */
-    public function setReferrals($referrals)
-    {
-        if (is_null($referrals)) {
-            throw new \InvalidArgumentException('non-nullable referrals cannot be null');
-        }
-        $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets system_metadata
-     *
-     * @return object|null
-     */
-    public function getSystemMetadata()
-    {
-        return $this->container['system_metadata'];
-    }
-
-    /**
-     * Sets system_metadata
-     *
-     * @param object|null $system_metadata system_metadata
-     *
-     * @return self
-     */
-    public function setSystemMetadata($system_metadata)
-    {
-        if (is_null($system_metadata)) {
-            throw new \InvalidArgumentException('non-nullable system_metadata cannot be null');
-        }
-        $this->container['system_metadata'] = $system_metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets assets
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAssets|null
-     */
-    public function getAssets()
-    {
-        return $this->container['assets'];
-    }
-
-    /**
-     * Sets assets
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAssets|null $assets assets
-     *
-     * @return self
-     */
-    public function setAssets($assets)
-    {
-        if (is_null($assets)) {
-            throw new \InvalidArgumentException('non-nullable assets cannot be null');
-        }
-        $this->container['assets'] = $assets;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-=======
      * Gets type
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
      *
      * @return string|null
      */
@@ -729,23 +371,12 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
     /**
      * Sets type
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-     * @param string|null $object The type of object represented by JSON.
-=======
      * @param string|null $type The object being modified, i.e. voucher.
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
      *
      * @return self
      */
     public function setType($type)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomer.php
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-=======
         if (is_null($type)) {
             array_push($this->openAPINullablesSetToNull, 'type');
         } else {
@@ -758,7 +389,6 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($type) && !in_array($type, $allowedValues, true)) {
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetailsBalanceRelatedObject.php
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -773,222 +403,6 @@ class LoyaltyCardTransactionDetailsBalanceRelatedObject implements ModelInterfac
         }
 
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Customer's first and last name.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description An arbitrary string that you can attach to a customer object.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Customer's email address.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone
-     *
-     * @return string|null
-     */
-    public function getPhone()
-    {
-        return $this->container['phone'];
-    }
-
-    /**
-     * Sets phone
-     *
-     * @param string|null $phone Customer's phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
-     *
-     * @return self
-     */
-    public function setPhone($phone)
-    {
-        if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
-        }
-        $this->container['phone'] = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthday
-     *
-     * @return \DateTime|null
-     */
-    public function getBirthday()
-    {
-        return $this->container['birthday'];
-    }
-
-    /**
-     * Sets birthday
-     *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setBirthday($birthday)
-    {
-        if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
-        }
-        $this->container['birthday'] = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthdate
-     *
-     * @return \DateTime|null
-     */
-    public function getBirthdate()
-    {
-        return $this->container['birthdate'];
-    }
-
-    /**
-     * Sets birthdate
-     *
-     * @param \DateTime|null $birthdate Customer's birthdate; format YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setBirthdate($birthdate)
-    {
-        if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
-        }
-        $this->container['birthdate'] = $birthdate;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAddress|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param \OpenAPI\Client\Model\CustomerActivityDataOrderCustomerAddress|null $address address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        if (is_null($address)) {
-            throw new \InvalidArgumentException('non-nullable address cannot be null');
-        }
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }

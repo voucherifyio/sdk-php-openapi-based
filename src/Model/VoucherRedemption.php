@@ -51,15 +51,7 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:src/Model/VoucherRedemption.php
-    protected static $openAPIModelName = 'Voucher_redemption';
-========
-    protected static $openAPIModelName = 'CampaignsVouchersCreateCombinedResponseBodyRedemption';
->>>>>>>> Stashed changes:src/Model/CampaignsVouchersCreateCombinedResponseBodyRedemption.php
-=======
     protected static $openAPIModelName = 'VoucherRedemption';
->>>>>>> Stashed changes
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,10 +61,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'quantity' => 'int',
         'redeemed_quantity' => 'int',
-<<<<<<< Updated upstream
-        'redeemed_amount' => 'int',
-=======
->>>>>>> Stashed changes
         'redeemed_points' => 'int',
         'object' => 'string',
         'url' => 'string'
@@ -88,10 +76,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPIFormats = [
         'quantity' => null,
         'redeemed_quantity' => null,
-<<<<<<< Updated upstream
-        'redeemed_amount' => null,
-=======
->>>>>>> Stashed changes
         'redeemed_points' => null,
         'object' => null,
         'url' => null
@@ -103,20 +87,11 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'quantity' => false,
-		'redeemed_quantity' => false,
-		'redeemed_amount' => false,
-		'redeemed_points' => false,
-		'object' => false,
-		'url' => false
-=======
         'quantity' => true,
 		'redeemed_quantity' => true,
 		'redeemed_points' => true,
 		'object' => true,
 		'url' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -207,10 +182,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $attributeMap = [
         'quantity' => 'quantity',
         'redeemed_quantity' => 'redeemed_quantity',
-<<<<<<< Updated upstream
-        'redeemed_amount' => 'redeemed_amount',
-=======
->>>>>>> Stashed changes
         'redeemed_points' => 'redeemed_points',
         'object' => 'object',
         'url' => 'url'
@@ -224,10 +195,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $setters = [
         'quantity' => 'setQuantity',
         'redeemed_quantity' => 'setRedeemedQuantity',
-<<<<<<< Updated upstream
-        'redeemed_amount' => 'setRedeemedAmount',
-=======
->>>>>>> Stashed changes
         'redeemed_points' => 'setRedeemedPoints',
         'object' => 'setObject',
         'url' => 'setUrl'
@@ -241,10 +208,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $getters = [
         'quantity' => 'getQuantity',
         'redeemed_quantity' => 'getRedeemedQuantity',
-<<<<<<< Updated upstream
-        'redeemed_amount' => 'getRedeemedAmount',
-=======
->>>>>>> Stashed changes
         'redeemed_points' => 'getRedeemedPoints',
         'object' => 'getObject',
         'url' => 'getUrl'
@@ -309,10 +272,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('redeemed_quantity', $data ?? [], null);
-<<<<<<< Updated upstream
-        $this->setIfExists('redeemed_amount', $data ?? [], null);
-=======
->>>>>>> Stashed changes
         $this->setIfExists('redeemed_points', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'list');
         $this->setIfExists('url', $data ?? [], null);
@@ -380,9 +339,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setQuantity($quantity)
     {
         if (is_null($quantity)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'quantity');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -391,7 +347,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['quantity'] = $quantity;
 
@@ -418,9 +373,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setRedeemedQuantity($redeemed_quantity)
     {
         if (is_null($redeemed_quantity)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable redeemed_quantity cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'redeemed_quantity');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -429,7 +381,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['redeemed_quantity'] = $redeemed_quantity;
 
@@ -437,36 +388,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets redeemed_amount
-     *
-     * @return int|null
-     */
-    public function getRedeemedAmount()
-    {
-        return $this->container['redeemed_amount'];
-    }
-
-    /**
-     * Sets redeemed_amount
-     *
-     * @param int|null $redeemed_amount Total amount redeemed. Value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 balance is written as 10000.
-     *
-     * @return self
-     */
-    public function setRedeemedAmount($redeemed_amount)
-    {
-        if (is_null($redeemed_amount)) {
-            throw new \InvalidArgumentException('non-nullable redeemed_amount cannot be null');
-        }
-        $this->container['redeemed_amount'] = $redeemed_amount;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets redeemed_points
      *
      * @return int|null
@@ -486,9 +407,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setRedeemedPoints($redeemed_points)
     {
         if (is_null($redeemed_points)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable redeemed_points cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'redeemed_points');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -497,7 +415,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['redeemed_points'] = $redeemed_points;
 
@@ -517,20 +434,13 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets object
      *
-<<<<<<< Updated upstream
-     * @param string|null $object The type of object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the url attribute.
-=======
      * @param string|null $object The type of the object represented is by default `list`. To get this list, you need to make a call to the endpoint returned in the url attribute.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'object');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -539,7 +449,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['object'] = $object;
 
@@ -566,9 +475,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setUrl($url)
     {
         if (is_null($url)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -577,7 +483,6 @@ class VoucherRedemption implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['url'] = $url;
 

@@ -85,10 +85,10 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'count' => false,
-		'entries' => false,
-		'url' => false
+        'object' => true,
+		'count' => true,
+		'entries' => true,
+		'url' => true
     ];
 
     /**
@@ -310,9 +310,6 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -340,7 +337,7 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -350,17 +347,24 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     /**
      * Sets object
      *
-     * @param string $object The type of object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute.
+     * @param string|null $object The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -394,7 +398,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     public function setCount($count)
     {
         if (is_null($count)) {
-            throw new \InvalidArgumentException('non-nullable count cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['count'] = $count;
 
@@ -421,7 +432,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     public function setEntries($entries)
     {
         if (is_null($entries)) {
-            throw new \InvalidArgumentException('non-nullable entries cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'entries');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('entries', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['entries'] = $entries;
 
@@ -448,7 +466,14 @@ class LoyaltiesMembersTransfersCreateResponseBodyPublish implements ModelInterfa
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 

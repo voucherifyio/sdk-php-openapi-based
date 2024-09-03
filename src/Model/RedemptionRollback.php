@@ -73,21 +73,16 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
         'related_redemptions' => '\OpenAPI\Client\Model\RedemptionRollbackRelatedRedemptions',
         'failure_code' => 'string',
         'failure_message' => 'string',
-<<<<<<< Updated upstream
-        'order' => '\OpenAPI\Client\Model\OrderCalculatedNoCustomerData',
-        'channel' => '\OpenAPI\Client\Model\RedemptionChannel',
-=======
         'order' => '\OpenAPI\Client\Model\OrderCalculated',
         'channel' => '\OpenAPI\Client\Model\RedemptionRollbackChannel',
->>>>>>> Stashed changes
         'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
         'related_object_type' => 'string',
         'related_object_id' => 'string',
         'voucher' => '\OpenAPI\Client\Model\Voucher',
         'promotion_tier' => '\OpenAPI\Client\Model\PromotionTier',
         'reward' => '\OpenAPI\Client\Model\RedemptionRewardResult',
-        'gift' => '\OpenAPI\Client\Model\RedemptionGift',
-        'loyalty_card' => '\OpenAPI\Client\Model\RedemptionLoyaltyCard'
+        'gift' => '\OpenAPI\Client\Model\RedemptionRollbackGift',
+        'loyalty_card' => '\OpenAPI\Client\Model\RedemptionRollbackLoyaltyCard'
     ];
 
     /**
@@ -130,27 +125,14 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'object' => false,
-		'date' => false,
+        'id' => true,
+		'object' => true,
+		'date' => true,
 		'customer_id' => true,
 		'tracking_id' => true,
 		'metadata' => true,
-		'amount' => false,
+		'amount' => true,
 		'redemption' => true,
-<<<<<<< Updated upstream
-		'reason' => false,
-		'result' => false,
-		'status' => false,
-		'related_redemptions' => false,
-		'failure_code' => false,
-		'failure_message' => false,
-		'order' => true,
-		'channel' => false,
-		'customer' => true,
-		'related_object_type' => false,
-		'related_object_id' => false,
-=======
 		'reason' => true,
 		'result' => true,
 		'status' => true,
@@ -162,12 +144,11 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
 		'customer' => false,
 		'related_object_type' => true,
 		'related_object_id' => true,
->>>>>>> Stashed changes
 		'voucher' => false,
 		'promotion_tier' => false,
 		'reward' => false,
-		'gift' => false,
-		'loyalty_card' => false
+		'gift' => true,
+		'loyalty_card' => true
     ];
 
     /**
@@ -516,12 +497,6 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -531,24 +506,6 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['tracking_id'] === null) {
-            $invalidProperties[] = "'tracking_id' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
-        }
-        if ($this->container['redemption'] === null) {
-            $invalidProperties[] = "'redemption' can't be null";
-        }
-        if ($this->container['result'] === null) {
-            $invalidProperties[] = "'result' can't be null";
-        }
         $allowedValues = $this->getResultAllowableValues();
         if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -558,9 +515,6 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -570,18 +524,6 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
-        if ($this->container['customer'] === null) {
-            $invalidProperties[] = "'customer' can't be null";
-        }
-        if ($this->container['related_object_type'] === null) {
-            $invalidProperties[] = "'related_object_type' can't be null";
-        }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
         if (!is_null($this->container['related_object_type']) && !in_array($this->container['related_object_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -591,9 +533,6 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -612,7 +551,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -622,14 +561,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param string $id Unique redemption ID.
+     * @param string|null $id Unique identifier of the redemption rollback.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -639,7 +585,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -649,17 +595,24 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by the JSON
+     * @param string|null $object The type of the object represented by the JSON
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -676,7 +629,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDate()
     {
@@ -686,14 +639,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets date
      *
-     * @param \DateTime $date Timestamp representing the date and time when the object was created in ISO 8601 format.
+     * @param \DateTime|null $date Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format.
      *
      * @return self
      */
     public function setDate($date)
     {
         if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date'] = $date;
 
@@ -703,7 +663,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -713,7 +673,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique customer ID of the redeeming customer.
+     * @param string|null $customer_id Unique customer ID of the redeeming customer.
      *
      * @return self
      */
@@ -737,7 +697,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets tracking_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTrackingId()
     {
@@ -747,7 +707,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets tracking_id
      *
-     * @param string $tracking_id Hashed customer source ID.
+     * @param string|null $tracking_id Hashed customer source ID.
      *
      * @return self
      */
@@ -771,7 +731,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets metadata
      *
-     * @return object
+     * @return object|null
      */
     public function getMetadata()
     {
@@ -781,7 +741,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets metadata
      *
-     * @param object $metadata The metadata object stores all custom attributes assigned to the redemption.
+     * @param object|null $metadata The metadata object stores all custom attributes assigned to the redemption.
      *
      * @return self
      */
@@ -815,14 +775,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets amount
      *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
+     * @param int|null $amount For gift cards, this represents the number of the credits restored to the card in the rolledback redemption. The number is a negative integer in the smallest currency unit, e.g. -100 cents for $1.00 added back to the card. For loyalty cards, this represents the number of loyalty points restored to the card in the rolledback redemption. The number is a negative integer.
      *
      * @return self
      */
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -832,7 +799,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets redemption
      *
-     * @return string
+     * @return string|null
      */
     public function getRedemption()
     {
@@ -842,7 +809,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets redemption
      *
-     * @param string $redemption Unique redemption ID of the parent redemption.
+     * @param string|null $redemption Unique redemption ID of the parent redemption.
      *
      * @return self
      */
@@ -883,7 +850,14 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -893,7 +867,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets result
      *
-     * @return string
+     * @return string|null
      */
     public function getResult()
     {
@@ -903,17 +877,24 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets result
      *
-     * @param string $result Redemption result.
+     * @param string|null $result Redemption result.
      *
      * @return self
      */
     public function setResult($result)
     {
         if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
+        if (!is_null($result) && !in_array($result, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'result', must be one of '%s'",
@@ -930,7 +911,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -940,17 +921,24 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param string $status Redemption status.
+     * @param string|null $status Redemption status.
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -984,7 +972,14 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setRelatedRedemptions($related_redemptions)
     {
         if (is_null($related_redemptions)) {
-            throw new \InvalidArgumentException('non-nullable related_redemptions cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_redemptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_redemptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_redemptions'] = $related_redemptions;
 
@@ -1011,7 +1006,14 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -1038,7 +1040,14 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 
@@ -1048,11 +1057,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets order
      *
-<<<<<<< Updated upstream
-     * @return \OpenAPI\Client\Model\OrderCalculatedNoCustomerData
-=======
      * @return \OpenAPI\Client\Model\OrderCalculated|null
->>>>>>> Stashed changes
      */
     public function getOrder()
     {
@@ -1062,11 +1067,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets order
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\OrderCalculatedNoCustomerData $order order
-=======
      * @param \OpenAPI\Client\Model\OrderCalculated|null $order order
->>>>>>> Stashed changes
      *
      * @return self
      */
@@ -1083,7 +1084,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets channel
      *
-     * @return \OpenAPI\Client\Model\RedemptionChannel
+     * @return \OpenAPI\Client\Model\RedemptionRollbackChannel|null
      */
     public function getChannel()
     {
@@ -1093,14 +1094,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets channel
      *
-     * @param \OpenAPI\Client\Model\RedemptionChannel $channel channel
+     * @param \OpenAPI\Client\Model\RedemptionRollbackChannel|null $channel channel
      *
      * @return self
      */
     public function setChannel($channel)
     {
         if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['channel'] = $channel;
 
@@ -1110,7 +1118,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets customer
      *
-     * @return \OpenAPI\Client\Model\SimpleCustomer
+     * @return \OpenAPI\Client\Model\SimpleCustomer|null
      */
     public function getCustomer()
     {
@@ -1120,7 +1128,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets customer
      *
-     * @param \OpenAPI\Client\Model\SimpleCustomer $customer customer
+     * @param \OpenAPI\Client\Model\SimpleCustomer|null $customer customer
      *
      * @return self
      */
@@ -1137,7 +1145,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets related_object_type
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectType()
     {
@@ -1147,17 +1155,24 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets related_object_type
      *
-     * @param string $related_object_type Defines the related object.
+     * @param string|null $related_object_type Defines the related object.
      *
      * @return self
      */
     public function setRelatedObjectType($related_object_type)
     {
         if (is_null($related_object_type)) {
-            throw new \InvalidArgumentException('non-nullable related_object_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getRelatedObjectTypeAllowableValues();
-        if (!in_array($related_object_type, $allowedValues, true)) {
+        if (!is_null($related_object_type) && !in_array($related_object_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'related_object_type', must be one of '%s'",
@@ -1174,7 +1189,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -1184,14 +1199,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher.
+     * @param string|null $related_object_id Unique identifier of the related object. It is assigned by Voucherify, i.e. `v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno` for a voucher.
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -1282,7 +1304,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets gift
      *
-     * @return \OpenAPI\Client\Model\RedemptionGift|null
+     * @return \OpenAPI\Client\Model\RedemptionRollbackGift|null
      */
     public function getGift()
     {
@@ -1292,14 +1314,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets gift
      *
-     * @param \OpenAPI\Client\Model\RedemptionGift|null $gift gift
+     * @param \OpenAPI\Client\Model\RedemptionRollbackGift|null $gift gift
      *
      * @return self
      */
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -1309,7 +1338,7 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets loyalty_card
      *
-     * @return \OpenAPI\Client\Model\RedemptionLoyaltyCard|null
+     * @return \OpenAPI\Client\Model\RedemptionRollbackLoyaltyCard|null
      */
     public function getLoyaltyCard()
     {
@@ -1319,14 +1348,21 @@ class RedemptionRollback implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets loyalty_card
      *
-     * @param \OpenAPI\Client\Model\RedemptionLoyaltyCard|null $loyalty_card loyalty_card
+     * @param \OpenAPI\Client\Model\RedemptionRollbackLoyaltyCard|null $loyalty_card loyalty_card
      *
      * @return self
      */
     public function setLoyaltyCard($loyalty_card)
     {
         if (is_null($loyalty_card)) {
-            throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'loyalty_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('loyalty_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['loyalty_card'] = $loyalty_card;
 

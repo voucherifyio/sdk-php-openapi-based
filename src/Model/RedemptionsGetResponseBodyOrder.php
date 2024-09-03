@@ -120,30 +120,8 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'id' => true,
 		'source_id' => true,
-<<<<<<< Updated upstream
-		'created_at' => false,
-		'updated_at' => true,
-		'status' => false,
-		'amount' => false,
-		'initial_amount' => false,
-		'discount_amount' => false,
-		'items_discount_amount' => false,
-		'total_discount_amount' => false,
-		'total_amount' => false,
-		'applied_discount_amount' => false,
-		'items_applied_discount_amount' => false,
-		'total_applied_discount_amount' => false,
-		'items' => false,
-		'metadata' => false,
-		'customer_id' => true,
-		'referrer_id' => true,
-		'object' => false,
-		'redemptions' => false,
-		'customer' => false,
-		'referrer' => false
-=======
 		'status' => true,
 		'amount' => true,
 		'initial_amount' => true,
@@ -164,7 +142,6 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
 		'customer' => true,
 		'referrer' => true,
 		'redemptions' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -530,7 +507,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -572,70 +556,6 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the order was last updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            array_push($this->openAPINullablesSetToNull, 'updated_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updated_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets status
      *
      * @return string|null
@@ -655,10 +575,17 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status', must be one of '%s'",
@@ -692,7 +619,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -719,7 +653,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setInitialAmount($initial_amount)
     {
         if (is_null($initial_amount)) {
-            throw new \InvalidArgumentException('non-nullable initial_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initial_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initial_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initial_amount'] = $initial_amount;
 
@@ -746,7 +687,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setDiscountAmount($discount_amount)
     {
         if (is_null($discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['discount_amount'] = $discount_amount;
 
@@ -773,7 +721,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setItemsDiscountAmount($items_discount_amount)
     {
         if (is_null($items_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_discount_amount'] = $items_discount_amount;
 
@@ -800,7 +755,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setTotalDiscountAmount($total_discount_amount)
     {
         if (is_null($total_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_discount_amount'] = $total_discount_amount;
 
@@ -827,7 +789,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setTotalAmount($total_amount)
     {
         if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_amount'] = $total_amount;
 
@@ -854,7 +823,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setAppliedDiscountAmount($applied_discount_amount)
     {
         if (is_null($applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['applied_discount_amount'] = $applied_discount_amount;
 
@@ -881,7 +857,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setItemsAppliedDiscountAmount($items_applied_discount_amount)
     {
         if (is_null($items_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable items_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items_applied_discount_amount'] = $items_applied_discount_amount;
 
@@ -908,7 +891,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setTotalAppliedDiscountAmount($total_applied_discount_amount)
     {
         if (is_null($total_applied_discount_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_applied_discount_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total_applied_discount_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_applied_discount_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total_applied_discount_amount'] = $total_applied_discount_amount;
 
@@ -935,7 +925,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setItems($items)
     {
         if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['items'] = $items;
 
@@ -962,7 +959,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -1150,73 +1154,6 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object The type of object represented by JSON.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemptions
-     *
-     * @return object|null
-     */
-    public function getRedemptions()
-    {
-        return $this->container['redemptions'];
-    }
-
-    /**
-     * Sets redemptions
-     *
-     * @param object|null $redemptions redemptions
-     *
-     * @return self
-     */
-    public function setRedemptions($redemptions)
-    {
-        if (is_null($redemptions)) {
-            throw new \InvalidArgumentException('non-nullable redemptions cannot be null');
-        }
-        $this->container['redemptions'] = $redemptions;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets customer
      *
      * @return \OpenAPI\Client\Model\RedemptionsGetResponseBodyOrderCustomer|null
@@ -1236,7 +1173,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setCustomer($customer)
     {
         if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer'] = $customer;
 
@@ -1263,7 +1207,14 @@ class RedemptionsGetResponseBodyOrder implements ModelInterface, ArrayAccess, \J
     public function setReferrer($referrer)
     {
         if (is_null($referrer)) {
-            throw new \InvalidArgumentException('non-nullable referrer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referrer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referrer'] = $referrer;
 

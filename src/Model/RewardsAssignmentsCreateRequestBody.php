@@ -82,9 +82,9 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'campaign' => false,
-		'parameters' => false,
-		'validation_rules' => false
+        'campaign' => true,
+		'parameters' => true,
+		'validation_rules' => true
     ];
 
     /**
@@ -289,9 +289,6 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -310,7 +307,7 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets campaign
      *
-     * @return string
+     * @return string|null
      */
     public function getCampaign()
     {
@@ -320,14 +317,21 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets campaign
      *
-     * @param string $campaign The campaign ID of the campaign to which the reward is to be assigned.
+     * @param string|null $campaign The campaign ID of the campaign to which the reward is to be assigned.
      *
      * @return self
      */
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -354,7 +358,14 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
     public function setParameters($parameters)
     {
         if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parameters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parameters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parameters'] = $parameters;
 
@@ -381,7 +392,14 @@ class RewardsAssignmentsCreateRequestBody implements ModelInterface, ArrayAccess
     public function setValidationRules($validation_rules)
     {
         if (is_null($validation_rules)) {
-            throw new \InvalidArgumentException('non-nullable validation_rules cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'validation_rules');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('validation_rules', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['validation_rules'] = $validation_rules;
 

@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
- * CustomerActivityDataOrderCustomerAssets
-========
  * PromotionTierCreateParamsAction
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
- * CustomerActivityDataOrderCustomerAssets Class Doc Comment
- *
- * @category Class
-========
  * PromotionTierCreateParamsAction Class Doc Comment
  *
  * @category Class
  * @description Contains details about the discount applied by the promotion tier.
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-class CustomerActivityDataOrderCustomerAssets implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-    protected static $openAPIModelName = 'CustomerActivityDataOrderCustomerAssets';
-========
     protected static $openAPIModelName = 'PromotionTierCreateParamsAction';
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -77,11 +59,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => 'string'
-========
         'discount' => '\OpenAPI\Client\Model\Discount'
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -92,11 +70,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => null
-========
         'discount' => null
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -105,11 +79,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => false
-========
         'discount' => false
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -198,11 +168,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => 'cockpit_url'
-========
         'discount' => 'discount'
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -211,11 +177,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => 'setCockpitUrl'
-========
         'discount' => 'setDiscount'
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -224,11 +186,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        'cockpit_url' => 'getCockpitUrl'
-========
         'discount' => 'getDiscount'
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     ];
 
     /**
@@ -288,11 +246,7 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-        $this->setIfExists('cockpit_url', $data ?? [], null);
-========
         $this->setIfExists('discount', $data ?? [], null);
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
     }
 
     /**
@@ -338,30 +292,6 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
 
 
     /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAssets.php
-     * Gets cockpit_url
-     *
-     * @return string|null
-     */
-    public function getCockpitUrl()
-    {
-        return $this->container['cockpit_url'];
-    }
-
-    /**
-     * Sets cockpit_url
-     *
-     * @param string|null $cockpit_url Customer's cockpit URL address.
-     *
-     * @return self
-     */
-    public function setCockpitUrl($cockpit_url)
-    {
-        if (is_null($cockpit_url)) {
-            throw new \InvalidArgumentException('non-nullable cockpit_url cannot be null');
-        }
-        $this->container['cockpit_url'] = $cockpit_url;
-========
      * Gets discount
      *
      * @return \OpenAPI\Client\Model\Discount|null
@@ -384,7 +314,6 @@ class PromotionTierCreateParamsAction implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable discount cannot be null');
         }
         $this->container['discount'] = $discount;
->>>>>>>> Stashed changes:src/Model/PromotionTierCreateParamsAction.php
 
         return $this;
     }

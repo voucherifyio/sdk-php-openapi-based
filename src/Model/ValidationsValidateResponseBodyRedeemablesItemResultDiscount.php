@@ -111,22 +111,22 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'amount_off' => false,
-		'amount_off_formula' => false,
-		'aggregated_amount_limit' => false,
+		'amount_off' => true,
+		'amount_off_formula' => true,
+		'aggregated_amount_limit' => true,
 		'effect' => false,
-		'is_dynamic' => false,
-		'unit_off' => false,
-		'unit_off_formula' => false,
-		'unit_type' => false,
+		'is_dynamic' => true,
+		'unit_off' => true,
+		'unit_off_formula' => true,
+		'unit_type' => true,
 		'product' => false,
 		'sku' => false,
-		'units' => false,
-		'percent_off' => false,
-		'percent_off_formula' => false,
-		'amount_limit' => false,
-		'fixed_amount' => false,
-		'fixed_amount_formula' => false
+		'units' => true,
+		'percent_off' => true,
+		'percent_off_formula' => true,
+		'amount_limit' => true,
+		'fixed_amount' => true,
+		'fixed_amount_formula' => true
     ];
 
     /**
@@ -433,9 +433,6 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -472,7 +469,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -482,7 +479,7 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string|null $type type
      *
      * @return self
      */
@@ -526,7 +523,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setAmountOff($amount_off)
     {
         if (is_null($amount_off)) {
-            throw new \InvalidArgumentException('non-nullable amount_off cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount_off');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount_off', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount_off'] = $amount_off;
 
@@ -553,7 +557,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setAmountOffFormula($amount_off_formula)
     {
         if (is_null($amount_off_formula)) {
-            throw new \InvalidArgumentException('non-nullable amount_off_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount_off_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount_off_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount_off_formula'] = $amount_off_formula;
 
@@ -580,7 +591,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setAggregatedAmountLimit($aggregated_amount_limit)
     {
         if (is_null($aggregated_amount_limit)) {
-            throw new \InvalidArgumentException('non-nullable aggregated_amount_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'aggregated_amount_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('aggregated_amount_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['aggregated_amount_limit'] = $aggregated_amount_limit;
 
@@ -644,7 +662,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setIsDynamic($is_dynamic)
     {
         if (is_null($is_dynamic)) {
-            throw new \InvalidArgumentException('non-nullable is_dynamic cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_dynamic');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_dynamic', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_dynamic'] = $is_dynamic;
 
@@ -671,7 +696,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setUnitOff($unit_off)
     {
         if (is_null($unit_off)) {
-            throw new \InvalidArgumentException('non-nullable unit_off cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_off');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_off', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_off'] = $unit_off;
 
@@ -698,7 +730,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setUnitOffFormula($unit_off_formula)
     {
         if (is_null($unit_off_formula)) {
-            throw new \InvalidArgumentException('non-nullable unit_off_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_off_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_off_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_off_formula'] = $unit_off_formula;
 
@@ -725,7 +764,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setUnitType($unit_type)
     {
         if (is_null($unit_type)) {
-            throw new \InvalidArgumentException('non-nullable unit_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unit_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unit_type'] = $unit_type;
 
@@ -806,7 +852,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setUnits($units)
     {
         if (is_null($units)) {
-            throw new \InvalidArgumentException('non-nullable units cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'units');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('units', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['units'] = $units;
 
@@ -833,7 +886,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setPercentOff($percent_off)
     {
         if (is_null($percent_off)) {
-            throw new \InvalidArgumentException('non-nullable percent_off cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'percent_off');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('percent_off', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['percent_off'] = $percent_off;
 
@@ -860,7 +920,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setPercentOffFormula($percent_off_formula)
     {
         if (is_null($percent_off_formula)) {
-            throw new \InvalidArgumentException('non-nullable percent_off_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'percent_off_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('percent_off_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['percent_off_formula'] = $percent_off_formula;
 
@@ -887,7 +954,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setAmountLimit($amount_limit)
     {
         if (is_null($amount_limit)) {
-            throw new \InvalidArgumentException('non-nullable amount_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount_limit'] = $amount_limit;
 
@@ -914,7 +988,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setFixedAmount($fixed_amount)
     {
         if (is_null($fixed_amount)) {
-            throw new \InvalidArgumentException('non-nullable fixed_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'fixed_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fixed_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['fixed_amount'] = $fixed_amount;
 
@@ -941,7 +1022,14 @@ class ValidationsValidateResponseBodyRedeemablesItemResultDiscount implements Mo
     public function setFixedAmountFormula($fixed_amount_formula)
     {
         if (is_null($fixed_amount_formula)) {
-            throw new \InvalidArgumentException('non-nullable fixed_amount_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'fixed_amount_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fixed_amount_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['fixed_amount_formula'] = $fixed_amount_formula;
 

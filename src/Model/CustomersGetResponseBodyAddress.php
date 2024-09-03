@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign
-========
  * CustomersGetResponseBodyAddress
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
  *
  * PHP version 8.1
  *
@@ -37,26 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
- * VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign Class Doc Comment
- *
- * @category Class
-========
  * CustomersGetResponseBodyAddress Class Doc Comment
  *
  * @category Class
  * @description Customer&#39;s address.
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-class VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
 {
     public const DISCRIMINATOR = null;
 
@@ -65,11 +51,7 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-    protected static $openAPIModelName = 'Vouchers_Redemption_Get_Response_Body_Redemption_Entries_ItemPromotionTierCampaign';
-========
     protected static $openAPIModelName = 'CustomersGetResponseBodyAddress';
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -77,23 +59,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => 'string',
-        'start_date' => '\DateTime',
-        'expiration_date' => '\DateTime',
-        'validity_timeframe' => '\OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaignValidityTimeframe',
-        'validity_day_of_week' => 'int[]',
-        'active' => 'bool',
-        'category_id' => 'string',
-        'object' => 'string'
-========
         'city' => 'string',
         'state' => 'string',
         'line_1' => 'string',
         'line_2' => 'string',
         'country' => 'string',
         'postal_code' => 'string'
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -104,23 +75,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => null,
-        'start_date' => 'date-time',
-        'expiration_date' => 'date-time',
-        'validity_timeframe' => null,
-        'validity_day_of_week' => null,
-        'active' => null,
-        'category_id' => null,
-        'object' => null
-========
         'city' => null,
         'state' => null,
         'line_1' => null,
         'line_2' => null,
         'country' => null,
         'postal_code' => null
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -129,23 +89,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => false,
-		'start_date' => false,
-		'expiration_date' => false,
-		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
-		'active' => false,
-		'category_id' => false,
-		'object' => false
-========
         'city' => true,
 		'state' => true,
 		'line_1' => true,
 		'line_2' => true,
 		'country' => true,
 		'postal_code' => true
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -234,23 +183,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => 'id',
-        'start_date' => 'start_date',
-        'expiration_date' => 'expiration_date',
-        'validity_timeframe' => 'validity_timeframe',
-        'validity_day_of_week' => 'validity_day_of_week',
-        'active' => 'active',
-        'category_id' => 'category_id',
-        'object' => 'object'
-========
         'city' => 'city',
         'state' => 'state',
         'line_1' => 'line_1',
         'line_2' => 'line_2',
         'country' => 'country',
         'postal_code' => 'postal_code'
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -259,23 +197,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => 'setId',
-        'start_date' => 'setStartDate',
-        'expiration_date' => 'setExpirationDate',
-        'validity_timeframe' => 'setValidityTimeframe',
-        'validity_day_of_week' => 'setValidityDayOfWeek',
-        'active' => 'setActive',
-        'category_id' => 'setCategoryId',
-        'object' => 'setObject'
-========
         'city' => 'setCity',
         'state' => 'setState',
         'line_1' => 'setLine1',
         'line_2' => 'setLine2',
         'country' => 'setCountry',
         'postal_code' => 'setPostalCode'
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -284,23 +211,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        'id' => 'getId',
-        'start_date' => 'getStartDate',
-        'expiration_date' => 'getExpirationDate',
-        'validity_timeframe' => 'getValidityTimeframe',
-        'validity_day_of_week' => 'getValidityDayOfWeek',
-        'active' => 'getActive',
-        'category_id' => 'getCategoryId',
-        'object' => 'getObject'
-========
         'city' => 'getCity',
         'state' => 'getState',
         'line_1' => 'getLine1',
         'line_2' => 'getLine2',
         'country' => 'getCountry',
         'postal_code' => 'getPostalCode'
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     ];
 
     /**
@@ -360,23 +276,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('start_date', $data ?? [], null);
-        $this->setIfExists('expiration_date', $data ?? [], null);
-        $this->setIfExists('validity_timeframe', $data ?? [], null);
-        $this->setIfExists('validity_day_of_week', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('category_id', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'campaign');
-========
         $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('line_1', $data ?? [], null);
         $this->setIfExists('line_2', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
     }
 
     /**
@@ -434,20 +339,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
     /**
      * Sets city
      *
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-     * @param string|null $id Unique campaign ID.
-========
      * @param string|null $city City
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
      *
      * @return self
      */
     public function setCity($city)
     {
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-========
         if (is_null($city)) {
             array_push($this->openAPINullablesSetToNull, 'city');
         } else {
@@ -457,7 +354,6 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
         }
         $this->container['city'] = $city;
 
@@ -465,142 +361,10 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-     * Gets start_date
-========
      * Gets state
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-    public function getStartDate()
-    {
-        return $this->container['start_date'];
-    }
-
-    /**
-     * Sets start_date
-     *
-     * @param \DateTime|null $start_date Activation timestamp defines when the campaign starts to be active in ISO 8601 format. Campaign is *inactive before* this date.
-     *
-     * @return self
-     */
-    public function setStartDate($start_date)
-    {
-        if (is_null($start_date)) {
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-        }
-        $this->container['start_date'] = $start_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpirationDate()
-    {
-        return $this->container['expiration_date'];
-    }
-
-    /**
-     * Sets expiration_date
-     *
-     * @param \DateTime|null $expiration_date Expiration timestamp defines when the campaign expires in ISO 8601 format.  Campaign is *inactive after* this date.
-     *
-     * @return self
-     */
-    public function setExpirationDate($expiration_date)
-    {
-        if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
-        }
-        $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets validity_timeframe
-     *
-     * @return \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaignValidityTimeframe|null
-     */
-    public function getValidityTimeframe()
-    {
-        return $this->container['validity_timeframe'];
-    }
-
-    /**
-     * Sets validity_timeframe
-     *
-     * @param \OpenAPI\Client\Model\VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaignValidityTimeframe|null $validity_timeframe validity_timeframe
-     *
-     * @return self
-     */
-    public function setValidityTimeframe($validity_timeframe)
-    {
-        if (is_null($validity_timeframe)) {
-            throw new \InvalidArgumentException('non-nullable validity_timeframe cannot be null');
-        }
-        $this->container['validity_timeframe'] = $validity_timeframe;
-
-        return $this;
-    }
-
-    /**
-     * Gets validity_day_of_week
-     *
-     * @return int[]|null
-     */
-    public function getValidityDayOfWeek()
-    {
-        return $this->container['validity_day_of_week'];
-    }
-
-    /**
-     * Sets validity_day_of_week
-     *
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the campaign is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
-     *
-     * @return self
-     */
-    public function setValidityDayOfWeek($validity_day_of_week)
-    {
-        if (is_null($validity_day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
-        }
-        $this->container['validity_day_of_week'] = $validity_day_of_week;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active A flag indicating whether the campaign is active or not active. A campaign can be disabled even though it's within the active period defined by the `start_date` and `expiration_date` using the <!-- [Disable Campaign](OpenAPI.json/paths/~1campaigns~1{campaignId}~1disable) -->[Disable Campaign](ref:disable-campaign) endpoint.    - `true` indicates an *active* campaign - `false` indicates an *inactive* campaign
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
-========
     public function getState()
     {
         return $this->container['state'];
@@ -626,7 +390,6 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
             }
         }
         $this->container['state'] = $state;
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
 
         return $this;
     }
@@ -644,20 +407,12 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
     /**
      * Sets line_1
      *
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-     * @param string|null $category_id Unique category ID that this campaign belongs to.
-========
      * @param string|null $line_1 First line of address.
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
      *
      * @return self
      */
     public function setLine1($line_1)
     {
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-        if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
-========
         if (is_null($line_1)) {
             array_push($this->openAPINullablesSetToNull, 'line_1');
         } else {
@@ -667,7 +422,6 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
         }
         $this->container['line_1'] = $line_1;
 
@@ -675,30 +429,6 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-<<<<<<<< Updated upstream:src/Model/VouchersRedemptionGetResponseBodyRedemptionEntriesItemPromotionTierCampaign.php
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object The type of object represented by the campaign object. This object stores information about the campaign.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
-========
      * Gets line_2
      *
      * @return string|null
@@ -796,7 +526,6 @@ class CustomersGetResponseBodyAddress implements ModelInterface, ArrayAccess, \J
             }
         }
         $this->container['postal_code'] = $postal_code;
->>>>>>>> Stashed changes:src/Model/CustomersGetResponseBodyAddress.php
 
         return $this;
     }

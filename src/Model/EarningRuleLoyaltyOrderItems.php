@@ -82,9 +82,9 @@ class EarningRuleLoyaltyOrderItems implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'quantity' => false,
-		'amount' => false,
-		'subtotal_amount' => false
+        'quantity' => true,
+		'amount' => true,
+		'subtotal_amount' => true
     ];
 
     /**
@@ -324,7 +324,14 @@ class EarningRuleLoyaltyOrderItems implements ModelInterface, ArrayAccess, \Json
     public function setQuantity($quantity)
     {
         if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['quantity'] = $quantity;
 
@@ -351,7 +358,14 @@ class EarningRuleLoyaltyOrderItems implements ModelInterface, ArrayAccess, \Json
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount'] = $amount;
 
@@ -378,7 +392,14 @@ class EarningRuleLoyaltyOrderItems implements ModelInterface, ArrayAccess, \Json
     public function setSubtotalAmount($subtotal_amount)
     {
         if (is_null($subtotal_amount)) {
-            throw new \InvalidArgumentException('non-nullable subtotal_amount cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subtotal_amount');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subtotal_amount', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subtotal_amount'] = $subtotal_amount;
 

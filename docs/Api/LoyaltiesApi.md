@@ -496,7 +496,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $earning_rule_id = 'earning_rule_id_example'; // string | A unique earning rule ID.
 
 try {
@@ -510,7 +510,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **earning_rule_id** | **string**| A unique earning rule ID. | |
 
 ### Return type
@@ -538,7 +538,7 @@ deleteLoyaltyProgram($campaign_id, $force): \OpenAPI\Client\Model\LoyaltiesDelet
 
 Delete Loyalty Campaign
 
-This method permanently deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards.
+Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
 
 ### Example
 
@@ -564,8 +564,8 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
-$force = True; // bool | If this flag is set to `true`, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
+$force = True; // bool | If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name.
 
 try {
     $result = $apiInstance->deleteLoyaltyProgram($campaign_id, $force);
@@ -579,8 +579,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
-| **force** | **bool**| If this flag is set to &#x60;true&#x60;, the campaign and related vouchers will be removed permanently. Going forward, the user will be able to create the next campaign with the same name. | [optional] |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
+| **force** | **bool**| If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. | [optional] |
 
 ### Return type
 
@@ -633,7 +633,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $assignment_id = 'assignment_id_example'; // string | A unique reward assignment ID.
 
 try {
@@ -647,7 +647,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **assignment_id** | **string**| A unique reward assignment ID. | |
 
 ### Return type
@@ -813,7 +813,7 @@ exportLoyaltyCardTransactions($member_id, $loyalties_members_transactions_export
 
 Export Loyalty Card Transactions
 
-Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - `POINTS_EXPIRATION` <br> - `POINTS_ADDITION` <br> - `POINTS_REMOVAL` <br> - `POINTS_TRANSFER_OUT` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REFUND` <br> - `POINTS_REDEMPTION` | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - `API` <br> - `voucherify-web-ui` <br> - `Automation` | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+Export transactions that are associated with point movements on a loyalty card.
 
 ### Example
 
@@ -882,7 +882,7 @@ exportLoyaltyCardTransactions1($campaign_id, $member_id, $loyalties_members_tran
 
 Export Loyalty Card Transactions
 
-Export transactions that are associated with point movements on a loyalty card.  | **Field** | **Definition** | **Example Export** | |:---|:---|:---| | id | Unique transaction ID assigned by Voucherify. | vtx_0cb7811f1c07765800 | | type | Transaction type. | - `POINTS_EXPIRATION` <br> - `POINTS_ADDITION` <br> - `POINTS_REMOVAL` <br> - `POINTS_TRANSFER_OUT` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REFUND` <br> - `POINTS_REDEMPTION` | | source_id | Custom source ID of the transaction if one was included originally. | source_id_custom | | reason | Contains the reason for the transaction if one was included originally. |  | | balance | The loyalty card balance after the transaction. |  | | amount | The amount of loyalty points being allocated during the transaction. This value can either be negative or positive depending on the nature of the transaction. |  | | created_at | Timestamp in ISO 8601 format representing the date and time when the transaction was created. | 2022-03-09T09:16:32.521Z  | | voucher_id | Unique Voucher ID. | v_dky7ksKfPX50Wb2Bxvcoeb1xT20b6tcp | | campaign_id | Parent campaign ID. | camp_FNYR4jhqZBM9xTptxDGgeNBV | | source|  Channel through which the transaction was initiated. | - `API` <br> - `voucherify-web-ui` <br> - `Automation` | | details | More detailed information stored in the form of a JSON. | Provides more details related to the transaction in the form of an object. | | related_transaction_id | Unique transaction ID related to a receiver/donor card in the case of a points transfer from/to another card. | vtx_0c9afe802593b34b80 |
+Export transactions that are associated with point movements on a loyalty card.
 
 ### Example
 
@@ -979,7 +979,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $earning_rule_id = 'earning_rule_id_example'; // string | A unique earning rule ID.
 
 try {
@@ -994,7 +994,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **earning_rule_id** | **string**| A unique earning rule ID. | |
 
 ### Return type
@@ -1320,7 +1320,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $assignment_id = 'assignment_id_example'; // string | Unique reward assignment ID.
 
 try {
@@ -1335,7 +1335,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **assignment_id** | **string**| Unique reward assignment ID. | |
 
 ### Return type
@@ -1363,7 +1363,7 @@ getRewardAssignment2($campaign_id, $assignment_id): \OpenAPI\Client\Model\Loyalt
 
 Get Reward Assignment
 
-Retrieve specific reward assignment.  > 📘 Alternative endpoint > > This endpoint is an alternative to this [endpoint](ref:get-reward-assignment-2).
+Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint.
 
 ### Example
 
@@ -1389,7 +1389,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $assignment_id = 'assignment_id_example'; // string | A unique reward assignment ID.
 
 try {
@@ -1404,7 +1404,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **assignment_id** | **string**| A unique reward assignment ID. | |
 
 ### Return type
@@ -1458,7 +1458,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $assignment_id = 'assignment_id_example'; // string | Unique reward assignment ID.
 
 try {
@@ -1473,7 +1473,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **assignment_id** | **string**| Unique reward assignment ID. | |
 
 ### Return type
@@ -1601,12 +1601,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     $config
 );
 $member_id = 'member_id_example'; // string | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
-<<<<<<< Updated upstream
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
-=======
 $limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
->>>>>>> Stashed changes
 
 try {
     $result = $apiInstance->listLoyaltyCardTransactions($member_id, $limit);
@@ -1621,12 +1616,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **member_id** | **string**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. | |
-<<<<<<< Updated upstream
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
-=======
 | **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
->>>>>>> Stashed changes
 
 ### Return type
 
@@ -1681,8 +1671,8 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
 );
 $campaign_id = 'campaign_id_example'; // string | A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.
 $member_id = 'member_id_example'; // string | A unique code identifying the loyalty card that you are looking to retrieve transaction data for.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
 
 try {
     $result = $apiInstance->listLoyaltyCardTransactions1($campaign_id, $member_id, $limit, $page);
@@ -1698,8 +1688,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **string**| A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return. | |
 | **member_id** | **string**| A unique code identifying the loyalty card that you are looking to retrieve transaction data for. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
 
 ### Return type
 
@@ -1825,8 +1815,8 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
 );
 $campaign_id = 'campaign_id_example'; // string | Unique campaign ID or name.
 $loyalty_tier_id = 'loyalty_tier_id_example'; // string | Unique loyalty tier ID.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
 
 try {
     $result = $apiInstance->listLoyaltyTierEarningRules($campaign_id, $loyalty_tier_id, $limit, $page);
@@ -1842,8 +1832,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **string**| Unique campaign ID or name. | |
 | **loyalty_tier_id** | **string**| Unique loyalty tier ID. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
 
 ### Return type
 
@@ -1966,7 +1956,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     $config
 );
 $campaign_id = 'campaign_id_example'; // string | Unique loyalty campaign ID or name.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
 $order = new \OpenAPI\Client\Model\ParameterOrderListLoyaltyTiers(); // ParameterOrderListLoyaltyTiers | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order.
 
 try {
@@ -1982,7 +1972,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **campaign_id** | **string**| Unique loyalty campaign ID or name. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
 | **order** | [**ParameterOrderListLoyaltyTiers**](../Model/.md)| Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional] |
 
 ### Return type
@@ -2225,7 +2215,7 @@ listMemberRewards($member_id, $affordable_only): \OpenAPI\Client\Model\Loyalties
 
 List Member Rewards
 
-Retrieves the list of rewards that the given customer (identified by `member_id`, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.    You can use the `affordable_only` parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).    Please note that rewards that are disabled (i.e. set to `Not Available` in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
 
 ### Example
 
@@ -2252,7 +2242,7 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     $config
 );
 $member_id = 'member_id_example'; // string | Unique loyalty card assigned to a particular customer.
-$affordable_only = True; // bool | Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to `true` to return rewards which the customer can actually afford.
+$affordable_only = True; // bool | Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford.
 
 try {
     $result = $apiInstance->listMemberRewards($member_id, $affordable_only);
@@ -2267,7 +2257,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **member_id** | **string**| Unique loyalty card assigned to a particular customer. | |
-| **affordable_only** | **bool**| Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to &#x60;true&#x60; to return rewards which the customer can actually afford. | [optional] |
+| **affordable_only** | **bool**| Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. | [optional] |
 
 ### Return type
 
@@ -2377,7 +2367,7 @@ listPointsExpiration($campaign_id, $member_id, $limit, $page): \OpenAPI\Client\M
 
 Get Points Expiration
 
-Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](ref:create-export) to retrieve a list of both `ACTIVE` and `EXPIRED` point buckets.
+Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
 
 ### Example
 
@@ -2403,10 +2393,10 @@ $apiInstance = new OpenAPI\Client\Api\LoyaltiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the `name` of the campaign as the path parameter value, e.g., `Loyalty%20Campaign`.
+$campaign_id = 'campaign_id_example'; // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.
 $member_id = 'member_id_example'; // string | Loyalty card code.
-$limit = 56; // int | A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
-$page = 56; // int | Which page of results to return.
+$limit = 56; // int | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
+$page = 56; // int | Which page of results to return. The lowest value is 1.
 
 try {
     $result = $apiInstance->listPointsExpiration($campaign_id, $member_id, $limit, $page);
@@ -2420,10 +2410,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the &#x60;name&#x60; of the campaign as the path parameter value, e.g., &#x60;Loyalty%20Campaign&#x60;. | |
+| **campaign_id** | **string**| The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. | |
 | **member_id** | **string**| Loyalty card code. | |
-| **limit** | **int**| A limit on the number of objects to be returned. Limit can range between 1 and 100 items. | [optional] |
-| **page** | **int**| Which page of results to return. | [optional] |
+| **limit** | **int**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. | [optional] |
+| **page** | **int**| Which page of results to return. The lowest value is 1. | [optional] |
 
 ### Return type
 
@@ -2596,7 +2586,7 @@ redeemReward($member_id, $loyalties_members_redemption_redeem_request_body): \Op
 
 Redeem Reward
 
-<!-- theme: info --> > 📘 Alternative endpoint > > This endpoint is an alternative to this <!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1redemption) -->[endpoint](ref:redeem-reward-1). The URL was re-designed to allow you to redeem a reward without having to provide the `campaignId` as a path parameter.
+📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
 
 ### Example
 
@@ -2878,7 +2868,7 @@ updateLoyaltyCardBalance($member_id, $loyalties_members_balance_update_request_b
 
 Add or Remove Loyalty Card Balance
 
-This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   <!-- theme: info --> > 📘 Alternative endpoint > This endpoint is an alternative to this <!-- [endpoint](OpenAPI.json/paths/~1loyalties~1{campaignId}~1members~1{memberId}~1balance) -->[endpoint](ref:update-loyalty-card-balance-1). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the `campaignId` as a path parameter.
+This method gives adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   >🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
 
 ### Example
 
@@ -2947,7 +2937,7 @@ updateLoyaltyCardBalance1($campaign_id, $member_id, $loyalties_members_balance_u
 
 Add or Remove Loyalty Card Balance
 
-This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.
+This method adds or removes balance to an existing loyalty card. The removal of points will consume the points that expire the soonest.   >🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
 
 ### Example
 

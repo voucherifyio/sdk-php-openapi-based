@@ -83,8 +83,8 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'extend' => false,
+        'type' => true,
+		'extend' => true,
 		'rounding' => false
     ];
 
@@ -309,9 +309,6 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -321,9 +318,6 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
             );
         }
 
-        if ($this->container['extend'] === null) {
-            $invalidProperties[] = "'extend' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -342,7 +336,7 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -352,17 +346,24 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
     /**
      * Sets type
      *
-     * @param string $type What triggers the tier to expire for a customer.     `END_OF_PERIOD`: Expire tier at the end of the period.     `END_OF_NEXT_PERIOD`:  Expire tier at the end of the next period.   `BALANCE_DROP`: Tier expires when the points balance drops below the required range of the tier.   `CUSTOM`: Tier expires after a certain time period passes following the instance the points balance drops below the required range of the tier.
+     * @param string|null $type What triggers the tier to expire for a customer.     `END_OF_PERIOD`: Expire tier at the end of the period.     `END_OF_NEXT_PERIOD`:  Expire tier at the end of the next period.   `BALANCE_DROP`: Tier expires when the points balance drops below the required range of the tier.   `CUSTOM`: Tier expires after a certain time period passes following the instance the points balance drops below the required range of the tier.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -379,7 +380,7 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
     /**
      * Gets extend
      *
-     * @return string
+     * @return string|null
      */
     public function getExtend()
     {
@@ -389,14 +390,21 @@ class LoyaltyTiersExpirationAllExpirationDate implements ModelInterface, ArrayAc
     /**
      * Sets extend
      *
-     * @param string $extend Extend the expiration by adding extra months or days in ISO 8601 format. The tier will remain active even though it reaches its expiration time period. For example, a tier with a duration of `P3M` will be valid for an additional duration of 3 months and a tier with a duration of `P1D` will be valid for an additional duration of 1 day.
+     * @param string|null $extend Extend the expiration by adding extra months or days in ISO 8601 format. The tier will remain active even though it reaches its expiration time period. For example, a tier with a duration of `P3M` will be valid for an additional duration of 3 months and a tier with a duration of `P1D` will be valid for an additional duration of 1 day.
      *
      * @return self
      */
     public function setExtend($extend)
     {
         if (is_null($extend)) {
-            throw new \InvalidArgumentException('non-nullable extend cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'extend');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('extend', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['extend'] = $extend;
 

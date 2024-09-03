@@ -64,19 +64,12 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         'metadata' => 'object',
         'category' => 'string',
         'start_date' => '\DateTime',
-<<<<<<< Updated upstream
-        'validity_timeframe' => '\OpenAPI\Client\Model\CampaignBaseValidityTimeframe',
-        'validity_day_of_week' => 'int[]',
-        'additional_info' => 'string',
-        'discount' => '\OpenAPI\Client\Model\Discount',
-=======
         'expiration_date' => '\DateTime',
         'validity_timeframe' => '\OpenAPI\Client\Model\ValidityTimeframe',
         'validity_day_of_week' => 'int[]',
         'additional_info' => 'string',
         'type' => 'string',
         'loyalty_card' => '\OpenAPI\Client\Model\SimpleLoyaltyCard',
->>>>>>> Stashed changes
         'gift' => '\OpenAPI\Client\Model\Gift',
         'discount' => '\OpenAPI\Client\Model\Discount'
     ];
@@ -95,19 +88,12 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         'metadata' => null,
         'category' => null,
         'start_date' => 'date-time',
-<<<<<<< Updated upstream
-        'validity_timeframe' => null,
-        'validity_day_of_week' => null,
-        'additional_info' => null,
-        'discount' => null,
-=======
         'expiration_date' => 'date-time',
         'validity_timeframe' => null,
         'validity_day_of_week' => null,
         'additional_info' => null,
         'type' => null,
         'loyalty_card' => null,
->>>>>>> Stashed changes
         'gift' => null,
         'discount' => null
     ];
@@ -118,19 +104,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'code' => false,
-		'type' => false,
-		'redemption' => false,
-		'active' => false,
-		'metadata' => false,
-		'category' => false,
-		'start_date' => false,
-		'validity_timeframe' => false,
-		'validity_day_of_week' => false,
-		'additional_info' => false,
-		'discount' => false,
-=======
         'code' => true,
 		'redemption' => true,
 		'active' => true,
@@ -143,7 +116,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
 		'additional_info' => true,
 		'type' => true,
 		'loyalty_card' => false,
->>>>>>> Stashed changes
 		'gift' => false,
 		'discount' => false
     ];
@@ -240,19 +212,12 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         'metadata' => 'metadata',
         'category' => 'category',
         'start_date' => 'start_date',
-<<<<<<< Updated upstream
-        'validity_timeframe' => 'validity_timeframe',
-        'validity_day_of_week' => 'validity_day_of_week',
-        'additional_info' => 'additional_info',
-        'discount' => 'discount',
-=======
         'expiration_date' => 'expiration_date',
         'validity_timeframe' => 'validity_timeframe',
         'validity_day_of_week' => 'validity_day_of_week',
         'additional_info' => 'additional_info',
         'type' => 'type',
         'loyalty_card' => 'loyalty_card',
->>>>>>> Stashed changes
         'gift' => 'gift',
         'discount' => 'discount'
     ];
@@ -269,19 +234,12 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         'metadata' => 'setMetadata',
         'category' => 'setCategory',
         'start_date' => 'setStartDate',
-<<<<<<< Updated upstream
-        'validity_timeframe' => 'setValidityTimeframe',
-        'validity_day_of_week' => 'setValidityDayOfWeek',
-        'additional_info' => 'setAdditionalInfo',
-        'discount' => 'setDiscount',
-=======
         'expiration_date' => 'setExpirationDate',
         'validity_timeframe' => 'setValidityTimeframe',
         'validity_day_of_week' => 'setValidityDayOfWeek',
         'additional_info' => 'setAdditionalInfo',
         'type' => 'setType',
         'loyalty_card' => 'setLoyaltyCard',
->>>>>>> Stashed changes
         'gift' => 'setGift',
         'discount' => 'setDiscount'
     ];
@@ -298,19 +256,12 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         'metadata' => 'getMetadata',
         'category' => 'getCategory',
         'start_date' => 'getStartDate',
-<<<<<<< Updated upstream
-        'validity_timeframe' => 'getValidityTimeframe',
-        'validity_day_of_week' => 'getValidityDayOfWeek',
-        'additional_info' => 'getAdditionalInfo',
-        'discount' => 'getDiscount',
-=======
         'expiration_date' => 'getExpirationDate',
         'validity_timeframe' => 'getValidityTimeframe',
         'validity_day_of_week' => 'getValidityDayOfWeek',
         'additional_info' => 'getAdditionalInfo',
         'type' => 'getType',
         'loyalty_card' => 'getLoyaltyCard',
->>>>>>> Stashed changes
         'gift' => 'getGift',
         'discount' => 'getDiscount'
     ];
@@ -420,19 +371,11 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
-<<<<<<< Updated upstream
-        $this->setIfExists('validity_timeframe', $data ?? [], null);
-        $this->setIfExists('validity_day_of_week', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
-        $this->setIfExists('discount', $data ?? [], null);
-        $this->setIfExists('gift', $data ?? [], null);
-=======
         $this->setIfExists('expiration_date', $data ?? [], null);
         $this->setIfExists('validity_timeframe', $data ?? [], null);
         $this->setIfExists('validity_day_of_week', $data ?? [], null);
         $this->setIfExists('additional_info', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
->>>>>>> Stashed changes
         $this->setIfExists('loyalty_card', $data ?? [], null);
         $this->setIfExists('gift', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
@@ -465,9 +408,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -495,7 +435,7 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -505,18 +445,21 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets code
      *
-<<<<<<< Updated upstream
-     * @param string $code Unique custom voucher code.
-=======
      * @param string|null $code Value representing the imported code.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -524,46 +467,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Type of voucher.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-=======
->>>>>>> Stashed changes
      * Gets redemption
      *
      * @return \OpenAPI\Client\Model\CampaignsImportVoucherItemRedemption|null
@@ -583,7 +486,14 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -610,7 +520,14 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     public function setActive($active)
     {
         if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['active'] = $active;
 
@@ -637,7 +554,14 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
@@ -664,7 +588,14 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     public function setCategory($category)
     {
         if (is_null($category)) {
-            throw new \InvalidArgumentException('non-nullable category cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['category'] = $category;
 
@@ -684,20 +615,13 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets start_date
      *
-<<<<<<< Updated upstream
-     * @param \DateTime|null $start_date Activation timestamp defines when the campaign starts to be active in ISO 8601 format. Campaign is *inactive before* this date.
-=======
      * @param \DateTime|null $start_date Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setStartDate($start_date)
     {
         if (is_null($start_date)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'start_date');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -706,7 +630,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes
         }
         $this->container['start_date'] = $start_date;
 
@@ -714,11 +637,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets validity_timeframe
-     *
-     * @return \OpenAPI\Client\Model\CampaignBaseValidityTimeframe|null
-=======
      * Gets expiration_date
      *
      * @return \DateTime|null
@@ -756,7 +674,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
      * Gets validity_timeframe
      *
      * @return \OpenAPI\Client\Model\ValidityTimeframe|null
->>>>>>> Stashed changes
      */
     public function getValidityTimeframe()
     {
@@ -766,11 +683,7 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_timeframe
      *
-<<<<<<< Updated upstream
-     * @param \OpenAPI\Client\Model\CampaignBaseValidityTimeframe|null $validity_timeframe validity_timeframe
-=======
      * @param \OpenAPI\Client\Model\ValidityTimeframe|null $validity_timeframe validity_timeframe
->>>>>>> Stashed changes
      *
      * @return self
      */
@@ -797,20 +710,13 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets validity_day_of_week
      *
-<<<<<<< Updated upstream
-     * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the campaign is valid.  - `0`  Sunday   - `1`  Monday   - `2`  Tuesday   - `3`  Wednesday   - `4`  Thursday   - `5`  Friday   - `6`  Saturday
-=======
      * @param int[]|null $validity_day_of_week Integer array corresponding to the particular days of the week in which the voucher is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3` Wednesday - `4` Thursday - `5` Friday - `6` Saturday
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setValidityDayOfWeek($validity_day_of_week)
     {
         if (is_null($validity_day_of_week)) {
-<<<<<<< Updated upstream
-            throw new \InvalidArgumentException('non-nullable validity_day_of_week cannot be null');
-=======
             array_push($this->openAPINullablesSetToNull, 'validity_day_of_week');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
@@ -828,7 +734,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
                     implode("', '", $allowedValues)
                 )
             );
->>>>>>> Stashed changes
         }
         $this->container['validity_day_of_week'] = $validity_day_of_week;
 
@@ -855,7 +760,14 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     public function setAdditionalInfo($additional_info)
     {
         if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'additional_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('additional_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['additional_info'] = $additional_info;
 
@@ -863,30 +775,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-<<<<<<< Updated upstream
-     * Gets discount
-     *
-     * @return \OpenAPI\Client\Model\Discount|null
-     */
-    public function getDiscount()
-    {
-        return $this->container['discount'];
-    }
-
-    /**
-     * Sets discount
-     *
-     * @param \OpenAPI\Client\Model\Discount|null $discount discount
-     *
-     * @return self
-     */
-    public function setDiscount($discount)
-    {
-        if (is_null($discount)) {
-            throw new \InvalidArgumentException('non-nullable discount cannot be null');
-        }
-        $this->container['discount'] = $discount;
-=======
      * Gets type
      *
      * @return string|null
@@ -953,7 +841,6 @@ class CampaignsImportVoucherItem implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable loyalty_card cannot be null');
         }
         $this->container['loyalty_card'] = $loyalty_card;
->>>>>>> Stashed changes
 
         return $this;
     }

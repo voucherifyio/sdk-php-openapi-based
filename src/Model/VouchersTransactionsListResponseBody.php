@@ -85,10 +85,10 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'object' => false,
-		'data_ref' => false,
-		'data' => false,
-		'has_more' => false
+        'object' => true,
+		'data_ref' => true,
+		'data' => true,
+		'has_more' => true
     ];
 
     /**
@@ -297,18 +297,6 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['has_more'] === null) {
-            $invalidProperties[] = "'has_more' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +315,7 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -337,14 +325,21 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
@@ -354,7 +349,7 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -364,14 +359,21 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets data_ref
      *
-     * @param string $data_ref Identifies the name of the attribute that contains the array of transaction objects.
+     * @param string|null $data_ref Identifies the name of the attribute that contains the array of transaction objects.
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_ref'] = $data_ref;
 
@@ -381,7 +383,7 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\VoucherTransaction[]
+     * @return \OpenAPI\Client\Model\VoucherTransaction[]|null
      */
     public function getData()
     {
@@ -391,14 +393,21 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\VoucherTransaction[] $data A dictionary that contains an array of transactions. Each entry in the array is a separate transaction object.
+     * @param \OpenAPI\Client\Model\VoucherTransaction[]|null $data A dictionary that contains an array of transactions. Each entry in the array is a separate transaction object.
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data'] = $data;
 
@@ -408,7 +417,7 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Gets has_more
      *
-     * @return bool
+     * @return bool|null
      */
     public function getHasMore()
     {
@@ -418,14 +427,21 @@ class VouchersTransactionsListResponseBody implements ModelInterface, ArrayAcces
     /**
      * Sets has_more
      *
-     * @param bool $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates whether there are more records for given filter parameters. This let's you know if you are able to run another request (with a different page or a different start date filter) to get more records returned in the results.
+     * @param bool|null $has_more As query results are always limited (by the limit parameter), the `has_more` flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different page or a different start date filter) to get more records returned in the results.
      *
      * @return self
      */
     public function setHasMore($has_more)
     {
         if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'has_more');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('has_more', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['has_more'] = $has_more;
 

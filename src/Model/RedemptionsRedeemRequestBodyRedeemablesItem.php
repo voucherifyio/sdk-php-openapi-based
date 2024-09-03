@@ -86,8 +86,8 @@ class RedemptionsRedeemRequestBodyRedeemablesItem implements ModelInterface, Arr
     protected static array $openAPINullables = [
         'object' => false,
 		'id' => false,
-		'gift' => false,
-		'reward' => false
+		'gift' => true,
+		'reward' => true
     ];
 
     /**
@@ -421,7 +421,14 @@ class RedemptionsRedeemRequestBodyRedeemablesItem implements ModelInterface, Arr
     public function setGift($gift)
     {
         if (is_null($gift)) {
-            throw new \InvalidArgumentException('non-nullable gift cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gift'] = $gift;
 
@@ -448,7 +455,14 @@ class RedemptionsRedeemRequestBodyRedeemablesItem implements ModelInterface, Arr
     public function setReward($reward)
     {
         if (is_null($reward)) {
-            throw new \InvalidArgumentException('non-nullable reward cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reward');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reward', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reward'] = $reward;
 

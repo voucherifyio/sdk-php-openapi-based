@@ -110,22 +110,6 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'object' => false,
-		'id' => false,
-		'source_id' => false,
-		'product_id' => false,
-		'product_source_id' => false,
-		'strict' => false,
-		'price' => false,
-		'price_formula' => false,
-		'effect' => false,
-		'quantity_limit' => false,
-		'aggregated_quantity_limit' => false,
-		'amount_limit' => false,
-		'aggregated_amount_limit' => false,
-		'order_item_indices' => false
-=======
         'object' => true,
 		'id' => true,
 		'source_id' => true,
@@ -143,7 +127,6 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
 		'repeat' => true,
 		'skip_initially' => true,
 		'target' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -438,9 +421,6 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -450,15 +430,6 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['strict'] === null) {
-            $invalidProperties[] = "'strict' can't be null";
-        }
-        if ($this->container['effect'] === null) {
-            $invalidProperties[] = "'effect' can't be null";
-        }
         $allowedValues = $this->getEffectAllowableValues();
         if (!is_null($this->container['effect']) && !in_array($this->container['effect'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -486,7 +457,7 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -496,17 +467,24 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object This object stores information about the product collection.
+     * @param string|null $object This object stores information about the product collection.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -523,7 +501,7 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -533,14 +511,21 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id Unique product collection ID assigned by Voucherify.
+     * @param string|null $id Unique product collection ID assigned by Voucherify.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -567,7 +552,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSourceId($source_id)
     {
         if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['source_id'] = $source_id;
 
@@ -594,7 +586,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setProductId($product_id)
     {
         if (is_null($product_id)) {
-            throw new \InvalidArgumentException('non-nullable product_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_id'] = $product_id;
 
@@ -621,7 +620,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setProductSourceId($product_source_id)
     {
         if (is_null($product_source_id)) {
-            throw new \InvalidArgumentException('non-nullable product_source_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_source_id'] = $product_source_id;
 
@@ -631,7 +637,7 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets strict
      *
-     * @return bool
+     * @return bool|null
      */
     public function getStrict()
     {
@@ -641,14 +647,21 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets strict
      *
-     * @param bool $strict strict
+     * @param bool|null $strict strict
      *
      * @return self
      */
     public function setStrict($strict)
     {
         if (is_null($strict)) {
-            throw new \InvalidArgumentException('non-nullable strict cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'strict');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('strict', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['strict'] = $strict;
 
@@ -675,7 +688,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPrice($price)
     {
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price'] = $price;
 
@@ -702,7 +722,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPriceFormula($price_formula)
     {
         if (is_null($price_formula)) {
-            throw new \InvalidArgumentException('non-nullable price_formula cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price_formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['price_formula'] = $price_formula;
 
@@ -712,7 +739,7 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets effect
      *
-     * @return string
+     * @return string|null
      */
     public function getEffect()
     {
@@ -722,17 +749,24 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets effect
      *
-     * @param string $effect effect
+     * @param string|null $effect effect
      *
      * @return self
      */
     public function setEffect($effect)
     {
         if (is_null($effect)) {
-            throw new \InvalidArgumentException('non-nullable effect cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'effect');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('effect', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getEffectAllowableValues();
-        if (!in_array($effect, $allowedValues, true)) {
+        if (!is_null($effect) && !in_array($effect, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'effect', must be one of '%s'",
@@ -766,7 +800,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQuantityLimit($quantity_limit)
     {
         if (is_null($quantity_limit)) {
-            throw new \InvalidArgumentException('non-nullable quantity_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'quantity_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('quantity_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['quantity_limit'] = $quantity_limit;
 
@@ -793,7 +834,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAggregatedQuantityLimit($aggregated_quantity_limit)
     {
         if (is_null($aggregated_quantity_limit)) {
-            throw new \InvalidArgumentException('non-nullable aggregated_quantity_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'aggregated_quantity_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('aggregated_quantity_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['aggregated_quantity_limit'] = $aggregated_quantity_limit;
 
@@ -820,7 +868,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAmountLimit($amount_limit)
     {
         if (is_null($amount_limit)) {
-            throw new \InvalidArgumentException('non-nullable amount_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'amount_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amount_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['amount_limit'] = $amount_limit;
 
@@ -847,7 +902,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAggregatedAmountLimit($aggregated_amount_limit)
     {
         if (is_null($aggregated_amount_limit)) {
-            throw new \InvalidArgumentException('non-nullable aggregated_amount_limit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'aggregated_amount_limit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('aggregated_amount_limit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['aggregated_amount_limit'] = $aggregated_amount_limit;
 
@@ -874,7 +936,14 @@ class ApplicableTo implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOrderItemIndices($order_item_indices)
     {
         if (is_null($order_item_indices)) {
-            throw new \InvalidArgumentException('non-nullable order_item_indices cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'order_item_indices');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('order_item_indices', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['order_item_indices'] = $order_item_indices;
 

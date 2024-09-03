@@ -79,7 +79,7 @@ class VouchersTransactionsExportCreateResponseBodyResult implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'url' => false
+        'url' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class VouchersTransactionsExportCreateResponseBodyResult implements ModelInterfa
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,7 +294,7 @@ class VouchersTransactionsExportCreateResponseBodyResult implements ModelInterfa
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -307,14 +304,21 @@ class VouchersTransactionsExportCreateResponseBodyResult implements ModelInterfa
     /**
      * Sets url
      *
-     * @param string $url URL of the CSV file location. It contains the `token` used for authorization in the <!-- [Download export](OpenAPI.json/paths/~1exports~1{export_Id}/get) -->[Download export](ref:download-export) method.
+     * @param string|null $url URL of the CSV file location. It contains the `token` used for authorization in the <!-- [Download export](OpenAPI.json/paths/~1exports~1{export_Id}/get) -->[Download export](ref:download-export) method.
      *
      * @return self
      */
     public function setUrl($url)
     {
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['url'] = $url;
 

@@ -439,7 +439,7 @@ class PublicationsApi
      * @param  bool $join_once Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)
      * @param  string $voucher Code of voucher being published. (optional)
      * @param  CreatePublicationCampaign $campaign Create publication with campaign. (optional)
-     * @param  string $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If &#x60;source_id&#x60; is provided only 1 voucher can be published per request. (optional)
+     * @param  string $source_id The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. (optional)
      * @param  object $metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPublication1'] to see the possible values for this operation
      *
@@ -462,7 +462,7 @@ class PublicationsApi
      * @param  bool $join_once Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)
      * @param  string $voucher Code of voucher being published. (optional)
      * @param  CreatePublicationCampaign $campaign Create publication with campaign. (optional)
-     * @param  string $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If &#x60;source_id&#x60; is provided only 1 voucher can be published per request. (optional)
+     * @param  string $source_id The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. (optional)
      * @param  object $metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPublication1'] to see the possible values for this operation
      *
@@ -567,7 +567,7 @@ class PublicationsApi
      * @param  bool $join_once Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)
      * @param  string $voucher Code of voucher being published. (optional)
      * @param  CreatePublicationCampaign $campaign Create publication with campaign. (optional)
-     * @param  string $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If &#x60;source_id&#x60; is provided only 1 voucher can be published per request. (optional)
+     * @param  string $source_id The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. (optional)
      * @param  object $metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPublication1'] to see the possible values for this operation
      *
@@ -593,7 +593,7 @@ class PublicationsApi
      * @param  bool $join_once Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)
      * @param  string $voucher Code of voucher being published. (optional)
      * @param  CreatePublicationCampaign $campaign Create publication with campaign. (optional)
-     * @param  string $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If &#x60;source_id&#x60; is provided only 1 voucher can be published per request. (optional)
+     * @param  string $source_id The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. (optional)
      * @param  object $metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPublication1'] to see the possible values for this operation
      *
@@ -648,7 +648,7 @@ class PublicationsApi
      * @param  bool $join_once Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)
      * @param  string $voucher Code of voucher being published. (optional)
      * @param  CreatePublicationCampaign $campaign Create publication with campaign. (optional)
-     * @param  string $source_id The merchant’s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If &#x60;source_id&#x60; is provided only 1 voucher can be published per request. (optional)
+     * @param  string $source_id The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. If source_id is provided only 1 voucher can be published per request. (optional)
      * @param  object $metadata The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPublication1'] to see the possible values for this operation
      *
@@ -804,17 +804,17 @@ class PublicationsApi
      *
      * List Publications
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $campaign Filters by a given campaign name. (optional)
      * @param  string $customer Filters by a unique customer ID. (optional)
      * @param  string $voucher Filters by a given voucher code. (optional)
      * @param  ParameterResultListPublications $result Filters by a publication result. (optional)
      * @param  ParameterVoucherTypeListPublications $voucher_type Filters by a voucher type. (optional)
-     * @param  bool $is_referral_code This filter works only for the &#x60;true&#x60; option. If set to &#x60;true&#x60;, the query returns only publications of codes from referral campaigns. (optional)
+     * @param  bool $is_referral_code This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. (optional)
      * @param  string $filters Allows for combining the filters mentioned in the endpoint description. (optional)
-     * @param  string $source_id Using this endpoint with a particular publication &#x60;source_id&#x60;, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular &#x60;source_id&#x60;. (optional)
+     * @param  string $source_id Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPublications'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -832,17 +832,17 @@ class PublicationsApi
      *
      * List Publications
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $campaign Filters by a given campaign name. (optional)
      * @param  string $customer Filters by a unique customer ID. (optional)
      * @param  string $voucher Filters by a given voucher code. (optional)
      * @param  ParameterResultListPublications $result Filters by a publication result. (optional)
      * @param  ParameterVoucherTypeListPublications $voucher_type Filters by a voucher type. (optional)
-     * @param  bool $is_referral_code This filter works only for the &#x60;true&#x60; option. If set to &#x60;true&#x60;, the query returns only publications of codes from referral campaigns. (optional)
+     * @param  bool $is_referral_code This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. (optional)
      * @param  string $filters Allows for combining the filters mentioned in the endpoint description. (optional)
-     * @param  string $source_id Using this endpoint with a particular publication &#x60;source_id&#x60;, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular &#x60;source_id&#x60;. (optional)
+     * @param  string $source_id Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPublications'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
@@ -942,17 +942,17 @@ class PublicationsApi
      *
      * List Publications
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $campaign Filters by a given campaign name. (optional)
      * @param  string $customer Filters by a unique customer ID. (optional)
      * @param  string $voucher Filters by a given voucher code. (optional)
      * @param  ParameterResultListPublications $result Filters by a publication result. (optional)
      * @param  ParameterVoucherTypeListPublications $voucher_type Filters by a voucher type. (optional)
-     * @param  bool $is_referral_code This filter works only for the &#x60;true&#x60; option. If set to &#x60;true&#x60;, the query returns only publications of codes from referral campaigns. (optional)
+     * @param  bool $is_referral_code This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. (optional)
      * @param  string $filters Allows for combining the filters mentioned in the endpoint description. (optional)
-     * @param  string $source_id Using this endpoint with a particular publication &#x60;source_id&#x60;, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular &#x60;source_id&#x60;. (optional)
+     * @param  string $source_id Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPublications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -973,17 +973,17 @@ class PublicationsApi
      *
      * List Publications
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $campaign Filters by a given campaign name. (optional)
      * @param  string $customer Filters by a unique customer ID. (optional)
      * @param  string $voucher Filters by a given voucher code. (optional)
      * @param  ParameterResultListPublications $result Filters by a publication result. (optional)
      * @param  ParameterVoucherTypeListPublications $voucher_type Filters by a voucher type. (optional)
-     * @param  bool $is_referral_code This filter works only for the &#x60;true&#x60; option. If set to &#x60;true&#x60;, the query returns only publications of codes from referral campaigns. (optional)
+     * @param  bool $is_referral_code This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. (optional)
      * @param  string $filters Allows for combining the filters mentioned in the endpoint description. (optional)
-     * @param  string $source_id Using this endpoint with a particular publication &#x60;source_id&#x60;, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular &#x60;source_id&#x60;. (optional)
+     * @param  string $source_id Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPublications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1033,17 +1033,17 @@ class PublicationsApi
     /**
      * Create request for operation 'listPublications'
      *
-     * @param  int $limit A limit on the number of objects to be returned. Limit can range between 1 and 100 items. (optional)
-     * @param  int $page Which page of results to return. (optional)
-     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order. (optional)
+     * @param  int $limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param  int $page Which page of results to return. The lowest value is 1. (optional)
+     * @param  ParameterOrderListPublications $order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param  string $campaign Filters by a given campaign name. (optional)
      * @param  string $customer Filters by a unique customer ID. (optional)
      * @param  string $voucher Filters by a given voucher code. (optional)
      * @param  ParameterResultListPublications $result Filters by a publication result. (optional)
      * @param  ParameterVoucherTypeListPublications $voucher_type Filters by a voucher type. (optional)
-     * @param  bool $is_referral_code This filter works only for the &#x60;true&#x60; option. If set to &#x60;true&#x60;, the query returns only publications of codes from referral campaigns. (optional)
+     * @param  bool $is_referral_code This filter works only for the true option. If set to true, the query returns only publications of codes from referral campaigns. (optional)
      * @param  string $filters Allows for combining the filters mentioned in the endpoint description. (optional)
-     * @param  string $source_id Using this endpoint with a particular publication &#x60;source_id&#x60;, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular &#x60;source_id&#x60;. (optional)
+     * @param  string $source_id Using this endpoint with a particular publication source_id, which was sent with the original request to create a publication, returns in the response, exactly the same code published initially because the code was assigned to the given publication. As a result, you can use this endpoint as a reference and return a code that was assigned in a publication by using a particular source_id. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPublications'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1061,6 +1061,9 @@ class PublicationsApi
         
         if ($page !== null && $page > 100) {
             throw new \InvalidArgumentException('invalid value for "$page" when calling PublicationsApi.listPublications, must be smaller than or equal to 100.');
+        }
+        if ($page !== null && $page < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page" when calling PublicationsApi.listPublications, must be bigger than or equal to 1.');
         }
         
 

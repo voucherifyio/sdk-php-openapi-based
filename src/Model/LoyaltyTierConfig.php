@@ -79,7 +79,7 @@ class LoyaltyTierConfig implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'points' => false
+        'points' => true
     ];
 
     /**
@@ -276,9 +276,6 @@ class LoyaltyTierConfig implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['points'] === null) {
-            $invalidProperties[] = "'points' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -297,11 +294,7 @@ class LoyaltyTierConfig implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets points
      *
-<<<<<<< Updated upstream:src/Model/LoyaltyTierAllOfConfig.php
-     * @return \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints
-=======
      * @return \OpenAPI\Client\Model\LoyaltyTierConfigPoints|null
->>>>>>> Stashed changes:src/Model/LoyaltyTierConfig.php
      */
     public function getPoints()
     {
@@ -311,18 +304,21 @@ class LoyaltyTierConfig implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets points
      *
-<<<<<<< Updated upstream:src/Model/LoyaltyTierAllOfConfig.php
-     * @param \OpenAPI\Client\Model\LoyaltyTierAllOfConfigPoints $points points
-=======
      * @param \OpenAPI\Client\Model\LoyaltyTierConfigPoints|null $points points
->>>>>>> Stashed changes:src/Model/LoyaltyTierConfig.php
      *
      * @return self
      */
     public function setPoints($points)
     {
         if (is_null($points)) {
-            throw new \InvalidArgumentException('non-nullable points cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['points'] = $points;
 

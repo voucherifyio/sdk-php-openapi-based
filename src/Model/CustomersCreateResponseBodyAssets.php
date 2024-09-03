@@ -79,7 +79,7 @@ class CustomersCreateResponseBodyAssets implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cockpit_url' => false
+        'cockpit_url' => true
     ];
 
     /**
@@ -311,7 +311,14 @@ class CustomersCreateResponseBodyAssets implements ModelInterface, ArrayAccess, 
     public function setCockpitUrl($cockpit_url)
     {
         if (is_null($cockpit_url)) {
-            throw new \InvalidArgumentException('non-nullable cockpit_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cockpit_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cockpit_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['cockpit_url'] = $cockpit_url;
 

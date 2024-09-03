@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
- * OrderCalculatedReferrer
-========
  * CustomerRedeemable
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
  *
  * PHP version 8.1
  *
@@ -37,11 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
- * OrderCalculatedReferrer Class Doc Comment
-========
  * CustomerRedeemable Class Doc Comment
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
  *
  * @category Class
  * @description Single customer&#39;s redeemable
@@ -50,11 +42,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-class OrderCalculatedReferrer implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 {
     public const DISCRIMINATOR = null;
 
@@ -63,11 +51,7 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-    protected static $openAPIModelName = 'Order_Calculated_Referrer';
-========
     protected static $openAPIModelName = 'CustomerRedeemable';
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -76,25 +60,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'id' => 'string',
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'source_id' => 'string',
-        'summary' => '\OpenAPI\Client\Model\CustomerSummary',
-        'loyalty' => '\OpenAPI\Client\Model\CustomerLoyalty',
-        'referrals' => '\OpenAPI\Client\Model\CustomerReferrals',
-        'system_metadata' => 'object',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'assets' => '\OpenAPI\Client\Model\CustomerResponseDataAssets',
-        'object' => 'string',
-        'name' => 'string',
-        'description' => 'string',
-        'email' => 'string',
-        'phone' => 'string',
-        'birthday' => '\DateTime',
-        'birthdate' => '\DateTime',
-        'address' => '\OpenAPI\Client\Model\OrderCalculatedCustomerAddress',
-        'metadata' => 'object'
-========
         'created_at' => '\DateTime',
         'redeemable_id' => 'string',
         'redeemable_object' => 'string',
@@ -104,7 +69,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         'campaign_type' => 'string',
         'voucher_type' => 'string',
         'redeemable' => '\OpenAPI\Client\Model\CustomerRedeemableRedeemable'
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -116,25 +80,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'id' => null,
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'source_id' => null,
-        'summary' => null,
-        'loyalty' => null,
-        'referrals' => null,
-        'system_metadata' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'assets' => null,
-        'object' => null,
-        'name' => null,
-        'description' => null,
-        'email' => null,
-        'phone' => null,
-        'birthday' => 'date',
-        'birthdate' => 'date',
-        'address' => null,
-        'metadata' => null
-========
         'created_at' => 'date-time',
         'redeemable_id' => null,
         'redeemable_object' => null,
@@ -144,7 +89,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         'campaign_type' => null,
         'voucher_type' => null,
         'redeemable' => null
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -153,26 +97,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'id' => false,
-		'source_id' => false,
-		'summary' => true,
-		'loyalty' => true,
-		'referrals' => true,
-		'system_metadata' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'assets' => false,
-		'object' => false,
-		'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
-		'address' => true,
-		'metadata' => false
-========
         'id' => true,
 		'created_at' => true,
 		'redeemable_id' => true,
@@ -183,7 +107,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
 		'campaign_type' => true,
 		'voucher_type' => true,
 		'redeemable' => true
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -273,25 +196,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'id' => 'id',
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'source_id' => 'source_id',
-        'summary' => 'summary',
-        'loyalty' => 'loyalty',
-        'referrals' => 'referrals',
-        'system_metadata' => 'system_metadata',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'assets' => 'assets',
-        'object' => 'object',
-        'name' => 'name',
-        'description' => 'description',
-        'email' => 'email',
-        'phone' => 'phone',
-        'birthday' => 'birthday',
-        'birthdate' => 'birthdate',
-        'address' => 'address',
-        'metadata' => 'metadata'
-========
         'created_at' => 'created_at',
         'redeemable_id' => 'redeemable_id',
         'redeemable_object' => 'redeemable_object',
@@ -301,7 +205,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         'campaign_type' => 'campaign_type',
         'voucher_type' => 'voucher_type',
         'redeemable' => 'redeemable'
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -311,25 +214,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'id' => 'setId',
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'source_id' => 'setSourceId',
-        'summary' => 'setSummary',
-        'loyalty' => 'setLoyalty',
-        'referrals' => 'setReferrals',
-        'system_metadata' => 'setSystemMetadata',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'assets' => 'setAssets',
-        'object' => 'setObject',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'email' => 'setEmail',
-        'phone' => 'setPhone',
-        'birthday' => 'setBirthday',
-        'birthdate' => 'setBirthdate',
-        'address' => 'setAddress',
-        'metadata' => 'setMetadata'
-========
         'created_at' => 'setCreatedAt',
         'redeemable_id' => 'setRedeemableId',
         'redeemable_object' => 'setRedeemableObject',
@@ -339,7 +223,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         'campaign_type' => 'setCampaignType',
         'voucher_type' => 'setVoucherType',
         'redeemable' => 'setRedeemable'
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -349,25 +232,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'id' => 'getId',
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        'source_id' => 'getSourceId',
-        'summary' => 'getSummary',
-        'loyalty' => 'getLoyalty',
-        'referrals' => 'getReferrals',
-        'system_metadata' => 'getSystemMetadata',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'assets' => 'getAssets',
-        'object' => 'getObject',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'email' => 'getEmail',
-        'phone' => 'getPhone',
-        'birthday' => 'getBirthday',
-        'birthdate' => 'getBirthdate',
-        'address' => 'getAddress',
-        'metadata' => 'getMetadata'
-========
         'created_at' => 'getCreatedAt',
         'redeemable_id' => 'getRedeemableId',
         'redeemable_object' => 'getRedeemableObject',
@@ -377,7 +241,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         'campaign_type' => 'getCampaignType',
         'voucher_type' => 'getVoucherType',
         'redeemable' => 'getRedeemable'
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     ];
 
     /**
@@ -421,9 +284,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-    public const OBJECT_CUSTOMER = 'customer';
-========
     public const HOLDER_ROLE_OWNER = 'OWNER';
     public const HOLDER_ROLE_REFERRER = 'REFERRER';
     public const HOLDER_ROLE_REFEREE = 'REFEREE';
@@ -437,7 +297,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     public const VOUCHER_TYPE_DISCOUNT_VOUCHER = 'DISCOUNT_VOUCHER';
     public const VOUCHER_TYPE_LOYALTY_CARD = 'LOYALTY_CARD';
     public const VOUCHER_TYPE_LUCKY_DRAW_CODE = 'LUCKY_DRAW_CODE';
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 
     /**
      * Gets allowable values of the enum
@@ -447,9 +306,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     public function getHolderRoleAllowableValues()
     {
         return [
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-            self::OBJECT_CUSTOMER,
-========
             self::HOLDER_ROLE_OWNER,
             self::HOLDER_ROLE_REFERRER,
             self::HOLDER_ROLE_REFEREE,
@@ -485,7 +341,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
             self::VOUCHER_TYPE_DISCOUNT_VOUCHER,
             self::VOUCHER_TYPE_LOYALTY_CARD,
             self::VOUCHER_TYPE_LUCKY_DRAW_CODE,
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
         ];
     }
 
@@ -505,25 +360,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        $this->setIfExists('source_id', $data ?? [], null);
-        $this->setIfExists('summary', $data ?? [], null);
-        $this->setIfExists('loyalty', $data ?? [], null);
-        $this->setIfExists('referrals', $data ?? [], null);
-        $this->setIfExists('system_metadata', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('assets', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], 'customer');
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('birthday', $data ?? [], null);
-        $this->setIfExists('birthdate', $data ?? [], null);
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
-========
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('redeemable_id', $data ?? [], null);
         $this->setIfExists('redeemable_object', $data ?? [], null);
@@ -533,7 +369,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('campaign_type', $data ?? [], 'DISCOUNT_COUPONS');
         $this->setIfExists('voucher_type', $data ?? [], 'DISCOUNT_VOUCHER');
         $this->setIfExists('redeemable', $data ?? [], null);
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
     }
 
     /**
@@ -572,8 +407,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-========
         $allowedValues = $this->getCampaignTypeAllowableValues();
         if (!is_null($this->container['campaign_type']) && !in_array($this->container['campaign_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -592,7 +425,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
 
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
         return $invalidProperties;
     }
 
@@ -621,18 +453,21 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-     * @param string|null $id id
-========
      * @param string|null $id Unique redeemable holder identifier.
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -640,9 +475,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-     * Gets source_id
-========
      * Gets created_at
      *
      * @return \DateTime|null
@@ -858,7 +690,6 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
 
     /**
      * Gets campaign_type
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
      *
      * @return string|null
      */
@@ -870,22 +701,12 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets campaign_type
      *
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-     * @param string|null $source_id A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-========
      * @param string|null $campaign_type Defines the type of the campaign.
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
      *
      * @return self
      */
     public function setCampaignType($campaign_type)
     {
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-========
         if (is_null($campaign_type)) {
             array_push($this->openAPINullablesSetToNull, 'campaign_type');
         } else {
@@ -907,37 +728,11 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['campaign_type'] = $campaign_type;
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 
         return $this;
     }
 
     /**
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-     * Gets summary
-     *
-     * @return \OpenAPI\Client\Model\CustomerSummary|null
-     */
-    public function getSummary()
-    {
-        return $this->container['summary'];
-    }
-
-    /**
-     * Sets summary
-     *
-     * @param \OpenAPI\Client\Model\CustomerSummary|null $summary summary
-     *
-     * @return self
-     */
-    public function setSummary($summary)
-    {
-        if (is_null($summary)) {
-            array_push($this->openAPINullablesSetToNull, 'summary');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('summary', $nullablesSetToNull);
-========
      * Gets voucher_type
      *
      * @return string|null
@@ -961,15 +756,11 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('voucher_type', $nullablesSetToNull);
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        $this->container['summary'] = $summary;
-========
         $allowedValues = $this->getVoucherTypeAllowableValues();
         if (!is_null($voucher_type) && !in_array($voucher_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
@@ -981,37 +772,11 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['voucher_type'] = $voucher_type;
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 
         return $this;
     }
 
     /**
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-     * Gets loyalty
-     *
-     * @return \OpenAPI\Client\Model\CustomerLoyalty|null
-     */
-    public function getLoyalty()
-    {
-        return $this->container['loyalty'];
-    }
-
-    /**
-     * Sets loyalty
-     *
-     * @param \OpenAPI\Client\Model\CustomerLoyalty|null $loyalty loyalty
-     *
-     * @return self
-     */
-    public function setLoyalty($loyalty)
-    {
-        if (is_null($loyalty)) {
-            array_push($this->openAPINullablesSetToNull, 'loyalty');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('loyalty', $nullablesSetToNull);
-========
      * Gets redeemable
      *
      * @return \OpenAPI\Client\Model\CustomerRedeemableRedeemable|null
@@ -1035,419 +800,12 @@ class CustomerRedeemable implements ModelInterface, ArrayAccess, \JsonSerializab
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('redeemable', $nullablesSetToNull);
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-<<<<<<<< Updated upstream:src/Model/OrderCalculatedReferrer.php
-        $this->container['loyalty'] = $loyalty;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrals
-     *
-     * @return \OpenAPI\Client\Model\CustomerReferrals|null
-     */
-    public function getReferrals()
-    {
-        return $this->container['referrals'];
-    }
-
-    /**
-     * Sets referrals
-     *
-     * @param \OpenAPI\Client\Model\CustomerReferrals|null $referrals referrals
-     *
-     * @return self
-     */
-    public function setReferrals($referrals)
-    {
-        if (is_null($referrals)) {
-            array_push($this->openAPINullablesSetToNull, 'referrals');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrals', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets system_metadata
-     *
-     * @return object|null
-     */
-    public function getSystemMetadata()
-    {
-        return $this->container['system_metadata'];
-    }
-
-    /**
-     * Sets system_metadata
-     *
-     * @param object|null $system_metadata Object used to store system metadata information.
-     *
-     * @return self
-     */
-    public function setSystemMetadata($system_metadata)
-    {
-        if (is_null($system_metadata)) {
-            throw new \InvalidArgumentException('non-nullable system_metadata cannot be null');
-        }
-        $this->container['system_metadata'] = $system_metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets assets
-     *
-     * @return \OpenAPI\Client\Model\CustomerResponseDataAssets|null
-     */
-    public function getAssets()
-    {
-        return $this->container['assets'];
-    }
-
-    /**
-     * Sets assets
-     *
-     * @param \OpenAPI\Client\Model\CustomerResponseDataAssets|null $assets assets
-     *
-     * @return self
-     */
-    public function setAssets($assets)
-    {
-        if (is_null($assets)) {
-            throw new \InvalidArgumentException('non-nullable assets cannot be null');
-        }
-        $this->container['assets'] = $assets;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object The type of object represented by JSON.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Customer's first and last name.
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description An arbitrary string that you can attach to a customer object.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Customer's email address.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone
-     *
-     * @return string|null
-     */
-    public function getPhone()
-    {
-        return $this->container['phone'];
-    }
-
-    /**
-     * Sets phone
-     *
-     * @param string|null $phone Customer's phone number. This parameter is mandatory when you try to send out codes to customers via an SMS channel.
-     *
-     * @return self
-     */
-    public function setPhone($phone)
-    {
-        if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
-        }
-        $this->container['phone'] = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthday
-     *
-     * @return \DateTime|null
-     */
-    public function getBirthday()
-    {
-        return $this->container['birthday'];
-    }
-
-    /**
-     * Sets birthday
-     *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setBirthday($birthday)
-    {
-        if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
-        }
-        $this->container['birthday'] = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthdate
-     *
-     * @return \DateTime|null
-     */
-    public function getBirthdate()
-    {
-        return $this->container['birthdate'];
-    }
-
-    /**
-     * Sets birthdate
-     *
-     * @param \DateTime|null $birthdate Customer's birthdate; format YYYY-MM-DD.
-     *
-     * @return self
-     */
-    public function setBirthdate($birthdate)
-    {
-        if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
-        }
-        $this->container['birthdate'] = $birthdate;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return \OpenAPI\Client\Model\OrderCalculatedCustomerAddress|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param \OpenAPI\Client\Model\OrderCalculatedCustomerAddress|null $address address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        if (is_null($address)) {
-            array_push($this->openAPINullablesSetToNull, 'address');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('address', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments.
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-========
         $this->container['redeemable'] = $redeemable;
->>>>>>>> Stashed changes:src/Model/CustomerRedeemable.php
 
         return $this;
     }

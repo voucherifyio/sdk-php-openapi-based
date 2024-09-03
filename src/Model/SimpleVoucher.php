@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * SimpleVoucher Class Doc Comment
  *
  * @category Class
+ * @description Simplified voucher data.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,18 +63,22 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'code' => 'string',
         'gift' => '\OpenAPI\Client\Model\Gift',
         'discount' => '\OpenAPI\Client\Model\Discount',
-<<<<<<< Updated upstream
-        'loyalty_card' => 'object',
-=======
         'loyalty_card' => '\OpenAPI\Client\Model\SimpleLoyaltyCard',
->>>>>>> Stashed changes
         'type' => 'string',
-        'campaign' => 'object',
+        'campaign' => 'string',
         'campaign_id' => 'string',
         'is_referral_code' => 'bool',
         'holder_id' => 'string',
         'referrer_id' => 'string',
+        'category_id' => 'string',
+        'categories' => '\OpenAPI\Client\Model\Category[]',
+        'active' => 'bool',
         'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
+        'redemption' => '\OpenAPI\Client\Model\SimpleVoucherRedemption',
+        'start_date' => '\DateTime',
+        'expiration_date' => '\DateTime',
+        'metadata' => 'object',
         'object' => 'string'
     ];
 
@@ -96,7 +101,15 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => null,
         'holder_id' => null,
         'referrer_id' => null,
+        'category_id' => null,
+        'categories' => null,
+        'active' => null,
         'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'redemption' => null,
+        'start_date' => 'date-time',
+        'expiration_date' => 'date-time',
+        'metadata' => null,
         'object' => null
     ];
 
@@ -106,21 +119,11 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'code' => false,
+        'id' => true,
+		'code' => true,
 		'gift' => false,
 		'discount' => false,
 		'loyalty_card' => false,
-<<<<<<< Updated upstream
-		'type' => false,
-		'campaign' => false,
-		'campaign_id' => false,
-		'is_referral_code' => false,
-		'holder_id' => false,
-		'referrer_id' => false,
-		'created_at' => false,
-		'object' => false
-=======
 		'type' => true,
 		'campaign' => true,
 		'campaign_id' => true,
@@ -137,7 +140,6 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
 		'expiration_date' => true,
 		'metadata' => true,
 		'object' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -237,7 +239,15 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'is_referral_code',
         'holder_id' => 'holder_id',
         'referrer_id' => 'referrer_id',
+        'category_id' => 'category_id',
+        'categories' => 'categories',
+        'active' => 'active',
         'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'redemption' => 'redemption',
+        'start_date' => 'start_date',
+        'expiration_date' => 'expiration_date',
+        'metadata' => 'metadata',
         'object' => 'object'
     ];
 
@@ -258,7 +268,15 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'setIsReferralCode',
         'holder_id' => 'setHolderId',
         'referrer_id' => 'setReferrerId',
+        'category_id' => 'setCategoryId',
+        'categories' => 'setCategories',
+        'active' => 'setActive',
         'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'redemption' => 'setRedemption',
+        'start_date' => 'setStartDate',
+        'expiration_date' => 'setExpirationDate',
+        'metadata' => 'setMetadata',
         'object' => 'setObject'
     ];
 
@@ -279,7 +297,15 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_referral_code' => 'getIsReferralCode',
         'holder_id' => 'getHolderId',
         'referrer_id' => 'getReferrerId',
+        'category_id' => 'getCategoryId',
+        'categories' => 'getCategories',
+        'active' => 'getActive',
         'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'redemption' => 'getRedemption',
+        'start_date' => 'getStartDate',
+        'expiration_date' => 'getExpirationDate',
+        'metadata' => 'getMetadata',
         'object' => 'getObject'
     ];
 
@@ -324,7 +350,9 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_VOUCHER = 'voucher';
+    public const TYPE_DISCOUNT_VOUCHER = 'DISCOUNT_VOUCHER';
+    public const TYPE_LOYALTY_CARD = 'LOYALTY_CARD';
+    public const TYPE_GIFT_VOUCHER = 'GIFT_VOUCHER';
     public const OBJECT_VOUCHER = 'voucher';
 
     /**
@@ -335,7 +363,9 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_VOUCHER,
+            self::TYPE_DISCOUNT_VOUCHER,
+            self::TYPE_LOYALTY_CARD,
+            self::TYPE_GIFT_VOUCHER,
         ];
     }
 
@@ -371,13 +401,21 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('gift', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('loyalty_card', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'voucher');
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('campaign', $data ?? [], null);
         $this->setIfExists('campaign_id', $data ?? [], null);
         $this->setIfExists('is_referral_code', $data ?? [], null);
         $this->setIfExists('holder_id', $data ?? [], null);
         $this->setIfExists('referrer_id', $data ?? [], null);
+        $this->setIfExists('category_id', $data ?? [], null);
+        $this->setIfExists('categories', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('redemption', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('expiration_date', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], 'voucher');
     }
 
@@ -408,9 +446,6 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -464,7 +499,14 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -474,7 +516,7 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -484,14 +526,21 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets code
      *
-     * @param string $code Voucher code.
+     * @param string|null $code Voucher code.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -555,11 +604,7 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets loyalty_card
      *
-<<<<<<< Updated upstream
-     * @return object|null
-=======
      * @return \OpenAPI\Client\Model\SimpleLoyaltyCard|null
->>>>>>> Stashed changes
      */
     public function getLoyaltyCard()
     {
@@ -569,11 +614,7 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets loyalty_card
      *
-<<<<<<< Updated upstream
-     * @param object|null $loyalty_card Defines the loyalty card details.
-=======
      * @param \OpenAPI\Client\Model\SimpleLoyaltyCard|null $loyalty_card loyalty_card
->>>>>>> Stashed changes
      *
      * @return self
      */
@@ -600,17 +641,24 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type Type of the object.
+     * @param string|null $type Type of the voucher.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
@@ -627,7 +675,7 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets campaign
      *
-     * @return object|null
+     * @return string|null
      */
     public function getCampaign()
     {
@@ -637,14 +685,21 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets campaign
      *
-     * @param object|null $campaign Campaign object
+     * @param string|null $campaign Campaign name.
      *
      * @return self
      */
     public function setCampaign($campaign)
     {
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign'] = $campaign;
 
@@ -671,7 +726,14 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCampaignId($campaign_id)
     {
         if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'campaign_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campaign_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['campaign_id'] = $campaign_id;
 
@@ -698,7 +760,14 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsReferralCode($is_referral_code)
     {
         if (is_null($is_referral_code)) {
-            throw new \InvalidArgumentException('non-nullable is_referral_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_referral_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_referral_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_referral_code'] = $is_referral_code;
 
@@ -718,18 +787,21 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets holder_id
      *
-<<<<<<< Updated upstream
-     * @param string|null $holder_id Unique customer ID of campaign owner.
-=======
      * @param string|null $holder_id Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setHolderId($holder_id)
     {
         if (is_null($holder_id)) {
-            throw new \InvalidArgumentException('non-nullable holder_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'holder_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('holder_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['holder_id'] = $holder_id;
 
@@ -749,16 +821,125 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets referrer_id
      *
-     * @param string|null $referrer_id Unique referrer ID.
+     * @param string|null $referrer_id Unique identifier of the referrer assigned by Voucherify.
      *
      * @return self
      */
     public function setReferrerId($referrer_id)
     {
         if (is_null($referrer_id)) {
-            throw new \InvalidArgumentException('non-nullable referrer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referrer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referrer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referrer_id'] = $referrer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets category_id
+     *
+     * @return string|null
+     */
+    public function getCategoryId()
+    {
+        return $this->container['category_id'];
+    }
+
+    /**
+     * Sets category_id
+     *
+     * @param string|null $category_id Unique identifier of the category that this voucher belongs to.
+     *
+     * @return self
+     */
+    public function setCategoryId($category_id)
+    {
+        if (is_null($category_id)) {
+            array_push($this->openAPINullablesSetToNull, 'category_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category_id'] = $category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \OpenAPI\Client\Model\Category[]|null
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \OpenAPI\Client\Model\Category[]|null $categories Contains details about the category.
+     *
+     * @return self
+     */
+    public function setCategories($categories)
+    {
+        if (is_null($categories)) {
+            array_push($this->openAPINullablesSetToNull, 'categories');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('categories', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active Shows whether the voucher is on or off. `true` indicates an *active* voucher and `false` indicates an *inactive* voucher.
+     *
+     * @return self
+     */
+    public function setActive($active)
+    {
+        if (is_null($active)) {
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['active'] = $active;
 
         return $this;
     }
@@ -776,18 +957,21 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-<<<<<<< Updated upstream
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in ISO 8601 format.
-=======
      * @param \DateTime|null $created_at Timestamp representing the date and time when the order was created in the ISO 8601 format.
->>>>>>> Stashed changes
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -795,8 +979,6 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * Gets updated_at
      *
      * @return \DateTime|null
@@ -967,7 +1149,6 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
->>>>>>> Stashed changes
      * Gets object
      *
      * @return string|null
@@ -980,17 +1161,24 @@ class SimpleVoucher implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string|null $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",

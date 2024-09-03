@@ -85,17 +85,10 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-        'object' => false,
-		'data_ref' => false,
-		'data' => false,
-		'total' => false
-=======
         'object' => true,
 		'data_ref' => true,
 		'vouchers' => true,
 		'total' => true
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
     ];
 
     /**
@@ -330,9 +323,6 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -342,9 +332,6 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['data_ref'] === null) {
-            $invalidProperties[] = "'data_ref' can't be null";
-        }
         $allowedValues = $this->getDataRefAllowableValues();
         if (!is_null($this->container['data_ref']) && !in_array($this->container['data_ref'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -354,12 +341,6 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -378,7 +359,7 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -388,21 +369,24 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets object
      *
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-     * @param string $object The type of object represented by JSON. This object stores information about product collections.
-=======
      * @param string|null $object The type of the object represented by JSON.
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
+        if (!is_null($object) && !in_array($object, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'object', must be one of '%s'",
@@ -419,7 +403,7 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data_ref
      *
-     * @return string
+     * @return string|null
      */
     public function getDataRef()
     {
@@ -429,21 +413,24 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data_ref
      *
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-     * @param string $data_ref Identifies the name of the JSON property that contains the array of product collections.
-=======
      * @param string|null $data_ref Identifies the name of the attribute that contains the array of voucher objects.
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
      *
      * @return self
      */
     public function setDataRef($data_ref)
     {
         if (is_null($data_ref)) {
-            throw new \InvalidArgumentException('non-nullable data_ref cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_ref');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_ref', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getDataRefAllowableValues();
-        if (!in_array($data_ref, $allowedValues, true)) {
+        if (!is_null($data_ref) && !in_array($data_ref, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'data_ref', must be one of '%s'",
@@ -460,11 +447,7 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets vouchers
      *
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-     * @return ProductCollectionsItem[]
-=======
      * @return \OpenAPI\Client\Model\VoucherWithCategories[]|null
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
      */
     public function getVouchers()
     {
@@ -474,20 +457,12 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets vouchers
      *
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-     * @param ProductCollectionsItem[] $data A dictionary that contains an array of product collections and their details.
-=======
      * @param \OpenAPI\Client\Model\VoucherWithCategories[]|null $vouchers A dictionary that contains an array of  vouchers. Each entry in the array is a separate voucher object.
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
      *
      * @return self
      */
     public function setVouchers($vouchers)
     {
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-=======
         if (is_null($vouchers)) {
             array_push($this->openAPINullablesSetToNull, 'vouchers');
         } else {
@@ -497,7 +472,6 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
         }
         $this->container['vouchers'] = $vouchers;
 
@@ -507,7 +481,7 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -517,18 +491,21 @@ class VouchersListResponseBody implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets total
      *
-<<<<<<< Updated upstream:src/Model/ProductCollectionsList.php
-     * @param int $total Total number of product collections.
-=======
      * @param int|null $total Returns how many vouchers in the project meet the limits defined by the query parameter definitions.
->>>>>>> Stashed changes:src/Model/VouchersListResponseBody.php
      *
      * @return self
      */
     public function setTotal($total)
     {
         if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['total'] = $total;
 

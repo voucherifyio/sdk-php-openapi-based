@@ -59,21 +59,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'id' => 'string',
-        'customer_id' => 'string',
-        'tracking_id' => 'string',
-        'date' => '\DateTime',
-        'amount' => 'int',
-        'order' => '\OpenAPI\Client\Model\SimpleOrder',
-        'reward' => '\OpenAPI\Client\Model\SimpleRedemptionRewardResult',
-        'customer' => '\OpenAPI\Client\Model\SimpleCustomer',
-        'result' => 'string',
-        'voucher' => '\OpenAPI\Client\Model\SimpleVoucher',
-        'promotion_tier' => '\OpenAPI\Client\Model\SimplePromotionTier',
-        'redemption' => 'string',
-        'object' => 'string'
-=======
         'balance' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetailsBalance',
         'order' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetailsOrder',
         'event' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetailsEvent',
@@ -87,7 +72,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
         'reward' => '\OpenAPI\Client\Model\LoyaltyCardTransactionDetailsReward',
         'source_voucher' => '\OpenAPI\Client\Model\SimpleVoucher',
         'destination_voucher' => '\OpenAPI\Client\Model\SimpleVoucher'
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
     ];
 
     /**
@@ -100,18 +84,10 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'balance' => null,
         'order' => null,
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'reward' => null,
-        'customer' => null,
-        'result' => null,
-        'voucher' => null,
-        'promotion_tier' => null,
-=======
         'event' => null,
         'earning_rule' => null,
         'segment' => null,
         'loyalty_tier' => null,
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         'redemption' => null,
         'rollback' => null,
         'custom_event' => null,
@@ -127,21 +103,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'id' => false,
-		'customer_id' => true,
-		'tracking_id' => false,
-		'date' => false,
-		'amount' => false,
-		'order' => false,
-		'reward' => false,
-		'customer' => false,
-		'result' => false,
-		'voucher' => false,
-		'promotion_tier' => false,
-		'redemption' => false,
-		'object' => false
-=======
         'balance' => true,
 		'order' => true,
 		'event' => true,
@@ -155,7 +116,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
 		'reward' => true,
 		'source_voucher' => false,
 		'destination_voucher' => false
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
     ];
 
     /**
@@ -246,18 +206,10 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'balance' => 'balance',
         'order' => 'order',
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'reward' => 'reward',
-        'customer' => 'customer',
-        'result' => 'result',
-        'voucher' => 'voucher',
-        'promotion_tier' => 'promotion_tier',
-=======
         'event' => 'event',
         'earning_rule' => 'earning_rule',
         'segment' => 'segment',
         'loyalty_tier' => 'loyalty_tier',
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         'redemption' => 'redemption',
         'rollback' => 'rollback',
         'custom_event' => 'custom_event',
@@ -275,18 +227,10 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'balance' => 'setBalance',
         'order' => 'setOrder',
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'reward' => 'setReward',
-        'customer' => 'setCustomer',
-        'result' => 'setResult',
-        'voucher' => 'setVoucher',
-        'promotion_tier' => 'setPromotionTier',
-=======
         'event' => 'setEvent',
         'earning_rule' => 'setEarningRule',
         'segment' => 'setSegment',
         'loyalty_tier' => 'setLoyaltyTier',
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         'redemption' => 'setRedemption',
         'rollback' => 'setRollback',
         'custom_event' => 'setCustomEvent',
@@ -304,18 +248,10 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'balance' => 'getBalance',
         'order' => 'getOrder',
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        'reward' => 'getReward',
-        'customer' => 'getCustomer',
-        'result' => 'getResult',
-        'voucher' => 'getVoucher',
-        'promotion_tier' => 'getPromotionTier',
-=======
         'event' => 'getEvent',
         'earning_rule' => 'getEarningRule',
         'segment' => 'getSegment',
         'loyalty_tier' => 'getLoyaltyTier',
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         'redemption' => 'getRedemption',
         'rollback' => 'getRollback',
         'custom_event' => 'getCustomEvent',
@@ -366,24 +302,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-    public const RESULT_SUCCESS = 'SUCCESS';
-    public const RESULT_FAILURE = 'FAILURE';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getResultAllowableValues()
-    {
-        return [
-            self::RESULT_SUCCESS,
-            self::RESULT_FAILURE,
-        ];
-    }
-=======
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
 
     /**
      * Associative array for storing property values
@@ -402,18 +320,10 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('balance', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        $this->setIfExists('reward', $data ?? [], null);
-        $this->setIfExists('customer', $data ?? [], null);
-        $this->setIfExists('result', $data ?? [], null);
-        $this->setIfExists('voucher', $data ?? [], null);
-        $this->setIfExists('promotion_tier', $data ?? [], null);
-=======
         $this->setIfExists('event', $data ?? [], null);
         $this->setIfExists('earning_rule', $data ?? [], null);
         $this->setIfExists('segment', $data ?? [], null);
         $this->setIfExists('loyalty_tier', $data ?? [], null);
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         $this->setIfExists('redemption', $data ?? [], null);
         $this->setIfExists('rollback', $data ?? [], null);
         $this->setIfExists('custom_event', $data ?? [], null);
@@ -450,18 +360,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        $allowedValues = $this->getResultAllowableValues();
-        if (!is_null($this->container['result']) && !in_array($this->container['result'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'result', must be one of '%s'",
-                $this->container['result'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-=======
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         return $invalidProperties;
     }
 
@@ -496,127 +394,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
      */
     public function setBalance($balance)
     {
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_id
-     *
-     * @return string|null
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string|null $customer_id Unique customer ID of the redeeming customer.
-     *
-     * @return self
-     */
-    public function setCustomerId($customer_id)
-    {
-        if (is_null($customer_id)) {
-            array_push($this->openAPINullablesSetToNull, 'customer_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('customer_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['customer_id'] = $customer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tracking_id
-     *
-     * @return string|null
-     */
-    public function getTrackingId()
-    {
-        return $this->container['tracking_id'];
-    }
-
-    /**
-     * Sets tracking_id
-     *
-     * @param string|null $tracking_id Hashed customer source ID.
-     *
-     * @return self
-     */
-    public function setTrackingId($tracking_id)
-    {
-        if (is_null($tracking_id)) {
-            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
-        }
-        $this->container['tracking_id'] = $tracking_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date Timestamp representing the date and time when the redemption was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setDate($date)
-    {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
-        }
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return int|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param int|null $amount A positive integer in the smallest currency unit (e.g. 100 cents for $1.00) representing the total amount of the order. This is the sum of the order items' amounts.
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-=======
         if (is_null($balance)) {
             array_push($this->openAPINullablesSetToNull, 'balance');
         } else {
@@ -628,7 +405,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['balance'] = $balance;
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
 
         return $this;
     }
@@ -686,76 +462,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
      */
     public function setEvent($event)
     {
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        if (is_null($reward)) {
-            throw new \InvalidArgumentException('non-nullable reward cannot be null');
-        }
-        $this->container['reward'] = $reward;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer
-     *
-     * @return \OpenAPI\Client\Model\SimpleCustomer|null
-     */
-    public function getCustomer()
-    {
-        return $this->container['customer'];
-    }
-
-    /**
-     * Sets customer
-     *
-     * @param \OpenAPI\Client\Model\SimpleCustomer|null $customer customer
-     *
-     * @return self
-     */
-    public function setCustomer($customer)
-    {
-        if (is_null($customer)) {
-            throw new \InvalidArgumentException('non-nullable customer cannot be null');
-        }
-        $this->container['customer'] = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     *
-     * @return string|null
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     *
-     * @param string|null $result Redemption result.
-     *
-     * @return self
-     */
-    public function setResult($result)
-    {
-        if (is_null($result)) {
-            throw new \InvalidArgumentException('non-nullable result cannot be null');
-        }
-        $allowedValues = $this->getResultAllowableValues();
-        if (!in_array($result, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'result', must be one of '%s'",
-                    $result,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['result'] = $result;
-=======
         if (is_null($event)) {
             array_push($this->openAPINullablesSetToNull, 'event');
         } else {
@@ -767,15 +473,11 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['event'] = $event;
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
 
         return $this;
     }
 
     /**
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-     * Gets voucher
-=======
      * Gets earning_rule
      *
      * @return \OpenAPI\Client\Model\LoyaltyCardTransactionDetailsEarningRule|null
@@ -811,7 +513,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
 
     /**
      * Gets segment
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
      *
      * @return \OpenAPI\Client\Model\LoyaltyCardTransactionDetailsSegment|null
      */
@@ -898,7 +599,14 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     public function setRedemption($redemption)
     {
         if (is_null($redemption)) {
-            throw new \InvalidArgumentException('non-nullable redemption cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'redemption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('redemption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['redemption'] = $redemption;
 
@@ -918,20 +626,12 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets rollback
      *
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-     * @param string|null $object The type of object represented by the JSON. This object stores information about the `redemption`.
-=======
      * @param \OpenAPI\Client\Model\LoyaltyCardTransactionDetailsRollback|null $rollback rollback
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
      *
      * @return self
      */
     public function setRollback($rollback)
     {
-<<<<<<< Updated upstream:src/Model/SimpleRedemption.php
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-=======
         if (is_null($rollback)) {
             array_push($this->openAPINullablesSetToNull, 'rollback');
         } else {
@@ -941,7 +641,6 @@ class LoyaltyCardTransactionDetails implements ModelInterface, ArrayAccess, \Jso
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/LoyaltyCardTransactionDetails.php
         }
         $this->container['rollback'] = $rollback;
 

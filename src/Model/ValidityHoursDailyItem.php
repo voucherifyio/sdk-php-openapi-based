@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAddress.php
- * CustomerActivityDataOrderCustomerAddress
-========
  * ValidityHoursDailyItem
->>>>>>>> Stashed changes:src/Model/ValidityHoursDailyItem.php
  *
  * PHP version 8.1
  *
@@ -37,23 +33,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAddress.php
- * CustomerActivityDataOrderCustomerAddress Class Doc Comment
-========
  * ValidityHoursDailyItem Class Doc Comment
->>>>>>>> Stashed changes:src/Model/ValidityHoursDailyItem.php
  *
  * @category Class
+ * @description Defines the reccuring period(s) when the resource will be active.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAddress.php
-class CustomerActivityDataOrderCustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
-========
 class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerializable
->>>>>>>> Stashed changes:src/Model/ValidityHoursDailyItem.php
 {
     public const DISCRIMINATOR = null;
 
@@ -62,11 +51,7 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-<<<<<<<< Updated upstream:src/Model/CustomerActivityDataOrderCustomerAddress.php
-    protected static $openAPIModelName = 'CustomerActivityDataOrderCustomerAddress';
-========
     protected static $openAPIModelName = 'ValidityHoursDailyItem';
->>>>>>>> Stashed changes:src/Model/ValidityHoursDailyItem.php
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -74,12 +59,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'city' => 'string',
-        'state' => 'string',
-        'line_1' => 'string',
-        'line_2' => 'string',
-        'country' => 'string',
-        'postal_code' => 'string'
+        'start_time' => 'string',
+        'days_of_week' => 'int[]',
+        'expiration_time' => 'string'
     ];
 
     /**
@@ -90,12 +72,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'city' => null,
-        'state' => null,
-        'line_1' => null,
-        'line_2' => null,
-        'country' => null,
-        'postal_code' => null
+        'start_time' => 'time',
+        'days_of_week' => null,
+        'expiration_time' => 'time'
     ];
 
     /**
@@ -104,12 +83,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'city' => false,
-		'state' => false,
-		'line_1' => false,
-		'line_2' => false,
-		'country' => false,
-		'postal_code' => false
+        'start_time' => false,
+		'days_of_week' => false,
+		'expiration_time' => false
     ];
 
     /**
@@ -198,12 +174,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'city' => 'city',
-        'state' => 'state',
-        'line_1' => 'line_1',
-        'line_2' => 'line_2',
-        'country' => 'country',
-        'postal_code' => 'postal_code'
+        'start_time' => 'start_time',
+        'days_of_week' => 'days_of_week',
+        'expiration_time' => 'expiration_time'
     ];
 
     /**
@@ -212,12 +185,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'city' => 'setCity',
-        'state' => 'setState',
-        'line_1' => 'setLine1',
-        'line_2' => 'setLine2',
-        'country' => 'setCountry',
-        'postal_code' => 'setPostalCode'
+        'start_time' => 'setStartTime',
+        'days_of_week' => 'setDaysOfWeek',
+        'expiration_time' => 'setExpirationTime'
     ];
 
     /**
@@ -226,12 +196,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'city' => 'getCity',
-        'state' => 'getState',
-        'line_1' => 'getLine1',
-        'line_2' => 'getLine2',
-        'country' => 'getCountry',
-        'postal_code' => 'getPostalCode'
+        'start_time' => 'getStartTime',
+        'days_of_week' => 'getDaysOfWeek',
+        'expiration_time' => 'getExpirationTime'
     ];
 
     /**
@@ -275,6 +242,31 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const DAYS_OF_WEEK_0 = 0;
+    public const DAYS_OF_WEEK_1 = 1;
+    public const DAYS_OF_WEEK_2 = 2;
+    public const DAYS_OF_WEEK_3 = 3;
+    public const DAYS_OF_WEEK_4 = 4;
+    public const DAYS_OF_WEEK_5 = 5;
+    public const DAYS_OF_WEEK_6 = 6;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDaysOfWeekAllowableValues()
+    {
+        return [
+            self::DAYS_OF_WEEK_0,
+            self::DAYS_OF_WEEK_1,
+            self::DAYS_OF_WEEK_2,
+            self::DAYS_OF_WEEK_3,
+            self::DAYS_OF_WEEK_4,
+            self::DAYS_OF_WEEK_5,
+            self::DAYS_OF_WEEK_6,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,12 +283,9 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('city', $data ?? [], null);
-        $this->setIfExists('state', $data ?? [], null);
-        $this->setIfExists('line_1', $data ?? [], null);
-        $this->setIfExists('line_2', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('postal_code', $data ?? [], null);
+        $this->setIfExists('start_time', $data ?? [], null);
+        $this->setIfExists('days_of_week', $data ?? [], null);
+        $this->setIfExists('expiration_time', $data ?? [], null);
     }
 
     /**
@@ -342,163 +331,91 @@ class ValidityHoursDailyItem implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets city
+     * Gets start_time
      *
      * @return string|null
      */
-    public function getCity()
+    public function getStartTime()
     {
-        return $this->container['city'];
+        return $this->container['start_time'];
     }
 
     /**
-     * Sets city
+     * Sets start_time
      *
-     * @param string|null $city City
+     * @param string|null $start_time Defines the starting hour of validity in the HH:mm format. The resource is *inactive before* this time.
      *
      * @return self
      */
-    public function setCity($city)
+    public function setStartTime($start_time)
     {
-        if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+        if (is_null($start_time)) {
+            throw new \InvalidArgumentException('non-nullable start_time cannot be null');
         }
-        $this->container['city'] = $city;
+        $this->container['start_time'] = $start_time;
 
         return $this;
     }
 
     /**
-     * Gets state
+     * Gets days_of_week
      *
-     * @return string|null
+     * @return int[]|null
      */
-    public function getState()
+    public function getDaysOfWeek()
     {
-        return $this->container['state'];
+        return $this->container['days_of_week'];
     }
 
     /**
-     * Sets state
+     * Sets days_of_week
      *
-     * @param string|null $state State
+     * @param int[]|null $days_of_week Integer array corresponding to the particular days of the week in which the resource is valid.  - `0` Sunday - `1` Monday - `2` Tuesday - `3`  Wednesday - `4` Thursday - `5` Friday - `6` Saturday
      *
      * @return self
      */
-    public function setState($state)
+    public function setDaysOfWeek($days_of_week)
     {
-        if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        if (is_null($days_of_week)) {
+            throw new \InvalidArgumentException('non-nullable days_of_week cannot be null');
         }
-        $this->container['state'] = $state;
+        $allowedValues = $this->getDaysOfWeekAllowableValues();
+        if (array_diff($days_of_week, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'days_of_week', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['days_of_week'] = $days_of_week;
 
         return $this;
     }
 
     /**
-     * Gets line_1
+     * Gets expiration_time
      *
      * @return string|null
      */
-    public function getLine1()
+    public function getExpirationTime()
     {
-        return $this->container['line_1'];
+        return $this->container['expiration_time'];
     }
 
     /**
-     * Sets line_1
+     * Sets expiration_time
      *
-     * @param string|null $line_1 First line of address.
+     * @param string|null $expiration_time Defines the ending hour of validity in the HH:mm format. The resource is *inactive after* this time.
      *
      * @return self
      */
-    public function setLine1($line_1)
+    public function setExpirationTime($expiration_time)
     {
-        if (is_null($line_1)) {
-            throw new \InvalidArgumentException('non-nullable line_1 cannot be null');
+        if (is_null($expiration_time)) {
+            throw new \InvalidArgumentException('non-nullable expiration_time cannot be null');
         }
-        $this->container['line_1'] = $line_1;
-
-        return $this;
-    }
-
-    /**
-     * Gets line_2
-     *
-     * @return string|null
-     */
-    public function getLine2()
-    {
-        return $this->container['line_2'];
-    }
-
-    /**
-     * Sets line_2
-     *
-     * @param string|null $line_2 Second line of address.
-     *
-     * @return self
-     */
-    public function setLine2($line_2)
-    {
-        if (is_null($line_2)) {
-            throw new \InvalidArgumentException('non-nullable line_2 cannot be null');
-        }
-        $this->container['line_2'] = $line_2;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country Country.
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets postal_code
-     *
-     * @return string|null
-     */
-    public function getPostalCode()
-    {
-        return $this->container['postal_code'];
-    }
-
-    /**
-     * Sets postal_code
-     *
-     * @param string|null $postal_code Postal code.
-     *
-     * @return self
-     */
-    public function setPostalCode($postal_code)
-    {
-        if (is_null($postal_code)) {
-            throw new \InvalidArgumentException('non-nullable postal_code cannot be null');
-        }
-        $this->container['postal_code'] = $postal_code;
+        $this->container['expiration_time'] = $expiration_time;
 
         return $this;
     }

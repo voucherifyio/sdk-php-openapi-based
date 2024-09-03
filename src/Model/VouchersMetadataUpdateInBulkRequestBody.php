@@ -81,13 +81,8 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-        'total' => false,
-		'campaigns' => false
-=======
         'codes' => true,
 		'metadata' => true
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
     ];
 
     /**
@@ -288,12 +283,6 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['campaigns'] === null) {
-            $invalidProperties[] = "'campaigns' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,11 +301,7 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Gets codes
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-     * @return int
-=======
      * @return string[]|null
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
      */
     public function getCodes()
     {
@@ -326,20 +311,12 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Sets codes
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-     * @param int $total Total number of times this customer received a referral, i.e. was referred by another customer.
-=======
      * @param string[]|null $codes An array of voucher codes.
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
      *
      * @return self
      */
     public function setCodes($codes)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-=======
         if (is_null($codes)) {
             array_push($this->openAPINullablesSetToNull, 'codes');
         } else {
@@ -349,7 +326,6 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
         }
         $this->container['codes'] = $codes;
 
@@ -359,11 +335,7 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Gets metadata
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-     * @return \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[]
-=======
      * @return object|null
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
      */
     public function getMetadata()
     {
@@ -373,20 +345,12 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-     * @param \OpenAPI\Client\Model\CustomerReferralsCampaignsItem[] $campaigns Contains an array of campaigns that served as the source of a referral for the customer.
-=======
      * @param object|null $metadata The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format.
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
-<<<<<<< Updated upstream:src/Model/CustomerActivityDataCustomerReferrals.php
-        if (is_null($campaigns)) {
-            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
-=======
         if (is_null($metadata)) {
             array_push($this->openAPINullablesSetToNull, 'metadata');
         } else {
@@ -396,7 +360,6 @@ class VouchersMetadataUpdateInBulkRequestBody implements ModelInterface, ArrayAc
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
->>>>>>> Stashed changes:src/Model/VouchersMetadataUpdateInBulkRequestBody.php
         }
         $this->container['metadata'] = $metadata;
 

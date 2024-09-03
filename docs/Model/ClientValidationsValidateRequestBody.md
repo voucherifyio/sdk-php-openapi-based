@@ -4,12 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-<<<<<<< Updated upstream
-**redeemables** | [**\OpenAPI\Client\Model\StackableValidateRedeemBaseRedeemablesItem[]**](StackableValidateRedeemBaseRedeemablesItem.md) |  |
-=======
 **options** | [**\OpenAPI\Client\Model\ClientValidationsValidateRequestBodyOptions**](ClientValidationsValidateRequestBodyOptions.md) |  | [optional]
 **redeemables** | [**\OpenAPI\Client\Model\ClientValidationsValidateRequestBodyRedeemablesItem[]**](ClientValidationsValidateRequestBodyRedeemablesItem.md) |  | [optional]
->>>>>>> Stashed changes
 **order** | [**\OpenAPI\Client\Model\Order**](Order.md) |  | [optional]
 **customer** | [**\OpenAPI\Client\Model\Customer**](Customer.md) |  | [optional]
 **session** | [**\OpenAPI\Client\Model\Session**](Session.md) |  | [optional]

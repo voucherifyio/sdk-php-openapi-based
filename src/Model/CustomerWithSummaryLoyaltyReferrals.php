@@ -112,26 +112,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-<<<<<<< Updated upstream
-        'name' => false,
-		'description' => false,
-		'email' => false,
-		'phone' => false,
-		'birthday' => false,
-		'birthdate' => false,
-		'address' => true,
-		'metadata' => false,
-		'id' => false,
-		'source_id' => false,
-		'summary' => true,
-		'loyalty' => true,
-		'referrals' => true,
-		'system_metadata' => false,
-		'created_at' => false,
-		'updated_at' => false,
-		'assets' => false,
-		'object' => false
-=======
         'id' => true,
 		'source_id' => true,
 		'summary' => false,
@@ -150,7 +130,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
 		'birthdate' => true,
 		'address' => true,
 		'metadata' => true
->>>>>>> Stashed changes
     ];
 
     /**
@@ -428,18 +407,6 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['summary'] === null) {
-            $invalidProperties[] = "'summary' can't be null";
-        }
-        if ($this->container['loyalty'] === null) {
-            $invalidProperties[] = "'loyalty' can't be null";
-        }
-        if ($this->container['referrals'] === null) {
-            $invalidProperties[] = "'referrals' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         $allowedValues = $this->getObjectAllowableValues();
         if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -813,7 +780,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 
@@ -840,7 +814,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 
@@ -867,7 +848,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['email'] = $email;
 
@@ -894,7 +882,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setPhone($phone)
     {
         if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['phone'] = $phone;
 
@@ -914,14 +909,21 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     /**
      * Sets birthday
      *
-     * @param \DateTime|null $birthday *Deprecated* Customer's birthdate; format YYYY-MM-DD.
+     * @param \DateTime|null $birthday `Deprecated`. ~~Customer's birthdate; format YYYY-MM-DD~~.
      *
      * @return self
      */
     public function setBirthday($birthday)
     {
         if (is_null($birthday)) {
-            throw new \InvalidArgumentException('non-nullable birthday cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthday');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthday', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthday'] = $birthday;
 
@@ -948,7 +950,14 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setBirthdate($birthdate)
     {
         if (is_null($birthdate)) {
-            throw new \InvalidArgumentException('non-nullable birthdate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birthdate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birthdate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birthdate'] = $birthdate;
 
@@ -1009,316 +1018,19 @@ class CustomerWithSummaryLoyaltyReferrals implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metadata'] = $metadata;
 
         return $this;
     }
-<<<<<<< Updated upstream
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id The ID of an existing customer that will be linked to redemption in this request.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored.
-     *
-     * @return self
-     */
-    public function setSourceId($source_id)
-    {
-        if (is_null($source_id)) {
-            throw new \InvalidArgumentException('non-nullable source_id cannot be null');
-        }
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets summary
-     *
-     * @return \OpenAPI\Client\Model\CustomerSummary
-     */
-    public function getSummary()
-    {
-        return $this->container['summary'];
-    }
-
-    /**
-     * Sets summary
-     *
-     * @param \OpenAPI\Client\Model\CustomerSummary $summary summary
-     *
-     * @return self
-     */
-    public function setSummary($summary)
-    {
-        if (is_null($summary)) {
-            array_push($this->openAPINullablesSetToNull, 'summary');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('summary', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['summary'] = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Gets loyalty
-     *
-     * @return \OpenAPI\Client\Model\CustomerLoyalty
-     */
-    public function getLoyalty()
-    {
-        return $this->container['loyalty'];
-    }
-
-    /**
-     * Sets loyalty
-     *
-     * @param \OpenAPI\Client\Model\CustomerLoyalty $loyalty loyalty
-     *
-     * @return self
-     */
-    public function setLoyalty($loyalty)
-    {
-        if (is_null($loyalty)) {
-            array_push($this->openAPINullablesSetToNull, 'loyalty');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('loyalty', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['loyalty'] = $loyalty;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrals
-     *
-     * @return \OpenAPI\Client\Model\CustomerReferrals
-     */
-    public function getReferrals()
-    {
-        return $this->container['referrals'];
-    }
-
-    /**
-     * Sets referrals
-     *
-     * @param \OpenAPI\Client\Model\CustomerReferrals $referrals referrals
-     *
-     * @return self
-     */
-    public function setReferrals($referrals)
-    {
-        if (is_null($referrals)) {
-            array_push($this->openAPINullablesSetToNull, 'referrals');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrals', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['referrals'] = $referrals;
-
-        return $this;
-    }
-
-    /**
-     * Gets system_metadata
-     *
-     * @return object|null
-     */
-    public function getSystemMetadata()
-    {
-        return $this->container['system_metadata'];
-    }
-
-    /**
-     * Sets system_metadata
-     *
-     * @param object|null $system_metadata Object used to store system metadata information.
-     *
-     * @return self
-     */
-    public function setSystemMetadata($system_metadata)
-    {
-        if (is_null($system_metadata)) {
-            throw new \InvalidArgumentException('non-nullable system_metadata cannot be null');
-        }
-        $this->container['system_metadata'] = $system_metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was created in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at Timestamp representing the date and time when the customer was updated in ISO 8601 format.
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets assets
-     *
-     * @return \OpenAPI\Client\Model\CustomerResponseDataAssets|null
-     */
-    public function getAssets()
-    {
-        return $this->container['assets'];
-    }
-
-    /**
-     * Sets assets
-     *
-     * @param \OpenAPI\Client\Model\CustomerResponseDataAssets|null $assets assets
-     *
-     * @return self
-     */
-    public function setAssets($assets)
-    {
-        if (is_null($assets)) {
-            throw new \InvalidArgumentException('non-nullable assets cannot be null');
-        }
-        $this->container['assets'] = $assets;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object The type of object represented by JSON.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-=======
->>>>>>> Stashed changes
     /**
      * Returns true if offset exists. False otherwise.
      *

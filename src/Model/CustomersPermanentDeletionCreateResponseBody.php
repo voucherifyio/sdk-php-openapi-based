@@ -91,13 +91,13 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-		'created_at' => false,
-		'related_object_id' => false,
-		'related_object' => false,
-		'status' => false,
-		'data_json' => false,
-		'object' => false
+        'id' => true,
+		'created_at' => true,
+		'related_object_id' => true,
+		'related_object' => true,
+		'status' => true,
+		'data_json' => true,
+		'object' => true
     ];
 
     /**
@@ -318,27 +318,6 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['related_object_id'] === null) {
-            $invalidProperties[] = "'related_object_id' can't be null";
-        }
-        if ($this->container['related_object'] === null) {
-            $invalidProperties[] = "'related_object' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['data_json'] === null) {
-            $invalidProperties[] = "'data_json' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -357,7 +336,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -367,14 +346,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets id
      *
-     * @param string $id Unique permanent deletion object ID.
+     * @param string|null $id Unique permanent deletion object ID.
      *
      * @return self
      */
     public function setId($id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id'] = $id;
 
@@ -384,7 +370,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -394,14 +380,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at Timestamp representing the date and time when the customer was requested to be deleted in ISO 8601 format.
+     * @param \DateTime|null $created_at Timestamp representing the date and time when the customer was requested to be deleted in ISO 8601 format.
      *
      * @return self
      */
     public function setCreatedAt($created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'created_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('created_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['created_at'] = $created_at;
 
@@ -411,7 +404,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets related_object_id
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObjectId()
     {
@@ -421,14 +414,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets related_object_id
      *
-     * @param string $related_object_id Unique customer ID that is being deleted.
+     * @param string|null $related_object_id Unique customer ID that is being deleted.
      *
      * @return self
      */
     public function setRelatedObjectId($related_object_id)
     {
         if (is_null($related_object_id)) {
-            throw new \InvalidArgumentException('non-nullable related_object_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object_id'] = $related_object_id;
 
@@ -438,7 +438,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets related_object
      *
-     * @return string
+     * @return string|null
      */
     public function getRelatedObject()
     {
@@ -448,14 +448,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets related_object
      *
-     * @param string $related_object Object being deleted.
+     * @param string|null $related_object Object being deleted.
      *
      * @return self
      */
     public function setRelatedObject($related_object)
     {
         if (is_null($related_object)) {
-            throw new \InvalidArgumentException('non-nullable related_object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'related_object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['related_object'] = $related_object;
 
@@ -465,7 +472,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -475,14 +482,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets status
      *
-     * @param string $status Deletion status.
+     * @param string|null $status Deletion status.
      *
      * @return self
      */
     public function setStatus($status)
     {
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['status'] = $status;
 
@@ -492,7 +506,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets data_json
      *
-     * @return \OpenAPI\Client\Model\CustomersPermanentDeletionCreateResponseBodyDataJson
+     * @return \OpenAPI\Client\Model\CustomersPermanentDeletionCreateResponseBodyDataJson|null
      */
     public function getDataJson()
     {
@@ -502,14 +516,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets data_json
      *
-     * @param \OpenAPI\Client\Model\CustomersPermanentDeletionCreateResponseBodyDataJson $data_json data_json
+     * @param \OpenAPI\Client\Model\CustomersPermanentDeletionCreateResponseBodyDataJson|null $data_json data_json
      *
      * @return self
      */
     public function setDataJson($data_json)
     {
         if (is_null($data_json)) {
-            throw new \InvalidArgumentException('non-nullable data_json cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_json');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_json', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_json'] = $data_json;
 
@@ -519,7 +540,7 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -529,14 +550,21 @@ class CustomersPermanentDeletionCreateResponseBody implements ModelInterface, Ar
     /**
      * Sets object
      *
-     * @param string $object The type of object represented by JSON.
+     * @param string|null $object The type of the object represented by JSON.
      *
      * @return self
      */
     public function setObject($object)
     {
         if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'object');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('object', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['object'] = $object;
 
